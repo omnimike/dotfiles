@@ -22,6 +22,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'honza/vim-snippets'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -34,6 +35,8 @@ set nowrap
 set textwidth=0
 set wrapmargin=0
 autocmd BufLeave,FocusLost * silent! wall
+syntax enable
+set background=dark
 colorscheme solarized
 
 " Syntastic configuration for jshint and jscs
