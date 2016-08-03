@@ -1,4 +1,4 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/..
-git --git-dir=$DIR/.git --work-tree=$DIR commit -a -m "save"
-git --git-dir=$DIR/.git --work-tree=$DIR push
+git --git-dir=$DIR/.git --work-tree=$DIR commit -a -m "save" && \
+    git --git-dir=$DIR/.git --work-tree=$DIR push
