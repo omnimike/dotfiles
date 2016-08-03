@@ -36,7 +36,7 @@ set textwidth=0
 set wrapmargin=0
 autocmd BufLeave,FocusLost * silent! wall
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 " Syntastic configuration for jshint and jscs
@@ -76,7 +76,7 @@ noremap <Leader>cw :call TrimWhitespace()<cr>
 " NERDCommenter commands
 " vim
 noremap <Leader>vr :source ~/.vimrc<cr>
-noremap <Leader>ve :edit ~/.vimrc<cr>
+noremap <Leader>ve :tabedit ~/.vimrc<cr>
 " vim plug
 noremap <Leader>vpi :PlugInstall<cr>
 noremap <Leader>vpu :PlugUpdate<cr>
@@ -102,4 +102,6 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-
+" tabs
+noremap <C-n> :tabnext<cr>
+noremap <C-p> :tabprevious<cr>
