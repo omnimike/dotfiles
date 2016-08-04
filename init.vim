@@ -37,7 +37,7 @@ set nowrap
 set textwidth=0
 set wrapmargin=0
 autocmd BufLeave,FocusLost * silent! wall
-syntax enable
+syntax on
 set background=light
 colorscheme solarized
 
@@ -80,6 +80,7 @@ noremap <Leader>fs :w<cr>
 noremap <Leader>ft :NERDTree<cr>
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
+noremap <Leader>as :SyntasticCheck<cr>
 " NERDCommenter commands
 " vim
 noremap <Leader>vr :source ~/.vimrc<cr>
@@ -105,12 +106,14 @@ noremap <Leader>w- 10<C-w>-
 noremap <Leader>w+ 10<C-w>+
 noremap <Leader>w= 10<C-w>=
 noremap <Leader>w\| <C-w>\|
+noremap <Leader>wn :tabnext<cr>
+noremap <Leader>wp :tabprevious<cr>
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-n> :tabnext<cr>
-noremap <C-N> :tabprevious<cr>
+noremap <C-p> :tabprevious<cr>
 " projects
 noremap <Leader>pd :tabedit ~/vg/code<cr>
 " quitting
