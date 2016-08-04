@@ -13,7 +13,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'elzr/vim-json'
 Plug 'vim-airline/vim-airline'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
 "Plug 'francoiscabrol/ranger.vim'
 Plug 'scrooloose/nerdtree'
@@ -25,6 +25,8 @@ Plug 'honza/vim-snippets'
 Plug 'altercation/vim-colors-solarized'
 Plug 'terryma/vim-expand-region'
 Plug 'Valloric/YouCompleteMe'
+
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -80,7 +82,7 @@ noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
 noremap <Leader>ts :syntax enable<cr>
 " files
-noremap <Leader>fo :CtrlP<cr>
+noremap <Leader>fo :FZF<cr>
 noremap <Leader>fs :w<cr>
 noremap <Leader>ft :NERDTree<cr>
 noremap <Leader>fr :edit<cr>
