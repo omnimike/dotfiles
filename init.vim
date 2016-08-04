@@ -24,6 +24,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'honza/vim-snippets'
 Plug 'altercation/vim-colors-solarized'
 Plug 'terryma/vim-expand-region'
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -46,7 +47,7 @@ let g:syntastic_id_checkers = 0
 autocmd FileType javascript let b:syntastic_checkers = findfile('.jscsrc', '.;') != '' ? ['jscs', 'jshint'] : ['jshint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
@@ -99,7 +100,10 @@ noremap <Leader>w- 10<C-w>-
 noremap <Leader>w+ 10<C-w>+
 noremap <Leader>w= 10<C-w>=
 noremap <Leader>w\| <C-w>\|
-noremap <a-h> <C-w>h
+noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+noremap <C-n> :tabnext<cr>
+noremap <C-N> :tabprevious<cr>
+
