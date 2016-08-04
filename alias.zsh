@@ -6,8 +6,8 @@
 alias zshrc="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshreload="source ~/.zshrc"
-alias r="ranger"
 alias zshalias="vim ~/.oh-my-zsh/custom/alias.zsh"
 alias vimrc="vim ~/.vimrc"
 alias e="vim"
 alias code="cd ~/vg/code"
+alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'

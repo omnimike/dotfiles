@@ -37,10 +37,13 @@ set nowrap
 set textwidth=0
 set wrapmargin=0
 set autoread
+set autochdir
 autocmd BufLeave,FocusLost * silent! wall
-syntax on
+syntax enable
 set background=light
 colorscheme solarized
+
+:set directory=$HOME/.vim/swapfiles//
 
 " Syntastic configuration for jshint and jscs
 let g:syntastic_aggregate_errors = 1
@@ -48,8 +51,8 @@ let g:syntastic_id_checkers = 0
 autocmd FileType javascript let b:syntastic_checkers = findfile('.jscsrc', '.;') != '' ? ['jscs', 'jshint'] : ['jshint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = '☡'
@@ -75,6 +78,7 @@ command! TrimWhitespace call TrimWhitespace()
 " toggles
 noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
+noremap <Leader>ts :syntax enable<cr>
 " files
 noremap <Leader>fo :CtrlP<cr>
 noremap <Leader>fs :w<cr>
