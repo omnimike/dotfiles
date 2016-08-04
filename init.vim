@@ -56,6 +56,12 @@ let g:syntastic_style_warning_symbol = '¡'
 let g:syntastic_enable_balloons = 1
 
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
+
+let NERDTreeMapOpenInTab='\r'
 
 " user defined functions
 fun! TrimWhitespace()
@@ -105,4 +111,8 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-n> :tabnext<cr>
 noremap <C-N> :tabprevious<cr>
+" projects
+noremap <Leader>pd :tabedit ~/vg/code<cr>
+" quitting
+noremap <C-w> ZQ
 
