@@ -21,6 +21,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'terryma/vim-expand-region'
 Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
 Plug 'omnimike/vim-snippets'
@@ -58,11 +59,7 @@ let g:syntastic_style_error_symbol = '☡'
 let g:syntastic_style_warning_symbol = '¡'
 let g:syntastic_enable_balloons = 1
 
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
+let g:UltiSnipsExpandTrigger='<cr>'
 
 let NERDTreeMapOpenInTab='\r'
 
