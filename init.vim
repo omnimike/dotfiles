@@ -23,6 +23,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'honza/vim-snippets'
 Plug 'altercation/vim-colors-solarized'
+Plug 'terryma/vim-expand-region'
 
 call plug#end()
 
@@ -98,10 +99,7 @@ noremap <Leader>w- 10<C-w>-
 noremap <Leader>w+ 10<C-w>+
 noremap <Leader>w= 10<C-w>=
 noremap <Leader>w\| <C-w>\|
-noremap <C-h> <C-w>h
+noremap <a-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-" tabs
-noremap <C-n> :tabnext<cr>
-noremap <C-p> :tabprevious<cr>
