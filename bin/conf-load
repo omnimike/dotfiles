@@ -1,0 +1,7 @@
+#!/bin/bash
+SOURCE_FILE="${BASH_SOURCE}"
+if [ -L $SOURCE_FILE ]; then
+    SOURCE_FILE="$( readlink $SOURCE_FILE )"
+fi
+DIR="$( cd "$( dirname "$SOURCE_FILE" )" && pwd )"/..
+git -C $DIR pull
