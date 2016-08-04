@@ -36,6 +36,7 @@ set number
 set nowrap
 set textwidth=0
 set wrapmargin=0
+set autoread
 autocmd BufLeave,FocusLost * silent! wall
 syntax on
 set background=light
@@ -78,6 +79,7 @@ noremap <Leader>tn :set invnumber number?<cr>
 noremap <Leader>fo :CtrlP<cr>
 noremap <Leader>fs :w<cr>
 noremap <Leader>ft :NERDTree<cr>
+noremap <Leader>fr :edit<cr>
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>as :SyntasticCheck<cr>
