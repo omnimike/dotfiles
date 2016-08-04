@@ -4,6 +4,6 @@ if [ -L $SOURCE_FILE ]; then
     SOURCE_FILE="$( readlink $SOURCE_FILE )"
 fi
 DIR="$( cd "$( dirname "$SOURCE_FILE" )" && pwd )"
-git -C $DIR add . && \
-    git -C $DIR commit -m "save" && \
-    git -C $DIR push
+mkdir -p ~/bin
+ln -s $DIR/* ~/bin
+echo "Remember to add ~/bin to your path"
