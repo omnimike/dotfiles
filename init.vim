@@ -15,7 +15,7 @@ Plug 'elzr/vim-json'
 Plug 'vim-airline/vim-airline'
 Plug 'kien/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'francoiscabrol/ranger.vim'
+"Plug 'francoiscabrol/ranger.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
@@ -48,7 +48,7 @@ autocmd FileType javascript let b:syntastic_checkers = findfile('.jscsrc', '.;')
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = '☡'
@@ -69,9 +69,8 @@ command! TrimWhitespace call TrimWhitespace()
 noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
 " files
-noremap <Leader>ff :CtrlP<cr>
+noremap <Leader>fo :CtrlP<cr>
 noremap <Leader>fs :w<cr>
-"noremap <Leader>fr :Ranger<cr> "doesn't work in macvim
 noremap <Leader>ft :NERDTree<cr>
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
