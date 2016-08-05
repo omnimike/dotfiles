@@ -84,7 +84,8 @@ noremap <Leader>fo :e
 noremap <Leader>ff :FZF<cr>
 noremap <Leader>fr :edit<cr>
 noremap <Leader>fs :Ag<cr>
-noremap <Leader>ft :Ranger<cr>
+noremap <Leader>ft :NERDTree<cr>
+noremap <Leader>fd :Ranger<cr>
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>cs :SyntasticCheck<cr>
