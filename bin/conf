@@ -6,6 +6,7 @@ usage()
 Usage:
     save           Push conf changes to omnimike/conf
     load           Pull conf changes from omnimike/conf
+    status         Show changes to conf
     install-vim    Install the ~/.vimrc file and vim-plug
     install-bin    Install this script to ~/bin
 EOT
@@ -35,6 +36,11 @@ load()
     git -C $CONF_DIR pull
 }
 
+status()
+{
+    git -C $CONF_DIR status
+}
+
 install_vim()
 {
     ln -s $CONF_DIR/init.vim $HOME/.vimrc
@@ -54,6 +60,8 @@ case $1 in
     save) save
         ;;
     load) load
+        ;;
+    status) status
         ;;
     install-vim) install_vim
         ;;
