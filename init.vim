@@ -103,6 +103,7 @@ noremap <Leader>vpc :PlugClean<cr>
 " git
 noremap <Leader>ga :! git add %<cr>
 noremap <Leader>gc :! git commit<cr>
+noremap <Leader>gs :! git status<cr>
 " windows
 noremap <Leader>wc <C-w>c
 noremap <Leader>ws <C-w>s
