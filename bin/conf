@@ -9,6 +9,7 @@ Usage:
     status         Show changes to conf
     install-vim    Install the ~/.vimrc file and vim-plug
     install-bin    Install this script to ~/bin
+    isntall-zsh    Install zsh scripts to ~/.oh-my-zsh/custom
 EOT
 }
 
@@ -52,8 +53,13 @@ install_vim()
 install_bin()
 {
     mkdir -p $HOME/bin || die "Couldn't create ~/bin"
-    ln -s $CONF_DIR/bin/* $HOME/bin || die
+    ln -s $CONF_DIR/bin/* $HOME/bin
     echo "Remember to add ~/bin to your path"
+}
+
+install_zsh()
+{
+    ln -s $CONF_DIR/zsh/* $HOME/.oh-my-zsh/custom
 }
 
 case $1 in
@@ -66,6 +72,8 @@ case $1 in
     install-vim) install_vim
         ;;
     install-bin) install_bin
+        ;;
+    install-zsh) install_zsh
         ;;
     -h | help | --help) usage
         ;;
