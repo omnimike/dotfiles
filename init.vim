@@ -21,8 +21,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'terryma/vim-expand-region'
 Plug 'Valloric/YouCompleteMe'
-Plug 'SirVer/ultisnips'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+"Plug 'SirVer/ultisnips'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -57,8 +58,6 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = '☡'
 let g:syntastic_style_warning_symbol = '¡'
 let g:syntastic_enable_balloons = 1
-
-let g:UltiSnipsExpandTrigger='<cr>'
 
 let NERDTreeMapOpenInTab='\r'
 
