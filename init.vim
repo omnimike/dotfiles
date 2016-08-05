@@ -4,6 +4,7 @@ let mapleader = " "
 set mouse=a
 set list
 set listchars=tab:▸\ ,trail:~,extends:>,precedes:<
+let g:ranger_map_keys = 0
 
 call plug#begin('~/.vim/plugged')
 
@@ -24,6 +25,8 @@ Plug 'Valloric/YouCompleteMe'
 "Plug 'SirVer/ultisnips'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'airblade/vim-rooter'
 
 call plug#end()
 
@@ -36,7 +39,6 @@ set nowrap
 set textwidth=0
 set wrapmargin=0
 set autoread
-set autochdir
 autocmd BufLeave,FocusLost * silent! wall
 syntax enable
 set background=light
@@ -68,6 +70,8 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 
+" quit
+noremap <Leader>q :q<cr>
 " toggles
 noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
@@ -75,15 +79,15 @@ noremap <Leader>ts :syntax enable<cr>
 noremap <Leader>td :set background=dark<cr>
 noremap <Leader>tl :set background=light<cr>
 " files
-noremap <Leader>fs :w<cr>
+noremap <Leader>s :w<cr>
 noremap <Leader>fo :e 
 noremap <Leader>ff :FZF<cr>
-noremap <Leader>ft :NERDTree<cr>
 noremap <Leader>fr :edit<cr>
-noremap <Leader>fa :Ag<cr>
+noremap <Leader>fs :Ag<cr>
+noremap <Leader>ft :Ranger<cr>
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
-noremap <Leader>as :SyntasticCheck<cr>
+noremap <Leader>cs :SyntasticCheck<cr>
 " NERDCommenter commands
 " vim
 noremap <Leader>vr :source $MYVIMRC<cr>
@@ -119,6 +123,4 @@ noremap <C-n> :tabnext<cr>
 noremap <C-p> :tabprevious<cr>
 " projects
 noremap <Leader>pd :tabedit ~/vg/code<cr>
-" quitting
-noremap <C-w> :q<cr>
 
