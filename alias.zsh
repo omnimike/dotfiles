@@ -14,11 +14,11 @@ alias zshalias="vim ~/.oh-my-zsh/custom/alias.zsh"
 alias vimrc="vim ~/.vimrc"
 
 # places
-alias gcode="cd ~/vg/code"
-alias gquestions="cd ~/vg/code/api/questionsV2"
-alias gquestioneditor="cd ~/vg/code/api/questioneditor"
-alias gschemas="cd ~/vg/code/api/schemas"
-alias gauthor="cd ~/vg/code/api/author"
-alias gdocs="cd ~/vg/code/site/docs"
-alias gdemos="cd ~/vg/code/site/demos"
+alias cdcode="cd ~/vg/code"
+alias cdquestions="cd ~/vg/code/api/questionsV2"
+alias cdquestioneditor="cd ~/vg/code/api/questioneditor"
+alias cdschemas="cd ~/vg/code/api/schemas"
+alias cdauthor="cd ~/vg/code/api/author"
+alias cddocs="cd ~/vg/code/site/docs"
+alias cddemos="cd ~/vg/code/site/demos"
 
