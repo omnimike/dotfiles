@@ -41,8 +41,7 @@ autocmd BufLeave,FocusLost * silent! wall
 syntax enable
 set background=light
 colorscheme solarized
-
-:set directory=$HOME/.vim/swapfiles//
+set directory=$HOME/.vim/swapfiles//
 
 " Syntastic configuration for jshint and jscs
 let g:syntastic_aggregate_errors = 1
@@ -81,6 +80,7 @@ noremap <Leader>fo :e
 noremap <Leader>ff :FZF<cr>
 noremap <Leader>ft :NERDTree<cr>
 noremap <Leader>fr :edit<cr>
+noremap <Leader>fa :Ag<cr>
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>as :SyntasticCheck<cr>
@@ -120,5 +120,5 @@ noremap <C-p> :tabprevious<cr>
 " projects
 noremap <Leader>pd :tabedit ~/vg/code<cr>
 " quitting
-noremap <C-w> ZQ
+noremap <C-w> :q<cr>
 
