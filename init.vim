@@ -78,8 +78,9 @@ noremap <Leader>ts :syntax enable<cr>
 noremap <Leader>td :set background=dark<cr>
 noremap <Leader>tl :set background=light<cr>
 " files
-noremap <Leader>fo :FZF<cr>
 noremap <Leader>fs :w<cr>
+noremap <Leader>fo :e 
+noremap <Leader>ff :FZF<cr>
 noremap <Leader>ft :NERDTree<cr>
 noremap <Leader>fr :edit<cr>
 " code/comments

@@ -1,4 +1,16 @@
 #!/bin/bash
+
+usage()
+{
+    cat << EOT
+Usage:
+    save           Push conf changes to omnimike/conf
+    load           Pull conf changes from omnimike/conf
+    install-vim    Install the ~/.vimrc file and vim-plug
+    install-bin    Install this script to ~/bin
+EOT
+}
+
 SOURCE_FILE="${BASH_SOURCE}"
 if [ -L $SOURCE_FILE ]; then
     SOURCE_FILE="$( readlink $SOURCE_FILE )"
@@ -18,4 +30,38 @@ save()
     git -C $CONF_DIR push || die
 }
 
-save
+load()
+{
+    git -C $CONF_DIR pull
+}
+
+install_vim()
+{
+    ln -s $CONF_DIR/init.vim $HOME/.vimrc
+    curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    mkdir -p $HOME/.vim/swapfiles
+}
+
+install_bin()
+{
+    mkdir -p $HOME/bin || die "Couldn't create ~/bin"
+    ln -s $CONF_DIR/bin/* $HOME/bin || die
+    echo "Remember to add ~/bin to your path"
+}
+
+case $1 in
+    save) save
+        ;;
+    load) load
+        ;;
+    install-vim) install_vim
+        ;;
+    install-bin) install_bin
+        ;;
+    -h | help | --help) usage
+        ;;
+    *) usage
+        die
+        ;;
+esac
