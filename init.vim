@@ -108,8 +108,8 @@ noremap <Leader>wh <C-w>h
 noremap <Leader>wj <C-w>j
 noremap <Leader>wk <C-w>k
 noremap <Leader>wl <C-w>l
-noremap <Leader>w> 10<C-w>>
-noremap <Leader>w< 10<C-w><
+noremap <Leader>w. 10<C-w>>
+noremap <Leader>w, 10<C-w><
 noremap <Leader>w- 10<C-w>-
 noremap <Leader>w+ 10<C-w>+
 noremap <Leader>w= 10<C-w>=
