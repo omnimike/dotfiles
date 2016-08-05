@@ -11,6 +11,7 @@ alias zshrc="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshreload="source ~/.zshrc"
 alias zshalias="vim ~/.oh-my-zsh/custom/alias.zsh"
+alias zshcmd="vim ~/.oh-my-zsh/custom/cmd.zsh"
 alias vimrc="vim ~/.vimrc"
 
 # places
