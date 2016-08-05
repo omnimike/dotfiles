@@ -116,6 +116,7 @@ noremap <Leader>w= 10<C-w>=
 noremap <Leader>w\| <C-w>\|
 noremap <Leader>wn :tabnext<cr>
 noremap <Leader>wp :tabprevious<cr>
+noremap <Leader>wt :tabnew<cr>
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
