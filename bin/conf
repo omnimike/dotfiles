@@ -1,0 +1,21 @@
+#!/bin/bash
+SOURCE_FILE="${BASH_SOURCE}"
+if [ -L $SOURCE_FILE ]; then
+    SOURCE_FILE="$( readlink $SOURCE_FILE )"
+fi
+CONF_DIR="$( cd "$( dirname "$SOURCE_FILE" )" && pwd )"/..
+
+die()
+{
+    echo "$@" >&2
+    exit 1
+}
+
+save()
+{
+    git -C $CONF_DIR add -f . || die
+    git -C $CONF_DIR commit -m "save" || die
+    git -C $CONF_DIR push || die
+}
+
+save
