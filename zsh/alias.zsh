@@ -15,6 +15,7 @@ alias zshcmd="vim ~/.oh-my-zsh/custom/cmd.zsh"
 alias vimrc="vim ~/.vimrc"
 
 # places
+alias cdconf="cd ~/conf"
 alias cdcode="cd ~/vg/code"
 alias cdquestions="cd ~/vg/code/api/questionsV2"
 alias cdquestioneditor="cd ~/vg/code/api/questioneditor"
