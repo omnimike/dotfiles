@@ -24,8 +24,6 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
-Plug 'omnimike/vim-snippets'
-
 call plug#end()
 
 filetype plugin indent on
@@ -48,7 +46,8 @@ colorscheme solarized
 " Syntastic configuration for jshint and jscs
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_id_checkers = 0
-autocmd FileType javascript let b:syntastic_checkers = findfile('.jscsrc', '.;') != '' ? ['jscs', 'jshint'] : ['jshint']
+autocmd FileType javascript let b:syntastic_checkers =
+    \ findfile('.jscsrc', '.;') != '' ? ['jscs', 'jshint'] : ['jshint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
