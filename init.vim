@@ -95,10 +95,14 @@ noremap <Leader>cs :SyntasticCheck<cr>
 " vim
 noremap <Leader>vr :source $MYVIMRC<cr>
 noremap <Leader>ve :tabedit $MYVIMRC<cr>
+noremap <Leader>vb :! conf save<cr>
 " vim plug
 noremap <Leader>vpi :PlugInstall<cr>
 noremap <Leader>vpu :PlugUpdate<cr>
 noremap <Leader>vpc :PlugClean<cr>
+" git
+noremap <Leader>ga :! git add %<cr>
+noremap <Leader>gc :! git commit<cr>
 " windows
 noremap <Leader>wc <C-w>c
 noremap <Leader>ws <C-w>s
