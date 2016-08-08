@@ -40,13 +40,28 @@
 	{ "keys": ["super+e"], "command": "delete_word", "args": { "forward": false } },
 	{ "keys": ["super+r"], "command": "delete_word", "args": { "forward": true } },
 
+	{ "keys": ["super+d"], "command": "expand_selection", "args": {"to": "line"} },
+
 	{ "keys": ["super+;"], "command": "run_macro"},
 	{ "keys": ["super+shift+;"], "command": "toggle_record_macro"},
+
+	{ "keys": ["tab"], "command": "indent" },
+	{ "keys": ["shift+tab"], "command": "unindent" },
+	{ "keys": ["super+space", "tab"], "command": "insert", "args": {"characters": "\t"} },
 
 	{ "keys": ["super+space", "super+b", "super+j"], "command": "next_bookmark" },
 	{ "keys": ["super+space", "super+b", "super+k"], "command": "prev_bookmark" },
 	{ "keys": ["super+space", "super+b", "super+b"], "command": "toggle_bookmark" },
 	{ "keys": ["super+space", "super+b", "super+a"], "command": "select_all_bookmarks" },
+
+	{ "keys": ["super+space", "super+t", "super+s"], "command": "toggle_side_bar" },
+	{ "keys": ["super+space", "super+t", "super+m"], "command": "toggle_minimap" },
+	{ "keys": ["super+space", "super+t", "super+r"], "command": "reveal_in_side_bar" },
+	{ "keys": ["super+space", "super+t", "super+f"], "command": "toggle_full_screen" },
+	{ "keys": ["super+space", "super+t", "super+p"], "command": "toggle_distraction_free" },
+
+	{ "keys": ["super+space", "super+q"], "command": "exit" },
+	{ "keys": ["super+q"], "command": "noop" },
 
 	{ "keys": ["super+c"], "command": "toggle_case_sensitive", "context":
 		[
