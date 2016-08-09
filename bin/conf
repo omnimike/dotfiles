@@ -9,7 +9,7 @@ Usage:
     status         Show changes to conf
     install-vim    Install the ~/.vimrc file and vim-plug
     install-bin    Install this script to ~/bin
-    isntall-zsh    Install zsh scripts to ~/.oh-my-zsh/custom
+    install-zsh    Install zsh scripts to ~/.oh-my-zsh/custom
 EOT
 }
 
