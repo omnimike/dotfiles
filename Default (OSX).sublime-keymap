@@ -42,12 +42,10 @@
 
 	{ "keys": ["super+d"], "command": "expand_selection", "args": {"to": "line"} },
 
-	{ "keys": ["super+;"], "command": "run_macro"},
-	{ "keys": ["super+shift+;"], "command": "toggle_record_macro"},
+	{ "keys": ["super+;"], "command": "run_macro" },
+	{ "keys": ["super+shift+;"], "command": "toggle_record_macro" },
 
-	{ "keys": ["tab"], "command": "indent" },
-	{ "keys": ["shift+tab"], "command": "unindent" },
-	{ "keys": ["super+space", "tab"], "command": "insert", "args": {"characters": "\t"} },
+	{ "keys": ["super+f"], "command": "ace_jump_word" },
 
 	{ "keys": ["super+space", "super+b", "super+j"], "command": "next_bookmark" },
 	{ "keys": ["super+space", "super+b", "super+k"], "command": "prev_bookmark" },
