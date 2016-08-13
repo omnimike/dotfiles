@@ -1,6 +1,6 @@
 {
 	"auto_complete": false,
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
 	"folder_exclude_patterns":
 	[
 		".svn",
