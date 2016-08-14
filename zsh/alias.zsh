@@ -24,4 +24,5 @@ alias cdauthor="cd ~/vg/code/api/author"
 alias cddocs="cd ~/vg/code/site/docs"
 alias cddemos="cd ~/vg/code/site/demos"
 alias cdredux-app="cd ~/endev/redux-app"
+alias cdconf="cd ~/conf"
 
