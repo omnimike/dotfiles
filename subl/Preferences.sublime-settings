@@ -1,6 +1,7 @@
 {
 	"auto_complete": false,
 	"color_scheme": "Packages/User/SublimeLinter/Solarized (Dark) (SL).tmTheme",
+	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
 		".svn",
@@ -22,6 +23,5 @@
 	"tab_size": 4,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-	"vintage_start_in_command_mode": true,
-	"ensure_newline_at_eof_on_save": true
+	"vintage_start_in_command_mode": true
 }

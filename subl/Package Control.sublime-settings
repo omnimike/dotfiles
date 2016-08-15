@@ -15,6 +15,7 @@
 		"Phpcs",
 		"Solarized Toggle",
 		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-jscs",
 		"SublimeLinter-jshint"
 	]
