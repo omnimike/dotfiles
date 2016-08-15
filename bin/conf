@@ -80,8 +80,9 @@ install_bin()
 
 install_zsh()
 {
+    ln -svf $CONF_DIR/zsh/init.zsh $HOME/.zshrc
     # Scripts in the custom folder will be automatically loaded
-    ln -svf $CONF_DIR/zsh/* $HOME/.oh-my-zsh/custom
+    ln -svf $CONF_DIR/zsh/custom/* $HOME/.oh-my-zsh/custom
 }
 
 case $1 in
