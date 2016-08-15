@@ -7,12 +7,16 @@ Usage:
     save           Push conf changes to omnimike/conf
     load           Pull conf changes from omnimike/conf
     status         Show changes to conf
+    install        Install everything
+    install-subl   Install sublime text config
     install-vim    Install the ~/.vimrc file and vim-plug
     install-bin    Install this script to ~/bin
     install-zsh    Install zsh scripts to ~/.oh-my-zsh/custom
 EOT
 }
 
+# SOURCE_FILE is the full path to this file
+# CONF_DIR is the full path to the root folder of the conf repository
 SOURCE_FILE="${BASH_SOURCE}"
 if [ -L $SOURCE_FILE ]; then
     SOURCE_FILE="$( readlink $SOURCE_FILE )"
@@ -42,24 +46,42 @@ status()
     git -C $CONF_DIR status
 }
 
+install_all()
+{
+    install_sublime
+    install_vim
+    install_bin
+    install_zsh
+}
+
+install_sublime()
+{
+    ln -svf $CONF_DIR/subl/* $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+}
+
 install_vim()
 {
-    ln -s $CONF_DIR/init.vim $HOME/.vimrc
+    # Link .vimrc
+    ln -svf $CONF_DIR/vim/init.vim $HOME/.vimrc
+    # Install vim-plug
     curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    # Create the swapfile folder
     mkdir -p $HOME/.vim/swapfiles
 }
 
 install_bin()
 {
+    # Make the bin folder
     mkdir -p $HOME/bin || die "Couldn't create ~/bin"
-    ln -s $CONF_DIR/bin/* $HOME/bin
-    echo "Remember to add ~/bin to your path"
+    # Link all of the scripts
+    ln -svf $CONF_DIR/bin/* $HOME/bin
 }
 
 install_zsh()
 {
-    ln -s $CONF_DIR/zsh/* $HOME/.oh-my-zsh/custom
+    # Scripts in the custom folder will be automatically loaded
+    ln -svf $CONF_DIR/zsh/* $HOME/.oh-my-zsh/custom
 }
 
 case $1 in
@@ -68,6 +90,10 @@ case $1 in
     load) load
         ;;
     status) status
+        ;;
+    install) install_all
+        ;;
+    install-subl) install_sublime
         ;;
     install-vim) install_vim
         ;;

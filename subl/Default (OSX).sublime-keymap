@@ -4,7 +4,8 @@
     {"keys": [" ", "t", "r"], "command": "reveal_in_side_bar", "context": [{"key": "setting.command_mode"}]},
     {"keys": [" ", "t", "f"], "command": "toggle_full_screen", "context": [{"key": "setting.command_mode"}]},
     {"keys": [" ", "t", "F"], "command": "toggle_distraction_free", "context": [{"key": "setting.command_mode"}]},
-    {"keys": [" ", "t", "w"], "command": "toggle_setting", "args": {"setting": "word_wrap"}},
+    {"keys": [" ", "t", "w"], "command": "toggle_setting", "args": {"setting": "word_wrap"}, "context": [{"key": "setting.command_mode"}]},
+    {"keys": [" ", "t", "d"], "command": "solarized_toggle", "args": {"setting": "word_wrap"}, "context": [{"key": "setting.command_mode"}]},
 
     {"keys": [" ", "f"], "command": "ace_jump_word", "context": [{"key": "setting.command_mode"}]},
 
