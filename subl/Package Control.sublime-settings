@@ -12,12 +12,13 @@
 		"Git",
 		"GitGutter",
 		"Package Control",
-		"Phpcs",
 		"Solarized Toggle",
 		"SublimeLinter",
 		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-jscs",
 		"SublimeLinter-jshint",
-		"SublimeLinter-json"
+		"SublimeLinter-json",
+		"SublimeLinter-php",
+		"SublimeLinter-phpcs"
 	]
 }
