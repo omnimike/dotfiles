@@ -1,3 +1,2 @@
 bindkey -v
-export PATH="$HOME/bin:$PATH"
-plugins=(git z)
+source $HOME/.fzf.zsh
