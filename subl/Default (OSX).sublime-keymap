@@ -1,4 +1,5 @@
 [
+    // This swaps the ctrl key for the alt key
     {"keys": ["alt+1"], "command": "focus_group", "args": {"group": 0}},
     {"keys": ["alt+2"], "command": "focus_group", "args": {"group": 1}},
     {"keys": ["alt+3"], "command": "focus_group", "args": {"group": 2}},
@@ -22,12 +23,12 @@
     {"keys": ["alt+tab"], "command": "focus_neighboring_group"},
     {"keys": ["alt+shift+tab"], "command": "focus_neighboring_group", "args": {"forward": false}},
 
-    {"keys": [" ", "w", "o"], "command": "new_pane"},
-    {"keys": [" ", "w", "c"], "command": "close_pane"},
-    {"keys": [" ", "w", "h"], "command": "focus_neighboring_group", "args": {"forward": false}},
-    {"keys": [" ", "w", "l"], "command": "focus_neighboring_group"},
-    {"keys": [" ", "w", "H"], "command": "move_to_neighboring_group", "args": {"forward": false}},
-    {"keys": [" ", "w", "L"], "command": "move_to_neighboring_group"},
+    {"keys": [" ", "w", "o"], "command": "new_pane", "context": [{"key": "setting.command_mode"}]},
+    {"keys": [" ", "w", "c"], "command": "close_pane", "context": [{"key": "setting.command_mode"}]},
+    {"keys": [" ", "w", "h"], "command": "focus_neighboring_group", "args": {"forward": false}, "context": [{"key": "setting.command_mode"}]},
+    {"keys": [" ", "w", "l"], "command": "focus_neighboring_group", "context": [{"key": "setting.command_mode"}]},
+    {"keys": [" ", "w", "H"], "command": "move_to_neighboring_group", "args": {"forward": false}, "context": [{"key": "setting.command_mode"}]},
+    {"keys": [" ", "w", "L"], "command": "move_to_neighboring_group", "context": [{"key": "setting.command_mode"}]},
 
     {"keys": [" ", "t", "s"], "command": "toggle_side_bar", "context": [{"key": "setting.command_mode"}]},
     {"keys": [" ", "t", "m"], "command": "toggle_minimap", "context": [{"key": "setting.command_mode"}]},
