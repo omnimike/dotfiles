@@ -58,8 +58,8 @@ plugins=(
     osx
     sublime
     vagrant
-    z
     zsh-syntax-highlighting
+    zshmarks
 )
 
 # User configuration

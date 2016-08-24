@@ -5,6 +5,7 @@
 #
 alias e="subl"
 alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias j='jump'
 
 # config edits
 alias zshrc="vim ~/.zshrc"
@@ -13,16 +14,4 @@ alias zshreload="source ~/.zshrc"
 alias zshalias="vim ~/.oh-my-zsh/custom/alias.zsh"
 alias zshcmd="vim ~/.oh-my-zsh/custom/cmd.zsh"
 alias vimrc="vim ~/.vimrc"
-
-# places
-alias cdconf="cd ~/conf"
-alias cdcode="cd ~/vg/code"
-alias cdquestions="cd ~/vg/code/api/questionsV2"
-alias cdquestioneditor="cd ~/vg/code/api/questioneditor"
-alias cdschemas="cd ~/vg/code/api/schemas"
-alias cdauthor="cd ~/vg/code/api/author"
-alias cddocs="cd ~/vg/code/site/docs"
-alias cddemos="cd ~/vg/code/site/demos"
-alias cdredux-app="cd ~/endev/redux-app"
-alias cdconf="cd ~/conf"
 
