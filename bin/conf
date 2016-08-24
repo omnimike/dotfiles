@@ -83,6 +83,7 @@ install_zsh()
     ln -svf $CONF_DIR/zsh/init.zsh $HOME/.zshrc
     # Scripts in the custom folder will be automatically loaded
     ln -svf $CONF_DIR/zsh/custom/* $HOME/.oh-my-zsh/custom
+    git -C $HOME/.oh-my-zsh/plugins clone https://github.com/jocelynmallon/zshmarks.git
 }
 
 case $1 in
