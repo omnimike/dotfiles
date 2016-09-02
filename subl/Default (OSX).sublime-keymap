@@ -43,6 +43,10 @@
     // Jumping
     {"keys": [" ", "f"], "command": "ace_jump_word", "context": [{"key": "setting.command_mode"}]},
 
+    // Files
+    {"keys": [" ", "r", "f"], "command": "revert", "context": [{"key": "setting.command_mode"}]},
+
+
     // Go back to normal mode when you you save (I practically use this instead of pressing escape).
     {"keys": ["super+s"], "command": "chain", "args": {"commands": [["save"], ["exit_insert_mode"]]}, "context": [{"key": "setting.command_mode", "operand": false}]},
 ]
