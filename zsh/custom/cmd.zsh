@@ -34,3 +34,7 @@ fco() {
   git checkout $(echo "$target" | awk '{print $2}')
 }
 
+# fh - repeat history
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}

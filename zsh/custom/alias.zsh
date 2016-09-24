@@ -7,6 +7,7 @@ alias e='subl'
 alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias j='jump'
 alias g='git'
+alias vg='vagrant'
 
 # config edits
 alias zshrc="vim ~/.zshrc"
