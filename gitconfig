@@ -1,0 +1,47 @@
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = Michael Fulthorp
+	email = michael.fulthorp@learnosity.com
+[core]
+	excludesfile = /Users/michael/.gitignore_global
+	editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[branch]
+	autosetuprebase = always
+[branch "develop"]
+	rebase = true
+[branch "V2-develop"]
+	rebase = true
+[branch "master"]
+	rebase = true
+[diff]
+	submodule = log
+[remote "origin"]
+	prune = true
+	tagOpt = --tags
+[rebase]
+	autosquash = true
+	autoStash = true
+[pull]
+	rebase = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	s = status
+	ps = push
+	p = pull
+	f = fetch --all
+	rb = rebase -i
+	su = submodule update --recursive
+	d = diff
+	a = add
+	l = log
