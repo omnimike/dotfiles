@@ -33,15 +33,3 @@
 [pull]
 	rebase = true
 [alias]
-	co = checkout
-	br = branch
-	ci = commit
-	s = status
-	ps = push
-	p = pull
-	f = fetch --all
-	rb = rebase -i
-	su = submodule update --recursive
-	d = diff
-	a = add
-	l = log
