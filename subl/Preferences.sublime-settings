@@ -19,6 +19,7 @@
 	[
 		80
 	],
+	"scroll_past_end": true,
 	"save_on_focus_lost": true,
 	"tab_size": 4,
 	"translate_tabs_to_spaces": true,
