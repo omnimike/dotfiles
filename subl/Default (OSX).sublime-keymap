@@ -16,6 +16,12 @@
     {"keys": [" ", "t", "w"], "command": "toggle_setting", "args": {"setting": "word_wrap"}, "context": [{"key": "setting.command_mode"}]},
     {"keys": [" ", "t", "d"], "command": "solarized_toggle", "args": {"setting": "word_wrap"}, "context": [{"key": "setting.command_mode"}]},
 
+    // Docs
+    {"keys": [" ", "d"], "command": "dash_doc", "context": [{"key": "setting.command_mode"}]},
+
+    // Language specific bindings
+    {"keys": [" ", "a", "f"], "command": "format_javascript", "context": [{"key": "setting.command_mode"}]},
+
     // Files
     {"keys": [" ", "r", "f"], "command": "revert", "context": [{"key": "setting.command_mode"}]},
 
