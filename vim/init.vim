@@ -14,7 +14,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'elzr/vim-json'
 Plug 'vim-airline/vim-airline'
-Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
@@ -42,7 +41,6 @@ set autoread
 autocmd BufLeave,FocusLost * silent! wall
 syntax enable
 set background=light
-colorscheme solarized
 set directory=$HOME/.vim/swapfiles//
 
 " Syntastic configuration for jshint and jscs
@@ -73,7 +71,7 @@ command! TrimWhitespace call TrimWhitespace()
 " quit
 noremap <Leader>q :q<cr>
 " run
-noremap <Leader>as :! 
+noremap <Leader>as :!
 " toggles
 noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
@@ -82,7 +80,7 @@ noremap <Leader>td :set background=dark<cr>
 noremap <Leader>tl :set background=light<cr>
 " files
 noremap <Leader>s :w<cr>
-noremap <Leader>fo :e 
+noremap <Leader>fo :e
 noremap <Leader>ff :FZF<cr>
 noremap <Leader>fr :edit<cr>
 noremap <Leader>fs :Ag<cr>
