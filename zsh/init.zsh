@@ -1,87 +1,44 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/michael/.oh-my-zsh
+# alias
+alias e='subl'
+alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias j='jump'
+alias g='git'
+alias vg='vagrant'
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="pure"
+alias zshrc="vim ~/.zshrc"
+alias zshreload="source ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="yyyy-mm-dd"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    brew
-    brew-cask
-    git
-    git-extras
-    github
-    osx
-    sublime
-    vagrant
-    zsh-syntax-highlighting
-    zshmarks
-)
-
-# User configuration
-
-export PATH="$PATH:/Users/michael/salt-developer/scripts:/Users/michael/.composer/vendor/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
+# variables
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export PATH="$HOME/bin:$PATH"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='subl'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# plugins
+source ~/conf/zsh/antigen.zsh
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-#
+antigen use oh-my-zsh
+
+# oh-my-zsh plugins
+antigen bundle git
+antigen bundle osx
+antigen bundle sublime
+antigen bundle vagrant
+antigen bundle command-not-found
+
+#other plugins
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle jocelynmallon/zshmarks
+antigen bundle supercrabtree/k
+
+antigen apply
+
+# theme
+antigen theme pure
+
+# vim keybindings
+bindkey -v
