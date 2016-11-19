@@ -12,11 +12,7 @@ alias vimrc="vim ~/.vimrc"
 # variables
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export PATH="$HOME/bin:$PATH"
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='subl'
-fi
+export EDITOR='vim'
 
 # plugins
 source ~/conf/zsh/antigen.zsh
