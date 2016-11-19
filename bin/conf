@@ -12,6 +12,7 @@ Usage:
     install-vim    Install the ~/.vimrc file and vim-plug
     install-bin    Install this script to ~/bin
     install-zsh    Install zsh scripts to ~/.oh-my-zsh/custom
+    install-osx    Set OSX settings
 EOT
 }
 
@@ -52,6 +53,7 @@ install_all()
     install_vim
     install_bin
     install_zsh
+    install_osx
 }
 
 install_sublime()
@@ -84,6 +86,12 @@ install_zsh()
     # Scripts in the custom folder will be automatically loaded
     ln -svf $CONF_DIR/zsh/custom/* $HOME/.oh-my-zsh/custom
     git -C $HOME/.oh-my-zsh/plugins clone https://github.com/jocelynmallon/zshmarks.git
+    git -C $HOME/.oh-my-zsh/plugins clone https://github.com/sindresorhus/pure.git
+}
+
+install_osx()
+{
+    defaults write -g ApplePressAndHoldEnabled -bool false
 }
 
 case $1 in
@@ -102,6 +110,8 @@ case $1 in
     install-bin) install_bin
         ;;
     install-zsh) install_zsh
+        ;;
+    install-osx) install_osx
         ;;
     -h | help | --help) usage
         ;;
