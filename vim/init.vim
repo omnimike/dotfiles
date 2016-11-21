@@ -26,6 +26,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'airblade/vim-rooter'
+Plug 'daylerees/colour-schemes', {'rtp': 'vim'}
 
 call plug#end()
 
@@ -40,8 +41,12 @@ set wrapmargin=0
 set autoread
 autocmd BufLeave,FocusLost * silent! wall
 syntax enable
-set background=light
 set directory=$HOME/.vim/swapfiles//
+
+if has("gui_macvim")
+    colorscheme earthsong
+endif
+
 
 " Syntastic configuration for jshint and jscs
 let g:syntastic_aggregate_errors = 1
@@ -76,11 +81,9 @@ noremap <Leader>as :!
 noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
 noremap <Leader>ts :syntax enable<cr>
-noremap <Leader>td :set background=dark<cr>
-noremap <Leader>tl :set background=light<cr>
 " files
 noremap <Leader>s :w<cr>
-noremap <Leader>fo :e
+noremap <Leader>fo :e 
 noremap <Leader>ff :FZF<cr>
 noremap <Leader>fr :edit<cr>
 noremap <Leader>fs :Ag<cr>
@@ -100,8 +103,8 @@ noremap <Leader>vpu :PlugUpdate<cr>
 noremap <Leader>vpc :PlugClean<cr>
 " git
 noremap <Leader>ga :! git add %<cr>
-noremap <Leader>gc :! git commit<cr>
-noremap <Leader>gs :! git status<cr>
+noremap <Leader>gci :! git commit<cr>
+noremap <Leader>gst :! git status<cr>
 " windows
 noremap <Leader>wc <C-w>c
 noremap <Leader>ws <C-w>s
