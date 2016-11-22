@@ -27,6 +27,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'airblade/vim-rooter'
 Plug 'daylerees/colour-schemes', {'rtp': 'vim'}
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -75,12 +76,15 @@ command! TrimWhitespace call TrimWhitespace()
 
 " quit
 noremap <Leader>q :q<cr>
+
 " run
 noremap <Leader>as :!
+
 " toggles
 noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
 noremap <Leader>ts :syntax enable<cr>
+
 " files
 noremap <Leader>s :w<cr>
 noremap <Leader>fo :e 
@@ -89,48 +93,76 @@ noremap <Leader>fr :edit<cr>
 noremap <Leader>fs :Ag<cr>
 noremap <Leader>ft :NERDTreeFind<cr>
 noremap <Leader>fd :Ranger<cr>
+
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>cs :SyntasticCheck<cr>
 " NERDCommenter commands
+"
 " vim
 noremap <Leader>vr :source $MYVIMRC<cr>
 noremap <Leader>ve :tabedit $MYVIMRC<cr>
 noremap <Leader>vb :! conf save<cr>
+
 " vim plug
 noremap <Leader>vpi :PlugInstall<cr>
 noremap <Leader>vpu :PlugUpdate<cr>
 noremap <Leader>vpc :PlugClean<cr>
+
 " git
 noremap <Leader>ga :! git add %<cr>
 noremap <Leader>gci :! git commit<cr>
 noremap <Leader>gst :! git status<cr>
+
 " windows
+" close
 noremap <Leader>wc <C-w>c
+" horizontal split
 noremap <Leader>ws <C-w>s
+" other
 noremap <Leader>ww <C-w>w
+" quit?
 noremap <Leader>wq <C-w>q
+" vertical split
 noremap <Leader>wv <C-w>v
+" only
 noremap <Leader>wo <C-w>o
+" left
 noremap <Leader>wh <C-w>h
+" down
 noremap <Leader>wj <C-w>j
+" up
 noremap <Leader>wk <C-w>k
+" right
 noremap <Leader>wl <C-w>l
+" move split right
 noremap <Leader>w. 10<C-w>>
+" move split left
 noremap <Leader>w, 10<C-w><
+" move split down
 noremap <Leader>w- 10<C-w>-
+" move split up
 noremap <Leader>w+ 10<C-w>+
+" balance split
 noremap <Leader>w= 10<C-w>=
+" maximize split
 noremap <Leader>w\| <C-w>\|
+" next tab
 noremap <Leader>wn :tabnext<cr>
+" previous tab
 noremap <Leader>wp :tabprevious<cr>
+" new tab
 noremap <Leader>wt :tabedit %<cr>
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-n> :tabnext<cr>
-noremap <C-p> :tabprevious<cr>
-" projects
-noremap <Leader>pd :tabedit ~/vg/code<cr>
+
+
+" changing tabs
+noremap <silent> <D-1> :tabn 1<cr>
+noremap <silent> <D-2> :tabn 2<cr>
+noremap <silent> <D-3> :tabn 3<cr>
+noremap <silent> <D-4> :tabn 4<cr>
+noremap <silent> <D-5> :tabn 5<cr>
+noremap <silent> <D-6> :tabn 6<cr>
+noremap <silent> <D-7> :tabn 7<cr>
+noremap <silent> <D-8> :tabn 8<cr>
+noremap <silent> <D-9> :tabn 9<cr>
 
