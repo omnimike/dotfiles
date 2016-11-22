@@ -38,3 +38,7 @@ antigen theme pure
 
 # vim keybindings
 bindkey -v
+
+if [ -e ~/.zshrc-local ]; then
+    source ~/.zshrc-local
+fi
