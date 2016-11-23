@@ -126,8 +126,7 @@ noremap <Leader>,pc :PlugClean<cr>
 " git
 noremap <Leader>g :! git 
 
-" windows
-" close
+" close window
 noremap <Leader>w <C-w>c
 " horizontal split
 noremap <Leader>dg <C-w>s
