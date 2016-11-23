@@ -80,19 +80,22 @@ command! TrimWhitespace call TrimWhitespace()
 " quit
 noremap <Leader>q :q<cr>
 
-" run
-noremap <Leader>as :!
-
 " toggles
 noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
 noremap <Leader>ts :syntax enable<cr>
 noremap <Leader>tt :NERDTreeFind<cr>
 
-" files
+" save
 noremap <Leader>s :w<cr>
+
+" open file
 noremap <Leader>p :tabedit<cr>:CtrlP<cr>
-noremap <Leader>y :Welcome<cr>
+
+" home
+noremap <Leader>h :Welcome<cr>
+
+" back
 noremap <Leader>b :e#<cr>
 
 " easymotion
