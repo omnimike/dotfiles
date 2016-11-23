@@ -4,7 +4,6 @@ let mapleader = " "
 set mouse=a
 set list
 set listchars=tab:▸\ ,trail:~,extends:>,precedes:<
-let g:ranger_map_keys = 0
 
 call plug#begin('~/.vim/plugged')
 
@@ -86,12 +85,19 @@ noremap <Leader>as :!
 noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
 noremap <Leader>ts :syntax enable<cr>
+noremap <Leader>tt :NERDTreeFind<cr>
 
 " files
 noremap <Leader>s :w<cr>
-noremap <Leader>fo :e 
-noremap <Leader>fr :edit<cr>
-noremap <Leader>ft :NERDTreeFind<cr>
+
+" easymotion
+map  <Leader><Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
+nmap s <Plug>(easymotion-overwin-f2)
+map <Leader><Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
+map  <Leader><Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
 
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
@@ -120,8 +126,6 @@ noremap <Leader>wc <C-w>c
 noremap <Leader>ws <C-w>s
 " other
 noremap <Leader>ww <C-w>w
-" quit?
-noremap <Leader>wq <C-w>q
 " vertical split
 noremap <Leader>wv <C-w>v
 " only
@@ -155,6 +159,16 @@ noremap <Leader>wt :tabedit %<cr>
 
 
 " changing tabs
+noremap <silent> <D-1> :tabn 1<cr>
+noremap <silent> <D-2> :tabn 2<cr>
+noremap <silent> <D-3> :tabn 3<cr>
+noremap <silent> <D-4> :tabn 4<cr>
+noremap <silent> <D-5> :tabn 5<cr>
+noremap <silent> <D-6> :tabn 6<cr>
+noremap <silent> <D-7> :tabn 7<cr>
+noremap <silent> <D-8> :tabn 8<cr>
+noremap <silent> <D-9> :tabn 9<cr>
+
 noremap <silent> <D-1> :tabn 1<cr>
 noremap <silent> <D-2> :tabn 2<cr>
 noremap <silent> <D-3> :tabn 3<cr>
