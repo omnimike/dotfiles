@@ -113,7 +113,7 @@ noremap <Leader>cs :SyntasticCheck<cr>
 " vim
 noremap <Leader>,r :source $MYVIMRC<cr>
 noremap <Leader>,, :tabedit $MYVIMRC<cr>
-noremap <Leader>,b :! conf save<cr>
+noremap <Leader>,s :! conf save<cr>
 
 " vim plug
 noremap <Leader>,pi :PlugInstall<cr>
