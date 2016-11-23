@@ -97,7 +97,7 @@ noremap <Leader>p :Welcome<cr>
 
 " easymotion
 map <Leader>f <Plug>(easymotion-prefix)
-nmap s <Plug>(easymotion-overwin-f2)
+nmap <Leader><Space> <Plug>(easymotion-overwin-f2)
 "map  <Leader><Leader>f <Plug>(easymotion-bd-f)
 "nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
 "map <Leader><Leader>l <Plug>(easymotion-bd-jk)
