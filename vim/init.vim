@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/syntastic'
 Plug 'elzr/vim-json'
 Plug 'vim-airline/vim-airline'
@@ -22,10 +23,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'terryma/vim-expand-region'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'SirVer/ultisnips'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'airblade/vim-rooter'
+"Plug 'airblade/vim-rooter'
+Plug 'amiorin/vim-project'
 Plug 'daylerees/colour-schemes', {'rtp': 'vim'}
 Plug 'terryma/vim-multiple-cursors'
 
@@ -48,7 +47,6 @@ if has("gui_macvim")
     colorscheme earthsong
 endif
 
-
 " Syntastic configuration for jshint and jscs
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_id_checkers = 0
@@ -65,6 +63,10 @@ let g:syntastic_style_warning_symbol = '¡'
 let g:syntastic_enable_balloons = 1
 
 let NERDTreeMapOpenInTab='\r'
+
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .DS_Store
+      \ -g ""'
 
 " user defined functions
 fun! TrimWhitespace()
@@ -88,11 +90,8 @@ noremap <Leader>ts :syntax enable<cr>
 " files
 noremap <Leader>s :w<cr>
 noremap <Leader>fo :e 
-noremap <Leader>ff :FZF<cr>
 noremap <Leader>fr :edit<cr>
-noremap <Leader>fs :Ag<cr>
 noremap <Leader>ft :NERDTreeFind<cr>
-noremap <Leader>fd :Ranger<cr>
 
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
@@ -165,4 +164,14 @@ noremap <silent> <D-6> :tabn 6<cr>
 noremap <silent> <D-7> :tabn 7<cr>
 noremap <silent> <D-8> :tabn 8<cr>
 noremap <silent> <D-9> :tabn 9<cr>
+
+" projects
+
+let g:project_use_nerdtree = 1
+call project#rc("~/vg/code/api")
+Project 'questioneditor', 'editor'
+Project 'questionsV2', 'questions'
+Project 'schemas', 'schemas'
+Project 'author', 'author'
+Project 'docs', 'docs'
 
