@@ -67,6 +67,8 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .DS_Store
       \ -g ""'
 
+let g:EasyMotion_smartcase = 1
+
 " user defined functions
 fun! TrimWhitespace()
     let l:save_cursor = getpos('.')
@@ -92,9 +94,10 @@ noremap <Leader>s :w<cr>
 noremap <Leader>p :Welcome<cr>
 
 " easymotion
+map <Leader>f <Plug>(easymotion-prefix)
+nmap s <Plug>(easymotion-overwin-f2)
 "map  <Leader><Leader>f <Plug>(easymotion-bd-f)
 "nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
-nmap s <Plug>(easymotion-overwin-f2)
 "map <Leader><Leader>l <Plug>(easymotion-bd-jk)
 "nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
 "map  <Leader><Leader>w <Plug>(easymotion-bd-w)
