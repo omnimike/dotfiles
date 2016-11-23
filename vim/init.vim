@@ -61,7 +61,7 @@ let g:syntastic_style_error_symbol = '☡'
 let g:syntastic_style_warning_symbol = '¡'
 let g:syntastic_enable_balloons = 1
 
-let NERDTreeMapOpenInTab='\r'
+let NERDTreeMapOpenInTab = '\r'
 
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .DS_Store
@@ -89,6 +89,7 @@ noremap <Leader>tt :NERDTreeFind<cr>
 
 " files
 noremap <Leader>s :w<cr>
+noremap <Leader>p :Welcome<cr>
 
 " easymotion
 map  <Leader><Leader>f <Plug>(easymotion-bd-f)
@@ -181,11 +182,14 @@ noremap <silent> <Leader>9 :tabn 9<cr>
 
 " projects
 
-let g:project_use_nerdtree = 1
-call project#rc("~/vg/code/api")
+let g:project_use_nerdtree = 0
+call project#rc()
+Project 'conf', 'conf'
+call project#rc('~/vg/code/api')
 Project 'questioneditor', 'editor'
 Project 'questionsV2', 'questions'
 Project 'schemas', 'schemas'
 Project 'author', 'author'
 Project 'docs', 'docs'
+Project '../lib/spokenmath', 'spokenmath'
 
