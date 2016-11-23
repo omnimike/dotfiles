@@ -192,11 +192,11 @@ noremap <silent> <Leader>9 :tabn 9<cr>
 let g:project_use_nerdtree = 0
 call project#rc()
 Project 'conf', 'conf'
-call project#rc('~/vg/code/api')
-Project 'questioneditor', 'editor'
-Project 'questionsV2', 'questions'
-Project 'schemas', 'schemas'
-Project 'author', 'author'
-Project 'docs', 'docs'
-Project '../lib/spokenmath', 'spokenmath'
+call project#rc('~/vg/code')
+Project 'api/questioneditor', 'editor'
+Project 'api/questionsV2', 'questions'
+Project 'api/schemas', 'schemas'
+Project 'api/author', 'author'
+Project 'site/docs', 'docs'
+Project 'lib/spokenmath', 'spokenmath'
 
