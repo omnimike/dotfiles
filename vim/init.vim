@@ -121,9 +121,7 @@ noremap <Leader>vpu :PlugUpdate<cr>
 noremap <Leader>vpc :PlugClean<cr>
 
 " git
-noremap <Leader>ga :! git add %<cr>
-noremap <Leader>gci :! git commit<cr>
-noremap <Leader>gst :! git status<cr>
+noremap <Leader>g :! git 
 
 " windows
 " close
