@@ -121,7 +121,7 @@ noremap <Leader>vpu :PlugUpdate<cr>
 noremap <Leader>vpc :PlugClean<cr>
 
 " git
-noremap <Leader>g :! git 
+noremap <Leader>g :! g
 
 " windows
 " close
