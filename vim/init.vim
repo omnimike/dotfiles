@@ -125,41 +125,41 @@ noremap <Leader>g :! git
 
 " windows
 " close
-noremap <Leader>wc <C-w>c
+noremap <Leader>w <C-w>c
 " horizontal split
-noremap <Leader>ws <C-w>s
+noremap <Leader>dg <C-w>s
 " other
-noremap <Leader>ww <C-w>w
+noremap <Leader>df <C-w>w
 " vertical split
-noremap <Leader>wv <C-w>v
+noremap <Leader>ds <C-w>v
 " only
-noremap <Leader>wo <C-w>o
+noremap <Leader>da <C-w>o
 " left
-noremap <Leader>wh <C-w>h
+noremap <Leader>dh <C-w>h
 " down
-noremap <Leader>wj <C-w>j
+noremap <Leader>dj <C-w>j
 " up
-noremap <Leader>wk <C-w>k
+noremap <Leader>dk <C-w>k
 " right
-noremap <Leader>wl <C-w>l
+noremap <Leader>dl <C-w>l
 " move split right
-noremap <Leader>w. 10<C-w>>
+noremap <Leader>d. 10<C-w>>
 " move split left
-noremap <Leader>w, 10<C-w><
+noremap <Leader>d, 10<C-w><
 " move split down
-noremap <Leader>w- 10<C-w>-
+noremap <Leader>d- 10<C-w>-
 " move split up
-noremap <Leader>w+ 10<C-w>+
+noremap <Leader>d+ 10<C-w>+
 " balance split
-noremap <Leader>w= 10<C-w>=
+noremap <Leader>d= 10<C-w>=
 " maximize split
-noremap <Leader>w\| <C-w>\|
+noremap <Leader>d\| <C-w>\|
 " next tab
-noremap <Leader>wn :tabnext<cr>
+noremap <Leader>dn :tabnext<cr>
 " previous tab
-noremap <Leader>wp :tabprevious<cr>
+noremap <Leader>dp :tabprevious<cr>
 " new tab
-noremap <Leader>wt :tabedit %<cr>
+noremap <Leader>dt :tabedit %<cr>
 
 
 " changing tabs
