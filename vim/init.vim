@@ -92,10 +92,8 @@ noremap <Leader>tt :NERDTreeFind<cr>
 " files
 noremap <Leader>s :w<cr>
 noremap <D-p> :CtrlP<cr>
-noremap <Leader>p :CtrlP<cr>
-
-" project
-noremap <Leader>P :Welcome<cr>
+noremap <Leader>o :CtrlP<cr>
+noremap <Leader>p :Welcome<cr>
 
 " easymotion
 map <Leader>f <Plug>(easymotion-prefix)
