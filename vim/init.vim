@@ -199,4 +199,5 @@ Project 'api/author', 'author'
 Project 'site/docs', 'docs'
 Project 'lib/spokenmath', 'spokenmath'
 Project 'lib/mathcore', 'mathcore'
+Project 'lib/scoring', 'scoring'
 
