@@ -111,14 +111,14 @@ noremap <Leader>cs :SyntasticCheck<cr>
 " NERDCommenter commands
 
 " vim
-noremap <Leader>vr :source $MYVIMRC<cr>
-noremap <Leader>ve :tabedit $MYVIMRC<cr>
-noremap <Leader>vb :! conf save<cr>
+noremap <Leader>,r :source $MYVIMRC<cr>
+noremap <Leader>,e :tabedit $MYVIMRC<cr>
+noremap <Leader>,b :! conf save<cr>
 
 " vim plug
-noremap <Leader>vpi :PlugInstall<cr>
-noremap <Leader>vpu :PlugUpdate<cr>
-noremap <Leader>vpc :PlugClean<cr>
+noremap <Leader>,pi :PlugInstall<cr>
+noremap <Leader>,pu :PlugUpdate<cr>
+noremap <Leader>,pc :PlugClean<cr>
 
 " git
 noremap <Leader>g :! git 
