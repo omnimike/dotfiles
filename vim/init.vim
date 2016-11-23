@@ -90,7 +90,7 @@ noremap <Leader>tt :NERDTreeFind<cr>
 noremap <Leader>s :w<cr>
 
 " open file
-noremap <Leader>p :tabedit<cr>:CtrlP<cr>
+noremap <Leader>p :CtrlP<cr>
 
 " home
 noremap <Leader>h :Welcome<cr>
