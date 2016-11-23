@@ -92,13 +92,13 @@ noremap <Leader>s :w<cr>
 noremap <Leader>p :Welcome<cr>
 
 " easymotion
-map  <Leader><Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
+"map  <Leader><Leader>f <Plug>(easymotion-bd-f)
+"nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
-map <Leader><Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
-map  <Leader><Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
+"map <Leader><Leader>l <Plug>(easymotion-bd-jk)
+"nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
+"map  <Leader><Leader>w <Plug>(easymotion-bd-w)
+"nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
 
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
