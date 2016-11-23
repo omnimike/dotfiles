@@ -113,7 +113,7 @@ noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>cs :SyntasticCheck<cr>
 " NERDCommenter commands
 
-" vim
+" vimrc
 noremap <Leader>,r :source $MYVIMRC<cr>
 noremap <Leader>,, :tabedit $MYVIMRC<cr>
 noremap <Leader>,s :! conf save<cr>
