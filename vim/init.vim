@@ -159,7 +159,7 @@ noremap <Leader>dn :tabnext<cr>
 " previous tab
 noremap <Leader>dp :tabprevious<cr>
 " new tab
-noremap <Leader>dt :tabedit %<cr>
+noremap <Leader>t :tabedit %<cr>
 
 
 " changing tabs
