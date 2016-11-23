@@ -129,11 +129,11 @@ noremap <Leader>g :! git
 " close window
 noremap <Leader>w <C-w>c
 " horizontal split
-noremap <Leader>dg <C-w>s
+noremap <Leader>dg <C-w>s<C-w>w
 " other
 noremap <Leader>df <C-w>w
 " vertical split
-noremap <Leader>ds <C-w>v
+noremap <Leader>ds <C-w>v<C-w>w
 " only
 noremap <Leader>da <C-w>o
 " left
