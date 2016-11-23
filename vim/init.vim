@@ -169,15 +169,15 @@ noremap <silent> <D-7> :tabn 7<cr>
 noremap <silent> <D-8> :tabn 8<cr>
 noremap <silent> <D-9> :tabn 9<cr>
 
-noremap <silent> <D-1> :tabn 1<cr>
-noremap <silent> <D-2> :tabn 2<cr>
-noremap <silent> <D-3> :tabn 3<cr>
-noremap <silent> <D-4> :tabn 4<cr>
-noremap <silent> <D-5> :tabn 5<cr>
-noremap <silent> <D-6> :tabn 6<cr>
-noremap <silent> <D-7> :tabn 7<cr>
-noremap <silent> <D-8> :tabn 8<cr>
-noremap <silent> <D-9> :tabn 9<cr>
+noremap <silent> <Leader>1 :tabn 1<cr>
+noremap <silent> <Leader>2 :tabn 2<cr>
+noremap <silent> <Leader>3 :tabn 3<cr>
+noremap <silent> <Leader>4 :tabn 4<cr>
+noremap <silent> <Leader>5 :tabn 5<cr>
+noremap <silent> <Leader>6 :tabn 6<cr>
+noremap <silent> <Leader>7 :tabn 7<cr>
+noremap <silent> <Leader>8 :tabn 8<cr>
+noremap <silent> <Leader>9 :tabn 9<cr>
 
 " projects
 
