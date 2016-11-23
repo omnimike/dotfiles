@@ -92,11 +92,11 @@ noremap <Leader>tt :NERDTreeFind<cr>
 " files
 noremap <Leader>s :w<cr>
 noremap <D-p> :CtrlP<cr>
-noremap <Leader>j :CtrlP<cr>
-noremap <Leader>k :Welcome<cr>
+noremap <Leader>f :CtrlP<cr>
+noremap <Leader>y :Welcome<cr>
 
 " easymotion
-map <Leader>; <Plug>(easymotion-prefix)
+map <Leader>l <Plug>(easymotion-prefix)
 nmap <Leader><Space> <Plug>(easymotion-overwin-f2)
 "map  <Leader><Leader>f <Plug>(easymotion-bd-f)
 "nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
