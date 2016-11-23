@@ -91,7 +91,7 @@ noremap <Leader>tt :NERDTreeFind<cr>
 
 " files
 noremap <Leader>s :w<cr>
-noremap <Leader>p :CtrlP<cr>
+noremap <Leader>p :tabedit<cr>:CtrlP<cr>
 noremap <Leader>y :Welcome<cr>
 noremap <Leader>b :e#<cr>
 
