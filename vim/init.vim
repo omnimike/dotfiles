@@ -107,7 +107,7 @@ nmap s <Plug>(easymotion-overwin-f2)
 noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>cs :SyntasticCheck<cr>
 " NERDCommenter commands
-"
+
 " vim
 noremap <Leader>vr :source $MYVIMRC<cr>
 noremap <Leader>ve :tabedit $MYVIMRC<cr>
