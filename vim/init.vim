@@ -91,19 +91,19 @@ noremap <Leader>tt :NERDTreeFind<cr>
 
 " files
 noremap <Leader>s :w<cr>
-noremap <D-p> :CtrlP<cr>
-noremap <Leader>f :CtrlP<cr>
+noremap <Leader>p :CtrlP<cr>
 noremap <Leader>y :Welcome<cr>
+noremap <Leader>b :e#<cr>
 
 " easymotion
 map <Leader>l <Plug>(easymotion-prefix)
-nmap <Leader><Space> <Plug>(easymotion-overwin-f2)
-"map  <Leader><Leader>f <Plug>(easymotion-bd-f)
-"nmap <Leader><Leader>f <Plug>(easymotion-overwin-f)
-"map <Leader><Leader>l <Plug>(easymotion-bd-jk)
-"nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
-"map  <Leader><Leader>w <Plug>(easymotion-bd-w)
-"nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
+nmap <Leader>; <Plug>(easymotion-overwin-f2)
+map  <Leader>lf <Plug>(easymotion-bd-f)
+nmap <Leader>lf <Plug>(easymotion-overwin-f)
+map <Leader>ll <Plug>(easymotion-bd-jk)
+nmap <Leader>ll <Plug>(easymotion-overwin-line)
+map  <Leader>lw <Plug>(easymotion-bd-w)
+nmap <Leader>lw <Plug>(easymotion-overwin-w)
 
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
