@@ -38,9 +38,13 @@ set nowrap
 set textwidth=0
 set wrapmargin=0
 set autoread
+set autoindent
+set smartindent
 autocmd BufLeave,FocusLost * silent! wall
 syntax enable
 set directory=$HOME/.vim/swapfiles//
+set backupdir=$HOME/.vim/backup//
+set undodir=$HOME/.vim/undo//
 
 if has("gui_macvim")
     colorscheme darcula
