@@ -145,6 +145,8 @@ noremap <Leader><Tab> <C-w>w
 noremap <Leader>ds <C-w>v<C-w>w
 " only
 noremap <Leader>da <C-w>o
+" rotate
+noremap <Leader>dr <C-w>r
 " left
 noremap <Leader>dh <C-w>h
 " down
