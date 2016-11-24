@@ -155,7 +155,7 @@ noremap <Leader>d- 10<C-w>-
 " move split up
 noremap <Leader>d+ 10<C-w>+
 " balance split
-noremap <Leader>d= 10<C-w>=
+noremap <Leader>db <C-w>=
 " maximize split
 noremap <Leader>d\| <C-w>\|
 " next tab
