@@ -42,6 +42,7 @@ set wrapmargin=0
 set autoread
 set autoindent
 set smartindent
+set undofile
 autocmd BufLeave,FocusLost * silent! wall
 syntax enable
 set directory=$HOME/.vim/swapfiles//
