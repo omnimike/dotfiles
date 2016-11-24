@@ -94,7 +94,7 @@ noremap <Leader>s :w<cr>
 noremap <Leader>p :CtrlP<cr>
 
 " home
-noremap <Leader>h :Welcome<cr>
+noremap <Leader>h :tabedit<cr>:Welcome<cr>
 
 " back
 noremap <Leader>b :e#<cr>
