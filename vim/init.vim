@@ -21,7 +21,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'amiorin/vim-project'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'blueshirts/darcula'
-"Plug 'elzr/vim-json'
+Plug 'elzr/vim-json'
 "Plug 'tpope/vim-obsession'
 "Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-unimpaired'
@@ -68,6 +68,8 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = '☡'
 let g:syntastic_style_warning_symbol = '¡'
 let g:syntastic_enable_balloons = 1
+
+let g:vim_json_syntax_conceal = 0
 
 let NERDTreeMapOpenInTab = '\r'
 
