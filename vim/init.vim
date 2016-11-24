@@ -11,7 +11,6 @@ Plug 'tpope/vim-sensible'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/syntastic'
-Plug 'elzr/vim-json'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -22,6 +21,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'amiorin/vim-project'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'blueshirts/darcula'
+"Plug 'elzr/vim-json'
 "Plug 'tpope/vim-obsession'
 "Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-unimpaired'
@@ -94,6 +94,7 @@ noremap <Leader>x :!
 " toggles
 noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
+noremap <Leader>th :set hlsearch!<cr>
 noremap <Leader>ts :syntax enable<cr>
 noremap <Leader>tt :NERDTreeFind<cr>
 
