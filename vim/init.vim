@@ -20,12 +20,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'terryma/vim-expand-region'
+Plug 'amiorin/vim-project'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'blueshirts/darcula'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'SirVer/ultisnips'
-"Plug 'airblade/vim-rooter'
-Plug 'amiorin/vim-project'
-Plug 'daylerees/colour-schemes', {'rtp': 'vim'}
-Plug 'terryma/vim-multiple-cursors'
+"Plug 'daylerees/colour-schemes', {'rtp': 'vim'}
 
 call plug#end()
 
@@ -43,7 +43,8 @@ syntax enable
 set directory=$HOME/.vim/swapfiles//
 
 if has("gui_macvim")
-    colorscheme earthsong
+    colorscheme darcula
+    set guifont=Monaco:h10
 endif
 
 " Syntastic configuration for jshint and jscs
