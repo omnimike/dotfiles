@@ -192,6 +192,7 @@ noremap <silent> <Leader>9 :tabn 9<cr>
 let g:project_use_nerdtree = 0
 call project#rc()
 Project 'conf', 'conf'
+Project 'work/test-pages', 'test-pages'
 Project 'work/snippets', 'snippets'
 call project#rc('~/vg/code')
 Project 'api/questioneditor', 'editor'
