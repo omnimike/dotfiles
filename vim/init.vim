@@ -8,8 +8,6 @@ set listchars=tab:▸\ ,trail:~,extends:>,precedes:<
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/syntastic'
@@ -24,6 +22,8 @@ Plug 'terryma/vim-expand-region'
 Plug 'amiorin/vim-project'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'blueshirts/darcula'
+Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-unimpaired'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'SirVer/ultisnips'
 "Plug 'daylerees/colour-schemes', {'rtp': 'vim'}
