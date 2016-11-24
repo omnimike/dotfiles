@@ -106,6 +106,10 @@ nmap <Leader>yf <Plug>(easymotion-overwin-f)
 nmap <Leader>l <Plug>(easymotion-overwin-line)
 nmap <Leader>yw <Plug>(easymotion-overwin-w)
 
+" expand region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>cs :SyntasticCheck<cr>
