@@ -22,6 +22,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'amiorin/vim-project'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'blueshirts/darcula'
+"Plug 'tpope/vim-obsession'
 "Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-unimpaired'
 "Plug 'Valloric/YouCompleteMe'
@@ -104,14 +105,21 @@ noremap <Leader>p :CtrlP<cr>
 " home
 noremap <Leader>h :tabedit<cr>:Welcome<cr>
 
+" restore
+noremap <Leader>r :source '~/.session.vim'<cr>
+
 " back
 noremap <Leader>b :e#<cr>
 
 " easymotion
 map <Leader>y <Plug>(easymotion-prefix)
+map <Leader>; <Plug>(easymotion-bd-f2)
 nmap <Leader>; <Plug>(easymotion-overwin-f2)
+map <Leader>yf <Plug>(easymotion-bd-f)
 nmap <Leader>yf <Plug>(easymotion-overwin-f)
+map <Leader>l <Plug>(easymotion-bd-line)
 nmap <Leader>l <Plug>(easymotion-overwin-line)
+map <Leader>yw <Plug>(easymotion-bd-w)
 nmap <Leader>yw <Plug>(easymotion-overwin-w)
 
 " expand region
