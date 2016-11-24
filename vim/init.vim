@@ -81,6 +81,9 @@ command! TrimWhitespace call TrimWhitespace()
 " quit
 noremap <Leader>q :q<cr>
 
+" exec
+noremap <Leader>x :!
+
 " toggles
 noremap <Leader>tp :set invpaste paste?<cr>
 noremap <Leader>tn :set invnumber number?<cr>
