@@ -150,40 +150,8 @@ noremap <Leader>g :! git
 
 " close window
 noremap <Leader>w <C-w>c
-" horizontal split
-noremap <Leader>dg <C-w>s<C-w>w
 " other
 noremap <Leader><Tab> <C-w>w
-" vertical split
-noremap <Leader>ds <C-w>v<C-w>w
-" only
-noremap <Leader>da <C-w>o
-" rotate
-noremap <Leader>dr <C-w>r
-" left
-noremap <Leader>dh <C-w>h
-" down
-noremap <Leader>dj <C-w>j
-" up
-noremap <Leader>dk <C-w>k
-" right
-noremap <Leader>dl <C-w>l
-" move split right
-noremap <Leader>d. 10<C-w>>
-" move split left
-noremap <Leader>d, 10<C-w><
-" move split down
-noremap <Leader>d- 10<C-w>-
-" move split up
-noremap <Leader>d+ 10<C-w>+
-" balance split
-noremap <Leader>db <C-w>=
-" maximize split
-noremap <Leader>d\| <C-w>\|
-" next tab
-noremap <Leader>dn :tabnext<cr>
-" previous tab
-noremap <Leader>dp :tabprevious<cr>
 " new tab
 noremap <Leader>t :tabedit %<cr>
 
