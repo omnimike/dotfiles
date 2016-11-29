@@ -4,15 +4,17 @@ usage()
 {
     cat << EOT
 Usage:
-    save           Push conf changes to omnimike/conf
-    load           Pull conf changes from omnimike/conf
-    status         Show changes to conf
-    install        Install everything
-    install-subl   Install sublime text config
-    install-vim    Install the ~/.vimrc file and vim-plug
-    install-bin    Install this script to ~/bin
-    install-zsh    Install zsh scripts to ~/.oh-my-zsh/custom
-    install-osx    Set OSX settings
+    save                Push conf changes to omnimike/conf
+    load                Pull conf changes from omnimike/conf
+    status              Show changes to conf
+    install             Install everything
+    install-subl        Install sublime text config
+    install-hammerspoon Install .hammerspoon/init.lua
+    install-karabiner   Install .karabiner.d/configuration/karabiner.json
+    install-vim         Install the ~/.vimrc file and vim-plug
+    install-bin         Install this script to ~/bin
+    install-zsh         Install zsh scripts to ~/.oh-my-zsh/custom
+    install-osx         Set OSX settings
 EOT
 }
 
@@ -50,6 +52,8 @@ status()
 install_all()
 {
     install_sublime
+    install_hammerspoon
+    install_karabiner
     install_vim
     install_bin
     install_zsh
@@ -93,6 +97,18 @@ install_osx()
     defaults write -g ApplePressAndHoldEnabled -bool false
 }
 
+install_hammerspoon()
+{
+    rm -f $HOME/.hammerspoon/init.lua
+    ln -svf $CONF_DIR/hammerspoon/init.lua $HOME/.hammerspoon/init.lua
+}
+
+install_karabiner()
+{
+    rm -f $HOME/.karabiner.d/configuration/karabiner.json
+    ln -svf $CONF_DIR/karabiner/karabiner.json $HOME/.karabiner.d/configuration/karabiner.json
+}
+
 case $1 in
     save) save
         ;;
@@ -103,6 +119,10 @@ case $1 in
     install) install_all
         ;;
     install-subl) install_sublime
+        ;;
+    install-hammerspoon) install_hammerspoon
+        ;;
+    install-karabiner) install_karabiner
         ;;
     install-vim) install_vim
         ;;

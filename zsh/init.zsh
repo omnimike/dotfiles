@@ -1,5 +1,5 @@
 # alias
-alias e='subl'
+alias e='vim'
 alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias j='jump'
 alias g='git'

@@ -39,6 +39,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/Users/michael/endev/maze/Makefile",
+			"settings":
+			{
+				"buffer_size": 302,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/michael/.hammerspoon/init.lua",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -194,10 +210,18 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/michael/conf"
+		"/Users/michael/conf",
+		"/Users/michael/conf/bin",
+		"/Users/michael/conf/zsh"
 	],
 	"file_history":
 	[
+		"//installer.failurerequests",
+		"/Users/michael/conf/bin/conf",
+		"/Users/michael/conf/zsh/init.zsh",
+		"/Users/michael/endev/stack/stach.sh",
+		"/Users/michael/alf.zsh",
+		"/Users/michael/conf/zsh/antigen.zsh",
 		"/Users/michael/conf/README.md",
 		"/Users/michael/salt-developer/code/api/questionsV2/www/latest/app/utils/mathquillRenderer.js",
 		"/Users/michael/salt-developer/code/api/questionsV2/tests/specs/utils/mathquillRenderer.js",
@@ -278,7 +302,6 @@
 		"/Users/michael/salt-developer/code/api/questioneditor/tests/ui/specs/ui/versionMappingQE.js",
 		"/Users/michael/salt-developer/code/api/questionsV2/karma.conf.js",
 		"/Users/michael/salt-developer/code/api/questionsV2/Gruntfile.js",
-		"/Users/michael/conf/bin/conf",
 		"/Users/michael/conf/zsh/custom/conf.zsh",
 		"/Users/michael/conf/zsh/custom/vars.zsh",
 		"/Users/michael/conf/zsh/custom/cmd.zsh",
@@ -320,12 +343,7 @@
 		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/key-value.sublime-snippet",
 		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/if.sublime-snippet",
 		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/debugger.sublime-snippet",
-		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/function-anon.js",
-		"/Users/michael/conf/zsh/vars.zsh",
-		"/Users/michael/conf/Default (OSX).sublime-keymap",
-		"/Users/michael/salt-developer/code/api/questioneditor/www/latest/app/models/elements/question.js",
-		"/Users/michael/salt-developer/code/api/schemas/src/data/questions/templates/develop.json",
-		"/Users/michael/salt-developer/code/api/questioneditor/www/latest/app/controllers/conditionalAttributesController.js"
+		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/function-anon.js"
 	],
 	"find":
 	{
@@ -347,6 +365,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sed",
 			"formulaAriaLabel",
 			"ariaLabel",
 			"addAriaLabel",
@@ -473,8 +492,7 @@
 			"CustomModelAdaptor",
 			"customModelAdaptor",
 			"CustomModelAdaptor",
-			"customModelAdaptor",
-			"custommodeladaptor"
+			"customModelAdaptor"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -500,8 +518,65 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Users/michael/endev/maze/Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28,
+								28
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/michael/.hammerspoon/init.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -553,6 +628,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"conf",
+				"bin/conf"
+			],
 			[
 				"mathquill",
 				"questionsV2/tests/specs/utils/mathquillRenderer.js"
@@ -1002,10 +1081,10 @@
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 283.0,
 	"status_bar_visible": true,
 	"template_settings":
