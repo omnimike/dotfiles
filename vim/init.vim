@@ -117,10 +117,10 @@ noremap <Leader>b :e#<cr>
 
 " easymotion
 map <Leader>y <Plug>(easymotion-prefix)
-map <Leader>; <Plug>(easymotion-bd-f2)
-nmap <Leader>; <Plug>(easymotion-overwin-f2)
-map <Leader>yf <Plug>(easymotion-bd-f)
-nmap <Leader>yf <Plug>(easymotion-overwin-f)
+map <Leader>; <Plug>(easymotion-bd-f)
+nmap <Leader>; <Plug>(easymotion-overwin-f)
+map <Leader>yf <Plug>(easymotion-bd-f2)
+nmap <Leader>yf <Plug>(easymotion-overwin-f2)
 map <Leader>l <Plug>(easymotion-bd-jk)
 nmap <Leader>l <Plug>(easymotion-overwin-line)
 map <Leader>yw <Plug>(easymotion-bd-w)
