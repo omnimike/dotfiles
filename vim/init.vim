@@ -94,11 +94,11 @@ noremap <Leader>q :q<cr>
 noremap <Leader>x :!
 
 " toggles
-noremap <Leader>tp :set invpaste paste?<cr>
-noremap <Leader>tn :set invnumber number?<cr>
-noremap <Leader>th :set hlsearch!<cr>
-noremap <Leader>ts :syntax enable<cr>
-noremap <Leader>tt :NERDTreeFind<cr>
+noremap <Leader>;p :set invpaste paste?<cr>
+noremap <Leader>;n :set invnumber number?<cr>
+noremap <Leader>;h :set hlsearch!<cr>
+noremap <Leader>;s :syntax enable<cr>
+noremap <Leader>;t :NERDTreeFind<cr>
 
 " save
 noremap <Leader>s :w<cr>
