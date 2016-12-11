@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'easymotion/vim-easymotion'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
@@ -22,6 +21,8 @@ Plug 'amiorin/vim-project'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'blueshirts/darcula'
 Plug 'elzr/vim-json'
+Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'wincent/command-t'
 "Plug 'tpope/vim-obsession'
 "Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-unimpaired'
@@ -43,6 +44,7 @@ set autoread
 set autoindent
 set smartindent
 set undofile
+set foldmethod=manual
 autocmd BufLeave,FocusLost * silent! wall
 syntax enable
 set directory=$HOME/.vim/swapfiles//
@@ -153,7 +155,7 @@ noremap <Leader>w <C-w>c
 " other
 noremap <Leader><Tab> <C-w>w
 " new tab
-noremap <Leader>t :tabedit %<cr>
+"noremap <Leader>t :tabedit %<cr>
 
 
 " changing tabs
@@ -184,6 +186,7 @@ call project#rc()
 Project 'conf', 'conf'
 Project 'work/test-pages', 'test-pages'
 Project 'work/snippets', 'snippets'
+Project 'vg/scripts', 'vgscripts'
 call project#rc('~/vg/code')
 Project 'api/questioneditor', 'editor'
 Project 'api/questionsV2', 'questions'
