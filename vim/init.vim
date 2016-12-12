@@ -44,7 +44,9 @@ set autoread
 set autoindent
 set smartindent
 set undofile
-set foldmethod=manual
+set foldmethod=indent
+set nofoldenable
+" Save files on focus lost
 autocmd BufLeave,FocusLost * silent! wall
 syntax enable
 set directory=$HOME/.vim/swapfiles//
