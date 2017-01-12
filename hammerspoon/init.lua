@@ -1,68 +1,31 @@
--- A global variable for the Hyper Mode
-k = hs.hotkey.modal.new({}, "F17")
-
--- Trigger existing hyper key shortcuts
-
--- k:bind({}, 'm', nil, function() hs.eventtap.keyStroke({"cmd","alt","shift","ctrl"}, 'm') end)
-
-launch = function(appname)
-  hs.application.launchOrFocus(appname)
-  k.triggered = true
-end
-
--- Single keybinding for app launch
-singleapps = {
-  {'a', 'Google Chrome'},
-  {'s', 'iTerm2'},
-  {'d', 'MacVim'},
-  {'c', 'Slack'},
-  {'f', 'Google Play Music Desktop Player'}
-}
-
-for i, app in ipairs(singleapps) do
-  k:bind({}, app[1], function() launch(app[2]); k:exit(); end)
-end
-
--- Sequential keybindings, e.g. Hyper-a,f for Finder
---a = hs.hotkey.modal.new({}, "F16")]]
---apps = {}
---for i, app in ipairs(apps) do
---  a:bind({}, app[1], function() launch(app[2]); a:exit(); end)
---end
-
---pressedA = function() a:enter() end
---releasedA = function() end
---k:bind({}, 'a', nil, pressedA, releasedA)
-
-k:bind({}, 'k', function()
-  local win = hs.window.focusedWindow()
-  win:up()
+local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
+local meh = {'cmd', 'alt', 'ctrl'}
+hs.hotkey.bind(hyper, '1', function ()
+    hs.application.launchOrFocus('Google Chrome')
 end)
 
--- Shortcut to reload config
+hs.hotkey.bind(hyper, '2', function ()
+    hs.application.launchOrFocus('iTerm')
+end)
 
-ofun = function()
-  hs.reload()
-  hs.alert.show('Config reloaded')
-  k.triggered = true
-end
-k:bind({}, 'r', nil, ofun)
+hs.hotkey.bind(hyper, '3', function ()
+    hs.application.launchOrFocus('MacVim')
+end)
 
--- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
-pressedF18 = function()
-  k.triggered = false
-  k:enter()
-end
+hs.hotkey.bind(hyper, '4', function ()
+    hs.application.launchOrFocus('Slack')
+end)
 
--- Leave Hyper Mode when F18 (Hyper/Capslock) is pressed,
---   send ESCAPE if no other keys are pressed.
-releasedF18 = function()
-  k:exit()
-  --if not k.triggered then
-  --  hs.eventtap.keyStroke({}, 'ESCAPE')
-  --end
-end
+hs.hotkey.bind(hyper, '5', function ()
+    hs.application.launchOrFocus('Google Play Music Desktop Player')
+end)
 
--- Bind the Hyper key
-f18 = hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
+hs.hotkey.bind(hyper, ';', function ()
+    hs.caffeinate.lockScreen()
+end)
 
+hs.hotkey.bind(hyper, '`', function ()
+    hs.reload()
+end)
+
+hs.alert.show('conf reloaded')
