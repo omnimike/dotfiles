@@ -20,7 +20,7 @@ hs.hotkey.bind(hyper, '5', function ()
     hs.application.launchOrFocus('Google Play Music Desktop Player')
 end)
 
-hs.hotkey.bind(hyper, ';', function ()
+hs.hotkey.bind(hyper, '=', function ()
     hs.caffeinate.lockScreen()
 end)
 
