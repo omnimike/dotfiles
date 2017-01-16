@@ -199,4 +199,5 @@ Project 'lib/spokenmath', 'spokenmath'
 Project 'lib/mathcore', 'mathcore'
 Project 'lib/mathquill', 'mathquill'
 Project 'lib/scoring', 'scoring'
+Project 'lib/qev3-content-analysis', 'qev3-content-analysis'
 

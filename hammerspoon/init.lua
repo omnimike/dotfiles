@@ -1,30 +1,35 @@
 local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
 local meh = {'cmd', 'alt', 'ctrl'}
-hs.hotkey.bind(hyper, '1', function ()
-    hs.application.launchOrFocus('Google Chrome')
-end)
 
-hs.hotkey.bind(hyper, '2', function ()
-    hs.application.launchOrFocus('iTerm')
-end)
+local appHotkeys = {
+    { 'u', 'Google Chrome' },
+    { 'i', 'iTerm' },
+    { 'o', 'MacVim' },
+    { 'y', 'Slack' },
+    { 'p', 'Google Play Music Desktop Player' },
+}
 
-hs.hotkey.bind(hyper, '3', function ()
-    hs.application.launchOrFocus('MacVim')
-end)
+local hyperMap = hs.hotkey.modal.new({}, 'F19')
 
-hs.hotkey.bind(hyper, '4', function ()
-    hs.application.launchOrFocus('Slack')
-end)
+local hyperBind = function(key, fn)
+    hs.hotkey.bind(hyper, key, nil, fn)
+    hyperMap:bind({}, key, nil, fn)
+end
 
-hs.hotkey.bind(hyper, '5', function ()
-    hs.application.launchOrFocus('Google Play Music Desktop Player')
-end)
+for i, binding in ipairs(appHotkeys) do
+    local key = binding[1]
+    local app = binding[2]
+    local launcher = function()
+        hs.application.launchOrFocus(app)
+    end
+    hyperBind(key, launcher)
+end
 
-hs.hotkey.bind(hyper, '=', function ()
+hyperBind('=', function ()
     hs.caffeinate.lockScreen()
 end)
 
-hs.hotkey.bind(hyper, '`', function ()
+hyperBind('`', function ()
     hs.reload()
 end)
 
