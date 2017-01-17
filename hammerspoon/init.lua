@@ -1,68 +1,50 @@
--- A global variable for the Hyper Mode
-k = hs.hotkey.modal.new({}, "F17")
+local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
+local meh = {'cmd', 'alt', 'ctrl'}
 
--- Trigger existing hyper key shortcuts
-
--- k:bind({}, 'm', nil, function() hs.eventtap.keyStroke({"cmd","alt","shift","ctrl"}, 'm') end)
-
-launch = function(appname)
-  hs.application.launchOrFocus(appname)
-  k.triggered = true
-end
-
--- Single keybinding for app launch
-singleapps = {
-  {'a', 'Google Chrome'},
-  {'s', 'iTerm2'},
-  {'d', 'MacVim'},
-  {'c', 'Slack'},
-  {'f', 'Google Play Music Desktop Player'}
+local appHotkeys = {
+    { 'u', 'Google Chrome' },
+    { 'i', 'iTerm' },
+    { 'o', 'MacVim' },
+    { 'y', 'Slack' },
+    { 'p', 'Google Play Music Desktop Player' },
 }
 
-for i, app in ipairs(singleapps) do
-  k:bind({}, app[1], function() launch(app[2]); k:exit(); end)
+local hyperMap = hs.hotkey.modal.new()
+
+local hyperBind = function(key, fn)
+    hs.hotkey.bind(hyper, key, nil, fn)
+    hyperMap:bind({}, key, nil, fn)
 end
 
--- Sequential keybindings, e.g. Hyper-a,f for Finder
---a = hs.hotkey.modal.new({}, "F16")]]
---apps = {}
---for i, app in ipairs(apps) do
---  a:bind({}, app[1], function() launch(app[2]); a:exit(); end)
---end
+for i, binding in ipairs(appHotkeys) do
+    local key = binding[1]
+    local app = binding[2]
+    local launcher = function()
+        hs.application.launchOrFocus(app)
+    end
+    hyperBind(key, launcher)
+end
 
---pressedA = function() a:enter() end
---releasedA = function() end
---k:bind({}, 'a', nil, pressedA, releasedA)
-
-k:bind({}, 'k', function()
-  local win = hs.window.focusedWindow()
-  win:up()
+hyperBind('=', function ()
+    hs.caffeinate.lockScreen()
 end)
 
--- Shortcut to reload config
+hyperBind('`', function ()
+    hs.reload()
+end)
 
-ofun = function()
-  hs.reload()
-  hs.alert.show('Config reloaded')
-  k.triggered = true
-end
-k:bind({}, 'r', nil, ofun)
-
--- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
-pressedF18 = function()
-  k.triggered = false
-  k:enter()
+pressedF19 = function()
+  hyperMap.triggered = false
+  hyperMap:enter()
 end
 
--- Leave Hyper Mode when F18 (Hyper/Capslock) is pressed,
---   send ESCAPE if no other keys are pressed.
-releasedF18 = function()
-  k:exit()
-  --if not k.triggered then
-  --  hs.eventtap.keyStroke({}, 'ESCAPE')
-  --end
+releasedF19 = function()
+  hyperMap:exit()
+  if not hyperMap.triggered then
+    hs.eventtap.keyStroke({}, 'ESCAPE')
+  end
 end
 
--- Bind the Hyper key
-f18 = hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
+f19 = hs.hotkey.bind({}, 'F19', pressedF19, releasedF19)
 
+hs.alert.show('conf reloaded')

@@ -4,6 +4,8 @@ alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd
 alias j='jump'
 alias g='git'
 alias vg='vagrant'
+alias gpb='git push origin $(git_current_branch)'
+alias gpbf='git push origin $(git_current_branch) -f'
 
 alias zshrc="vim ~/.zshrc"
 alias zshreload="source ~/.zshrc"
@@ -87,3 +89,5 @@ fh() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 }
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
