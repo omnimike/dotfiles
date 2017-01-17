@@ -19,9 +19,7 @@
             "name": "Default profile",
             "selected": true,
             "simple_modifications": {
-                "caps_lock": "escape",
-                "left_control": "f18",
-                "right_command": "left_control"
+                "caps_lock": "delete_or_backspace"
             }
         }
     ]
