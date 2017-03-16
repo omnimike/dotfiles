@@ -13,7 +13,7 @@ alias vimrc="vim ~/.vimrc"
 
 # variables
 export FZF_DEFAULT_COMMAND='ag -g ""'
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH:$(yarn global bin):$HOME/uni/da/anaconda3/bin"
 export EDITOR='vim'
 
 # plugins

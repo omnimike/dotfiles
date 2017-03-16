@@ -61,8 +61,10 @@ endif
 " Syntastic configuration for jshint and jscs
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_id_checkers = 0
-autocmd FileType javascript let b:syntastic_checkers =
-    \ findfile('.jscsrc', '.;') != '' ? ['jscs', 'jshint'] : ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+"autocmd FileType javascript let b:syntastic_checkers =
+"    \ findfile('.jscsrc', '.;') != '' ? ['jscs', 'jshint'] : ['jshint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
@@ -189,6 +191,8 @@ Project 'conf', 'conf'
 Project 'work/test-pages', 'test-pages'
 Project 'work/snippets', 'snippets'
 Project 'vg/scripts', 'vgscripts'
+call project#rc('~/endev')
+Project 'layouts'
 call project#rc('~/vg/code')
 Project 'api/questioneditor', 'editor'
 Project 'api/questionsV2', 'questions'
