@@ -14,11 +14,18 @@
 	"font_size": 10,
 	"ignored_packages":
 	[
-		"Alignment",
-		"Chain of Command",
-		"Darkula Color Scheme",
-		"DashDoc",
-		"DocBlockr"
+		"DocBlockr",
+		"DustBuster",
+		"Fix Mac Path",
+		"Flow",
+		"Git",
+		"Javascript Beautify",
+		"Solarized Toggle",
+		"SublimeLinter-contrib-sass-lint",
+		"SublimeLinter-flow",
+		"SublimeLinter-jscs",
+		"SublimeLinter-jshint",
+		"SublimeLinter-php"
 	],
 	"rulers":
 	[
