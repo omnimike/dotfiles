@@ -27,6 +27,7 @@ antigen bundle osx
 antigen bundle sublime
 antigen bundle vagrant
 antigen bundle command-not-found
+antigen bundle python
 
 #other plugins
 antigen bundle zsh-users/zsh-syntax-highlighting
