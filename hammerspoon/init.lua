@@ -3,7 +3,7 @@ local meh = {'cmd', 'alt', 'ctrl'}
 
 local appHotkeys = {
     { 'u', 'Google Chrome' },
-    { 'i', 'Atom' },
+    { 'i', 'Atom Beta' },
     --{ 'i', 'MacVim' },
     { 'o', 'iTerm' },
     { 'y', 'Slack' },
