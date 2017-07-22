@@ -14,7 +14,11 @@ alias vimrc="vim ~/.vimrc"
 
 # variables
 export FZF_DEFAULT_COMMAND='ag -g ""'
-export PATH="$HOME/bin:$(yarn global bin):$HOME/uni/da/anaconda3/bin:/Library/TeX/texbin:$PATH"
+local YARN_PATH="$(yarn global bin)"
+local ANACONDA_PATH="$HOME/uni/da/anaconda3/bin"
+local TEX_PATH="/Library/TeX/texbin"
+local GO_PATH="/usr/local/opt/go/libexec/bin"
+export PATH="$HOME/bin:$YARN_PATH:$GO_PATH:$ANACONDA_PATH:$TEX_PATH:$PATH"
 export GOPATH="$HOME/go"
 export EDITOR='vim'
 
