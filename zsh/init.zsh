@@ -6,6 +6,7 @@ alias g='git'
 alias vg='vagrant'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) -f'
+alias venv='source venv/bin/activate'
 
 alias zshrc="vim ~/.zshrc"
 alias zshreload="source ~/.zshrc"
@@ -14,6 +15,7 @@ alias vimrc="vim ~/.vimrc"
 # variables
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export PATH="$HOME/bin:$(yarn global bin):$HOME/uni/da/anaconda3/bin:$PATH"
+export GOPATH="$HOME/go"
 export EDITOR='vim'
 
 # plugins
