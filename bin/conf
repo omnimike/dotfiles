@@ -9,6 +9,7 @@ Usage:
     status              Show changes to conf
     install             Install everything
     install-subl        Install sublime text config
+    install-atom        Install atom config
     install-hammerspoon Install .hammerspoon/init.lua
     install-karabiner   Install .karabiner.d/configuration/karabiner.json
     install-vim         Install the ~/.vimrc file and vim-plug
@@ -52,6 +53,7 @@ status()
 install_all()
 {
     install_sublime
+    install_atom
     install_hammerspoon
     install_karabiner
     install_vim
@@ -63,6 +65,11 @@ install_all()
 install_sublime()
 {
     ln -svf $CONF_DIR/subl/* $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+}
+
+install_atom()
+{
+    ln -svf $CONF_DIR/atom/styles.less $HOME/.atom/styles.less
 }
 
 install_vim()
@@ -119,6 +126,8 @@ case $1 in
     install) install_all
         ;;
     install-subl) install_sublime
+        ;;
+    install-atom) install_atom
         ;;
     install-hammerspoon) install_hammerspoon
         ;;
