@@ -43,7 +43,7 @@ antigen bundle supercrabtree/k
 antigen apply
 
 # theme
-antigen theme pure
+antigen theme refined
 
 # vim keybindings
 bindkey -v
