@@ -10,6 +10,7 @@ Usage:
     install             Install everything
     install-subl        Install sublime text config
     install-atom        Install atom config
+    install-emacs       Install emacs config
     install-hammerspoon Install .hammerspoon/init.lua
     install-karabiner   Install .karabiner.d/configuration/karabiner.json
     install-vim         Install the ~/.vimrc file and vim-plug
@@ -54,6 +55,7 @@ install_all()
 {
     install_sublime
     install_atom
+    install_emacs
     install_hammerspoon
     install_karabiner
     install_vim
@@ -70,6 +72,11 @@ install_sublime()
 install_atom()
 {
     ln -svf $CONF_DIR/atom/styles.less $HOME/.atom/styles.less
+}
+
+install_emacs()
+{
+    ln -svf $CONF_DIR/emacs/init.el $HOME/.emacs.d/init.el
 }
 
 install_vim()
@@ -128,6 +135,8 @@ case $1 in
     install-subl) install_sublime
         ;;
     install-atom) install_atom
+	;;
+    install-emacs) install_emacs
         ;;
     install-hammerspoon) install_hammerspoon
         ;;
