@@ -58,8 +58,10 @@ CMD the procedure to execute"
 (my-hyper-key "v" 'clipboard-yank)
 (my-hyper-key "c" 'clipboard-kill-ring-save)
 (my-hyper-key "x" 'clipboard-kill-region)
+(my-hyper-key "z" 'undo-tree-undo)
 (my-hyper-key "q" 'save-buffers-kill-emacs)
 (my-hyper-key "w" 'kill-this-buffer)
+(my-hyper-key "a" 'mark-whole-buffer)
 (my-hyper-key "," 'edit-init)
 (my-hyper-key "u" 'universal-argument)
 
@@ -67,10 +69,14 @@ CMD the procedure to execute"
 (define-key my-space-map (kbd "p") 'helm-projectile-switch-project)
 (define-key my-space-map (kbd "o") 'helm-projectile-find-file)
 (define-key my-space-map (kbd "i") 'helm-buffers-list)
-(define-key my-space-map (kbd "f") 'helm-projectile-ag)
+(define-key my-space-map (kbd "/") 'helm-projectile-ag)
 (define-key my-space-map (kbd "TAB") 'other-window)
+(define-key my-space-map (kbd "\\") 'evil-window-vsplit)
 (define-key my-space-map (kbd ";") 'helm-M-x)
+(define-key my-space-map (kbd "'") 'shell-command)
 
+(define-key key-translation-map (kbd "<SPC> k") (kbd "C-c"))
+(define-key key-translation-map (kbd "<SPC> l") (kbd "C-x"))
 (define-key evil-normal-state-map (kbd "<SPC>") my-space-map)
 
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
@@ -135,8 +141,7 @@ CMD the procedure to execute"
   :init
   (setq-default
    dashboard-items
-   '(
-     (recents . 20)
+   '((recents . 20)
      (bookmarks . 5)
      (projects . 15)
      ))
