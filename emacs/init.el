@@ -69,14 +69,16 @@ CMD the procedure to execute"
 (define-key my-space-map (kbd "p") 'helm-projectile-switch-project)
 (define-key my-space-map (kbd "o") 'helm-projectile-find-file)
 (define-key my-space-map (kbd "i") 'helm-buffers-list)
-(define-key my-space-map (kbd "/") 'helm-projectile-ag)
 (define-key my-space-map (kbd "TAB") 'other-window)
-(define-key my-space-map (kbd "\\") 'evil-window-vsplit)
 (define-key my-space-map (kbd ";") 'helm-M-x)
 (define-key my-space-map (kbd "'") 'shell-command)
+(define-key my-space-map (kbd "l") 'avy-goto-line)
+(define-key my-space-map (kbd "f") 'helm-projectile-ag)
 
-(define-key key-translation-map (kbd "<SPC> k") (kbd "C-c"))
-(define-key key-translation-map (kbd "<SPC> l") (kbd "C-x"))
+(define-key key-translation-map (kbd "<SPC> k") (kbd "C-x"))
+(define-key key-translation-map (kbd "<SPC> j") (kbd "C-c"))
+(define-key key-translation-map (kbd "<SPC> d") (kbd "C-w"))
+(define-key key-translation-map (kbd "<SPC> h") (kbd "C-h"))
 (define-key evil-normal-state-map (kbd "<SPC>") my-space-map)
 
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
@@ -106,7 +108,7 @@ CMD the procedure to execute"
     ("08b8807d23c290c840bbb14614a83878529359eaba1805618b3be7d61b0b0a32" default)))
  '(package-selected-packages
    (quote
-    (php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
+    (avy php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
