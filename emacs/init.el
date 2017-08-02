@@ -5,6 +5,8 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 (use-package evil
   :config
   (setq evil-want-C-u-scroll t)
@@ -32,6 +34,11 @@
       (select-window (active-minibuffer-window))
     (error "Minibuffer is not active")))
 
+(defun save-all ()
+  "Save all buffers."
+  (interactive)
+  (save-some-buffers t))
+
 ;; keybindings
 
 (global-set-key (kbd "C-c o") 'switch-to-minibuffer)
@@ -57,11 +64,12 @@ CMD the procedure to execute"
 (my-hyper-key "u" 'universal-argument)
 
 (define-key my-space-map (kbd "r") 'ranger)
-(define-key my-space-map (kbd "t") 'helm-projectile-find-file)
 (define-key my-space-map (kbd "p") 'helm-projectile-switch-project)
-(define-key my-space-map (kbd "b") 'helm-buffers-list)
+(define-key my-space-map (kbd "o") 'helm-projectile-find-file)
+(define-key my-space-map (kbd "i") 'helm-buffers-list)
 (define-key my-space-map (kbd "f") 'helm-projectile-ag)
-(define-key my-space-map (kbd "<SPC>") 'helm-M-x)
+(define-key my-space-map (kbd "TAB") 'other-window)
+(define-key my-space-map (kbd ";") 'helm-M-x)
 
 (define-key evil-normal-state-map (kbd "<SPC>") my-space-map)
 
@@ -72,6 +80,12 @@ CMD the procedure to execute"
 ;(menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (global-linum-mode t)
+
+;; variables
+(setq vc-follow-symlinks t)
+(global-auto-revert-mode t)
+(setq-default indent-tabs-mode nil)
+;(setq-default show-trailing-whitespace t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -86,7 +100,7 @@ CMD the procedure to execute"
     ("08b8807d23c290c840bbb14614a83878529359eaba1805618b3be7d61b0b0a32" default)))
  '(package-selected-packages
    (quote
-    (exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
+    (php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -94,9 +108,14 @@ CMD the procedure to execute"
  ;; If there is more than one, they won't work right.
  )
 
+;; hooks
+(add-hook 'focus-out-hook 'save-all)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
+;; package-config
 (setq
  backup-by-copying t      ; don't clobber symlinks
  backup-directory-alist
@@ -107,7 +126,6 @@ CMD the procedure to execute"
  version-control t)       ; use versioned backups
 
 (which-key-mode)
-(helm-projectile-on)
 
 (use-package ranger
   :config
@@ -115,20 +133,34 @@ CMD the procedure to execute"
 
 (use-package dashboard
   :init
-  (defvar dashboard-items '((projects . 10)
-			  (bookmarks . 5)
-			  (recents  . 5)
-			  ))
+  (setq-default
+   dashboard-items
+   '(
+     (recents . 20)
+     (bookmarks . 5)
+     (projects . 15)
+     ))
+  (setq-default dashboard-startup-banner nil)
   (dashboard-setup-startup-hook))
 
 (use-package flycheck
   :ensure t
   :init
-  (global-flycheck-mode t))
+  (global-flycheck-mode t)
+  (setq-default flycheck-disabled-checkers '(javascript-jscs javascript-jshint)))
+
+
+(use-package helm-projectile
+  :init
+  (setq-default projectile-enable-caching t)
+  (setq-default helm-mode-fuzzy-match t)
+  (setq-default helm-completion-in-region-fuzzy-match t)
+  (helm-projectile-on))
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;(setq-default message-log-max nil)
 ;(when (get-buffer "*Messages*")
 ;  (kill-buffer "*Messages*")
 ;  )
 ;;; init.el ends here
-
