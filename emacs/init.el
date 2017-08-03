@@ -8,8 +8,6 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (use-package evil
-  :init
-  (defvar evil-want-C-u-scroll t)
   :config
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
@@ -39,6 +37,12 @@
   "Save all buffers."
   (interactive)
   (save-some-buffers t))
+
+(defun my-recenter ()
+  "Recenter my way."
+  (interactive)
+  (recenter (/ (window-body-height) 4))
+  )
 
 ;; keybindings
 
@@ -77,8 +81,6 @@ OLD-KEY the key to replace"
 (my-hyper-key "w" 'kill-this-buffer)
 (my-hyper-key "a" 'mark-whole-buffer)
 (my-hyper-key "," 'edit-init)
-(my-hyper-key "u" 'universal-argument)
-
 (my-hyper-key "r" 'ranger)
 (my-hyper-key "p" 'helm-projectile-switch-project)
 (my-hyper-key "o" 'helm-projectile-find-file)
@@ -90,12 +92,13 @@ OLD-KEY the key to replace"
 (my-hyper-key "k" 'evil-scroll-up)
 (my-hyper-key "j" 'evil-scroll-down)
 (my-hyper-key "g" 'magit-status)
+(my-hyper-key "y" 'my-recenter)
 
 (define-key my-space-map (kbd "TAB") 'other-window)
 
 (my-remap-key "m" (kbd "C-x"))
 (my-remap-key "n" (kbd "C-c"))
-(my-remap-key "d" (kbd "C-w"))
+(my-remap-key "e" (kbd "C-w"))
 (my-remap-key "h" (kbd "C-h"))
 (define-key evil-normal-state-map (kbd "<SPC>") my-space-map)
 
