@@ -7,6 +7,8 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(add-to-list 'load-path "~/conf/emacs")
+
 (use-package evil
   :config
   (evil-mode 1)
@@ -193,6 +195,7 @@ OLD-KEY the key to replace"
 
 (use-package evil-magit)
 
+(require 'fringe-helper)
 (global-git-gutter-mode)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
