@@ -130,7 +130,7 @@ OLD-KEY the key to replace"
     ("08b8807d23c290c840bbb14614a83878529359eaba1805618b3be7d61b0b0a32" default)))
  '(package-selected-packages
    (quote
-    (git-gutter-fringe evil-magit powerline avy php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
+    (evil-magit powerline avy php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -192,6 +192,8 @@ OLD-KEY the key to replace"
   (helm-projectile-on))
 
 (use-package evil-magit)
+
+(global-git-gutter-mode)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
