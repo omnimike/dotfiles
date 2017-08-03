@@ -11,13 +11,6 @@ alias zshrc="vim ~/.zshrc"
 alias zshreload="source ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 
-#other plugins
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle jocelynmallon/zshmarks
-antigen bundle supercrabtree/k
-
-antigen apply
-
 # theme
 antigen theme refined
 

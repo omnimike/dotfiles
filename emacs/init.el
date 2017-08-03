@@ -92,14 +92,14 @@ OLD-KEY the key to replace"
 (my-hyper-key "k" 'evil-scroll-up)
 (my-hyper-key "j" 'evil-scroll-down)
 (my-hyper-key "g" 'magit-status)
-(my-hyper-key "y" 'my-recenter)
+(my-hyper-key "h" 'my-recenter)
 
 (define-key my-space-map (kbd "TAB") 'other-window)
 
 (my-remap-key "m" (kbd "C-x"))
 (my-remap-key "n" (kbd "C-c"))
 (my-remap-key "e" (kbd "C-w"))
-(my-remap-key "h" (kbd "C-h"))
+(my-remap-key "y" (kbd "C-h"))
 (define-key evil-normal-state-map (kbd "<SPC>") my-space-map)
 
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
