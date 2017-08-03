@@ -20,15 +20,10 @@ antigen use oh-my-zsh
 
 # oh-my-zsh plugins
 antigen bundle git
-#antigen bundle osx
-#antigen bundle sublime
-#antigen bundle vagrant
-#antigen bundle command-not-found
-#antigen bundle python
+antigen bundle vagrant
 
 #other plugins
-#antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle jocelynmallon/zshmarks
-#antigen bundle supercrabtree/k
 
 antigen apply
