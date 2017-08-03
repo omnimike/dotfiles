@@ -89,6 +89,7 @@ OLD-KEY the key to replace"
 (my-hyper-key "f" 'helm-projectile-ag)
 (my-hyper-key "k" 'evil-scroll-up)
 (my-hyper-key "j" 'evil-scroll-down)
+(my-hyper-key "g" 'magit-status)
 
 (define-key my-space-map (kbd "TAB") 'other-window)
 
@@ -105,6 +106,7 @@ OLD-KEY the key to replace"
 ;(menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (global-linum-mode t)
+(set-face-attribute 'default nil :height 100)
 
 ;; variables
 (setq vc-follow-symlinks t)
@@ -125,7 +127,7 @@ OLD-KEY the key to replace"
     ("08b8807d23c290c840bbb14614a83878529359eaba1805618b3be7d61b0b0a32" default)))
  '(package-selected-packages
    (quote
-    (powerline avy php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
+    (evil-magit powerline avy php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -171,15 +173,22 @@ OLD-KEY the key to replace"
   :ensure t
   :config
   (global-flycheck-mode t)
-  (setq-default flycheck-disabled-checkers '(javascript-jscs javascript-jshint)))
+  (setq-default
+   flycheck-disabled-checkers
+   '(javascript-jscs
+     javascript-jshint
+     html-tidy
+     )))
 
 
 (use-package helm-projectile
   :config
-  (setq-default projectile-enable-caching nil)
+  (setq-default projectile-enable-caching t)
   (setq-default helm-mode-fuzzy-match t)
   (setq-default helm-completion-in-region-fuzzy-match t)
   (helm-projectile-on))
+
+(use-package evil-magit)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
