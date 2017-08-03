@@ -82,8 +82,8 @@ OLD-KEY the key to replace"
 (my-hyper-key "a" 'mark-whole-buffer)
 (my-hyper-key "," 'edit-init)
 (my-hyper-key "r" 'ranger)
-(my-hyper-key "p" 'helm-projectile-switch-project)
-(my-hyper-key "o" 'helm-projectile-find-file)
+(my-hyper-key "o" 'helm-projectile-switch-project)
+(my-hyper-key "p" 'helm-projectile-find-file)
 (my-hyper-key "i" 'helm-buffers-list)
 (my-hyper-key ";" 'helm-M-x)
 (my-hyper-key "'" 'shell-command)
@@ -92,14 +92,14 @@ OLD-KEY the key to replace"
 (my-hyper-key "k" 'evil-scroll-up)
 (my-hyper-key "j" 'evil-scroll-down)
 (my-hyper-key "g" 'magit-status)
-(my-hyper-key "h" 'my-recenter)
+(my-hyper-key "y" 'my-recenter)
 
 (define-key my-space-map (kbd "TAB") 'other-window)
 
 (my-remap-key "m" (kbd "C-x"))
 (my-remap-key "n" (kbd "C-c"))
 (my-remap-key "e" (kbd "C-w"))
-(my-remap-key "y" (kbd "C-h"))
+(my-remap-key "h" (kbd "C-h"))
 (define-key evil-normal-state-map (kbd "<SPC>") my-space-map)
 
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
@@ -130,7 +130,7 @@ OLD-KEY the key to replace"
     ("08b8807d23c290c840bbb14614a83878529359eaba1805618b3be7d61b0b0a32" default)))
  '(package-selected-packages
    (quote
-    (evil-magit powerline avy php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
+    (git-gutter-fringe evil-magit powerline avy php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
