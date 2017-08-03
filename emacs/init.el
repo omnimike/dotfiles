@@ -8,11 +8,12 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (use-package evil
-  :config
-  (setq evil-want-C-u-scroll t)
   :init
+  (defvar evil-want-C-u-scroll t)
+  :config
   (evil-mode 1)
-  (fset 'evil-visual-update-x-selection 'ignore))
+  (fset 'evil-visual-update-x-selection 'ignore)
+  )
 
 ;; mac-specific
 (when (eq system-type 'darwin)
@@ -46,13 +47,26 @@
 (defvar my-space-map (make-sparse-keymap)
   "Keymap for \"space leader\" shortcuts.")
 
+(defvar my-return-map (make-sparse-keymap)
+  "Keymap for \"return leader\" shortcuts.")
+
 (defun my-hyper-key (key cmd)
   "Add a key binding to both the hyper key and the space leader.
 
 KEY the key to bind as a string
 CMD the procedure to execute"
   (global-set-key (kbd (concat "H-" key)) cmd)
-  (define-key my-space-map (kbd key) cmd))
+  (define-key my-space-map (kbd key) cmd)
+  )
+
+(defun my-remap-key (new-key old-key)
+  "Remap a prefix key.
+
+NEW-KEY the key to bind it to
+OLD-KEY the key to replace"
+  (define-key key-translation-map (kbd (concat "H-" new-key)) old-key)
+  (define-key key-translation-map (kbd (concat "<SPC> " new-key)) old-key)
+  )
 
 (my-hyper-key "s" 'save-buffer)
 (my-hyper-key "v" 'clipboard-yank)
@@ -65,20 +79,23 @@ CMD the procedure to execute"
 (my-hyper-key "," 'edit-init)
 (my-hyper-key "u" 'universal-argument)
 
-(define-key my-space-map (kbd "r") 'ranger)
-(define-key my-space-map (kbd "p") 'helm-projectile-switch-project)
-(define-key my-space-map (kbd "o") 'helm-projectile-find-file)
-(define-key my-space-map (kbd "i") 'helm-buffers-list)
-(define-key my-space-map (kbd "TAB") 'other-window)
-(define-key my-space-map (kbd ";") 'helm-M-x)
-(define-key my-space-map (kbd "'") 'shell-command)
-(define-key my-space-map (kbd "l") 'avy-goto-line)
-(define-key my-space-map (kbd "f") 'helm-projectile-ag)
+(my-hyper-key "r" 'ranger)
+(my-hyper-key "p" 'helm-projectile-switch-project)
+(my-hyper-key "o" 'helm-projectile-find-file)
+(my-hyper-key "i" 'helm-buffers-list)
+(my-hyper-key ";" 'helm-M-x)
+(my-hyper-key "'" 'shell-command)
+(my-hyper-key "l" 'avy-goto-line)
+(my-hyper-key "f" 'helm-projectile-ag)
+(my-hyper-key "k" 'evil-scroll-up)
+(my-hyper-key "j" 'evil-scroll-down)
 
-(define-key key-translation-map (kbd "<SPC> k") (kbd "C-x"))
-(define-key key-translation-map (kbd "<SPC> j") (kbd "C-c"))
-(define-key key-translation-map (kbd "<SPC> d") (kbd "C-w"))
-(define-key key-translation-map (kbd "<SPC> h") (kbd "C-h"))
+(define-key my-space-map (kbd "TAB") 'other-window)
+
+(my-remap-key "m" (kbd "C-x"))
+(my-remap-key "n" (kbd "C-c"))
+(my-remap-key "d" (kbd "C-w"))
+(my-remap-key "h" (kbd "C-h"))
 (define-key evil-normal-state-map (kbd "<SPC>") my-space-map)
 
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
@@ -108,7 +125,7 @@ CMD the procedure to execute"
     ("08b8807d23c290c840bbb14614a83878529359eaba1805618b3be7d61b0b0a32" default)))
  '(package-selected-packages
    (quote
-    (avy php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
+    (powerline avy php-mode js2-mode lua-mode json-mode exec-path-from-shell use-package flycheck helm-ag-r helm-ag atom-one-dark-theme magit helm-projectile helm which-key ranger projectile evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -140,26 +157,26 @@ CMD the procedure to execute"
   (setq ranger-override-dired 'ranger))
 
 (use-package dashboard
-  :init
-  (setq-default
+  :config
+  (setq
    dashboard-items
    '((recents . 20)
      (bookmarks . 5)
      (projects . 15)
      ))
-  (setq-default dashboard-startup-banner nil)
+  (setq dashboard-startup-banner nil)
   (dashboard-setup-startup-hook))
 
 (use-package flycheck
   :ensure t
-  :init
+  :config
   (global-flycheck-mode t)
   (setq-default flycheck-disabled-checkers '(javascript-jscs javascript-jshint)))
 
 
 (use-package helm-projectile
-  :init
-  (setq-default projectile-enable-caching t)
+  :config
+  (setq-default projectile-enable-caching nil)
   (setq-default helm-mode-fuzzy-match t)
   (setq-default helm-completion-in-region-fuzzy-match t)
   (helm-projectile-on))
