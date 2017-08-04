@@ -33,3 +33,6 @@
 
 'atom-text-editor':
     'z z': 'omnimike:recenter'
+
+'atom-workspace':
+    'cmd-;': 'platformio-ide-terminal:toggle'

@@ -11,6 +11,9 @@
       "linter-scss-lint"
     ]
     openEmptyEditorOnStart: false
+    packagesWithKeymapsDisabled: [
+      "platformio-ide-terminal"
+    ]
     projectHome: "/Users/michael/endev"
     telemetryConsent: "no"
     titleBar: "custom"
@@ -68,6 +71,7 @@
       theme: "one-dark"
     toggles:
       autoClose: true
+      selectToCopy: false
   "tree-view": {}
   "vim-mode-plus":
     incrementalSearch: true
