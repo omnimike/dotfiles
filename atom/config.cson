@@ -1,0 +1,81 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "b2ff02ea-28ae-4dbf-a843-dd9c2c1665fc"
+  "autocomplete-python":
+    useKite: false
+  autosave:
+    enabled: true
+  core:
+    disabledPackages: [
+      "linter-scss-lint"
+    ]
+    openEmptyEditorOnStart: false
+    projectHome: "/Users/michael/endev"
+    telemetryConsent: "no"
+    titleBar: "custom"
+  editor:
+    fontSize: 10
+    preferredLineLength: 100
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
+  "editor-background":
+    image:
+      backgroundSize: "cover"
+      overlayColor: "#000000"
+      url: "/Users/michael/conf/zsh/solarized_darcula.jpg"
+  "exception-reporting":
+    userId: "653a20cb-ecdd-59eb-ae19-6683c9426fd9"
+  "flow-ide":
+    executablePath: "flow"
+  linter: {}
+  "linter-checkstyle":
+    checkConfiguration: "/Users/michael/uni/algos-course/checkstyle-coursera.xml"
+  "linter-javac":
+    classpathFilename: ".classpath-atom"
+  "linter-jscs":
+    onlyConfig: true
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
+  "linter-scss-lint":
+    disableWhenNoConfigFileInPath: true
+  "linter-ui-default":
+    panelHeight: 69
+  "platformio-ide-terminal":
+    ansiColors:
+      normal:
+        black: "#161a1f"
+        blue: "#01a8c6"
+        cyan: "#60a365"
+        green: "#95cc5e"
+        magenta: "#db784d"
+        red: "#d55843"
+        white: "#ebd0b8"
+        yellow: "#f8bb3b"
+      zBright:
+        brightBlack: "#7a7267"
+        brightBlue: "#6de0ff"
+        brightCyan: "#93ef9a"
+        brightGreen: "#a6e245"
+        brightMagenta: "#ffa47c"
+        brightRed: "#ff7c6c"
+        brightWhite: "#f8f8f0"
+        brightYellow: "#e6db74"
+    style:
+      theme: "one-dark"
+    toggles:
+      autoClose: true
+  "tree-view": {}
+  "vim-mode-plus":
+    incrementalSearch: true
+    smoothScrollOnFullScrollMotion: true
+    smoothScrollOnFullScrollMotionDuration: 100
+    smoothScrollOnHalfScrollMotion: true
+    smoothScrollOnHalfScrollMotionDuration: 100
+    useClipboardAsDefaultRegister: false
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false
+  whitespace: {}
