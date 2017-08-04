@@ -67,6 +67,7 @@
         brightWhite: "#f8f8f0"
         brightYellow: "#e6db74"
     style:
+      defaultPanelHeight: "90%"
       fontFamily: "Source Code Pro for Powerline"
       theme: "one-dark"
     toggles:
