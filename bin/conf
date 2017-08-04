@@ -74,7 +74,7 @@ install_atom()
     ln -svf $CONF_DIR/atom/styles.less $HOME/.atom/styles.less
     ln -svf $CONF_DIR/atom/init.coffee $HOME/.atom/init.coffee
     ln -svf $CONF_DIR/atom/keymap.cson $HOME/.atom/keymap.cson
-    ln -svf $CONF_DIR/atom/config.cson $HOME/.atom/condig.cson
+    ln -svf $CONF_DIR/atom/config.cson $HOME/.atom/config.cson
 }
 
 install_emacs()
