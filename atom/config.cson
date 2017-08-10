@@ -46,6 +46,7 @@
     disableWhenNoConfigFileInPath: true
   "linter-ui-default":
     panelHeight: 69
+    showPanel: true
   "platformio-ide-terminal":
     ansiColors:
       normal:
