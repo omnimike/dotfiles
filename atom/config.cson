@@ -1,15 +1,22 @@
 "*":
-  "atom-beautify":
-    general:
-      _analyticsUserId: "b2ff02ea-28ae-4dbf-a843-dd9c2c1665fc"
-  "autocomplete-python":
-    useKite: false
+  "atom-package-deps":
+    ignored: []
   autosave:
     enabled: true
   core:
-    disabledPackages: [
-      "linter-scss-lint"
-    ]
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: []
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
       "platformio-ide-terminal"
@@ -24,29 +31,23 @@
     showIndentGuide: true
     showInvisibles: true
     tabLength: 4
-  "editor-background":
-    image:
-      backgroundSize: "cover"
-      overlayColor: "#000000"
-      url: "/Users/michael/conf/zsh/solarized_darcula.jpg"
   "exception-reporting":
     userId: "653a20cb-ecdd-59eb-ae19-6683c9426fd9"
-  "flow-ide":
-    executablePath: "flow"
   linter: {}
-  "linter-checkstyle":
-    checkConfiguration: "/Users/michael/uni/algos-course/checkstyle-coursera.xml"
-  "linter-javac":
-    classpathFilename: ".classpath-atom"
-  "linter-jscs":
-    onlyConfig: true
-  "linter-jshint":
-    disableWhenNoJshintrcFileInPath: true
-  "linter-scss-lint":
-    disableWhenNoConfigFileInPath: true
-  "linter-ui-default":
-    panelHeight: 69
-    showPanel: true
+  nuclide:
+    installRecommendedPackages: true
+    "nuclide-home":
+      showHome: false
+    "nuclide-working-sets":
+      workingSets: [
+        {
+          name: "author"
+          active: false
+          uris: [
+            "/Users/michael/salt-developer/code/api/author"
+          ]
+        }
+      ]
   "platformio-ide-terminal":
     ansiColors:
       normal:
