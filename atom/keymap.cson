@@ -31,8 +31,8 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
-'atom-text-editor':
+'atom-text-editor.normal-mode':
     'z z': 'omnimike:recenter'
 
-'atom-workspace':
+'atom-workspace.normal-mode':
     'cmd-;': 'platformio-ide-terminal:toggle'

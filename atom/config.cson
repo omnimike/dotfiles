@@ -1,9 +1,16 @@
 "*":
+  "activate-power-mode":
+    plugins:
+      playAudio: true
+      screenShake: true
   "atom-package-deps":
-    ignored: []
+    ignored: [
+      "linter-jsonlint"
+    ]
   autosave:
     enabled: true
   core:
+    closeDeletedFileTabs: true
     customFileTypes:
       "source.ini": [
         ".buckconfig"
@@ -16,7 +23,6 @@
       "source.python": [
         "BUCK"
       ]
-    disabledPackages: []
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
       "platformio-ide-terminal"
@@ -34,8 +40,20 @@
   "exception-reporting":
     userId: "653a20cb-ecdd-59eb-ae19-6683c9426fd9"
   linter: {}
+  minimap:
+    plugins:
+      linter: true
+      linterDecorationsZIndex: 0
   nuclide:
+    "atom-ide-outline-view": {}
     installRecommendedPackages: true
+    "nuclide-debugger-php":
+      idekeyRegex: "xdebug-atom"
+      phpRuntimePath: "/usr/bin/php"
+    "nuclide-distraction-free-mode":
+      hideToolBar: true
+    "nuclide-file-tree":
+      hideIgnoredNames: false
     "nuclide-home":
       showHome: false
     "nuclide-working-sets":
@@ -48,6 +66,17 @@
           ]
         }
       ]
+  "php-debug":
+    AutoExpandLocals: true
+    PathMaps: [
+      "/srv;/Users/michael/salt-developer/code"
+    ]
+    PhpException: {}
+    ServerAddress: "192.168.33.1"
+    currentConsoleHeight: "488px"
+    currentPanelHeight: "938px"
+    currentPanelMode: "bottom"
+    currentPanelWidth: "884px"
   "platformio-ide-terminal":
     ansiColors:
       normal:
@@ -75,6 +104,8 @@
     toggles:
       autoClose: true
       selectToCopy: false
+  "tool-bar":
+    visible: false
   "tree-view": {}
   "vim-mode-plus":
     incrementalSearch: true

@@ -3,6 +3,7 @@ local meh = {'cmd', 'alt', 'ctrl'}
 
 local appHotkeys = {
     { 'u', 'Google Chrome' },
+    { '8', 'Safari' },
     --{ 'i', 'Emacs' },
     { 'i', 'Atom' },
     --{ 'i', 'MacVim' },
@@ -27,26 +28,12 @@ for i, binding in ipairs(appHotkeys) do
     hyperBind(key, launcher)
 end
 
-hyperBind('=', function ()
+hs.hotkey.bind({}, 'F12', function ()
     hs.caffeinate.lockScreen()
 end)
 
-hyperBind('`', function ()
+hs.hotkey.bind({}, 'F13', function ()
     hs.reload()
 end)
-
-pressedF19 = function()
-  hyperMap.triggered = false
-  hyperMap:enter()
-end
-
-releasedF19 = function()
-  hyperMap:exit()
-  if not hyperMap.triggered then
-    hs.eventtap.keyStroke({}, 'ESCAPE')
-  end
-end
-
-f19 = hs.hotkey.bind({}, 'F19', pressedF19, releasedF19)
 
 hs.alert.show('conf reloaded')
