@@ -74,6 +74,9 @@
 	"ignore_vcs_packages":
 	[
 	],
+	"in_process_packages":
+	[
+	],
 	"install_missing": true,
 	"install_prereleases":
 	[

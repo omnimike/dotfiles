@@ -19,8 +19,23 @@ alias zshrc="vim ~/.zshrc"
 alias zshreload="source ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 
+# plugins
+source ~/conf/zsh/antigen.zsh
+
+antigen use oh-my-zsh
+
+# oh-my-zsh plugins
+antigen bundle git
+antigen bundle vagrant
+
+# other plugins
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle jocelynmallon/zshmarks
+
 # theme
 antigen theme refined
+
+antigen apply
 
 # vim keybindings
 bindkey -v
