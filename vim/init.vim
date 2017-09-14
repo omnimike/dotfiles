@@ -1,4 +1,5 @@
 set nocompatible
+set hidden
 
 let mapleader = " "
 set mouse=a
@@ -21,10 +22,11 @@ Plug 'amiorin/vim-project'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'blueshirts/darcula'
 Plug 'elzr/vim-json'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
+"Plug 'vim-ctrlspace/vim-ctrlspace'
+"Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'wincent/command-t'
 "Plug 'tpope/vim-obsession'
-"Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-unimpaired'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'SirVer/ultisnips'
@@ -77,11 +79,13 @@ let g:syntastic_enable_balloons = 1
 
 let g:vim_json_syntax_conceal = 0
 
-let NERDTreeMapOpenInTab = '\r'
-
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .DS_Store
       \ -g ""'
+
+if executable("ag")
+    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
 
 let g:EasyMotion_smartcase = 1
 
@@ -110,7 +114,7 @@ noremap <Leader>;t :NERDTreeFind<cr>
 noremap <Leader>s :w<cr>
 
 " open file
-noremap <Leader>p :CtrlP<cr>
+nnoremap <silent><C-p> :CtrlSpace O<CR>
 
 " home
 noremap <Leader>h :tabedit<cr>:Welcome<cr>

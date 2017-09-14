@@ -16,6 +16,7 @@ alias gpbf='git push origin $(git_current_branch) -f'
 alias venv='source venv/bin/activate'
 
 alias zshrc="vim ~/.zshrc"
+alias zshenv="vim ~/.zshenv"
 alias zshreload="source ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 

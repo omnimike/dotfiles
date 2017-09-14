@@ -40,6 +40,12 @@
   "exception-reporting":
     userId: "653a20cb-ecdd-59eb-ae19-6683c9426fd9"
   linter: {}
+  "linter-phpcs":
+    codeStandardOrConfigFile: "~/work/phpcs.xml"
+  "linter-phpmd":
+    rulesets: "unusedcode"
+  "linter-ui-default":
+    showPanel: true
   minimap:
     plugins:
       linter: true
@@ -74,9 +80,9 @@
     PhpException: {}
     ServerAddress: "192.168.33.1"
     currentConsoleHeight: "488px"
-    currentPanelHeight: "938px"
-    currentPanelMode: "bottom"
-    currentPanelWidth: "884px"
+    currentPanelHeight: "666px"
+    currentPanelMode: "side"
+    currentPanelWidth: "653px"
   "platformio-ide-terminal":
     ansiColors:
       normal:
@@ -114,6 +120,7 @@
     smoothScrollOnHalfScrollMotion: true
     smoothScrollOnHalfScrollMotionDuration: 100
     useClipboardAsDefaultRegister: false
+    useSmartcaseForFind: true
     useSmartcaseForSearch: true
   welcome:
     showOnStartup: false

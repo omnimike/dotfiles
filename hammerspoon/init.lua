@@ -6,6 +6,7 @@ local appHotkeys = {
     { '8', 'Safari' },
     --{ 'i', 'Emacs' },
     { 'i', 'Atom' },
+    { '9', 'PhpStorm' },
     --{ 'i', 'MacVim' },
     { 'o', 'iTerm' },
     { 'y', 'Slack' },
