@@ -53,7 +53,6 @@ status()
 
 install_all()
 {
-    install_sublime
     install_atom
     install_emacs
     install_hammerspoon
@@ -66,7 +65,8 @@ install_all()
 
 install_sublime()
 {
-    ln -svf $CONF_DIR/subl/* $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+    true
+    #ln -svf $CONF_DIR/subl/* $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 }
 
 install_atom()
@@ -139,7 +139,7 @@ case $1 in
     install-subl) install_sublime
         ;;
     install-atom) install_atom
-	;;
+        ;;
     install-emacs) install_emacs
         ;;
     install-hammerspoon) install_hammerspoon
