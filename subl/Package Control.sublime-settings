@@ -116,7 +116,7 @@
 	[
 	],
 	"submit_url": "https://packagecontrol.io/submit",
-	"submit_usage": true,
+	"submit_usage": false,
 	"timeout": 30,
 	"unmanaged_packages_ignore":
 	[

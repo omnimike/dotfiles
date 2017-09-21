@@ -5,7 +5,7 @@
       screenShake: true
   "atom-package-deps":
     ignored: [
-      "linter-jsonlint"
+      "linter-flow"
     ]
   autosave:
     enabled: true
