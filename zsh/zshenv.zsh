@@ -4,7 +4,8 @@ alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) -f'
 
 # variables
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 local TEX_PATH="/Library/TeX/texbin"
 local GO_PATH="/usr/local/opt/go/libexec/bin:$HOME/go/bin"
 local YARN_PATH="$HOME/.config/yarn/global/node_modules/.bin"

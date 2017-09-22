@@ -4,9 +4,10 @@ local meh = {'cmd', 'alt', 'ctrl'}
 local appHotkeys = {
     { 'u', 'Google Chrome' },
     { '8', 'Safari' },
+    { 'i', 'Sublime Text'},
     --{ 'i', 'Emacs' },
-    { 'i', 'Atom' },
-    { '9', 'PhpStorm' },
+    --{ 'i', 'Atom' },
+    --{ 'i', 'PhpStorm' },
     --{ 'i', 'MacVim' },
     { 'o', 'iTerm' },
     { 'y', 'Slack' },
