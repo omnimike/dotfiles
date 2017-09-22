@@ -55,6 +55,7 @@ install_all()
 {
     install_atom
     install_emacs
+    install_subl
     install_hammerspoon
     install_karabiner
     install_vim
@@ -80,6 +81,11 @@ install_atom()
 install_emacs()
 {
     ln -svf $CONF_DIR/emacs/init.el $HOME/.emacs.d/init.el
+}
+
+install_sublime()
+{
+    ln -svf $CONF_DIR/subl/* $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 }
 
 install_vim()
