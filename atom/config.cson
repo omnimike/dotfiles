@@ -6,6 +6,8 @@
   "atom-package-deps":
     ignored: [
       "linter-flow"
+      "linter-jsonlint"
+      "linter-golinter"
     ]
   autosave:
     enabled: true
@@ -39,11 +41,16 @@
     tabLength: 4
   "exception-reporting":
     userId: "653a20cb-ecdd-59eb-ae19-6683c9426fd9"
+  "formatter-gofmt":
+    a: {}
+  "go-plus":
+    disabledBundledPackages: [
+      "linter"
+    ]
   linter: {}
   "linter-phpcs":
     codeStandardOrConfigFile: "~/work/phpcs.xml"
-  "linter-phpmd":
-    rulesets: "unusedcode"
+  "linter-phpmd": {}
   "linter-ui-default":
     showPanel: true
   minimap:
