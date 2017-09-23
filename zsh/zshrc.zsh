@@ -20,6 +20,8 @@ alias zshenv="vim ~/.zshenv"
 alias zshreload="source ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 
+ZSH_THEME=""
+
 # plugins
 source ~/conf/zsh/antigen.zsh
 
@@ -32,9 +34,8 @@ antigen bundle vagrant
 # other plugins
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle jocelynmallon/zshmarks
-
-# theme
-antigen theme refined
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
 
 antigen apply
 

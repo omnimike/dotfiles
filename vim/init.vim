@@ -18,13 +18,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'terryma/vim-expand-region'
-Plug 'amiorin/vim-project'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'blueshirts/darcula'
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-surround'
-"Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'amiorin/vim-project'
+"Plug 'vim-ctrlspace/vim-ctrlspace'
 "Plug 'wincent/command-t'
 "Plug 'tpope/vim-obsession'
 "Plug 'tpope/vim-unimpaired'
@@ -48,17 +48,13 @@ set smartindent
 set undofile
 set foldmethod=indent
 set nofoldenable
+set wildignore+=*/.git/*,*/tmp/*,*.swp
 " Save files on focus lost
 autocmd BufLeave,FocusLost * silent! wall
 syntax enable
 set directory=$HOME/.vim/swapfiles//
 set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
-
-if has("gui_macvim")
-    colorscheme darcula
-    set guifont=Monaco:h10
-endif
 
 " Syntastic configuration for jshint and jscs
 let g:syntastic_aggregate_errors = 1
@@ -79,14 +75,6 @@ let g:syntastic_enable_balloons = 1
 
 let g:vim_json_syntax_conceal = 0
 
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .DS_Store
-      \ -g ""'
-
-if executable("ag")
-    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
-endif
-
 let g:EasyMotion_smartcase = 1
 
 " user defined functions
@@ -100,21 +88,19 @@ command! TrimWhitespace call TrimWhitespace()
 " quit
 noremap <Leader>q :q<cr>
 
-" exec
-noremap <Leader>x :!
-
 " toggles
 noremap <Leader>;p :set invpaste paste?<cr>
 noremap <Leader>;n :set invnumber number?<cr>
 noremap <Leader>;h :set hlsearch!<cr>
 noremap <Leader>;s :syntax enable<cr>
-noremap <Leader>;t :NERDTreeFind<cr>
+
+noremap <Leader>t :NERDTreeFind<cr>
 
 " save
 noremap <Leader>s :w<cr>
 
 " open file
-nnoremap <silent><C-p> :CtrlSpace O<CR>
+nnoremap <Leader>p :FZF<CR>
 
 " home
 noremap <Leader>h :tabedit<cr>:Welcome<cr>
@@ -126,15 +112,8 @@ noremap <Leader>r :source '~/.session.vim'<cr>
 noremap <Leader>b :e#<cr>
 
 " easymotion
-map <Leader>y <Plug>(easymotion-prefix)
-map <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-map <Leader>yf <Plug>(easymotion-bd-f2)
-nmap <Leader>yf <Plug>(easymotion-overwin-f2)
 map <Leader>l <Plug>(easymotion-bd-jk)
 nmap <Leader>l <Plug>(easymotion-overwin-line)
-map <Leader>yw <Plug>(easymotion-bd-w)
-nmap <Leader>yw <Plug>(easymotion-overwin-w)
 
 " expand region
 vmap v <Plug>(expand_region_expand)
@@ -146,17 +125,8 @@ noremap <Leader>cs :SyntasticCheck<cr>
 " NERDCommenter commands
 
 " vimrc
-noremap <Leader>,r :source $MYVIMRC<cr>
-noremap <Leader>,, :tabedit $MYVIMRC<cr>
-noremap <Leader>,s :! conf save<cr>
-
-" vim plug
-noremap <Leader>,pi :PlugInstall<cr>
-noremap <Leader>,pu :PlugUpdate<cr>
-noremap <Leader>,pc :PlugClean<cr>
-
-" git
-noremap <Leader>g :! git 
+noremap <Leader>;, :source $MYVIMRC<cr>
+noremap <Leader>, :tabedit $MYVIMRC<cr>
 
 " close window
 noremap <Leader>w <C-w>c
@@ -167,16 +137,6 @@ noremap <Leader><Tab> <C-w>w
 
 
 " changing tabs
-noremap <silent> <D-1> :tabn 1<cr>
-noremap <silent> <D-2> :tabn 2<cr>
-noremap <silent> <D-3> :tabn 3<cr>
-noremap <silent> <D-4> :tabn 4<cr>
-noremap <silent> <D-5> :tabn 5<cr>
-noremap <silent> <D-6> :tabn 6<cr>
-noremap <silent> <D-7> :tabn 7<cr>
-noremap <silent> <D-8> :tabn 8<cr>
-noremap <silent> <D-9> :tabn 9<cr>
-
 noremap <silent> <Leader>1 :tabn 1<cr>
 noremap <silent> <Leader>2 :tabn 2<cr>
 noremap <silent> <Leader>3 :tabn 3<cr>
@@ -189,23 +149,23 @@ noremap <silent> <Leader>9 :tabn 9<cr>
 
 " projects
 
-let g:project_use_nerdtree = 0
-call project#rc()
-Project 'conf', 'conf'
-Project 'work/test-pages', 'test-pages'
-Project 'work/snippets', 'snippets'
-Project 'vg/scripts', 'vgscripts'
-call project#rc('~/endev')
-Project 'layouts'
-call project#rc('~/vg/code')
-Project 'api/questioneditor', 'editor'
-Project 'api/questionsV2', 'questions'
-Project 'api/schemas', 'schemas'
-Project 'api/author', 'author'
-Project 'site/docs', 'docs'
-Project 'lib/spokenmath', 'spokenmath'
-Project 'lib/mathcore', 'mathcore'
-Project 'lib/mathquill', 'mathquill'
-Project 'lib/scoring', 'scoring'
-Project 'lib/qev3-content-analysis', 'qev3-content-analysis'
+"let g:project_use_nerdtree = 0
+"call project#rc()
+"Project 'conf', 'conf'
+"Project 'work/test-pages', 'test-pages'
+"Project 'work/snippets', 'snippets'
+"Project 'vg/scripts', 'vgscripts'
+"call project#rc('~/endev')
+"Project 'layouts'
+"call project#rc('~/vg/code')
+"Project 'api/questioneditor', 'editor'
+"Project 'api/questionsV2', 'questions'
+"Project 'api/schemas', 'schemas'
+"Project 'api/author', 'author'
+"Project 'site/docs', 'docs'
+"Project 'lib/spokenmath', 'spokenmath'
+"Project 'lib/mathcore', 'mathcore'
+"Project 'lib/mathquill', 'mathquill'
+"Project 'lib/scoring', 'scoring'
+"Project 'lib/qev3-content-analysis', 'qev3-content-analysis'
 
