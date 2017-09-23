@@ -39,22 +39,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/Users/michael/endev/maze/Makefile",
-			"settings":
-			{
-				"buffer_size": 302,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/michael/.hammerspoon/init.lua",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -216,6 +200,8 @@
 	],
 	"file_history":
 	[
+		"/Users/michael/.hammerspoon/init.lua",
+		"/Users/michael/endev/maze/Makefile",
 		"//installer.failurerequests",
 		"/Users/michael/conf/bin/conf",
 		"/Users/michael/conf/zsh/init.zsh",
@@ -341,13 +327,11 @@
 		"/Users/michael/salt-developer/code/api/questioneditor/www/latest/app/views/elements/custom/ariaLabel.js",
 		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/statement.sublime-snippet",
 		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/key-value.sublime-snippet",
-		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/if.sublime-snippet",
-		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/debugger.sublime-snippet",
-		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/function-anon.js"
+		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/if.sublime-snippet"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -518,71 +502,14 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/Users/michael/endev/maze/Makefile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 302,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								28,
-								28
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/michael/.hammerspoon/init.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 21.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -619,7 +546,7 @@
 	"project": "conf.sublime-project",
 	"replace":
 	{
-		"height": 40.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
