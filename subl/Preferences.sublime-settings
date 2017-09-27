@@ -1,21 +1,7 @@
 {
-	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
-	"ignored_packages":
-	[
-	],
-	"save_on_focue_lost": true,
-	"scroll_past_end": true,
-	"theme": "Adaptive.sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-	"save_on_focue_lost": true,
-	"vintage_start_in_command_mode": true,
 	"auto_complete": false,
+	"color_scheme": "Packages/Theme - One Dark/One Dark.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
-	"rulers":
-	[
-		100
-	],
 	"folder_exclude_patterns":
 	[
 		".svn",
@@ -24,5 +10,19 @@
 		"CVS",
 		".idea",
 		"node_modules"
-	]
+	],
+	"font_size": 10,
+	"ignored_packages":
+	[
+	],
+	"rulers":
+	[
+		100
+	],
+	"save_on_focue_lost": true,
+	"scroll_past_end": true,
+	"theme": "One Dark.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"vintage_start_in_command_mode": true
 }

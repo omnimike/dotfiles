@@ -200,6 +200,7 @@
 	],
 	"file_history":
 	[
+		"/Users/michael/conf/hammerspoon/init.lua",
 		"/Users/michael/.hammerspoon/init.lua",
 		"/Users/michael/endev/maze/Makefile",
 		"//installer.failurerequests",
@@ -326,12 +327,11 @@
 		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/function-anon.sublime-snippet",
 		"/Users/michael/salt-developer/code/api/questioneditor/www/latest/app/views/elements/custom/ariaLabel.js",
 		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/statement.sublime-snippet",
-		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/key-value.sublime-snippet",
-		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/if.sublime-snippet"
+		"/Users/michael/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/key-value.sublime-snippet"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 22.0
 	},
 	"find_in_files":
 	{
@@ -509,7 +509,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 21.0
 	},
 	"input":
 	{
@@ -546,7 +546,7 @@
 	"project": "conf.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 40.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -555,6 +555,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"init.lu",
+				"hammerspoon/init.lua"
+			],
 			[
 				"conf",
 				"bin/conf"
@@ -985,12 +989,12 @@
 		"selected_items":
 		[
 			[
-				"kk",
-				"~/work/kk.sublime-workspace"
+				"",
+				"~/work/sublime/go.sublime-project"
 			],
 			[
-				"",
-				"~/.sublime-projects/api-author.sublime-project"
+				"kk",
+				"~/work/kk.sublime-workspace"
 			]
 		],
 		"width": 380.0
