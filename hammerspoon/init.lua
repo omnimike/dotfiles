@@ -2,9 +2,9 @@ local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
 local meh = {'cmd', 'alt', 'ctrl'}
 
 local appHotkeys = {
-    { 'u', 'FirefoxDeveloperEdition' },
+    { '7', 'FirefoxDeveloperEdition' },
     { '8', 'Safari' },
-    { '7', 'Google Chrome' },
+    { 'u', 'Google Chrome' },
     { 'i', 'Sublime Text'},
     --{ 'i', 'Emacs' },
     --{ 'i', 'Atom' },
