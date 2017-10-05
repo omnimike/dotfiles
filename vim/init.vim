@@ -23,15 +23,6 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 Plug 'joshdick/onedark.vim'
-"Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'amiorin/vim-project'
-"Plug 'vim-ctrlspace/vim-ctrlspace'
-"Plug 'wincent/command-t'
-"Plug 'tpope/vim-obsession'
-"Plug 'tpope/vim-unimpaired'
-"Plug 'Valloric/YouCompleteMe'
-"Plug 'SirVer/ultisnips'
-"Plug 'daylerees/colour-schemes', {'rtp': 'vim'}
 
 call plug#end()
 
@@ -92,12 +83,6 @@ noremap <Leader>s :w<cr>
 " open file
 nnoremap <Leader>p :FZF<CR>
 
-" home
-"noremap <Leader>h :tabedit<cr>:Welcome<cr>
-
-" restore
-"noremap <Leader>r :source '~/.session.vim'<cr>
-
 " back
 noremap <Leader>b :e#<cr>
 
@@ -122,9 +107,6 @@ noremap <Leader>, :tabedit $MYVIMRC<cr>
 noremap <Leader>w <C-w>c
 " other
 noremap <Leader><Tab> <C-w>w
-" new tab
-"noremap <Leader>t :tabedit %<cr>
-
 
 " changing tabs
 noremap <silent> <Leader>1 :tabn 1<cr>
@@ -143,26 +125,4 @@ if (has("termguicolors"))
 endif
 syntax on
 colorscheme onedark
-
-" projects
-
-"let g:project_use_nerdtree = 0
-"call project#rc()
-"Project 'conf', 'conf'
-"Project 'work/test-pages', 'test-pages'
-"Project 'work/snippets', 'snippets'
-"Project 'vg/scripts', 'vgscripts'
-"call project#rc('~/endev')
-"Project 'layouts'
-"call project#rc('~/vg/code')
-"Project 'api/questioneditor', 'editor'
-"Project 'api/questionsV2', 'questions'
-"Project 'api/schemas', 'schemas'
-"Project 'api/author', 'author'
-"Project 'site/docs', 'docs'
-"Project 'lib/spokenmath', 'spokenmath'
-"Project 'lib/mathcore', 'mathcore'
-"Project 'lib/mathquill', 'mathquill'
-"Project 'lib/scoring', 'scoring'
-"Project 'lib/qev3-content-analysis', 'qev3-content-analysis'
 
