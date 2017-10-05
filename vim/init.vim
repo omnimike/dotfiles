@@ -10,7 +10,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -22,6 +21,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'w0rp/ale'
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'amiorin/vim-project'
 "Plug 'vim-ctrlspace/vim-ctrlspace'
@@ -56,22 +56,12 @@ set directory=$HOME/.vim/swapfiles//
 set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
 
-" Syntastic configuration for jshint and jscs
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_id_checkers = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
-"autocmd FileType javascript let b:syntastic_checkers =
-"    \ findfile('.jscsrc', '.;') != '' ? ['jscs', 'jshint'] : ['jshint']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = '☡'
-let g:syntastic_style_warning_symbol = '¡'
-let g:syntastic_enable_balloons = 1
+" Ale config
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 
 let g:vim_json_syntax_conceal = 0
 
