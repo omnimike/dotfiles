@@ -22,6 +22,7 @@ Plug 'elzr/vim-json'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
+Plug 'joshdick/onedark.vim'
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'amiorin/vim-project'
 "Plug 'vim-ctrlspace/vim-ctrlspace'
@@ -51,7 +52,6 @@ set nofoldenable
 set wildignore+=*/.git/*,*/tmp/*,*.swp
 " Save files on focus lost
 autocmd BufLeave,FocusLost * silent! wall
-syntax enable
 set directory=$HOME/.vim/swapfiles//
 set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
@@ -93,10 +93,10 @@ noremap <Leader>s :w<cr>
 nnoremap <Leader>p :FZF<CR>
 
 " home
-noremap <Leader>h :tabedit<cr>:Welcome<cr>
+"noremap <Leader>h :tabedit<cr>:Welcome<cr>
 
 " restore
-noremap <Leader>r :source '~/.session.vim'<cr>
+"noremap <Leader>r :source '~/.session.vim'<cr>
 
 " back
 noremap <Leader>b :e#<cr>
@@ -136,6 +136,13 @@ noremap <silent> <Leader>6 :tabn 6<cr>
 noremap <silent> <Leader>7 :tabn 7<cr>
 noremap <silent> <Leader>8 :tabn 8<cr>
 noremap <silent> <Leader>9 :tabn 9<cr>
+
+" color scheme
+if (has("termguicolors"))
+    set termguicolors
+endif
+syntax on
+colorscheme onedark
 
 " projects
 
