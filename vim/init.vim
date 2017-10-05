@@ -96,8 +96,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
-noremap <Leader>cs :SyntasticCheck<cr>
-" NERDCommenter commands
 
 " vimrc
 noremap <Leader>;, :source $MYVIMRC<cr>
