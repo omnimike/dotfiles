@@ -5,7 +5,7 @@ local appHotkeys = {
     { '7', 'FirefoxDeveloperEdition' },
     { '8', 'Safari' },
     { 'u', 'Google Chrome' },
-    { 'i', 'Sublime Text'},
+    --{ 'i', 'Sublime Text'},
     --{ 'i', 'Emacs' },
     --{ 'i', 'Atom' },
     --{ 'i', 'PhpStorm' },

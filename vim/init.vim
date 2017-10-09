@@ -23,6 +23,7 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 Plug 'joshdick/onedark.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -66,6 +67,7 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 
+
 " quit
 noremap <Leader>q :q<cr>
 
@@ -77,14 +79,15 @@ noremap <Leader>;s :syntax enable<cr>
 
 noremap <Leader>t :NERDTreeFind<cr>
 
+nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
+
 " save
 noremap <Leader>s :w<cr>
 
 " open file
 nnoremap <Leader>p :FZF<CR>
-
-" back
-noremap <Leader>b :e#<cr>
+nnoremap <C-p> :FZF<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
 
 " easymotion
 map <Leader>l <Plug>(easymotion-bd-jk)
