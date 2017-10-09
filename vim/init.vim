@@ -24,6 +24,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 Plug 'joshdick/onedark.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jremmen/vim-ripgrep'
 
 call plug#end()
 
@@ -59,6 +60,11 @@ let g:vim_json_syntax_conceal = 0
 
 let g:EasyMotion_smartcase = 1
 
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+endif
+
 " user defined functions
 fun! TrimWhitespace()
     let l:save_cursor = getpos('.')
@@ -88,6 +94,9 @@ noremap <Leader>s :w<cr>
 nnoremap <Leader>p :FZF<CR>
 nnoremap <C-p> :FZF<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
+
+nnoremap <Leader>/ :Rg 
+nnoremap <Leader>* :Rg <cword><CR>
 
 " easymotion
 map <Leader>l <Plug>(easymotion-bd-jk)
