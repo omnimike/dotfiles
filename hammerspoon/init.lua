@@ -38,6 +38,7 @@ hs.hotkey.bind({}, 'F13', function ()
 end)
 
 hs.window.animationDuration = 0
+hs.grid.setMargins({0, 0})
 hs.grid.setGrid('2x2')
 
 hyperBind('a', function ()
