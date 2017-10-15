@@ -1,2 +1,3 @@
 # conf
-vim and zsh config
+
+My dotfiles.
