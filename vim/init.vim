@@ -43,7 +43,6 @@ set undofile
 set foldmethod=indent
 set nofoldenable
 set wildignore+=*/.git/*,*/tmp/*,*.swp
-set autochdir
 " Save files on focus lost
 autocmd BufLeave,FocusLost * silent! wall
 set directory=$HOME/.vim/swapfiles//
@@ -113,11 +112,6 @@ noremap <Leader>cw :call TrimWhitespace()<cr>
 " vimrc
 noremap <Leader>;, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
-
-" close window
-noremap <Leader>w <C-w>c
-" other
-noremap <Leader><Tab> <C-w>w
 
 " changing tabs
 noremap <silent> <Leader>1 :tabn 1<cr>
