@@ -61,7 +61,6 @@ local gridHotkeys = {
     { 'x', '0,3 3x3' },
     { 'c', '0,3 6x3' },
     { 'v', '3,3 3x3' },
-    { 't', '2,0 4x6' },
 }
 
 for i, binding in ipairs(gridHotkeys) do
