@@ -39,7 +39,7 @@ end)
 
 hs.window.animationDuration = 0
 hs.grid.setMargins({0, 0})
-hs.grid.setGrid('2x2')
+hs.grid.setGrid('6x6')
 
 hyperBind('a', function ()
     local win = hs.window.focusedWindow()
@@ -52,15 +52,16 @@ hyperBind('g', function ()
 end)
 
 local gridHotkeys = {
-    { 'w', '0,0 1x1' },
-    { 'e', '0,0 2x1' },
-    { 'r', '1,0 1x1' },
-    { 's', '0,0 1x2' },
-    { 'd', '0,0 2x2' },
-    { 'f', '1,0 1x2' },
-    { 'x', '0,1 1x1' },
-    { 'c', '0,1 2x1' },
-    { 'v', '1,1 1x1' },
+    { 'w', '0,0 3x3' },
+    { 'e', '0,0 6x3' },
+    { 'r', '3,0 3x3' },
+    { 's', '0,0 3x6' },
+    { 'd', '0,0 6x6' },
+    { 'f', '3,0 3x6' },
+    { 'x', '0,3 3x3' },
+    { 'c', '0,3 6x3' },
+    { 'v', '3,3 3x3' },
+    { 't', '2,0 4x6' },
 }
 
 for i, binding in ipairs(gridHotkeys) do
