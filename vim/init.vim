@@ -25,6 +25,7 @@ Plug 'w0rp/ale'
 Plug 'joshdick/onedark.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jremmen/vim-ripgrep'
+Plug 'joonty/vdebug'
 
 call plug#end()
 
@@ -59,6 +60,13 @@ let g:ale_lint_on_enter = 0
 let g:vim_json_syntax_conceal = 0
 
 let g:EasyMotion_smartcase = 1
+
+let g:vdebug_options = {}
+let g:vdebug_options["port"] = 9000
+let g:vdebug_options["ide_key"] = 'xdebug'
+let g:vdebug_options["path_maps"] = {
+\    "/srv": "/Users/michael/salt-developer/code"
+\}
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
