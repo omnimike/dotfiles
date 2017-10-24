@@ -62,10 +62,12 @@ let g:vim_json_syntax_conceal = 0
 let g:EasyMotion_smartcase = 1
 
 let g:vdebug_options = {}
-let g:vdebug_options["port"] = 9000
-let g:vdebug_options["ide_key"] = 'xdebug'
-let g:vdebug_options["path_maps"] = {
-\    "/srv": "/Users/michael/salt-developer/code"
+let g:vdebug_options['port'] = 9000
+let g:vdebug_options['ide_key'] = 'xdebug'
+let g:vdebug_options['break_on_open'] = 0
+let g:vdebug_options['path_maps'] = {
+\    '/srv': '/Users/michael/salt-developer/code',
+\    '/etc': ''
 \}
 
 if executable('rg')
