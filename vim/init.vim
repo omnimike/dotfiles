@@ -65,10 +65,6 @@ let g:vdebug_options = {}
 let g:vdebug_options['port'] = 9000
 let g:vdebug_options['ide_key'] = 'xdebug'
 let g:vdebug_options['break_on_open'] = 0
-let g:vdebug_options['path_maps'] = {
-\    '/srv': '/Users/michael/salt-developer/code',
-\    '/etc': ''
-\}
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
@@ -135,13 +131,16 @@ noremap <silent> <Leader>8 :tabn 8<cr>
 noremap <silent> <Leader>9 :tabn 9<cr>
 
 " color scheme
-if (has("termguicolors"))
+if (has('termguicolors'))
     set termguicolors
 endif
 if &term =~# '^screen'
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    let &t_8f = '\<Esc>[38;2;%lu;%lu;%lum'
+    let &t_8b = '\<Esc>[48;2;%lu;%lu;%lum'
 endif
 syntax on
 colorscheme onedark
 
+if filereadable('~/.vimrc-local')
+    runtime '~/.vimrc-local'
+endif
