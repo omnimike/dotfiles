@@ -9,6 +9,8 @@ set listchars=tab:>-,trail:~,extends:>,precedes:<
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tommcdo/vim-exchange'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
@@ -16,7 +18,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-expand-region'
-Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 Plug 'joshdick/onedark.vim'
