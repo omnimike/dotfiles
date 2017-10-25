@@ -30,6 +30,7 @@ call plug#end()
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
 set number
 set nowrap
@@ -77,7 +78,6 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 
-
 " quit
 noremap <Leader>q :q<cr>
 
@@ -116,17 +116,6 @@ noremap <Leader>cw :call TrimWhitespace()<cr>
 " vimrc
 noremap <Leader>;, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
-
-" changing tabs
-noremap <silent> <Leader>1 :tabn 1<cr>
-noremap <silent> <Leader>2 :tabn 2<cr>
-noremap <silent> <Leader>3 :tabn 3<cr>
-noremap <silent> <Leader>4 :tabn 4<cr>
-noremap <silent> <Leader>5 :tabn 5<cr>
-noremap <silent> <Leader>6 :tabn 6<cr>
-noremap <silent> <Leader>7 :tabn 7<cr>
-noremap <silent> <Leader>8 :tabn 8<cr>
-noremap <silent> <Leader>9 :tabn 9<cr>
 
 " color scheme
 if (has('termguicolors'))
