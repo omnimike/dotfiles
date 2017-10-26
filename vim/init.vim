@@ -67,8 +67,6 @@ endif
 
 let g:vim_json_syntax_conceal = 0
 
-let g:EasyMotion_smartcase = 1
-
 let g:vdebug_options = {}
 let g:vdebug_options['port'] = 9000
 let g:vdebug_options['ide_key'] = 'xdebug'
@@ -129,6 +127,19 @@ autocmd FileType javascript nnoremap <buffer>
   \ <Leader>lh :call LanguageClient_textDocument_hover()<cr>
 autocmd FileType javascript nnoremap <buffer>
   \ <Leader>lr :call LanguageClient_textDocument_rename()<cr>
+autocmd FileType javascript nnoremap <buffer>
+  \ <Leader>lf :call LanguageClient_textDocument_documentSymbol()<cr>
+
+" color scheme
+if (has('termguicolors'))
+    set termguicolors
+endif
+if &term =~# '^screen'
+    let &t_8f = '\<Esc>[38;2;%lu;%lu;%lum'
+    let &t_8b = '\<Esc>[48;2;%lu;%lu;%lum'
+endif
+syntax on
+colorscheme onedark
 
 " color scheme
 if (has('termguicolors'))
