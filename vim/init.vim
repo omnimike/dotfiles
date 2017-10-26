@@ -62,7 +62,7 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {}
 if executable('javascript-typescript-stdio')
   let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
-  autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
+  autocmd FileType javascript setlocal completefunc=LanguageClient#complete
 endif
 
 let g:vim_json_syntax_conceal = 0
