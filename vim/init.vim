@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tommcdo/vim-exchange'
-Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -24,6 +23,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'joonty/vdebug'
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
@@ -55,6 +55,15 @@ let g:ale_linters = {
 \}
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+
+
+let g:LanguageClient_autoStart = 1
+
+let g:LanguageClient_serverCommands = {}
+if executable('javascript-typescript-stdio')
+  let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+  autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
+endif
 
 let g:vim_json_syntax_conceal = 0
 
@@ -102,10 +111,6 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>/ :Rg 
 nnoremap <Leader>* :Rg <cword><CR>
 
-" easymotion
-map <Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader>l <Plug>(easymotion-overwin-line)
-
 " expand region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
@@ -116,6 +121,14 @@ noremap <Leader>cw :call TrimWhitespace()<cr>
 " vimrc
 noremap <Leader>;, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
+
+" language server
+autocmd FileType javascript nnoremap <buffer>
+  \ <Leader>ld :call LanguageClient_textDocument_definition()<cr>
+autocmd FileType javascript nnoremap <buffer>
+  \ <Leader>lh :call LanguageClient_textDocument_hover()<cr>
+autocmd FileType javascript nnoremap <buffer>
+  \ <Leader>lr :call LanguageClient_textDocument_rename()<cr>
 
 " color scheme
 if (has('termguicolors'))

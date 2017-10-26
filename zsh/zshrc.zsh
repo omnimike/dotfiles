@@ -12,17 +12,17 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 
 # alias
-alias e='vim'
+alias e='nvim'
 alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias j='jump'
 alias vg='vagrant'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) -f'
 
-alias zshrc="vim ~/.zshrc"
-alias zshenv="vim ~/.zshenv"
+alias zshrc="e ~/.zshrc"
+alias zshenv="e ~/.zshenv"
 alias zshreload="source ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
+alias vimrc="e ~/.vimrc"
 
 ZSH_THEME=""
 

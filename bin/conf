@@ -107,7 +107,8 @@ install_vim()
 
 install_nvim()
 {
-    ln -svf $CONF_DIR/vim/init.vim $HOME/.nvimrc
+    ln -s $HOME/.vim $HOME/.config/nvim
+    ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
 }
 
 install_bin()
