@@ -23,7 +23,9 @@ Plug 'joshdick/onedark.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'joonty/vdebug'
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+    Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+endif
 
 call plug#end()
 
@@ -56,19 +58,19 @@ let g:ale_linters = {
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
-
-let g:LanguageClient_autoStart = 0
-
-let g:LanguageClient_serverCommands = {}
-if executable('javascript-typescript-stdio')
-    let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
-    autocmd FileType php LanguageClientStart
-    autocmd FileType javascript setlocal completefunc=LanguageClient#complete
-endif
-if executable('php-language-server.php')
-    let g:LanguageClient_serverCommands.php = ['php', '~/.composer/vendor/bin/php-language-server.php']
-    autocmd FileType php LanguageClientStart
-    autocmd FileType php setlocal completefunc=LanguageClient#complete
+if has('nvim')
+    let g:LanguageClient_autoStart = 0
+    let g:LanguageClient_serverCommands = {}
+    if executable('javascript-typescript-stdio')
+        let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+        autocmd FileType php LanguageClientStart
+        autocmd FileType javascript setlocal completefunc=LanguageClient#complete
+    endif
+    if executable('php-language-server.php')
+        let g:LanguageClient_serverCommands.php = ['php', '~/.composer/vendor/bin/php-language-server.php']
+        autocmd FileType php LanguageClientStart
+        autocmd FileType php setlocal completefunc=LanguageClient#complete
+    endif
 endif
 
 let g:vim_json_syntax_conceal = 0
