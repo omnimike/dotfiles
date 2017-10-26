@@ -57,12 +57,18 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 
-let g:LanguageClient_autoStart = 1
+let g:LanguageClient_autoStart = 0
 
 let g:LanguageClient_serverCommands = {}
 if executable('javascript-typescript-stdio')
-  let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
-  autocmd FileType javascript setlocal completefunc=LanguageClient#complete
+    let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+    autocmd FileType php LanguageClientStart
+    autocmd FileType javascript setlocal completefunc=LanguageClient#complete
+endif
+if executable('php-language-server.php')
+    let g:LanguageClient_serverCommands.php = ['php', '~/.composer/vendor/bin/php-language-server.php']
+    autocmd FileType php LanguageClientStart
+    autocmd FileType php setlocal completefunc=LanguageClient#complete
 endif
 
 let g:vim_json_syntax_conceal = 0
@@ -121,14 +127,11 @@ noremap <Leader>;, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
 
 " language server
-autocmd FileType javascript nnoremap <buffer>
-  \ <Leader>ld :call LanguageClient_textDocument_definition()<cr>
-autocmd FileType javascript nnoremap <buffer>
-  \ <Leader>lh :call LanguageClient_textDocument_hover()<cr>
-autocmd FileType javascript nnoremap <buffer>
-  \ <Leader>lr :call LanguageClient_textDocument_rename()<cr>
-autocmd FileType javascript nnoremap <buffer>
-  \ <Leader>lf :call LanguageClient_textDocument_documentSymbol()<cr>
+noremap <Leader>ld :call LanguageClient_textDocument_definition()<cr>
+noremap <Leader>lh :call LanguageClient_textDocument_hover()<cr>
+noremap <Leader>lr :call LanguageClient_textDocument_rename()<cr>
+noremap <Leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
+noremap <Leader>lf :call LanguageClient_textDocument_references()<cr>
 
 " color scheme
 if (has('termguicolors'))
