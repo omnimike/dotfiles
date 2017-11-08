@@ -1,4 +1,6 @@
-set nocompatible
+if &compatible
+    set nocompatible
+endif
 set hidden
 
 let mapleader = " "
@@ -23,6 +25,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'joonty/vdebug'
+Plug 'sheerun/vim-polyglot'
 if has('nvim')
     Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 endif
@@ -95,12 +98,6 @@ command! TrimWhitespace call TrimWhitespace()
 
 " quit
 noremap <Leader>q :q<cr>
-
-" toggles
-noremap <Leader>;p :set invpaste paste?<cr>
-noremap <Leader>;n :set invnumber number?<cr>
-noremap <Leader>;h :set hlsearch!<cr>
-noremap <Leader>;s :syntax enable<cr>
 
 noremap <Leader>t :NERDTreeFind<cr>
 
