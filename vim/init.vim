@@ -104,7 +104,7 @@ noremap <Leader>t :NERDTreeFind<cr>
 nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 
 " save
-"noremap <Leader>s :w<cr>
+noremap <Leader>s :w<cr>
 
 " open file
 nnoremap <Leader>p :FZF<CR>
