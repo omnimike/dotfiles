@@ -10,7 +10,7 @@ local appHotkeys = {
     --{ 'i', 'Atom' },
     --{ 'i', 'PhpStorm' },
     --{ 'i', 'MacVim' },
-    { 'o', 'iTerm' },
+    { 'i', 'iTerm' },
     { 'y', 'Slack' },
     { 'p', 'Google Play Music Desktop Player' },
 }
