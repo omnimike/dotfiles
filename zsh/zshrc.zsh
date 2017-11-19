@@ -23,6 +23,8 @@ alias zshrc="e ~/.zshrc"
 alias zshenv="e ~/.zshenv"
 alias zshreload="source ~/.zshrc"
 alias vimrc="e ~/.vimrc"
+alias vim='nvim'
+alias sshconfig="e ~/.ssh/config"
 
 ZSH_THEME=""
 
