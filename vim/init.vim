@@ -96,9 +96,6 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 
-" quit
-noremap <Leader>q :q<cr>
-
 noremap <Leader>t :NERDTreeFind<cr>
 
 nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
@@ -108,8 +105,6 @@ noremap <Leader>s :w<cr>
 
 " open file
 nnoremap <Leader>p :FZF<CR>
-nnoremap <C-p> :FZF<CR>
-"nnoremap <Leader>b :CtrlPBuffer<CR>
 
 nnoremap <Leader>/ :Rg 
 nnoremap <Leader>* :Rg <cword><CR>

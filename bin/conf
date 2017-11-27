@@ -17,6 +17,7 @@ Usage:
     install-nvim        Install the symlink .nvimrc to .vimrc
     install-bin         Install this script to ~/bin
     install-zsh         Install zsh scripts to ~/.oh-my-zsh/custom
+    install-alacritty   Install alacritty.yml
     install-tmux        Install ~/.tmux.conf
     install-osx         Set OSX settings
 EOT
@@ -126,6 +127,11 @@ install_zsh()
     # Scripts in the custom folder will be automatically loaded
 }
 
+install_alacritty()
+{
+    ln -svf $CONF_DIR/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+}
+
 install_tmux()
 {
     ln -svf $CONF_DIR/tmux.conf $HOME/.tmux.conf
@@ -174,6 +180,8 @@ case $1 in
     install-bin) install_bin
         ;;
     install-zsh) install_zsh
+        ;;
+    install-alacritty) install_alacritty
         ;;
     install-tmux) install_tmux
         ;;
