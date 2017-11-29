@@ -15,6 +15,7 @@ setopt HIST_REDUCE_BLANKS
 alias e='nvim'
 alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias j='jump'
+alias n='notes'
 alias vg='vagrant'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) -f'
