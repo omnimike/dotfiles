@@ -48,6 +48,7 @@ set undofile
 set foldmethod=indent
 set nofoldenable
 set wildignore+=*/.git/*,*/tmp/*,*.swp
+set colorcolumn=80
 " Save files on focus lost
 autocmd BufLeave,FocusLost * silent! wall
 set directory=$HOME/.vim/swapfiles//
