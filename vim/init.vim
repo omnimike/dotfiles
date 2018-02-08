@@ -55,10 +55,14 @@ set directory=$HOME/.vim/swapfiles//
 set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
 
+let g:NERDTreeWinSize=40  
+
 " Ale config
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'php': ['phpcs', 'phpmd'],
 \}
+let g:ale_php_phpcs_executable = 'phpcs --standard=~/work/phpcs.php'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
@@ -67,7 +71,7 @@ if has('nvim')
     let g:LanguageClient_serverCommands = {}
     if executable('javascript-typescript-stdio')
         let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
-        autocmd FileType php LanguageClientStart
+        autocmd FileType javascript LanguageClientStart
         autocmd FileType javascript setlocal completefunc=LanguageClient#complete
     endif
     if executable('php-language-server.php')
@@ -97,7 +101,7 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 
-noremap <Leader>t :NERDTreeFind<cr>
+noremap <Leader>t :NERDTree<cr>
 
 nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 
