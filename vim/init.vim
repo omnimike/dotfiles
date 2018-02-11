@@ -27,7 +27,11 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'joonty/vdebug'
 Plug 'sheerun/vim-polyglot'
 if has('nvim')
-    Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
+    Plug 'roxma/nvim-completion-manager'
 endif
 
 call plug#end()
@@ -62,7 +66,7 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'php': ['phpcs', 'phpmd'],
 \}
-let g:ale_php_phpcs_executable = 'phpcs --standard=~/work/phpcs.php'
+let g:ale_php_phpcs_executable = 'phpcs --standard=~/work/phpcs.xml'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
