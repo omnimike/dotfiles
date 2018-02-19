@@ -18,7 +18,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'terryma/vim-expand-region'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 Plug 'joshdick/onedark.vim'
@@ -117,10 +116,6 @@ nnoremap <Leader>p :FZF<CR>
 
 nnoremap <Leader>/ :Rg 
 nnoremap <Leader>* :Rg <cword><CR>
-
-" expand region
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
