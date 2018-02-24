@@ -59,7 +59,7 @@ let g:NERDTreeWinSize=40
 
 " Ale config
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'flow'],
 \   'php': ['phpcs', 'phpmd'],
 \}
 let g:ale_php_phpcs_executable = 'phpcs --standard=~/work/phpcs.php'
