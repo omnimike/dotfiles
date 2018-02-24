@@ -18,7 +18,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'terryma/vim-expand-region'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 Plug 'joshdick/onedark.vim'
@@ -27,7 +26,11 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'joonty/vdebug'
 Plug 'sheerun/vim-polyglot'
 if has('nvim')
-    Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
+    Plug 'roxma/nvim-completion-manager'
 endif
 
 call plug#end()
@@ -62,7 +65,7 @@ let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'php': ['phpcs', 'phpmd'],
 \}
-let g:ale_php_phpcs_executable = 'phpcs --standard=~/work/phpcs.php'
+let g:ale_php_phpcs_executable = 'phpcs --standard=~/work/phpcs.xml'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
@@ -113,10 +116,6 @@ nnoremap <Leader>p :FZF<CR>
 
 nnoremap <Leader>/ :Rg 
 nnoremap <Leader>* :Rg <cword><CR>
-
-" expand region
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
