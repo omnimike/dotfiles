@@ -124,12 +124,18 @@ noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>;, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
 
-" language server
-noremap <Leader>ld :call LanguageClient_textDocument_definition()<cr>
-noremap <Leader>lh :call LanguageClient_textDocument_hover()<cr>
-noremap <Leader>lr :call LanguageClient_textDocument_rename()<cr>
-noremap <Leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
-noremap <Leader>lf :call LanguageClient_textDocument_references()<cr>
+if has('nvim')
+    " language server
+    noremap <Leader>ld :call LanguageClient_textDocument_definition()<cr>
+    noremap <Leader>lh :call LanguageClient_textDocument_hover()<cr>
+    noremap <Leader>lr :call LanguageClient_textDocument_rename()<cr>
+    noremap <Leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
+    noremap <Leader>lf :call LanguageClient_textDocument_references()<cr>
+
+    " use tab for completions
+    inoremap <expr> <Tab> pumvisible() ? '\<C-n>' : '\<Tab>'
+    inoremap <expr> <S-Tab> pumvisible() ? '\<C-p>' : '\<S-Tab>'
+endif
 
 " color scheme
 if (has('termguicolors'))
