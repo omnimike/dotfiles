@@ -12,6 +12,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
 Plug 'tommcdo/vim-exchange'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
