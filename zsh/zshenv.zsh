@@ -1,7 +1,3 @@
-# alias
-alias vg='vagrant'
-alias gpb='git push origin $(git_current_branch)'
-alias gpbf='git push origin $(git_current_branch) -f'
 
 # variables
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" 2> /dev/null'
