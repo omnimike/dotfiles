@@ -2,17 +2,10 @@ local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
 local meh = {'cmd', 'alt', 'ctrl'}
 
 local appHotkeys = {
-    --{ '7', 'FirefoxDeveloperEdition' },
-    --{ '8', 'Safari' },
     { 'u', 'Google Chrome' },
-    --{ 'i', 'Sublime Text'},
-    --{ 'i', 'Emacs' },
-    --{ 'i', 'Atom' },
-    --{ 'i', 'PhpStorm' },
-    --{ 'i', 'MacVim' },
     { 'i', 'iTerm' },
-    --{ 'o', 'Alacritty' },
     { 'y', 'Stride-alpha' },
+    { 'o', 'Trello (beta)' },
     { 'p', 'Google Play Music Desktop Player' },
 }
 
