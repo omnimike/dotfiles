@@ -2,8 +2,8 @@ local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
 local meh = {'cmd', 'alt', 'ctrl'}
 
 local appHotkeys = {
-    { '7', 'FirefoxDeveloperEdition' },
-    { '8', 'Safari' },
+    --{ '7', 'FirefoxDeveloperEdition' },
+    --{ '8', 'Safari' },
     { 'u', 'Google Chrome' },
     --{ 'i', 'Sublime Text'},
     --{ 'i', 'Emacs' },
@@ -12,13 +12,13 @@ local appHotkeys = {
     --{ 'i', 'MacVim' },
     { 'i', 'iTerm' },
     --{ 'o', 'Alacritty' },
-    { 'y', 'Slack' },
+    { 'y', 'Stride-alpha' },
     { 'p', 'Google Play Music Desktop Player' },
 }
 
 
-local hyperBind = function(key, fn)
-    hs.hotkey.bind(hyper, key, nil, fn)
+local mehBind = function(key, fn)
+    hs.hotkey.bind(meh, key, nil, fn)
 end
 
 for i, binding in ipairs(appHotkeys) do
@@ -27,12 +27,8 @@ for i, binding in ipairs(appHotkeys) do
     local launcher = function()
         hs.application.launchOrFocus(app)
     end
-    hyperBind(key, launcher)
+    mehBind(key, launcher)
 end
-
-hs.hotkey.bind({}, 'F12', function ()
-    hs.caffeinate.lockScreen()
-end)
 
 hs.hotkey.bind({}, 'F13', function ()
     hs.reload()
@@ -40,28 +36,32 @@ end)
 
 hs.window.animationDuration = 0
 hs.grid.setMargins({0, 0})
-hs.grid.setGrid('6x6')
+hs.grid.setGrid('4x4')
 
-hyperBind('a', function ()
+mehBind('a', function ()
     local win = hs.window.focusedWindow()
     win:moveOneScreenWest()
 end)
 
-hyperBind('g', function ()
+mehBind('g', function ()
     local win = hs.window.focusedWindow()
     win:moveOneScreenEast()
 end)
 
 local gridHotkeys = {
-    { 'w', '0,0 3x3' },
-    { 'e', '0,0 6x3' },
-    { 'r', '3,0 3x3' },
-    { 's', '0,0 3x6' },
-    { 'd', '0,0 6x6' },
-    { 'f', '3,0 3x6' },
-    { 'x', '0,3 3x3' },
-    { 'c', '0,3 6x3' },
-    { 'v', '3,3 3x3' },
+    { 'w', '0,0 2x2' },
+    { 'e', '0,0 4x2' },
+    { 'r', '2,0 2x2' },
+    { 's', '0,0 2x4' },
+    { 'd', '0,0 4x4' },
+    { 'f', '2,0 2x4' },
+    { 'x', '0,2 2x3' },
+    { 'c', '0,2 4x2' },
+    { 'v', '2,2 2x2' },
+    { '1', '0,0 1x4' },
+    { '2', '1,0 1x4' },
+    { '3', '2,0 1x4' },
+    { '4', '3,0 1x4' },
 }
 
 for i, binding in ipairs(gridHotkeys) do
@@ -71,7 +71,35 @@ for i, binding in ipairs(gridHotkeys) do
         local win = hs.window.focusedWindow()
         hs.grid.set(win, pos)
     end
-    hyperBind(key, launcher)
+    mehBind(key, launcher)
 end
+
+hs.hotkey.bind(meh, 't', function ()
+    hs.grid.show()
+end)
+hs.hotkey.bind(hyper, 'd', function ()
+    hs.grid.pushWindowDown()
+end)
+hs.hotkey.bind(hyper, 'f', function ()
+    hs.grid.pushWindowUp()
+end)
+hs.hotkey.bind(hyper, 'g', function ()
+    hs.grid.pushWindowRight()
+end)
+hs.hotkey.bind(hyper, 's', function ()
+    hs.grid.pushWindowLeft()
+end)
+hs.hotkey.bind(hyper, 'e', function ()
+    hs.grid.resizeWindowShorter()
+end)
+hs.hotkey.bind(hyper, 'r', function ()
+    hs.grid.resizeWindowTaller()
+end)
+hs.hotkey.bind(hyper, 't', function ()
+    hs.grid.resizeWindowWider()
+end)
+hs.hotkey.bind(hyper, 'w', function ()
+    hs.grid.resizeWindowThinner()
+end)
 
 hs.alert.show('conf reloaded')
