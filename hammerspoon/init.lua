@@ -14,6 +14,10 @@ local mehBind = function(key, fn)
     hs.hotkey.bind(meh, key, nil, fn)
 end
 
+local hyperBind = function(key, fn)
+    hs.hotkey.bind(hyper, key, nil, fn)
+end
+
 for i, binding in ipairs(appHotkeys) do
     local key = binding[1]
     local app = binding[2]
@@ -41,7 +45,7 @@ mehBind('g', function ()
     win:moveOneScreenEast()
 end)
 
-local gridHotkeys = {
+local mehGridHotkeys = {
     { 'w', '0,0 2x2' },
     { 'e', '0,0 4x2' },
     { 'r', '2,0 2x2' },
@@ -51,16 +55,9 @@ local gridHotkeys = {
     { 'x', '0,2 2x3' },
     { 'c', '0,2 4x2' },
     { 'v', '2,2 2x2' },
-    { 't', '1,0 2x2' },
-    { 'b', '1,2 2x2' },
-    { '1', '0,0 1x4' },
-    { '2', '1,0 1x4' },
-    { '3', '2,0 1x4' },
-    { '4', '3,0 1x4' },
-    { '5', '1,0 2x4' },
 }
 
-for i, binding in ipairs(gridHotkeys) do
+for i, binding in ipairs(mehGridHotkeys) do
     local key = binding[1]
     local pos = binding[2]
     local launcher = function()
@@ -70,32 +67,30 @@ for i, binding in ipairs(gridHotkeys) do
     mehBind(key, launcher)
 end
 
+local hyperGridHotkeys = {
+    { 'w', '0,0 1x2' },
+    { 'e', '1,0 2x2' },
+    { 'r', '3,0 1x2' },
+    { 's', '0,0 1x4' },
+    { 'd', '1,0 2x4' },
+    { 'f', '3,0 1x4' },
+    { 'x', '0,2 1x2' },
+    { 'c', '1,2 2x2' },
+    { 'v', '3,2 1x2' },
+}
+
+for i, binding in ipairs(hyperGridHotkeys) do
+    local key = binding[1]
+    local pos = binding[2]
+    local launcher = function()
+        local win = hs.window.focusedWindow()
+        hs.grid.set(win, pos)
+    end
+    hyperBind(key, launcher)
+end
+
 hs.hotkey.bind(meh, 'z', function ()
     hs.grid.show()
-end)
-hs.hotkey.bind(hyper, 'd', function ()
-    hs.grid.pushWindowDown()
-end)
-hs.hotkey.bind(hyper, 'f', function ()
-    hs.grid.pushWindowUp()
-end)
-hs.hotkey.bind(hyper, 'g', function ()
-    hs.grid.pushWindowRight()
-end)
-hs.hotkey.bind(hyper, 's', function ()
-    hs.grid.pushWindowLeft()
-end)
-hs.hotkey.bind(hyper, 'e', function ()
-    hs.grid.resizeWindowTaller()
-end)
-hs.hotkey.bind(hyper, 'r', function ()
-    hs.grid.resizeWindowShorter()
-end)
-hs.hotkey.bind(hyper, 't', function ()
-    hs.grid.resizeWindowWider()
-end)
-hs.hotkey.bind(hyper, 'w', function ()
-    hs.grid.resizeWindowThinner()
 end)
 
 hs.alert.show('conf reloaded')
