@@ -6,7 +6,7 @@ set hidden
 let mapleader = " "
 set mouse=a
 set list
-set listchars=tab:>-,trail:~,extends:>,precedes:<
+set listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
 
 call plug#begin('~/.vim/plugged')
 
@@ -41,7 +41,6 @@ filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
 set number
 set nowrap
 set textwidth=0
@@ -60,7 +59,7 @@ set directory=$HOME/.vim/swapfiles//
 set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
 
-let g:NERDTreeWinSize=40  
+let g:NERDTreeWinSize=40
 
 " Ale config
 let g:ale_linters = {

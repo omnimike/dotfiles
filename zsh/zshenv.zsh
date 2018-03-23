@@ -14,3 +14,4 @@ local BREW_PATH="/usr/local/bin"
 export PATH="$PATH:$HOME/bin:$BREW_PATH:$RUST_PATH:$SUBL_PATH:$LOCAL_PATH:$YARN_PATH:$GO_PATH:$TEX_PATH:$COMPOSER_PATH"
 export GOPATH="$HOME/go"
 export EDITOR='vim'
+export VISUAL='vim'
