@@ -13,7 +13,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-surround'
 Plug 'tommcdo/vim-exchange'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
@@ -23,7 +22,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 Plug 'joshdick/onedark.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'joonty/vdebug'
 Plug 'sheerun/vim-polyglot'
@@ -72,18 +70,11 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 if has('nvim')
-    let g:LanguageClient_autoStart = 0
-    let g:LanguageClient_serverCommands = {}
-    if executable('javascript-typescript-stdio')
-        let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
-        autocmd FileType javascript LanguageClientStart
-        autocmd FileType javascript setlocal completefunc=LanguageClient#complete
-    endif
-    if executable('php-language-server.php')
-        let g:LanguageClient_serverCommands.php = ['php', '~/.composer/vendor/bin/php-language-server.php']
-        autocmd FileType php LanguageClientStart
-        autocmd FileType php setlocal completefunc=LanguageClient#complete
-    endif
+    let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['flow-language-server', '--stdio'],
+    \ 'javascript.jsx': ['flow-language-server', '--stdio'],
+    \ 'php': ['php', '~/.composer/vendor/bin/php-language-server.php'],
+    \ }
 endif
 
 let g:vim_json_syntax_conceal = 0
@@ -128,11 +119,14 @@ noremap <Leader>, :tabedit $MYVIMRC<cr>
 
 if has('nvim')
     " language server
-    noremap <Leader>ld :call LanguageClient_textDocument_definition()<cr>
-    noremap <Leader>lh :call LanguageClient_textDocument_hover()<cr>
-    noremap <Leader>lr :call LanguageClient_textDocument_rename()<cr>
-    noremap <Leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
-    noremap <Leader>lf :call LanguageClient_textDocument_references()<cr>
+    nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+    nnoremap <silent> <Leader>ld :call LanguageClient_textDocument_definition()<cr>
+    nnoremap <silent> <Leader>lh :call LanguageClient_textDocument_hover()<cr>
+    nnoremap <silent> <Leader>lr :call LanguageClient_textDocument_rename()<cr>
+    nnoremap <silent> <Leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
+    nnoremap <silent> <Leader>lf :call LanguageClient_textDocument_references()<cr>
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif
 
 " color scheme
