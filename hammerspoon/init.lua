@@ -93,4 +93,8 @@ hs.hotkey.bind(meh, 'z', function ()
     hs.grid.show()
 end)
 
+hs.hotkey.bind(meh, 'h', function ()
+    hs.hints.windowHints()
+end)
+
 hs.alert.show('conf reloaded')
