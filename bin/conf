@@ -9,10 +9,10 @@ Usage:
     save                Push conf changes to omnimike/conf
     load                Pull conf changes from omnimike/conf
     status              Show changes to conf
-    install             Install everything
     install-subl        Install sublime text config
     install-atom        Install atom config
     install-emacs       Install emacs config
+    install-idea        Install idea config
     install-hammerspoon Install .hammerspoon/init.lua
     install-karabiner   Install .karabiner.d/configuration/karabiner.json
     install-vim         Install the ~/.vimrc file and vim-plug
@@ -56,21 +56,6 @@ status()
     git -C $CONF_DIR status
 }
 
-install_all()
-{
-    install_atom
-    install_emacs
-    install_subl
-    install_hammerspoon
-    install_karabiner
-    install_vim
-    install_nvim
-    install_bin
-    install_zsh
-    install_tmux
-    install_osx
-}
-
 install_sublime()
 {
     true
@@ -93,6 +78,11 @@ install_emacs()
 install_sublime()
 {
     ln -svf $CONF_DIR/subl/* $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+}
+
+install_idea()
+{
+    ln -svf $CONF_DIR/idea/ideavimrc $HOME/.ideavimrc
 }
 
 install_vim()
@@ -163,13 +153,13 @@ case $1 in
         ;;
     status) status
         ;;
-    install) install_all
-        ;;
     install-subl) install_sublime
         ;;
     install-atom) install_atom
         ;;
     install-emacs) install_emacs
+        ;;
+    install-idea) install_idea
         ;;
     install-hammerspoon) install_hammerspoon
         ;;
