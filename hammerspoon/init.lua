@@ -5,7 +5,7 @@ local appHotkeys = {
     { 'u', 'Google Chrome' },
     { 'i', 'iTerm' },
     { 'y', 'Stride-alpha' },
-    { 'o', 'Trello (beta)' },
+    { 'o', 'IntelliJ IDEA' },
     { 'p', 'Google Play Music Desktop Player' },
 }
 
