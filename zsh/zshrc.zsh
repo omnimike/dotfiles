@@ -50,6 +50,11 @@ bindkey -v
 bindkey '^p' up-history
 bindkey '^n' down-history
 
+# install nvm
+use_nvm() {
+    source "/usr/local/opt/nvm/nvm.sh"
+}
+
 if [ -e ~/.zshrc-local ]; then
     source ~/.zshrc-local
 fi
