@@ -99,9 +99,9 @@ hs.hotkey.bind(meh, 'z', function ()
     hs.grid.show()
 end)
 
-hs.hints.hintChars = { 'l', 'k', 'j', 'h', 'a', 's', 'd', 'f', 'g' }
+hs.hints.hintChars = { 'j', 'k', 'l', 'h', 's', 'd', 'f', 'g' }
 
-hs.hotkey.bind(meh, ';', function ()
+hs.hotkey.bind(meh, 'k', function ()
     hs.hints.windowHints()
 end)
 
