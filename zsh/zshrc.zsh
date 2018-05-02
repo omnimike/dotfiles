@@ -13,7 +13,7 @@ setopt HIST_REDUCE_BLANKS
 
 # alias
 alias e='nvim'
-alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias f='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias j='jump'
 alias n='notes'
 alias vg='vagrant'

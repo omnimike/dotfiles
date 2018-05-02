@@ -25,6 +25,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'joonty/vdebug'
 Plug 'sheerun/vim-polyglot'
+Plug 'francoiscabrol/ranger.vim'
 if has('nvim')
     Plug 'autozimu/LanguageClient-neovim', {
         \ 'branch': 'next',
