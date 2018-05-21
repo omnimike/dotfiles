@@ -37,9 +37,9 @@ endif
 call plug#end()
 
 filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set number
 set nowrap
@@ -98,6 +98,28 @@ fun! TrimWhitespace()
 endfun
 command! TrimWhitespace call TrimWhitespace()
 
+fun! SetIndentTwoSpace()
+    setlocal tabstop=2
+    setlocal shiftwidth=2
+    setlocal softtabstop=2
+    setlocal expandtab
+endfun
+command! SetIndentTwoSpace call SetIndentTwoSpace()
+fun! SetIndentFourSpace()
+    setlocal tabstop=4
+    setlocal shiftwidth=4
+    setlocal softtabstop=4
+    setlocal expandtab
+endfun
+command! SetIndentFourSpace call SetIndentFourSpace()
+fun! SetIndentTab()
+    setlocal tabstop=4
+    setlocal shiftwidth=4
+    setlocal softtabstop=4
+    setlocal noexpandtab
+endfun
+command! SetIndentTab call SetIndentTab()
+
 noremap <Leader>t :NERDTree<cr>
 
 nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
@@ -113,6 +135,9 @@ nnoremap <Leader>* :Rg <cword><CR>
 
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
+noremap <Leader>c2 :call SetIndentTwoSpace()<cr>
+noremap <Leader>c4 :call SetIndentFourSpace()<cr>
+noremap <Leader>ct :call SetIndentTab()<cr>
 
 " vimrc
 noremap <Leader>;, :source $MYVIMRC<cr>
