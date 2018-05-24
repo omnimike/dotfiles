@@ -99,24 +99,24 @@ endfun
 command! TrimWhitespace call TrimWhitespace()
 
 fun! SetIndentTwoSpace()
-    setlocal tabstop=2
-    setlocal shiftwidth=2
-    setlocal softtabstop=2
-    setlocal expandtab
+    set tabstop=2
+    set shiftwidth=2
+    set softtabstop=2
+    set expandtab
 endfun
 command! SetIndentTwoSpace call SetIndentTwoSpace()
 fun! SetIndentFourSpace()
-    setlocal tabstop=4
-    setlocal shiftwidth=4
-    setlocal softtabstop=4
-    setlocal expandtab
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    set expandtab
 endfun
 command! SetIndentFourSpace call SetIndentFourSpace()
 fun! SetIndentTab()
-    setlocal tabstop=4
-    setlocal shiftwidth=4
-    setlocal softtabstop=4
-    setlocal noexpandtab
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    set noexpandtab
 endfun
 command! SetIndentTab call SetIndentTab()
 
