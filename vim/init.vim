@@ -24,7 +24,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'
 Plug 'joshdick/onedark.vim'
 Plug 'jremmen/vim-ripgrep'
-Plug 'joonty/vdebug'
+"Plug 'joonty/vdebug'
 Plug 'sheerun/vim-polyglot'
 Plug 'francoiscabrol/ranger.vim'
 if has('nvim')
@@ -32,7 +32,7 @@ if has('nvim')
         \ 'branch': 'next',
         \ 'do': 'bash install.sh',
         \ }
-    Plug 'roxma/nvim-completion-manager'
+    "Plug 'roxma/nvim-completion-manager'
 endif
 
 call plug#end()
@@ -71,6 +71,8 @@ let g:ale_php_phpcs_executable = 'phpcs --standard=~/work/phpcs.xml'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
+au BufRead,BufNewFile *.pql set filetype=sql
+
 if has('nvim')
     let g:LanguageClient_serverCommands = {
     \ 'javascript': ['flow-language-server', '--stdio'],
@@ -81,10 +83,10 @@ endif
 
 let g:vim_json_syntax_conceal = 0
 
-let g:vdebug_options = {}
-let g:vdebug_options['port'] = 9000
-let g:vdebug_options['ide_key'] = 'xdebug'
-let g:vdebug_options['break_on_open'] = 0
+"let g:vdebug_options = {}
+"let g:vdebug_options['port'] = 9000
+"let g:vdebug_options['ide_key'] = 'xdebug'
+"let g:vdebug_options['break_on_open'] = 0
 
 if executable('rg')
     set grepprg=rg\ --vimgrep

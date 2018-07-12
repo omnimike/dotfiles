@@ -52,8 +52,13 @@ bindkey -v
 bindkey '^p' up-history
 bindkey '^n' down-history
 
+# install pyenv
+usepyenv() {
+    eval "$(pyenv init -)"
+}
+
 # install nvm
-use_nvm() {
+usenvm() {
     source "/usr/local/opt/nvm/nvm.sh"
 }
 

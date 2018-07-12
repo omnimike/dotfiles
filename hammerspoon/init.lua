@@ -55,6 +55,8 @@ local mehGridHotkeys = {
     { 'x', '0,2 2x3' },
     { 'c', '0,2 4x2' },
     { 'v', '2,2 2x2' },
+    { 't', '1,0 3x4' },
+    { 'q', '0,0 3x4' },
 }
 
 for i, binding in ipairs(mehGridHotkeys) do
