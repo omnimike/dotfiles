@@ -4,7 +4,7 @@ local meh = {'cmd', 'alt', 'ctrl'}
 local appHotkeys = {
     { 'u', 'Google Chrome' },
     { 'i', 'iTerm' },
-    { 'y', 'Stride-alpha' },
+    { 'y', 'Stride' },
     { 'o', 'IntelliJ IDEA' },
     { 'p', 'Google Play Music Desktop Player' },
 }
