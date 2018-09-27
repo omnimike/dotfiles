@@ -18,5 +18,5 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Ho
 export MAVEN_PATH=/usr/local/Cellar/maven/3.5.3
 export PATH="$PATH:$HOME/bin:$BREW_PATH:$PYTHON_PATH:$RUST_PATH:$SUBL_PATH:$LOCAL_PATH:$YARN_PATH:$GO_PATH:$TEX_PATH:$COMPOSER_PATH:$VSCODE_PATH"
 export GOPATH="$HOME/go"
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
