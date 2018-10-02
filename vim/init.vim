@@ -32,7 +32,7 @@ if has('nvim')
         \ 'branch': 'next',
         \ 'do': 'bash install.sh',
         \ }
-    "Plug 'roxma/nvim-completion-manager'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 
 call plug#end()
@@ -66,6 +66,7 @@ let g:NERDTreeWinSize=40
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'php': ['phpcs', 'phpmd'],
+\   'python': [],
 \}
 let g:ale_php_phpcs_executable = 'phpcs --standard=~/work/phpcs.xml'
 let g:ale_lint_on_text_changed = 'never'
@@ -74,10 +75,15 @@ let g:ale_lint_on_enter = 0
 au BufRead,BufNewFile *.pql set filetype=sql
 
 if has('nvim')
+    let g:deoplete#enable_at_startup = 1
+    let g:LanguageClient_settingsPath = "~/.vim/settings.json"
     let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['flow-language-server', '--stdio'],
-    \ 'javascript.jsx': ['flow-language-server', '--stdio'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['/usr/local/bin/javascript-typescript-stdio'],
     \ 'php': ['php', '~/.composer/vendor/bin/php-language-server.php'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'java': ['~/bin/jdtls'],
     \ }
 endif
 
@@ -147,13 +153,32 @@ noremap <Leader>;, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
 
 if has('nvim')
-    " language server
-    nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-    nnoremap <silent> <Leader>ld :call LanguageClient_textDocument_definition()<cr>
-    nnoremap <silent> <Leader>lh :call LanguageClient_textDocument_hover()<cr>
-    nnoremap <silent> <Leader>lr :call LanguageClient_textDocument_rename()<cr>
+    " language server commands
+    " LanguageClient_contextMenu()
+    " LanguageClient_textDocument_hover()
+    " LanguageClient_textDocument_definition()
+    " LanguageClient_textDocument_typeDefinition()
+    " LanguageClient_textDocument_implementation()
+    " LanguageClient#textDocument_rename()
+    " LanguageClient_textDocument_documentSymbol()
+    " LanguageClient_textDocument_references()
+    " LanguageClient_textDocument_codeAction()
+    " LanguageClient_textDocument_completion()
+    " LanguageClient_textDocument_formatting()
+    " LanguageClient_textDocument_rangeFormatting()
+    " LanguageClient_textDocument_documentHighlight()
+    " LanguageClient_clearDocumentHighlight()
+    " LanguageClient_workspace_symbol()
+    nnoremap <silent> <Leader>ll :call LanguageClient_textDocument_references()<cr>
+    nnoremap <silent> <Leader>lj :call LanguageClient_textDocument_definition()<cr>
+    nnoremap <silent> <Leader>lk :call LanguageClient_textDocument_hover()<cr>
+    nnoremap <silent> <Leader>lh :call LanguageClient_textDocument_documentHighlight()<cr>
+    nnoremap <silent> <Leader>lH :call LanguageClient_clearDocumentHighlight()<cr>
     nnoremap <silent> <Leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
-    nnoremap <silent> <Leader>lf :call LanguageClient_textDocument_references()<cr>
+    nnoremap <silent> <Leader>lr :call LanguageClient_textDocument_rename()<cr>
+    nnoremap <silent> <Leader>lf :call LanguageClient_textDocument_formatting()<cr>
+    vnoremap <silent> <Leader>lf :call LanguageClient_textDocument_rangeFormatting()<cr>
+
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif
