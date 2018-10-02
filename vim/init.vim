@@ -83,7 +83,6 @@ if has('nvim')
     \ 'javascript.jsx': ['/usr/local/bin/javascript-typescript-stdio'],
     \ 'php': ['php', '~/.composer/vendor/bin/php-language-server.php'],
     \ 'python': ['/usr/local/bin/pyls'],
-    \ 'java': ['~/bin/jdtls'],
     \ }
 endif
 
