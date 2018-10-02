@@ -62,6 +62,11 @@ usenvm() {
     source "/usr/local/opt/nvm/nvm.sh"
 }
 
+usejenv() {
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+}
+
 if [ -e ~/.zshrc-local ]; then
     source ~/.zshrc-local
 fi

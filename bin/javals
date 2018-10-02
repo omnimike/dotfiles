@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+server=~/endev/java-language-server/out/fat-jar.jar
+
+java \
+    -Xms1G \
+    -jar $server\
+    "$@"
