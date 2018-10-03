@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-server=~/endev/jdkls
+server=~/endev/jdtls
 
 java \
     -Declipse.application=org.eclipse.jdt.ls.core.id1 \

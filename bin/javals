@@ -2,7 +2,7 @@
 
 server=~/endev/java-language-server/out/fat-jar.jar
 
-java \
+jenv exec java \
     -Xms1G \
     -jar $server\
     "$@"
