@@ -73,6 +73,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 au BufRead,BufNewFile *.pql set filetype=sql
+au BufRead,BufNewFile *.hql set filetype=sql
 
 if has('nvim')
     let g:deoplete#enable_at_startup = 1
