@@ -15,6 +15,7 @@ Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth'
 Plug 'tommcdo/vim-exchange'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -27,6 +28,8 @@ Plug 'jremmen/vim-ripgrep'
 "Plug 'joonty/vdebug'
 Plug 'sheerun/vim-polyglot'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'ianks/vim-tsx'
 if has('nvim')
     Plug 'autozimu/LanguageClient-neovim', {
         \ 'branch': 'next',
@@ -65,6 +68,7 @@ let g:NERDTreeWinSize=40
 " Ale config
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
+\   'typescript': ['tsserver', 'tslint'],
 \   'php': ['phpcs', 'phpmd'],
 \   'python': [],
 \}
