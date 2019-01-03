@@ -30,12 +30,16 @@ Plug 'sheerun/vim-polyglot'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'ianks/vim-tsx'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 if has('nvim')
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 call plug#end()
@@ -76,20 +80,19 @@ let g:ale_php_phpcs_executable = 'phpcs --standard=~/work/phpcs.xml'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
+let g:deoplete#enable_at_startup = 1
+
 au BufRead,BufNewFile *.pql set filetype=sql
 au BufRead,BufNewFile *.hql set filetype=sql
 
-if has('nvim')
-    let g:deoplete#enable_at_startup = 1
-    let g:LanguageClient_settingsPath = "~/.vim/settings.json"
-    let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'php': ['php', '~/.composer/vendor/bin/php-language-server.php'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ }
-endif
+let g:LanguageClient_settingsPath = "~/.vim/settings.json"
+let g:LanguageClient_serverCommands = {
+\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+\ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+\ 'javascript.jsx': ['/usr/local/bin/javascript-typescript-stdio'],
+\ 'php': ['php', '~/.composer/vendor/bin/php-language-server.php'],
+\ 'python': ['/usr/local/bin/pyls'],
+\ }
 
 let g:vim_json_syntax_conceal = 0
 
@@ -151,41 +154,40 @@ noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>c2 :call SetIndentTwoSpace()<cr>
 noremap <Leader>c4 :call SetIndentFourSpace()<cr>
 noremap <Leader>ct :call SetIndentTab()<cr>
+noremap <Leader>cf :!cd $(dirname %) && prettier --write $(basename %)<cr>
 
 " vimrc
 noremap <Leader>;, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
 
-if has('nvim')
-    " language server commands
-    " LanguageClient_contextMenu()
-    " LanguageClient_textDocument_hover()
-    " LanguageClient_textDocument_definition()
-    " LanguageClient_textDocument_typeDefinition()
-    " LanguageClient_textDocument_implementation()
-    " LanguageClient#textDocument_rename()
-    " LanguageClient_textDocument_documentSymbol()
-    " LanguageClient_textDocument_references()
-    " LanguageClient_textDocument_codeAction()
-    " LanguageClient_textDocument_completion()
-    " LanguageClient_textDocument_formatting()
-    " LanguageClient_textDocument_rangeFormatting()
-    " LanguageClient_textDocument_documentHighlight()
-    " LanguageClient_clearDocumentHighlight()
-    " LanguageClient_workspace_symbol()
-    nnoremap <silent> <Leader>ll :call LanguageClient_textDocument_references()<cr>
-    nnoremap <silent> <Leader>lj :call LanguageClient_textDocument_definition()<cr>
-    nnoremap <silent> <Leader>lk :call LanguageClient_textDocument_hover()<cr>
-    nnoremap <silent> <Leader>lh :call LanguageClient_textDocument_documentHighlight()<cr>
-    nnoremap <silent> <Leader>lH :call LanguageClient_clearDocumentHighlight()<cr>
-    nnoremap <silent> <Leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
-    nnoremap <silent> <Leader>lr :call LanguageClient_textDocument_rename()<cr>
-    nnoremap <silent> <Leader>lf :call LanguageClient_textDocument_formatting()<cr>
-    vnoremap <silent> <Leader>lf :call LanguageClient_textDocument_rangeFormatting()<cr>
+" language server commands
+" LanguageClient_contextMenu()
+" LanguageClient_textDocument_hover()
+" LanguageClient_textDocument_definition()
+" LanguageClient_textDocument_typeDefinition()
+" LanguageClient_textDocument_implementation()
+" LanguageClient#textDocument_rename()
+" LanguageClient_textDocument_documentSymbol()
+" LanguageClient_textDocument_references()
+" LanguageClient_textDocument_codeAction()
+" LanguageClient_textDocument_completion()
+" LanguageClient_textDocument_formatting()
+" LanguageClient_textDocument_rangeFormatting()
+" LanguageClient_textDocument_documentHighlight()
+" LanguageClient_clearDocumentHighlight()
+" LanguageClient_workspace_symbol()
+nnoremap <silent> <Leader>ll :call LanguageClient_textDocument_references()<cr>
+nnoremap <silent> <Leader>lj :call LanguageClient_textDocument_definition()<cr>
+nnoremap <silent> <Leader>lk :call LanguageClient_textDocument_hover()<cr>
+nnoremap <silent> <Leader>lh :call LanguageClient_textDocument_documentHighlight()<cr>
+nnoremap <silent> <Leader>lH :call LanguageClient_clearDocumentHighlight()<cr>
+nnoremap <silent> <Leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
+nnoremap <silent> <Leader>lr :call LanguageClient_textDocument_rename()<cr>
+nnoremap <silent> <Leader>lf :call LanguageClient_textDocument_formatting()<cr>
+vnoremap <silent> <Leader>lf :call LanguageClient_textDocument_rangeFormatting()<cr>
 
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-endif
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " color scheme
 if (has('termguicolors'))
@@ -193,6 +195,11 @@ if (has('termguicolors'))
 endif
 syntax on
 colorscheme onedark
+
+" bar cursor in insert mode
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 if filereadable('~/.vimrc-local')
     runtime '~/.vimrc-local'
