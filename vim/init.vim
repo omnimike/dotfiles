@@ -10,41 +10,48 @@ set listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
 
 call plug#begin('~/.vim/plugged')
 
+" core editing
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-"Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth'
 Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
+"Plug 'tpope/vim-unimpaired'
+
+" ide
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'w0rp/ale'
-Plug 'joshdick/onedark.vim'
 Plug 'jremmen/vim-ripgrep'
-"Plug 'joonty/vdebug'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'scrooloose/nerdcommenter'
+
+" language support
+Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'ianks/vim-tsx'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+"Plug 'joonty/vdebug'
 
+" lang server
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
 Plug 'ryanolsonx/vim-lsp-typescript'
+
+" theme
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set number
 set nowrap
@@ -66,6 +73,7 @@ set undodir=$HOME/.vim/undo//
 
 let g:NERDTreeWinSize=40
 
+" disable VCS info
 let g:airline_section_b = ''
 
 " Ale config
@@ -77,11 +85,6 @@ let g:ale_linters = {
 \}
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
-
-let g:deoplete#enable_at_startup = 1
-
-au BufRead,BufNewFile *.pql set filetype=sql
-au BufRead,BufNewFile *.hql set filetype=sql
 
 let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1 
@@ -95,6 +98,9 @@ let g:vim_json_syntax_conceal = 0
 "let g:vdebug_options['port'] = 9000
 "let g:vdebug_options['ide_key'] = 'xdebug'
 "let g:vdebug_options['break_on_open'] = 0
+
+au BufRead,BufNewFile *.pql set filetype=sql
+au BufRead,BufNewFile *.hql set filetype=sql
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
@@ -131,8 +137,6 @@ fun! SetIndentTab()
 endfun
 command! SetIndentTab call SetIndentTab()
 
-nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
-
 nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 
 " save
@@ -140,17 +144,20 @@ noremap <Leader>s :w<cr>
 
 " open file
 nnoremap <Leader>p :FZF<CR>
+nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
+" search
 nnoremap <Leader>/ :Rg 
 nnoremap <Leader>* :Rg <cword><CR>
+
+" format
+noremap <silent> <Leader>f :Prettier<cr>
 
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>c2 :call SetIndentTwoSpace()<cr>
 noremap <Leader>c4 :call SetIndentFourSpace()<cr>
 noremap <Leader>ct :call SetIndentTab()<cr>
-noremap <Leader>cf :!cd $(dirname %) && prettier --write $(basename %)<cr>
-noremap <silent> <Leader>f :Prettier<cr>
 
 " vimrc
 noremap <Leader>;, :source $MYVIMRC<cr>
