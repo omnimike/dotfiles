@@ -30,6 +30,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'ianks/vim-tsx'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
@@ -65,10 +66,12 @@ set undodir=$HOME/.vim/undo//
 
 let g:NERDTreeWinSize=40
 
+let g:airline_section_b = ''
+
 " Ale config
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
-\   'typescript': ['tsserver', 'tslint'],
+\   'typescript': ['tslint'],
 \   'php': ['phpcs', 'phpmd'],
 \   'python': [],
 \}
@@ -146,7 +149,8 @@ noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>c2 :call SetIndentTwoSpace()<cr>
 noremap <Leader>c4 :call SetIndentFourSpace()<cr>
 noremap <Leader>ct :call SetIndentTab()<cr>
-noremap <Leader>f :!cd $(dirname %) && prettier --write $(basename %)<cr>
+noremap <Leader>cf :!cd $(dirname %) && prettier --write $(basename %)<cr>
+noremap <silent> <Leader>f :Prettier<cr>
 
 " vimrc
 noremap <Leader>;, :source $MYVIMRC<cr>
