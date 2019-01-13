@@ -18,6 +18,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -27,20 +28,15 @@ Plug 'joshdick/onedark.vim'
 Plug 'jremmen/vim-ripgrep'
 "Plug 'joonty/vdebug'
 Plug 'sheerun/vim-polyglot'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'ianks/vim-tsx'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+Plug 'ryanolsonx/vim-lsp-typescript'
 
 call plug#end()
 
@@ -76,7 +72,6 @@ let g:ale_linters = {
 \   'php': ['phpcs', 'phpmd'],
 \   'python': [],
 \}
-let g:ale_php_phpcs_executable = 'phpcs --standard=~/work/phpcs.xml'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
@@ -85,14 +80,11 @@ let g:deoplete#enable_at_startup = 1
 au BufRead,BufNewFile *.pql set filetype=sql
 au BufRead,BufNewFile *.hql set filetype=sql
 
-let g:LanguageClient_settingsPath = "~/.vim/settings.json"
-let g:LanguageClient_serverCommands = {
-\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-\ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-\ 'javascript.jsx': ['/usr/local/bin/javascript-typescript-stdio'],
-\ 'php': ['php', '~/.composer/vendor/bin/php-language-server.php'],
-\ 'python': ['/usr/local/bin/pyls'],
-\ }
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1 
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '⚠'}
+let g:lsp_signs_hint = {'text': '✭'}
 
 let g:vim_json_syntax_conceal = 0
 
@@ -136,7 +128,7 @@ fun! SetIndentTab()
 endfun
 command! SetIndentTab call SetIndentTab()
 
-noremap <Leader>t :NERDTree<cr>
+nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
 nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 
@@ -154,40 +146,33 @@ noremap <Leader>cw :call TrimWhitespace()<cr>
 noremap <Leader>c2 :call SetIndentTwoSpace()<cr>
 noremap <Leader>c4 :call SetIndentFourSpace()<cr>
 noremap <Leader>ct :call SetIndentTab()<cr>
-noremap <Leader>cf :!cd $(dirname %) && prettier --write $(basename %)<cr>
+noremap <Leader>f :!cd $(dirname %) && prettier --write $(basename %)<cr>
 
 " vimrc
 noremap <Leader>;, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
 
 " language server commands
-" LanguageClient_contextMenu()
-" LanguageClient_textDocument_hover()
-" LanguageClient_textDocument_definition()
-" LanguageClient_textDocument_typeDefinition()
-" LanguageClient_textDocument_implementation()
-" LanguageClient#textDocument_rename()
-" LanguageClient_textDocument_documentSymbol()
-" LanguageClient_textDocument_references()
-" LanguageClient_textDocument_codeAction()
-" LanguageClient_textDocument_completion()
-" LanguageClient_textDocument_formatting()
-" LanguageClient_textDocument_rangeFormatting()
-" LanguageClient_textDocument_documentHighlight()
-" LanguageClient_clearDocumentHighlight()
-" LanguageClient_workspace_symbol()
-nnoremap <silent> <Leader>ll :call LanguageClient_textDocument_references()<cr>
-nnoremap <silent> <Leader>lj :call LanguageClient_textDocument_definition()<cr>
-nnoremap <silent> <Leader>lk :call LanguageClient_textDocument_hover()<cr>
-nnoremap <silent> <Leader>lh :call LanguageClient_textDocument_documentHighlight()<cr>
-nnoremap <silent> <Leader>lH :call LanguageClient_clearDocumentHighlight()<cr>
-nnoremap <silent> <Leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
-nnoremap <silent> <Leader>lr :call LanguageClient_textDocument_rename()<cr>
-nnoremap <silent> <Leader>lf :call LanguageClient_textDocument_formatting()<cr>
-vnoremap <silent> <Leader>lf :call LanguageClient_textDocument_rangeFormatting()<cr>
+nnoremap <silent> <Leader>a :LspCodeAction<cr>
+nnoremap <silent> <Leader>d :LspDefinition<cr>
+"nnoremap <silent> <Leader> :LspDocumentDiagnostics<cr>
+"nnoremap <silent> <Leader> :LspDocumentFormat<cr>
+"vnoremap <silent> <Leader> :LspDocumentRangeFormat<cr>
+nnoremap <silent> <Leader>y :LspDocumentSymbol<cr>
+nnoremap <silent> <Leader>l :LspHover<cr>
+nnoremap <silent> <Leader>i :LspImplementation<cr>
+nnoremap <silent> <Leader>j :LspNextError<cr>
+nnoremap <silent> <Leader>k :LspPreviousError<cr>
+nnoremap <silent> <Leader>u :LspReferences<cr>
+nnoremap <silent> <Leader>r :LspRename<cr>
+"nnoremap <silent> <Leader> :LspStatus<cr>
+nnoremap <silent> <Leader>t :LspTypeDefinition<cr>
+nnoremap <silent> <Leader>Y :LspWorkspaceSymbol<cr>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 " color scheme
 if (has('termguicolors'))
