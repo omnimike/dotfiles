@@ -79,14 +79,14 @@ let g:airline_section_b = ''
 " Ale config
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
-\   'typescript': ['tslint'],
+\   'typescript': ['tsserver', 'tslint'],
 \   'php': ['phpcs', 'phpmd'],
 \   'python': [],
 \}
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
-let g:lsp_signs_enabled = 1
+let g:lsp_signs_enabled = 0
 let g:lsp_diagnostics_echo_cursor = 1 
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '⚠'}
