@@ -4,8 +4,8 @@ local meh = {'cmd', 'alt', 'ctrl'}
 local appHotkeys = {
     { 'u', 'Google Chrome' },
     { 'i', 'iTerm' },
-    { 'y', 'Stride' },
-    { 'o', 'IntelliJ IDEA' },
+    { 'y', 'Slack' },
+    { 'o', 'Safari' },
     { 'p', 'Google Play Music Desktop Player' },
 }
 

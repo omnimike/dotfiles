@@ -26,7 +26,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'jremmen/vim-ripgrep'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'scrooloose/nerdcommenter'
 
 " language support
@@ -137,6 +136,15 @@ fun! SetIndentTab()
 endfun
 command! SetIndentTab call SetIndentTab()
 
+" format
+augroup format
+    autocmd! format
+    autocmd FileType typescript noremap <buffer> <silent> <Leader>f :w<cr>:silent !tslint --fix %; prettier --write %<cr>:e<cr>
+    autocmd FileType javascript noremap <buffer> <silent> <Leader>f :w<cr>:silent !prettier --write %<cr>:e<cr>
+    autocmd FileType html noremap <buffer> <silent> <Leader>f :w<cr>:silent !prettier --write %<cr>:e<cr>
+    autocmd FileType css noremap <buffer> <silent> <Leader>f :w<cr>:silent !prettier --write %<cr>:e<cr>
+augroup end
+
 nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 
 " save
@@ -149,9 +157,6 @@ nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" :
 " search
 nnoremap <Leader>/ :Rg 
 nnoremap <Leader>* :Rg <cword><CR>
-
-" format
-noremap <silent> <Leader>f :Prettier<cr>
 
 " code/comments
 noremap <Leader>cw :call TrimWhitespace()<cr>
@@ -172,17 +177,21 @@ nnoremap <silent> <Leader>d :LspDefinition<cr>
 nnoremap <silent> <Leader>y :LspDocumentSymbol<cr>
 nnoremap <silent> <Leader>l :LspHover<cr>
 nnoremap <silent> <Leader>i :LspImplementation<cr>
-nnoremap <silent> <Leader>j :LspNextError<cr>
-nnoremap <silent> <Leader>k :LspPreviousError<cr>
+"nnoremap <silent> <Leader>j :LspNextError<cr>
+"nnoremap <silent> <Leader>k :LspPreviousError<cr>
 nnoremap <silent> <Leader>u :LspReferences<cr>
 nnoremap <silent> <Leader>r :LspRename<cr>
 "nnoremap <silent> <Leader> :LspStatus<cr>
 nnoremap <silent> <Leader>t :LspTypeDefinition<cr>
 nnoremap <silent> <Leader>Y :LspWorkspaceSymbol<cr>
 
+" linting errors
+nnoremap <silent> <Leader>j :ALENext<cr>
+nnoremap <silent> <Leader>k :ALEPrevious<cr>
+
+" completion commands
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 " color scheme
