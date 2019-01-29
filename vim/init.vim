@@ -152,7 +152,7 @@ nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 noremap <Leader>s :w<cr>
 
 " open file
-nnoremap <Leader>p :FZF<CR>
+nnoremap <Leader>p :Files<CR>
 nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
 " search
