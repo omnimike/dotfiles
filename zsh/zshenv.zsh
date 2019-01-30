@@ -1,6 +1,6 @@
 
 # variables
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='fd  --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 local TEX_PATH="/Library/TeX/texbin"

@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 
 " core editing
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'tommcdo/vim-exchange'
@@ -72,6 +73,7 @@ set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
 
 let g:NERDTreeWinSize=40
+let g:NERDTreeShowHidden=1
 
 " disable VCS info
 let g:airline_section_b = ''
