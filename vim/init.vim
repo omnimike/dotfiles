@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 
 " core editing
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'tommcdo/vim-exchange'
@@ -25,6 +26,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'scrooloose/nerdcommenter'
 
@@ -71,6 +73,7 @@ set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
 
 let g:NERDTreeWinSize=40
+let g:NERDTreeShowHidden=1
 
 " disable VCS info
 let g:airline_section_b = ''
@@ -166,7 +169,7 @@ nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 noremap <Leader>s :w<cr>
 
 " open file
-nnoremap <Leader>p :FZF<CR>
+nnoremap <Leader>p :Files<CR>
 nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
 " search

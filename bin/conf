@@ -96,7 +96,7 @@ install_vim()
     mkdir -p $HOME/.vim/backup
     mkdir -p $HOME/.vim/swapfiles
     mkdir -p $HOME/.vim/undo
-    ln -s $CONF_DIR/vim/settings.json $HOME/.vim/settings.json
+    ln -svf $CONF_DIR/vim/settings.json $HOME/.vim/settings.json
 }
 
 install_nvim()
