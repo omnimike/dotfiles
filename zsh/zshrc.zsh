@@ -27,6 +27,7 @@ alias zshrc="e ~/.zshrc"
 alias zshenv="e ~/.zshenv"
 alias zshreload="source ~/.zshrc"
 alias vimrc="e ~/.vimrc"
+alias kakrc="e ~/.config/kak/kakrc"
 alias sshconfig="e ~/.ssh/config"
 
 ZSH_THEME=""
