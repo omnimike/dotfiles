@@ -17,6 +17,7 @@ Usage:
     install-karabiner   Install .karabiner.d/configuration/karabiner.json
     install-vim         Install the ~/.vimrc file and vim-plug
     install-nvim        Install the symlink .nvimrc to .vimrc
+    install-kak         Install Kakoune config files
     install-bin         Install this script to ~/bin
     install-zsh         Install zsh scripts to ~/.oh-my-zsh/custom
     install-alacritty   Install alacritty.yml
@@ -105,6 +106,14 @@ install_nvim()
     ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
 }
 
+install_kak()
+{
+    mkdir -p "$HOME/.config/kak"
+    mkdir -p "$HOME/.config/kak/plugins"
+    ln -svf "$CONF_DIR/kak/kakrc" "$HOME/.config/kak/kakrc"
+    git clone https://github.com/andreyorst/plug.kak.git ~/.config/kak/plugins/plug.kak
+}
+
 install_bin()
 {
     # Make the bin folder
@@ -169,6 +178,8 @@ case $1 in
     install-vim) install_vim
         ;;
     install-nvim) install_nvim
+        ;;
+    install-kak) install_kak
         ;;
     install-bin) install_bin
         ;;

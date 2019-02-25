@@ -167,6 +167,7 @@ nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 
 " save
 noremap <Leader>s :w<cr>
+noremap <Leader>n :noh<cr>
 
 " open file
 nnoremap <Leader>p :Files<CR>
