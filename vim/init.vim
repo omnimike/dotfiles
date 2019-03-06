@@ -6,7 +6,7 @@ set hidden
 let mapleader = " "
 set mouse=a
 set list
-set listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
+set listchars=tab:>-,trail:·,extends:>,precedes:<
 
 call plug#begin('~/.vim/plugged')
 
