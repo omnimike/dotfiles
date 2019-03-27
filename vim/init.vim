@@ -29,6 +29,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'scrooloose/nerdcommenter'
+Plug 'editorconfig/editorconfig-vim'
 
 " language support
 Plug 'w0rp/ale'
@@ -158,7 +159,7 @@ command! SetIndentTab call SetIndentTab()
 augroup format
     autocmd! format
     autocmd FileType typescript noremap <buffer> <silent> <Leader>f :w<cr>:silent !tslint --fix %; prettier --write %<cr>:e<cr>
-    autocmd FileType javascript noremap <buffer> <silent> <Leader>f :w<cr>:silent !prettier --write %<cr>:e<cr>
+    autocmd FileType javascript noremap <buffer> <silent> <Leader>f :w<cr>:silent !eslint --fix %; prettier --write %<cr>:e<cr>
     autocmd FileType html noremap <buffer> <silent> <Leader>f :w<cr>:silent !prettier --write %<cr>:e<cr>
     autocmd FileType css noremap <buffer> <silent> <Leader>f :w<cr>:silent !prettier --write %<cr>:e<cr>
 augroup end
