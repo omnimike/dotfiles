@@ -35,7 +35,7 @@ end)
 
 hs.window.animationDuration = 0
 hs.grid.setMargins({0, 0})
-hs.grid.setGrid('4x4')
+hs.grid.setGrid('6x6')
 
 mehBind('a', function ()
     local win = hs.window.focusedWindow()
@@ -48,17 +48,15 @@ mehBind('g', function ()
 end)
 
 local mehGridHotkeys = {
-    { 'w', '0,0 2x2' },
-    { 'e', '0,0 4x2' },
-    { 'r', '2,0 2x2' },
-    { 's', '0,0 2x4' },
-    { 'd', '0,0 4x4' },
-    { 'f', '2,0 2x4' },
-    { 'x', '0,2 2x3' },
-    { 'c', '0,2 4x2' },
-    { 'v', '2,2 2x2' },
-    { 't', '1,0 3x4' },
-    { 'q', '0,0 3x4' },
+    { 'w', '0,0 3x3' },
+    { 'e', '0,0 6x3' },
+    { 'r', '3,0 3x3' },
+    { 's', '0,0 3x6' },
+    { 'd', '0,0 6x6' },
+    { 'f', '3,0 3x6' },
+    { 'x', '0,3 3x3' },
+    { 'c', '0,3 6x3' },
+    { 'v', '3,3 3x3' },
 }
 
 for i, binding in ipairs(mehGridHotkeys) do
@@ -72,21 +70,21 @@ for i, binding in ipairs(mehGridHotkeys) do
 end
 
 local hyperGridHotkeys = {
+    { 'w', '0,0 2x3' },
+    { 'e', '2,0 2x3' },
+    { 'r', '4,0 2x3' },
+    { 's', '0,0 2x6' },
+    { 'd', '2,0 2x6' },
+    { 'f', '4,0 2x6' },
+    { 'x', '0,3 2x3' },
+    { 'c', '2,3 2x3' },
+    { 'v', '4,3 2x3' },
+    { 'g', '2,0 4x6' },
+    { 'a', '0,0 4x6' },
     { 'q', '0,0 1x2' },
-    { 'w', '1,0 1x2' },
-    { 'e', '2,0 1x2' },
-    { 'r', '3,0 1x2' },
-    { 'z', '0,2 1x2' },
-    { 'x', '1,2 1x2' },
-    { 'c', '2,2 1x2' },
-    { 'v', '3,2 1x2' },
-    { 'a', '0,0 1x4' },
-    { 's', '1,0 1x4' },
-    { 'd', '2,0 1x4' },
-    { 'f', '3,0 1x4' },
-    { 'g', '1,0 2x4' },
-    { 't', '1,0 2x2' },
-    { 'b', '1,2 2x2' },
+    { 't', '5,0 1x2' },
+    { 'z', '0,4 1x2' },
+    { 'b', '5,4 1x2' },
 }
 
 for i, binding in ipairs(hyperGridHotkeys) do
