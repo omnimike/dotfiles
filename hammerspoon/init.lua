@@ -5,6 +5,7 @@ local appHotkeys = {
     { '8', 'Safari' },
     { 'u', 'Google Chrome' },
     { 'i', 'iTerm' },
+    { 'o', 'Visual Studio Code' },
     { 'y', 'Slack' },
     { '7', 'Stride' },
     { 'p', 'Google Play Music Desktop Player' },

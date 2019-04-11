@@ -11,6 +11,7 @@ Usage:
     status              Show changes to conf
     install-subl        Install sublime text config
     install-atom        Install atom config
+    install-vscode      Install vscode config
     install-emacs       Install emacs config
     install-idea        Install idea config
     install-hammerspoon Install .hammerspoon/init.lua
@@ -69,6 +70,11 @@ install_atom()
     ln -svf $CONF_DIR/atom/init.coffee $HOME/.atom/init.coffee
     ln -svf $CONF_DIR/atom/keymap.cson $HOME/.atom/keymap.cson
     ln -svf $CONF_DIR/atom/config.cson $HOME/.atom/config.cson
+}
+
+install_vscode()
+{
+    ln -svf "$CONF_DIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"    
 }
 
 install_emacs()
@@ -166,6 +172,8 @@ case $1 in
     install-subl) install_sublime
         ;;
     install-atom) install_atom
+        ;;
+    install-vscode) install_vscode
         ;;
     install-emacs) install_emacs
         ;;

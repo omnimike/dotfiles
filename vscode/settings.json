@@ -1,0 +1,23 @@
+{
+    "files.autoSave": "onFocusChange",
+    "searchRipgrep.enable": true,
+    "vsicons.projectDetection.disableDetect": true,
+    "workbench.colorTheme": "One Dark Pro Vivid",
+    "editor.renderWhitespace": "all",
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "gitlens.advanced.telemetry.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "workbench.activityBar.visible": true,
+    "vim.leader": " ",
+    "window.zoomLevel": 0,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.tabSize": 2,
+    "editor.rulers": [80, 100]
+}
