@@ -1,6 +1,6 @@
 {
     "files.autoSave": "onFocusChange",
-    "searchRipgrep.enable": true,
+    "search.runInExtensionHost": true,
     "vsicons.projectDetection.disableDetect": true,
     "workbench.colorTheme": "One Dark Pro Vivid",
     "editor.renderWhitespace": "all",
@@ -8,7 +8,6 @@
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.codeLens.enabled": false,
     "workbench.activityBar.visible": true,
-    "vim.leader": " ",
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -19,5 +18,24 @@
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
     "editor.tabSize": 2,
-    "editor.rulers": [80, 100]
+    "editor.rulers": [
+        80,
+        100
+    ],
+    "vim.leader": "<space>",
+    "vim.incsearch": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["Z", "Z"],
+            "commands": [":wq"]
+        },
+        {
+            "before": ["Z", "Q"],
+            "commands": [":q!"]
+        },
+        {
+            "before": ["<leader>", "s"],
+            "commands": [":w"]
+        },
+    ]
 }
