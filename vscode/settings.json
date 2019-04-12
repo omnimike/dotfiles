@@ -20,7 +20,8 @@
     "editor.tabSize": 2,
     "editor.rulers": [
         80,
-        100
+        100,
+        120
     ],
     "vim.leader": "<space>",
     "vim.incsearch": true,
@@ -37,5 +38,7 @@
             "before": ["<leader>", "s"],
             "commands": [":w"]
         },
-    ]
+    ],
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never"
 }
