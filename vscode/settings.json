@@ -1,7 +1,6 @@
 {
     "files.autoSave": "onFocusChange",
     "search.runInExtensionHost": true,
-    "vsicons.projectDetection.disableDetect": true,
     "workbench.colorTheme": "One Dark Pro Vivid",
     "editor.renderWhitespace": "all",
     "java.errors.incompleteClasspath.severity": "ignore",
@@ -40,5 +39,9 @@
         },
     ],
     "editor.autoClosingBrackets": "never",
-    "editor.autoClosingQuotes": "never"
+    "editor.autoClosingQuotes": "never",
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
