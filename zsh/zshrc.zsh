@@ -11,7 +11,11 @@ setopt HIST_SAVE_NO_DUPS
 # Remove superfluous blanks before recording entry.
 setopt HIST_REDUCE_BLANKS
 
+# This allows us to use the R language
 disable r
+
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 # alias
 alias e='nvim'
