@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -euo pipefail
+cd "$(dirname "$0")"
 
 usage()
 {
@@ -9,199 +10,34 @@ Usage:
     save                Push conf changes to omnimike/conf
     load                Pull conf changes from omnimike/conf
     status              Show changes to conf
-    install-subl        Install sublime text config
-    install-atom        Install atom config
-    install-vscode      Install vscode config
-    install-emacs       Install emacs config
-    install-idea        Install idea config
-    install-hammerspoon Install .hammerspoon/init.lua
-    install-karabiner   Install .karabiner.d/configuration/karabiner.json
-    install-vim         Install the ~/.vimrc file and vim-plug
-    install-nvim        Install the symlink .nvimrc to .vimrc
-    install-kak         Install Kakoune config files
-    install-bin         Install this script to ~/bin
-    install-zsh         Install zsh scripts to ~/.oh-my-zsh/custom
-    install-alacritty   Install alacritty.yml
-    install-tmux        Install ~/.tmux.conf
-    install-osx         Set OSX settings
 EOT
 }
 
 # SOURCE_FILE is the full path to this file
 # CONF_DIR is the full path to the root folder of the conf repository
-SOURCE_FILE="${BASH_SOURCE}"
-if [ -L $SOURCE_FILE ]; then
-    SOURCE_FILE="$( readlink $SOURCE_FILE )"
+SOURCE_FILE="${BASH_SOURCE[0]}"
+if [ -L "$SOURCE_FILE" ]; then
+    SOURCE_FILE="$(readlink "$SOURCE_FILE")"
 fi
-CONF_DIR="$( cd "$( dirname "$SOURCE_FILE" )" && pwd )"/..
-
-die()
-{
-    echo "$@" >&2
-    exit 1
-}
-
-save()
-{
-    git -C $CONF_DIR add -f . || die
-    git -C $CONF_DIR commit -m "save" || die
-    git -C $CONF_DIR push || die
-}
-
-load()
-{
-    git -C $CONF_DIR pull
-}
-
-status()
-{
-    git -C $CONF_DIR status
-}
-
-install_sublime()
-{
-    true
-    #ln -svf $CONF_DIR/subl/* $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-}
-
-install_atom()
-{
-    ln -svf $CONF_DIR/atom/styles.less $HOME/.atom/styles.less
-    ln -svf $CONF_DIR/atom/init.coffee $HOME/.atom/init.coffee
-    ln -svf $CONF_DIR/atom/keymap.cson $HOME/.atom/keymap.cson
-    ln -svf $CONF_DIR/atom/config.cson $HOME/.atom/config.cson
-}
-
-install_vscode()
-{
-    ln -svf "$CONF_DIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"    
-}
-
-install_emacs()
-{
-    ln -svf $CONF_DIR/emacs/init.el $HOME/.emacs.d/init.el
-}
-
-install_sublime()
-{
-    ln -svf $CONF_DIR/subl/* $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-}
-
-install_idea()
-{
-    ln -svf $CONF_DIR/idea/ideavimrc $HOME/.ideavimrc
-}
-
-install_vim()
-{
-    # Link .vimrc
-    ln -svf $CONF_DIR/vim/init.vim $HOME/.vimrc
-    # Install vim-plug
-    curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    # Create the swapfile folder
-    mkdir -p $HOME/.vim/backup
-    mkdir -p $HOME/.vim/swapfiles
-    mkdir -p $HOME/.vim/undo
-    ln -svf $CONF_DIR/vim/settings.json $HOME/.vim/settings.json
-}
-
-install_nvim()
-{
-    ln -s $HOME/.vim $HOME/.config/nvim
-    ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
-}
-
-install_kak()
-{
-    mkdir -p "$HOME/.config/kak"
-    mkdir -p "$HOME/.config/kak/plugins"
-    ln -svf "$CONF_DIR/kak/kakrc" "$HOME/.config/kak/kakrc"
-    git clone https://github.com/andreyorst/plug.kak.git ~/.config/kak/plugins/plug.kak
-}
-
-install_bin()
-{
-    # Make the bin folder
-    mkdir -p $HOME/bin || die "Couldn't create ~/bin"
-    # Link all of the scripts
-    ln -svf $CONF_DIR/bin/* $HOME/bin
-}
-
-install_zsh()
-{
-    ln -svf $CONF_DIR/zsh/zshrc.zsh $HOME/.zshrc
-    ln -svf $CONF_DIR/zsh/zshenv.zsh $HOME/.zshenv
-    # Scripts in the custom folder will be automatically loaded
-}
-
-install_alacritty()
-{
-    ln -svf $CONF_DIR/alacritty.yml $HOME/.config/alacritty/alacritty.yml
-}
-
-install_tmux()
-{
-    ln -svf $CONF_DIR/tmux.conf $HOME/.tmux.conf
-}
-
-install_osx()
-{
-    defaults write -g ApplePressAndHoldEnabled -bool false
-}
-
-install_hammerspoon()
-{
-    rm -f $HOME/.hammerspoon/init.lua
-    ln -svf $CONF_DIR/hammerspoon/init.lua $HOME/.hammerspoon/init.lua
-}
-
-install_karabiner()
-{
-    rm -f $HOME/.karabiner.d/configuration/karabiner.json
-    ln -svf $CONF_DIR/karabiner/karabiner.json $HOME/.karabiner.d/configuration/karabiner.json
-}
+CONF_DIR="$( cd "$(dirname "$SOURCE_FILE")" && pwd )"/..
 
 case $1 in
-    save) save
+    save)
+        git -C "$CONF_DIR" add -f .
+        git -C "$CONF_DIR" commit -m "save"
+        git -C "$CONF_DIR" push
         ;;
-    load) load
+    load)
+        git -C "$CONF_DIR" pull
         ;;
-    status) status
+    status)
+        git -C "$CONF_DIR" status
         ;;
-    install-subl) install_sublime
+    -h | help | --help)
+        usage
         ;;
-    install-atom) install_atom
-        ;;
-    install-vscode) install_vscode
-        ;;
-    install-emacs) install_emacs
-        ;;
-    install-idea) install_idea
-        ;;
-    install-hammerspoon) install_hammerspoon
-        ;;
-    install-karabiner) install_karabiner
-        ;;
-    install-vim) install_vim
-        ;;
-    install-nvim) install_nvim
-        ;;
-    install-kak) install_kak
-        ;;
-    install-bin) install_bin
-        ;;
-    install-zsh) install_zsh
-        ;;
-    install-alacritty) install_alacritty
-        ;;
-    install-tmux) install_tmux
-        ;;
-    install-osx) install_osx
-        ;;
-    -h | help | --help) usage
-        ;;
-    *) usage
-        die
+    *)
+        usage
+        exit 1
         ;;
 esac
