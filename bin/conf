@@ -21,7 +21,7 @@ if [ -L "$SOURCE_FILE" ]; then
 fi
 CONF_DIR="$( cd "$(dirname "$SOURCE_FILE")" && pwd )"/..
 
-case $1 in
+case "$1" in
     save)
         git -C "$CONF_DIR" add -f .
         git -C "$CONF_DIR" commit -m "save"
@@ -32,6 +32,13 @@ case $1 in
         ;;
     status)
         git -C "$CONF_DIR" status
+        ;;
+    install)
+        if [[ ! -f "$CONF_DIR/$2/install.sh" ]]; then
+            echo "Config not found for $2"
+            exit 1
+        fi
+        "$CONF_DIR/$2/install.sh"
         ;;
     -h | help | --help)
         usage
