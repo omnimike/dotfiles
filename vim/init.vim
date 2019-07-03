@@ -92,8 +92,9 @@ let g:ale_linters = {
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
+let g:lsp_virtual_text_enabled = 0
 let g:lsp_signs_enabled = 0
-let g:lsp_diagnostics_echo_cursor = 1 
+let g:lsp_diagnostics_echo_cursor = 0
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '⚠'}
 let g:lsp_signs_hint = {'text': '✭'}
@@ -164,6 +165,7 @@ command! SetIndentTab call SetIndentTab()
 augroup format
     autocmd! format
     autocmd FileType typescript noremap <buffer> <silent> <Leader>f :w<cr>:silent !tslint --fix %; prettier --write %<cr>:e<cr>
+    autocmd FileType typescript.tsx noremap <buffer> <silent> <Leader>f :w<cr>:silent !tslint --fix %; prettier --write %<cr>:e<cr>
     autocmd FileType javascript noremap <buffer> <silent> <Leader>f :w<cr>:silent !eslint --fix %; prettier --write %<cr>:e<cr>
     autocmd FileType html noremap <buffer> <silent> <Leader>f :w<cr>:silent !prettier --write %<cr>:e<cr>
     autocmd FileType css noremap <buffer> <silent> <Leader>f :w<cr>:silent !prettier --write %<cr>:e<cr>
