@@ -186,18 +186,19 @@ nnoremap <Leader>/ :Rg
 nnoremap <Leader>* :Rg <cword><CR>
 
 " code/comments
-noremap <Leader>;w :call TrimWhitespace()<cr>
-noremap <Leader>;2 :call SetIndentTwoSpace()<cr>
-noremap <Leader>;4 :call SetIndentFourSpace()<cr>
-noremap <Leader>;t :call SetIndentTab()<cr>
-noremap <Leader>;s :if exists("g:syntax_on") <Bar>
+noremap \w :call TrimWhitespace()<cr>
+noremap \2 :call SetIndentTwoSpace()<cr>
+noremap \4 :call SetIndentFourSpace()<cr>
+noremap \t :call SetIndentTab()<cr>
+noremap \h :nohlsearch<cr>
+noremap <silent> \s :if exists("g:syntax_on") <Bar>
     \   syntax off <Bar>
     \ else <Bar>
     \   syntax enable <Bar>
     \ endif <CR>
 
 " vimrc
-noremap <Leader>;, :source $MYVIMRC<cr>
+noremap \, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
 
 " language server commands
@@ -236,7 +237,7 @@ if (has('termguicolors'))
     set termguicolors
 endif
 colorscheme onedark
-syntax off
+syntax on
 
 if filereadable('~/.vimrc-local')
     runtime '~/.vimrc-local'
