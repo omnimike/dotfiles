@@ -8,10 +8,40 @@ set mouse=a
 set list
 set listchars=tab:>-,trail:·,extends:>,precedes:<
 
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set number
+set nowrap
+set textwidth=0
+set wrapmargin=0
+set autoread
+set autoindent
+set smartindent
+set undofile
+set foldmethod=indent
+set nofoldenable
+set wildignore+=*/.git/*,*/tmp/*,*.swp
+set colorcolumn=80
+set directory=$HOME/.vim/swapfiles//
+set backupdir=$HOME/.vim/backup//
+set undodir=$HOME/.vim/undo//
+
+augroup init
+    autocmd!
+    " Save files on focus lost
+    autocmd BufLeave,FocusLost * silent! wall
+    autocmd BufRead,BufNewFile *.pql set filetype=sql
+    autocmd BufRead,BufNewFile *.hql set filetype=sql
+augroup END
+
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+" We force vim-sensible to load early so we can turn off syntax highlighting
+call plug#load('vim-sensible')
 
 " core editing
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
@@ -53,29 +83,6 @@ Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
-filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set number
-set nowrap
-set textwidth=0
-set wrapmargin=0
-set autoread
-set autoindent
-set smartindent
-set undofile
-set foldmethod=indent
-set nofoldenable
-set wildignore+=*/.git/*,*/tmp/*,*.swp
-set colorcolumn=80
-" Save files on focus lost
-autocmd BufLeave,FocusLost * silent! wall
-set directory=$HOME/.vim/swapfiles//
-set backupdir=$HOME/.vim/backup//
-set undodir=$HOME/.vim/undo//
-
 let g:NERDTreeWinSize=40
 let g:NERDTreeShowHidden=1
 
@@ -107,9 +114,6 @@ let g:vim_json_syntax_conceal = 0
 "let g:vdebug_options['port'] = 9000
 "let g:vdebug_options['ide_key'] = 'xdebug'
 "let g:vdebug_options['break_on_open'] = 0
-
-au BufRead,BufNewFile *.pql set filetype=sql
-au BufRead,BufNewFile *.hql set filetype=sql
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
@@ -163,7 +167,7 @@ command! SetIndentTab call SetIndentTab()
 
 " format
 augroup format
-    autocmd! format
+    autocmd!
     autocmd FileType typescript noremap <buffer> <silent> <Leader>f :w<cr>:silent !tslint --fix %; prettier --write %<cr>:e<cr>
     autocmd FileType typescript.tsx noremap <buffer> <silent> <Leader>f :w<cr>:silent !tslint --fix %; prettier --write %<cr>:e<cr>
     autocmd FileType javascript noremap <buffer> <silent> <Leader>f :w<cr>:silent !eslint --fix %; prettier --write %<cr>:e<cr>
@@ -237,7 +241,7 @@ if (has('termguicolors'))
     set termguicolors
 endif
 colorscheme onedark
-syntax on
+syntax off
 
 if filereadable('~/.vimrc-local')
     runtime '~/.vimrc-local'
