@@ -35,7 +35,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'ianks/vim-tsx'
+Plug 'peitalin/vim-jsx-typescript'
 "Plug 'joonty/vdebug'
 
 " lang server
@@ -186,10 +186,15 @@ nnoremap <Leader>/ :Rg
 nnoremap <Leader>* :Rg <cword><CR>
 
 " code/comments
-noremap <Leader>cw :call TrimWhitespace()<cr>
-noremap <Leader>c2 :call SetIndentTwoSpace()<cr>
-noremap <Leader>c4 :call SetIndentFourSpace()<cr>
-noremap <Leader>ct :call SetIndentTab()<cr>
+noremap <Leader>;w :call TrimWhitespace()<cr>
+noremap <Leader>;2 :call SetIndentTwoSpace()<cr>
+noremap <Leader>;4 :call SetIndentFourSpace()<cr>
+noremap <Leader>;t :call SetIndentTab()<cr>
+noremap <Leader>;s :if exists("g:syntax_on") <Bar>
+    \   syntax off <Bar>
+    \ else <Bar>
+    \   syntax enable <Bar>
+    \ endif <CR>
 
 " vimrc
 noremap <Leader>;, :source $MYVIMRC<cr>
@@ -221,17 +226,17 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
-" color scheme
-if (has('termguicolors'))
-    set termguicolors
-endif
-syntax on
-colorscheme onedark
-
 " bar cursor in insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" color scheme
+if (has('termguicolors'))
+    set termguicolors
+endif
+colorscheme onedark
+syntax off
 
 if filereadable('~/.vimrc-local')
     runtime '~/.vimrc-local'
