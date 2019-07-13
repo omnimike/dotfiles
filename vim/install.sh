@@ -3,6 +3,7 @@
 set -euo pipefail
 
 DIR=$(cd "$(dirname "$0")"; pwd -P)
+mkdir -p "$HOME/.vim"
 ln -svf "$DIR/init.vim" "$HOME/.vimrc"
 ln -svf "$DIR/settings.json" "$HOME/.vim/settings.json"
 mkdir -p "$HOME/.vim/backup"

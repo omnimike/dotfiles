@@ -33,6 +33,9 @@ alias vimrc="e ~/.vimrc"
 alias kakrc="e ~/.config/kak/kakrc"
 alias sshconfig="e ~/.ssh/config"
 
+# lldb needs to use the system python
+alias lldb='PATH=/usr/bin:$PATH lldb'
+
 ZSH_THEME=""
 
 # plugins
