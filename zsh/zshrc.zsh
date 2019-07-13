@@ -23,6 +23,7 @@ alias f='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd
 alias j='jump'
 alias tm='tmux attach || tmux new'
 alias vg='vagrant'
+alias db='devbox'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) --force-with-lease'
 

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+shopt -s inherit_errexit
+cd "$(dirname "$0")/../devbox"
+
+vagrant ssh
