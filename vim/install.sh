@@ -13,5 +13,6 @@ mkdir -p "$HOME/.vim/undo"
 curl -fsLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-ln -svFfh "$HOME/.vim" "$HOME/.config/nvim"
+mkdir -p "$HOME/.config"
+ln -svf "$HOME/.vim" "$HOME/.config/nvim"
 ln -svf "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
