@@ -73,7 +73,9 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'ryanolsonx/vim-lsp-typescript'
+if executable('typescript-language-server')
+    Plug 'ryanolsonx/vim-lsp-typescript'
+endif
 
 " Notational velocity
 Plug 'https://github.com/Alok/notational-fzf-vim'

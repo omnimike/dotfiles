@@ -1,5 +1,5 @@
 
-local CONF_BIN="$HOME/conf/bin"
+local CONF_CONF="$HOME/conf/bin"
 local TEX_PATH="/Library/TeX/texbin"
 local GO_PATH="/usr/local/opt/go/libexec/bin:$HOME/go/bin"
 local YARN_PATH="$HOME/.config/yarn/global/node_modules/.bin"
