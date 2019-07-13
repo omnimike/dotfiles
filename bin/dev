@@ -4,4 +4,8 @@ set -eo pipefail
 shopt -s inherit_errexit
 cd "$(dirname "$0")/../devbox"
 
-vagrant ssh
+if [[ -z "$1" ]]; then
+  vagrant ssh
+else
+  vagrant "$@"
+fi
