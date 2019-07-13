@@ -31,6 +31,7 @@ alias zshrc="e ~/.zshrc"
 alias zshenv="e ~/.zshenv"
 alias zshreload="source ~/.zshrc"
 alias vimrc="e ~/.vimrc"
+alias tmuxrc="e ~/.tmux.conf"
 alias kakrc="e ~/.config/kak/kakrc"
 alias sshconfig="e ~/.ssh/config"
 
