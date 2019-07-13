@@ -24,7 +24,7 @@ CONF_DIR="$( cd "$(dirname "$SOURCE_FILE")" && pwd )"/..
 
 case "$1" in
     save)
-        git -C "$CONF_DIR" add -f .
+        git -C "$CONF_DIR" add .
         git -C "$CONF_DIR" commit -m "save"
         git -C "$CONF_DIR" push
         ;;
