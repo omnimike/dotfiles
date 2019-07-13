@@ -7,3 +7,6 @@ ln -svf "$DIR/zshrc.zsh" "$HOME/.zshrc"
 if [[ ! -f "$HOME/.zshenv" ]]; then
   cp "$DIR/zshenv.zsh" "$HOME/.zshenv"
 fi
+if [[ ! -f "$HOME/.bookmarks" ]]; then
+  cp "$DIR/bookmarks" "$HOME/.bookmarks"
+fi
