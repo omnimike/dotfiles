@@ -4,7 +4,7 @@
 	required = true
 [user]
 	name = Michael Fulthorp
-	email = michael.fulthorp@learnosity.com
+	email = michael.fulthorp@gmail.com
 [core]
 	excludesfile = /Users/michael/.gitignore_global
 	editor = vim
