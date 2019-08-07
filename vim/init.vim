@@ -244,7 +244,7 @@ if (has('termguicolors'))
     set termguicolors
 endif
 colorscheme onedark
-syntax on
+syntax off
 
 if filereadable('~/.vimrc-local')
     runtime '~/.vimrc-local'
