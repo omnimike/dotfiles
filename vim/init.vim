@@ -19,6 +19,8 @@ set wrapmargin=0
 set autoread
 set autoindent
 set smartindent
+set ignorecase
+set smartcase
 set undofile
 set foldmethod=indent
 set nofoldenable
