@@ -67,7 +67,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'peitalin/vim-jsx-typescript'
 "Plug 'joonty/vdebug'
 
 " lang server
@@ -102,6 +101,8 @@ let g:ale_linters = {
 \}
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+
+let g:polyglot_disabled = []
 
 let g:lsp_virtual_text_enabled = 0
 let g:lsp_signs_enabled = 0
