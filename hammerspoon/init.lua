@@ -116,5 +116,4 @@ mehBind('l', function ()
     hs.window.frontmostWindow():focusWindowEast()
 end)
 
-
 hs.alert.show('conf reloaded')
