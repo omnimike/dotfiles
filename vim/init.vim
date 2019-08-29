@@ -27,6 +27,7 @@ set colorcolumn=80
 set directory=$HOME/.vim/swapfiles//
 set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
+set tags=tags
 
 augroup init
     autocmd!

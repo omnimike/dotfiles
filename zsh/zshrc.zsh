@@ -33,6 +33,7 @@ alias vimrc="e ~/.vimrc"
 alias tmuxrc="e ~/.tmux.conf"
 alias kakrc="e ~/.config/kak/kakrc"
 alias sshconfig="e ~/.ssh/config"
+alias ctags="$(brew --prefix)/bin/ctags"
 
 # lldb needs to use the system python
 alias lldb='PATH=/usr/bin:$PATH lldb'
