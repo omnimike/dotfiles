@@ -1,16 +1,22 @@
 local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
 local meh = {'cmd', 'alt', 'ctrl'}
 
+hs.hotkey.bind({}, 'F13', function ()
+    hs.reload()
+end)
+
+hs.hotkey.bind(meh, 'F12', function ()
+    hs.reload()
+end)
+
 local appHotkeys = {
-    { '8', 'Safari' },
-    { 'u', 'Google Chrome' },
+    { '8', 'Google Chrome' },
+    { 'u', 'Safari' },
     { 'i', 'iTerm' },
     { 'o', 'Visual Studio Code' },
     { 'y', 'Slack' },
-    { '7', 'Stride' },
     { 'p', 'Google Play Music Desktop Player' },
 }
-
 
 local mehBind = function(key, fn)
     hs.hotkey.bind(meh, key, nil, fn)
@@ -28,10 +34,6 @@ for i, binding in ipairs(appHotkeys) do
     end
     mehBind(key, launcher)
 end
-
-hs.hotkey.bind({}, 'F13', function ()
-    hs.reload()
-end)
 
 hs.window.animationDuration = 0
 hs.grid.setMargins({0, 0})
@@ -97,14 +99,17 @@ for i, binding in ipairs(hyperGridHotkeys) do
     hyperBind(key, launcher)
 end
 
-hs.hotkey.bind(meh, 'z', function ()
-    hs.grid.show()
+mehBind('h', function ()
+    hs.window.frontmostWindow():focusWindowWest()
 end)
-
-hs.hints.hintChars = { 'j', 'k', 'l', 'h', 's', 'd', 'f', 'g' }
-
-hs.hotkey.bind(meh, 'k', function ()
-    hs.hints.windowHints()
+mehBind('j', function ()
+    hs.window.frontmostWindow():focusWindowSouth()
+end)
+mehBind('k', function ()
+    hs.window.frontmostWindow():focusWindowNorth()
+end)
+mehBind('l', function ()
+    hs.window.frontmostWindow():focusWindowEast()
 end)
 
 hs.alert.show('conf reloaded')
