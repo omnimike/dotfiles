@@ -1,4 +1,7 @@
 
+karabiner/assets/
+karabiner/automatic_backups/
+
 # sublime text
 *.sublime-workspace
 

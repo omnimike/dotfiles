@@ -99,6 +99,10 @@ for i, binding in ipairs(hyperGridHotkeys) do
     hyperBind(key, launcher)
 end
 
+mehBind('z', function()
+    hs.grid.snap(hs.window.frontmostWindow())
+end)
+
 mehBind('h', function ()
     hs.window.frontmostWindow():focusWindowWest()
 end)
@@ -111,5 +115,6 @@ end)
 mehBind('l', function ()
     hs.window.frontmostWindow():focusWindowEast()
 end)
+
 
 hs.alert.show('conf reloaded')
