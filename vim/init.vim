@@ -12,13 +12,15 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set number
+set nonumber
 set nowrap
 set textwidth=0
 set wrapmargin=0
 set autoread
 set autoindent
 set smartindent
+set ignorecase
+set smartcase
 set undofile
 set foldmethod=indent
 set nofoldenable
@@ -66,7 +68,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'peitalin/vim-jsx-typescript'
 "Plug 'joonty/vdebug'
 
 " lang server
@@ -101,6 +102,8 @@ let g:ale_linters = {
 \}
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+
+let g:polyglot_disabled = []
 
 let g:lsp_virtual_text_enabled = 0
 let g:lsp_signs_enabled = 0
@@ -198,6 +201,7 @@ noremap \2 :call SetIndentTwoSpace()<cr>
 noremap \4 :call SetIndentFourSpace()<cr>
 noremap \t :call SetIndentTab()<cr>
 noremap \h :nohlsearch<cr>
+noremap \n :set invnumber<cr>
 noremap <silent> \s :if exists("g:syntax_on") <Bar>
     \   syntax off <Bar>
     \ else <Bar>
