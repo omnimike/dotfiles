@@ -15,31 +15,31 @@ EOT
 }
 
 # SOURCE_FILE is the full path to this file
-# CONF_DIR is the full path to the root folder of the conf repository
+# DOT_DIR is the full path to the root folder of the conf repository
 SOURCE_FILE="${BASH_SOURCE[0]}"
 if [ -L "$SOURCE_FILE" ]; then
     SOURCE_FILE="$(readlink "$SOURCE_FILE")"
 fi
-CONF_DIR="$( cd "$(dirname "$SOURCE_FILE")" && pwd )"/..
+DOT_DIR="$( cd "$(dirname "$SOURCE_FILE")" && pwd )"/..
 
 case "$1" in
     save)
-        git -C "$CONF_DIR" add .
-        git -C "$CONF_DIR" commit -m "save"
-        git -C "$CONF_DIR" push
+        git -C "$DOT_DIR" add .
+        git -C "$DOT_DIR" commit -m "save"
+        git -C "$DOT_DIR" push
         ;;
     load)
-        git -C "$CONF_DIR" pull
+        git -C "$DOT_DIR" pull
         ;;
     status)
-        git -C "$CONF_DIR" status
+        git -C "$DOT_DIR" status
         ;;
     install)
-        if [[ ! -f "$CONF_DIR/$2/install.sh" ]]; then
+        if [[ ! -f "$DOT_DIR/$2/install.sh" ]]; then
             echo "Config not found for $2"
             exit 1
         fi
-        "$CONF_DIR/$2/install.sh"
+        "$DOT_DIR/$2/install.sh"
         ;;
     -h | help | --help)
         usage

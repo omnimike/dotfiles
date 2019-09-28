@@ -1,5 +1,5 @@
 
-local CONF_PATH="$HOME/conf/bin"
+local DOT_PATH="$HOME/dotfiles/bin"
 local TEX_PATH="/Library/TeX/texbin"
 local GO_PATH="/usr/local/opt/go/libexec/bin:$HOME/go/bin"
 local YARN_PATH="$HOME/.config/yarn/global/node_modules/.bin"
@@ -13,5 +13,5 @@ local VSCODE_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export NVM_DIR="$HOME/.nvm"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home"
 export MAVEN_PATH=/usr/local/Cellar/maven/3.5.3
-export PATH="$PATH:$HOME/bin:$CONF_PATH:$BREW_PATH:$PYTHON_PATH:$RUST_PATH:$SUBL_PATH:$LOCAL_PATH:$YARN_PATH:$GO_PATH:$TEX_PATH:$COMPOSER_PATH:$VSCODE_PATH"
+export PATH="$PATH:$HOME/bin:$DOT_PATH:$BREW_PATH:$PYTHON_PATH:$RUST_PATH:$SUBL_PATH:$LOCAL_PATH:$YARN_PATH:$GO_PATH:$TEX_PATH:$COMPOSER_PATH:$VSCODE_PATH"
 export GOPATH="$HOME/go"
