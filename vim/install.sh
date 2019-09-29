@@ -9,7 +9,7 @@ mkdir -p "$HOME/.vim-temp/backup"
 mkdir -p "$HOME/.vim-temp/swapfiles"
 mkdir -p "$HOME/.vim-temp/undo"
 
-curl -fsLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
+curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 mkdir -p "$HOME/.config"
