@@ -130,7 +130,6 @@ noremap <silent> \s :if exists("g:syntax_on") <Bar>
 noremap \, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
 
-let g:plug_url_format = 'git@github.com/%s.git'
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
