@@ -1,3 +1,7 @@
+# Share history between sessions
+setopt APPEND_HISTORY
+# Allow tab completion in the middle of a word.
+setopt COMPLETE_IN_WORD
 # Expire duplicate entries first when trimming history.
 setopt HIST_EXPIRE_DUPS_FIRST
 # Dont record an entry that was just recorded again.
@@ -35,7 +39,6 @@ alias hammerspoonrc="e ~/.hammerspoon/init.lua"
 alias karabinerrc="e ~/.config/karabiner/karabiner.json"
 alias kakrc="e ~/.config/kak/kakrc"
 alias sshconfig="e ~/.ssh/config"
-alias ctags="$(brew --prefix)/bin/ctags"
 
 # lldb needs to use the system python
 alias lldb='PATH=/usr/bin:$PATH lldb'
@@ -43,13 +46,12 @@ alias lldb='PATH=/usr/bin:$PATH lldb'
 ZSH_THEME=""
 
 # plugins
-source ~/conf/zsh/antigen.zsh
+source ~/dotfiles/zsh/antigen.zsh
 
 antigen use oh-my-zsh
 
 # oh-my-zsh plugins
 antigen bundle git
-antigen bundle vagrant
 
 # other plugins
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -79,7 +81,7 @@ usejenv() {
     eval "$(jenv init -)"
 }
 
-if [ -e ~/.zshrc-local ]; then
+if [[ -e ~/.zshrc-local ]]; then
     source ~/.zshrc-local
 fi
 
@@ -128,8 +130,4 @@ fh() {
 export FZF_DEFAULT_COMMAND='fd  --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
-    tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
-fi
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh

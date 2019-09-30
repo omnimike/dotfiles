@@ -28,15 +28,9 @@ set wildignore+=*/.git/*,*/tmp/*,*.swp
 set colorcolumn=80
 set tags=tags
 
-if exists($HOME . '/.vim-temp/swapfiles')
-    set directory=$HOME/.vim-temp/swapfiles//
-endif
-if exists($HOME . '/.vim-temp/backup')
-    set backupdir=$HOME/.vim-temp/backup//
-endif
-if exists($HOME . '/.vim-temp/undo')
-    set undodir=$HOME/.vim-temp/undo//
-endif
+set directory=$HOME/.vim-temp/swapfiles//
+set backupdir=$HOME/.vim-temp/backup//
+set undodir=$HOME/.vim-temp/undo//
 
 augroup init
     autocmd!
