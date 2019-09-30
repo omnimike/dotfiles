@@ -52,9 +52,10 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " color scheme
-if (has('termguicolors'))
-    set termguicolors
-endif
+" this has issues under mosh
+"if (has('termguicolors'))
+"    set termguicolors
+"endif
 
 let g:vim_json_syntax_conceal = 0
 
