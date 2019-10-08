@@ -31,10 +31,13 @@ alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) --force-with-lease'
 
 alias zshrc="e ~/.zshrc"
+alias zshrcl="e ~/.zshrc-local"
 alias zshenv="e ~/.zshenv"
 alias zshreload="source ~/.zshrc"
 alias vimrc="e ~/.vimrc"
+alias vimrcl="e ~/.vimrc-local"
 alias tmuxrc="e ~/.tmux.conf"
+alias tmuxrcl="e ~/.tmux-local.conf"
 alias hammerspoonrc="e ~/.hammerspoon/init.lua"
 alias karabinerrc="e ~/.config/karabiner/karabiner.json"
 alias kakrc="e ~/.config/kak/kakrc"
