@@ -26,7 +26,7 @@ set foldmethod=indent
 set nofoldenable
 set wildignore+=*/.git/*,*/tmp/*,*.swp
 set colorcolumn=80
-set tags=tags
+set tags=tags;/
 
 set directory=$HOME/.vim-temp/swapfiles//
 set backupdir=$HOME/.vim-temp/backup//
