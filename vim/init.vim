@@ -149,6 +149,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'scrooloose/nerdcommenter'
+Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
 
 " theme
 Plug 'joshdick/onedark.vim'
