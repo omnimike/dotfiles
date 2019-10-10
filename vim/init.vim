@@ -102,7 +102,7 @@ noremap <Leader>s :w<cr>
 " open file
 nnoremap <Leader>p :Files<CR>
 nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
-nnoremap <Leader>n :NV<cr>
+nnoremap <Leader>a :A<CR>
 
 " search
 nnoremap <Leader>/ :Rg 
@@ -151,6 +151,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-scripts/a.vim'
 
 " theme
 Plug 'joshdick/onedark.vim'
