@@ -40,7 +40,7 @@ augroup init
     autocmd BufRead,BufNewFile *.hql set filetype=sql
 augroup END
 
-" bar cursor in insert mode
+" bar cursor in insert mode (doesn't seem to work in tmux
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -58,6 +58,21 @@ let g:NERDTreeShowHidden=1
 
 " disable VCS info
 let g:airline_section_b = ''
+"
+" Ale config
+let g:ale_linters = {}
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+
+let g:polyglot_disabled = []
+
+let g:lsp_async_completion = 1
+let g:lsp_virtual_text_enabled = 1
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '⚠'}
+let g:lsp_signs_hint = {'text': '✭'}
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
@@ -125,6 +140,33 @@ noremap <silent> \s :if exists("g:syntax_on") <Bar>
 noremap \, :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
 
+" language server commands
+nnoremap <silent> <Leader>a :LspCodeAction<cr>
+nnoremap <silent> <Leader>d :LspDefinition<cr>
+"nnoremap <silent> <Leader> :LspDocumentDiagnostics<cr>
+"nnoremap <silent> <Leader> :LspDocumentFormat<cr>
+"vnoremap <silent> <Leader> :LspDocumentRangeFormat<cr>
+nnoremap <silent> <Leader>y :LspDocumentSymbol<cr>
+nnoremap <silent> <Leader>l :LspHover<cr>
+nnoremap <silent> <Leader>i :LspImplementation<cr>
+"nnoremap <silent> <Leader>j :LspNextError<cr>
+"nnoremap <silent> <Leader>k :LspPreviousError<cr>
+nnoremap <silent> <Leader>u :LspReferences<cr>
+nnoremap <silent> <Leader>r :LspRename<cr>
+"nnoremap <silent> <Leader> :LspStatus<cr>
+nnoremap <silent> <Leader>t :LspTypeDefinition<cr>
+nnoremap <silent> <Leader>Y :LspWorkspaceSymbol<cr>
+nnoremap <silent> <Leader>j :LspNextError<cr>
+nnoremap <silent> <Leader>k :LspPreviousError<cr>
+
+" completion commands
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
@@ -149,9 +191,19 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'scrooloose/nerdcommenter'
+Plug 'vim-scripts/a.vim'
+Plug 'editorconfig/editorconfig-vim'
+
+" language support
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-scripts/a.vim'
+
+" lang server
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'pdavydov108/vim-lsp-cquery'
 
 " theme
 Plug 'joshdick/onedark.vim'
