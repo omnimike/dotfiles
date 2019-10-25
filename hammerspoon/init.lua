@@ -14,8 +14,11 @@ local appHotkeys = {
     { 'u', 'Google Chrome' },
     { 'i', 'iTerm' },
     { 'o', 'Atom' },
+    { '0', 'VS Code @ FB' },
     { 'y', 'Workplace Chat' },
     { 'p', 'Google Play Music Desktop Player' },
+    { 'm', 'Mail' },
+    { 'n', 'Calandar' },
 }
 
 local mehBind = function(key, fn)
