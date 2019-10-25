@@ -18,7 +18,7 @@ local appHotkeys = {
     { 'y', 'Workplace Chat' },
     { 'p', 'Google Play Music Desktop Player' },
     { 'm', 'Mail' },
-    { 'n', 'Calandar' },
+    { 'n', 'Calendar' },
 }
 
 local mehBind = function(key, fn)
