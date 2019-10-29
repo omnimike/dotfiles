@@ -10,12 +10,15 @@ hs.hotkey.bind(meh, 'F12', function ()
 end)
 
 local appHotkeys = {
-    { '8', 'Google Chrome' },
-    { 'u', 'Safari' },
+    { '8', 'Safari' },
+    { 'u', 'Google Chrome' },
     { 'i', 'iTerm' },
-    { 'o', 'Visual Studio Code' },
-    { 'y', 'Slack' },
+    { 'o', 'Atom' },
+    { '0', 'VS Code @ FB' },
+    { 'y', 'Workplace Chat' },
     { 'p', 'Google Play Music Desktop Player' },
+    { 'm', 'Mail' },
+    { 'n', 'Calendar' },
 }
 
 local mehBind = function(key, fn)
