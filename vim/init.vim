@@ -66,6 +66,8 @@ let g:ale_lint_on_enter = 0
 
 let g:polyglot_disabled = []
 
+let g:asyncomplete_auto_popup = 0
+
 let g:lsp_async_completion = 1
 let g:lsp_virtual_text_enabled = 1
 let g:lsp_signs_enabled = 1
@@ -109,7 +111,7 @@ fun! SetIndentTab()
 endfun
 command! SetIndentTab call SetIndentTab()
 
-nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
+"nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 
 " save
 noremap <Leader>s :w<cr>
@@ -137,11 +139,11 @@ noremap <silent> \s :if exists("g:syntax_on") <Bar>
     \ endif <CR>
 
 " vimrc
-noremap \, :source $MYVIMRC<cr>
+noremap <Leader>< :source $MYVIMRC<cr>
 noremap <Leader>, :tabedit $MYVIMRC<cr>
 
 " language server commands
-nnoremap <silent> <Leader>a :LspCodeAction<cr>
+"nnoremap <silent> <Leader> :LspCodeAction<cr>
 nnoremap <silent> <Leader>d :LspDefinition<cr>
 "nnoremap <silent> <Leader> :LspDocumentDiagnostics<cr>
 "nnoremap <silent> <Leader> :LspDocumentFormat<cr>
@@ -149,8 +151,6 @@ nnoremap <silent> <Leader>d :LspDefinition<cr>
 nnoremap <silent> <Leader>y :LspDocumentSymbol<cr>
 nnoremap <silent> <Leader>l :LspHover<cr>
 nnoremap <silent> <Leader>i :LspImplementation<cr>
-"nnoremap <silent> <Leader>j :LspNextError<cr>
-"nnoremap <silent> <Leader>k :LspPreviousError<cr>
 nnoremap <silent> <Leader>u :LspReferences<cr>
 nnoremap <silent> <Leader>r :LspRename<cr>
 "nnoremap <silent> <Leader> :LspStatus<cr>
@@ -191,7 +191,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'scrooloose/nerdcommenter'
-Plug 'vim-scripts/a.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " language support
@@ -209,6 +208,7 @@ Plug 'pdavydov108/vim-lsp-cquery'
 Plug 'joshdick/onedark.vim'
 
 if filereadable($HOME . '/.vimrc-local')
+    noremap \, :tabedit ~/.vimrc-local<cr>
     source $HOME/.vimrc-local
 endif
 
