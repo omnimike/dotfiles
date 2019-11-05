@@ -192,6 +192,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'omnimike/a.vim'
 
 " language support
 Plug 'w0rp/ale'
