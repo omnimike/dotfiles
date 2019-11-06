@@ -22,7 +22,7 @@ set smartindent
 set ignorecase
 set smartcase
 set undofile
-set foldmethod=indent
+set foldmethod=manual
 set nofoldenable
 set wildignore+=*/.git/*,*/tmp/*,*.swp
 set colorcolumn=80
@@ -126,12 +126,12 @@ nnoremap <Leader>/ :Rg
 nnoremap <Leader>* :Rg <cword><CR>
 
 " code/comments
-noremap <silent> \w :call TrimWhitespace()<cr>
-noremap <silent> \2 :call SetIndentTwoSpace()<cr>
-noremap <silent> \4 :call SetIndentFourSpace()<cr>
-noremap <silent> \t :call SetIndentTab()<cr>
-noremap <silent> \h :nohlsearch<cr>
-noremap <silent> \n :set invnumber<cr>
+noremap \w :call TrimWhitespace()<cr>
+noremap \2 :call SetIndentTwoSpace()<cr>
+noremap \4 :call SetIndentFourSpace()<cr>
+noremap \t :call SetIndentTab()<cr>
+noremap \h :nohlsearch<cr>
+noremap \n :set invnumber<cr>
 noremap <silent> \s :if exists("g:syntax_on") <Bar>
     \   syntax off <Bar>
     \ else <Bar>
