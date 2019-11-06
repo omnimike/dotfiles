@@ -114,33 +114,35 @@ command! SetIndentTab call SetIndentTab()
 "nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 
 " save
-noremap <Leader>s :w<cr>
+nnoremap <Leader>s :w<cr>
 
 " open file
 nnoremap <Leader>p :Files<CR>
 nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 nnoremap <Leader>a :A<CR>
+nnoremap <Leader>u :Buffers<cr>
+nnoremap <Leader>w :bdelete<cr>
 
 " search
 nnoremap <Leader>/ :Rg 
 nnoremap <Leader>* :Rg <cword><CR>
 
 " code/comments
-noremap \w :call TrimWhitespace()<cr>
-noremap \2 :call SetIndentTwoSpace()<cr>
-noremap \4 :call SetIndentFourSpace()<cr>
-noremap \t :call SetIndentTab()<cr>
-noremap \h :nohlsearch<cr>
-noremap \n :set invnumber<cr>
-noremap <silent> \s :if exists("g:syntax_on") <Bar>
+nnoremap \w :call TrimWhitespace()<cr>
+nnoremap \2 :call SetIndentTwoSpace()<cr>
+nnoremap \4 :call SetIndentFourSpace()<cr>
+nnoremap \t :call SetIndentTab()<cr>
+nnoremap \h :nohlsearch<cr>
+nnoremap \n :set invnumber<cr>
+nnoremap <silent> \s :if exists("g:syntax_on") <Bar>
     \   syntax off <Bar>
     \ else <Bar>
     \   syntax enable <Bar>
     \ endif <CR>
 
 " vimrc
-noremap <Leader>< :source $MYVIMRC<cr>
-noremap <Leader>, :tabedit $MYVIMRC<cr>
+nnoremap <Leader>< :source $MYVIMRC<cr>
+nnoremap <Leader>, :edit $MYVIMRC<cr>
 
 " language server commands
 "nnoremap <silent> <Leader> :LspCodeAction<cr>
@@ -150,8 +152,8 @@ nnoremap <silent> <Leader>d :LspDefinition<cr>
 "vnoremap <silent> <Leader> :LspDocumentRangeFormat<cr>
 nnoremap <silent> <Leader>y :LspDocumentSymbol<cr>
 nnoremap <silent> <Leader>l :LspHover<cr>
-nnoremap <silent> <Leader>i :LspImplementation<cr>
-nnoremap <silent> <Leader>u :LspReferences<cr>
+"nnoremap <silent> <Leader> :LspImplementation<cr>
+nnoremap <silent> <Leader>e :LspReferences<cr>
 nnoremap <silent> <Leader>r :LspRename<cr>
 "nnoremap <silent> <Leader> :LspStatus<cr>
 nnoremap <silent> <Leader>t :LspTypeDefinition<cr>
@@ -209,7 +211,7 @@ Plug 'pdavydov108/vim-lsp-cquery'
 Plug 'joshdick/onedark.vim'
 
 if filereadable($HOME . '/.vimrc-local')
-    noremap \, :tabedit ~/.vimrc-local<cr>
+    noremap \, :edit ~/.vimrc-local<cr>
     source $HOME/.vimrc-local
 endif
 
