@@ -22,7 +22,7 @@ set smartindent
 set ignorecase
 set smartcase
 set undofile
-set foldmethod=manual
+set foldmethod=indent
 set nofoldenable
 set wildignore+=*/.git/*,*/tmp/*,*.swp
 set colorcolumn=80
@@ -95,21 +95,18 @@ fun! SetIndentTwoSpace()
     set softtabstop=2
     set expandtab
 endfun
-command! SetIndentTwoSpace call SetIndentTwoSpace()
 fun! SetIndentFourSpace()
     set tabstop=4
     set shiftwidth=4
     set softtabstop=4
     set expandtab
 endfun
-command! SetIndentFourSpace call SetIndentFourSpace()
 fun! SetIndentTab()
     set tabstop=4
     set shiftwidth=4
     set softtabstop=4
     set noexpandtab
 endfun
-command! SetIndentTab call SetIndentTab()
 
 "nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
 
@@ -133,6 +130,8 @@ nnoremap \2 :call SetIndentTwoSpace()<cr>
 nnoremap \4 :call SetIndentFourSpace()<cr>
 nnoremap \t :call SetIndentTab()<cr>
 nnoremap \h :nohlsearch<cr>
+nnoremap \i :set foldmethod=indent<cr>
+nnoremap \m :set foldmethod=manual<cr>
 nnoremap \n :set invnumber<cr>
 nnoremap <silent> \s :if exists("g:syntax_on") <Bar>
     \   syntax off <Bar>
