@@ -16,6 +16,7 @@ local appHotkeys = {
     { 'o', 'Atom' },
     { '0', 'VS Code @ FB' },
     { 'y', 'Workplace Chat' },
+    { '7', 'WhatsApp' },
     { 'p', 'Google Play Music Desktop Player' },
     { 'm', 'Mail' },
     { 'n', 'Calendar' },
