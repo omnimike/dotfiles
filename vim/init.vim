@@ -40,10 +40,14 @@ augroup init
     autocmd BufRead,BufNewFile *.hql set filetype=sql
 augroup END
 
-" bar cursor in insert mode (doesn't seem to work in tmux
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+" bar cursor in insert mode (doesn't seem to work in tmux)
+if has('cursorshape')
+    if $TERM_PROGRAM =~ "iTerm"
+        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+        let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    endif
+endif
 
 " color scheme
 " this has issues under mosh
@@ -199,12 +203,14 @@ Plug 'omnimike/a.vim'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 
-" lang server
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'pdavydov108/vim-lsp-cquery'
+if v:version >= 800
+    " lang server
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/async.vim'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    Plug 'pdavydov108/vim-lsp-cquery'
+endif
 
 " theme
 Plug 'joshdick/onedark.vim'
