@@ -59,8 +59,9 @@ antigen bundle git
 # other plugins
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle jocelynmallon/zshmarks
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+antigen theme romkatv/powerlevel10k
+#antigen bundle mafredri/zsh-async
+#antigen bundle sindresorhus/pure
 
 antigen apply
 
@@ -134,3 +135,6 @@ export FZF_DEFAULT_COMMAND='fd  --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
