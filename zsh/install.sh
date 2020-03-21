@@ -10,3 +10,4 @@ fi
 if [[ ! -f "$HOME/.bookmarks" ]]; then
   cp "$DIR/bookmarks" "$HOME/.bookmarks"
 fi
+ln -svf "$DIR/p10k.zsh" "$HOME/.p10k.zsh"
