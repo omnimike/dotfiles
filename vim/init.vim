@@ -112,8 +112,6 @@ fun! SetIndentTab()
     set noexpandtab
 endfun
 
-"nnoremap <expr> zz 'zt' . winheight(0)/4 . '<c-y>'
-
 " save
 nnoremap <Leader>s :w<cr>
 
@@ -127,6 +125,9 @@ nnoremap <Leader>w :bdelete<cr>
 " search
 nnoremap <Leader>/ :Rg 
 nnoremap <Leader>* :Rg <cword><CR>
+
+" clipboard
+vnoremap <Leader>y :Oscyank<cr>
 
 " code/comments
 nnoremap \w :call TrimWhitespace()<cr>
@@ -153,14 +154,14 @@ nnoremap <silent> <Leader>d :LspDefinition<cr>
 "nnoremap <silent> <Leader> :LspDocumentDiagnostics<cr>
 "nnoremap <silent> <Leader> :LspDocumentFormat<cr>
 "vnoremap <silent> <Leader> :LspDocumentRangeFormat<cr>
-nnoremap <silent> <Leader>y :LspDocumentSymbol<cr>
+"nnoremap <silent> <Leader> :LspDocumentSymbol<cr>
 nnoremap <silent> <Leader>l :LspHover<cr>
 "nnoremap <silent> <Leader> :LspImplementation<cr>
 nnoremap <silent> <Leader>e :LspReferences<cr>
 nnoremap <silent> <Leader>r :LspRename<cr>
 "nnoremap <silent> <Leader> :LspStatus<cr>
 nnoremap <silent> <Leader>t :LspTypeDefinition<cr>
-nnoremap <silent> <Leader>Y :LspWorkspaceSymbol<cr>
+"nnoremap <silent> <Leader> :LspWorkspaceSymbol<cr>
 nnoremap <silent> <Leader>j :LspNextError<cr>
 nnoremap <silent> <Leader>k :LspPreviousError<cr>
 
@@ -184,6 +185,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'tpope/vim-tbone'
+Plug 'greymd/oscyank.vim'
 "Plug 'tpope/vim-unimpaired'
 
 " ide
