@@ -22,6 +22,7 @@ set smartindent
 set ignorecase
 set smartcase
 set undofile
+set conceallevel=2
 set foldmethod=indent
 set nofoldenable
 set wildignore+=*/.git/*,*/tmp/*,*.swp
@@ -79,6 +80,8 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '⚠'}
 let g:lsp_signs_hint = {'text': '✭'}
+
+let g:vim_markdown_math = 1
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
@@ -143,6 +146,8 @@ nnoremap <silent> \s :if exists("g:syntax_on") <Bar>
     \ else <Bar>
     \   syntax enable <Bar>
     \ endif <CR>
+xmap <Leader>= <Plug>(EasyAlign)
+nmap <Leader>= <Plug>(EasyAlign)
 
 " vimrc
 nnoremap <Leader>< :source $MYVIMRC<cr>
@@ -150,20 +155,20 @@ nnoremap <Leader>, :edit $MYVIMRC<cr>
 
 " language server commands
 "nnoremap <silent> <Leader> :LspCodeAction<cr>
-nnoremap <silent> <Leader>d :LspDefinition<cr>
+nnoremap <silent> <Leader><Leader>d :LspDefinition<cr>
 "nnoremap <silent> <Leader> :LspDocumentDiagnostics<cr>
 "nnoremap <silent> <Leader> :LspDocumentFormat<cr>
 "vnoremap <silent> <Leader> :LspDocumentRangeFormat<cr>
 "nnoremap <silent> <Leader> :LspDocumentSymbol<cr>
-nnoremap <silent> <Leader>l :LspHover<cr>
+nnoremap <silent> <Leader><Leader>l :LspHover<cr>
 "nnoremap <silent> <Leader> :LspImplementation<cr>
-nnoremap <silent> <Leader>e :LspReferences<cr>
-nnoremap <silent> <Leader>r :LspRename<cr>
+nnoremap <silent> <Leader><Leader>e :LspReferences<cr>
+nnoremap <silent> <Leader><Leader>r :LspRename<cr>
 "nnoremap <silent> <Leader> :LspStatus<cr>
-nnoremap <silent> <Leader>t :LspTypeDefinition<cr>
+nnoremap <silent> <Leader><Leader>t :LspTypeDefinition<cr>
 "nnoremap <silent> <Leader> :LspWorkspaceSymbol<cr>
-nnoremap <silent> <Leader>j :LspNextError<cr>
-nnoremap <silent> <Leader>k :LspPreviousError<cr>
+nnoremap <silent> <Leader><Leader>j :LspNextError<cr>
+nnoremap <silent> <Leader><Leader>k :LspPreviousError<cr>
 
 " completion commands
 imap <c-space> <Plug>(asyncomplete_force_refresh)
@@ -187,6 +192,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-tbone'
 Plug 'greymd/oscyank.vim'
+Plug 'junegunn/vim-easy-align'
 "Plug 'tpope/vim-unimpaired'
 
 " ide
