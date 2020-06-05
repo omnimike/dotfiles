@@ -1,0 +1,4 @@
+#!/bin/bash
+
+MESSAGE="'$*'"
+echo -e "\x1b]9;$MESSAGE\x07"
