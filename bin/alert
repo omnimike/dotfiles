@@ -1,4 +1,8 @@
 #!/bin/bash
 
 MESSAGE="'$*'"
-echo -e "\x1b]9;$MESSAGE\x07"
+if [ -n "$TMUX" ]; then
+  echo -e "\x1bPtmux;\x1b\x1b]9;$MESSAGE\x07\x1b\\"
+else
+  echo -e "\x1b]9;$MESSAGE\x07"
+fi
