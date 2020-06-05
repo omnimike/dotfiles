@@ -87,6 +87,10 @@ let g:lsp_signs_hint = {'text': '✭'}
 
 let g:vim_markdown_math = 1
 
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 30 
+
 if executable('rg')
     set grepprg=rg\ --vimgrep
     set grepformat=%f:%l:%c:%m
@@ -124,7 +128,8 @@ nnoremap <Leader>s :w<cr>
 
 " open file
 nnoremap <Leader>p :Files<CR>
-nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+nnoremap <Leader>o :Vexplore<CR>
+nnoremap <silent> <expr> <Leader>O g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 nnoremap <Leader>a :A<CR>
 nnoremap <Leader>u :Buffers<cr>
 nnoremap <Leader>z :bdelete<cr>
