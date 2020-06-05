@@ -120,7 +120,7 @@ nnoremap <Leader>p :Files<CR>
 nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 nnoremap <Leader>a :A<CR>
 nnoremap <Leader>u :Buffers<cr>
-nnoremap <Leader>w :bdelete<cr>
+nnoremap <Leader>z :bdelete<cr>
 
 " search
 nnoremap <Leader>/ :Rg 
@@ -214,6 +214,8 @@ if v:version >= 800
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
     Plug 'pdavydov108/vim-lsp-cquery'
 endif
+
+Plug 'vimwiki/vimwiki'
 
 " theme
 Plug 'joshdick/onedark.vim'
