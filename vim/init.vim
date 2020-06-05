@@ -130,14 +130,14 @@ nnoremap <Leader>* :Rg <cword><CR>
 vnoremap <Leader>y :Oscyank<cr>
 
 " code/comments
+nnoremap <Leader>h :nohlsearch<cr>
+nnoremap <Leader>n :set invnumber<cr>
 nnoremap \w :call TrimWhitespace()<cr>
 nnoremap \2 :call SetIndentTwoSpace()<cr>
 nnoremap \4 :call SetIndentFourSpace()<cr>
 nnoremap \t :call SetIndentTab()<cr>
-nnoremap \h :nohlsearch<cr>
 nnoremap \i :set foldmethod=indent<cr>
 nnoremap \m :set foldmethod=manual<cr>
-nnoremap \n :set invnumber<cr>
 nnoremap <silent> \s :if exists("g:syntax_on") <Bar>
     \   syntax off <Bar>
     \ else <Bar>
