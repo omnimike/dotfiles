@@ -203,7 +203,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'omnimike/a.vim'
 
 " language support
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'sheerun/vim-polyglot'
 
 if v:version >= 800
@@ -214,8 +214,6 @@ if v:version >= 800
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
     Plug 'pdavydov108/vim-lsp-cquery'
 endif
-
-Plug 'vimwiki/vimwiki'
 
 " theme
 Plug 'joshdick/onedark.vim'
