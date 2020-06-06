@@ -62,7 +62,7 @@ endif
 
 let g:vim_json_syntax_conceal = 0
 
-let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=60
 let g:NERDTreeShowHidden=1
 
 " disable VCS info
@@ -128,7 +128,7 @@ nnoremap <Leader>s :w<cr>
 
 " open file
 nnoremap <Leader>p :Files<CR>
-nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? ":NERDTreeClose<CR>" : bufexists(expand('%')) ? (":NERDTree %:p:h<CR>:NERDTreeFind " . expand('%') . "<CR>") : ":NERDTree<CR>"
 nnoremap <Leader>a :A<CR>
 nnoremap <Leader>u :Buffers<cr>
 nnoremap <Leader>z :bdelete<cr>
