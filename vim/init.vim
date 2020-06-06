@@ -128,8 +128,7 @@ nnoremap <Leader>s :w<cr>
 
 " open file
 nnoremap <Leader>p :Files<CR>
-nnoremap <Leader>o :Vexplore<CR>
-nnoremap <silent> <expr> <Leader>O g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 nnoremap <Leader>a :A<CR>
 nnoremap <Leader>u :Buffers<cr>
 nnoremap <Leader>z :bdelete<cr>
