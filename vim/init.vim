@@ -143,6 +143,7 @@ vnoremap <Leader>y :Oscyank<cr>
 " code/comments
 nnoremap <Leader>h :nohlsearch<cr>
 nnoremap <Leader>n :set invnumber<cr>
+nnoremap <Leader>r :set relativenumber!<cr>
 nnoremap \w :call TrimWhitespace()<cr>
 nnoremap \2 :call SetIndentTwoSpace()<cr>
 nnoremap \4 :call SetIndentFourSpace()<cr>
