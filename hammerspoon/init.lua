@@ -1,7 +1,7 @@
 local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
 local meh = {'cmd', 'alt', 'ctrl'}
 
-hs.hotkey.bind({}, 'F15', function ()
+hs.hotkey.bind({}, 'F13', function ()
     hs.reload()
 end)
 
@@ -10,11 +10,11 @@ hs.hotkey.bind(meh, 'F12', function ()
 end)
 
 local appHotkeys = {
-    { '\'', 'Google Chrome' },
-    { ';', 'iTerm' },
-    { '/', 'Workplace Chat' },
-    { '\\', 'Mail' },
-    { 'p', 'Calendar' },
+    { '\\', 'Google Chrome' },
+    { '\'', 'iTerm' },
+    { '0', 'Workplace Chat' },
+    { '-', 'Mail' },
+    { '=', 'Calendar' },
 }
 
 local mehBind = function(key, fn)
@@ -113,6 +113,10 @@ mehBind('i', function ()
 end)
 mehBind('o', function ()
     hs.window.frontmostWindow():focusWindowEast()
+end)
+
+mehBind(';', function ()
+    hs.eventtap.keyStroke({'alt'}, 'a')
 end)
 
 hs.alert.show('conf reloaded')
