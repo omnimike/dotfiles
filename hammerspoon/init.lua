@@ -1,7 +1,7 @@
 local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
 local meh = {'cmd', 'alt', 'ctrl'}
 
-hs.hotkey.bind({}, 'F13', function ()
+hs.hotkey.bind({}, 'F15', function ()
     hs.reload()
 end)
 
@@ -10,15 +10,11 @@ hs.hotkey.bind(meh, 'F12', function ()
 end)
 
 local appHotkeys = {
-    { '8', 'Safari' },
-    { 'u', 'Google Chrome' },
-    { 'i', 'iTerm' },
-    { 'o', 'VS Code @ FB' },
-    { 'y', 'Workplace Chat' },
-    { '7', 'WhatsApp' },
-    { 'p', 'Google Play Music Desktop Player' },
-    { 'm', 'Mail' },
-    { 'n', 'Calendar' },
+    { '\'', 'Google Chrome' },
+    { ';', 'iTerm' },
+    { '/', 'Workplace Chat' },
+    { '\\', 'Mail' },
+    { 'p', 'Calendar' },
 }
 
 local mehBind = function(key, fn)
@@ -106,16 +102,16 @@ mehBind('z', function()
     hs.grid.snap(hs.window.frontmostWindow())
 end)
 
-mehBind('h', function ()
+mehBind('y', function ()
     hs.window.frontmostWindow():focusWindowWest()
 end)
-mehBind('j', function ()
+mehBind('u', function ()
     hs.window.frontmostWindow():focusWindowSouth()
 end)
-mehBind('k', function ()
+mehBind('i', function ()
     hs.window.frontmostWindow():focusWindowNorth()
 end)
-mehBind('l', function ()
+mehBind('o', function ()
     hs.window.frontmostWindow():focusWindowEast()
 end)
 
