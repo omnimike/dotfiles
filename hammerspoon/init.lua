@@ -12,7 +12,7 @@ end)
 local appHotkeys = {
     { '\\', 'Google Chrome' },
     { '\'', 'iTerm' },
-    { '0', 'Workplace Chat' },
+    { '/', 'Workplace Chat' },
     { '-', 'Mail' },
     { '=', 'Calendar' },
 }
