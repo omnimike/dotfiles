@@ -10,9 +10,9 @@ hs.hotkey.bind(meh, 'F12', function ()
 end)
 
 local appHotkeys = {
-    { '\\', 'Google Chrome' },
-    { '\'', 'iTerm' },
-    { '/', 'Workplace Chat' },
+    { '\'', 'Google Chrome' },
+    { ';', 'iTerm' },
+    { '\\', 'Workplace Chat' },
     { '-', 'Mail' },
     { '=', 'Calendar' },
 }
