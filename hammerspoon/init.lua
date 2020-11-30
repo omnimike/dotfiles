@@ -10,9 +10,9 @@ hs.hotkey.bind(meh, 'F12', function ()
 end)
 
 local appHotkeys = {
-    { '\'', 'Google Chrome' },
-    { ';', 'iTerm' },
-    { '\\', 'Workplace Chat' },
+    { '\\', 'Google Chrome' },
+    { '\'', 'iTerm' },
+    { '/', 'Workplace Chat' },
     { '-', 'Mail' },
     { '=', 'Calendar' },
 }
@@ -38,8 +38,6 @@ hs.window.animationDuration = 0
 hs.grid.setMargins({0, 0})
 hs.grid.setGrid('6x6')
 
--- Used for multiple monitors
---[[
 mehBind('a', function ()
     local win = hs.window.focusedWindow()
     win:moveOneScreenWest()
@@ -49,7 +47,6 @@ mehBind('g', function ()
     local win = hs.window.focusedWindow()
     win:moveOneScreenEast()
 end)
---]]
 
 local mehGridHotkeys = {
     { 'w', '0,0 3x3' },
@@ -118,7 +115,7 @@ mehBind('o', function ()
     hs.window.frontmostWindow():focusWindowEast()
 end)
 
-mehBind('a', function ()
+mehBind(';', function ()
     hs.eventtap.keyStroke({'alt'}, 'a')
 end)
 
