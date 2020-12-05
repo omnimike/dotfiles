@@ -201,7 +201,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-tbone'
 Plug 'greymd/oscyank.vim'
-"Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 Plug 'junegunn/vim-easy-align'
 "Plug 'tpope/vim-unimpaired'
 
