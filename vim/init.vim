@@ -201,6 +201,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-tbone'
 Plug 'greymd/oscyank.vim'
+"Plug 'tpope/vim-abolish'
 Plug 'junegunn/vim-easy-align'
 "Plug 'tpope/vim-unimpaired'
 
@@ -233,12 +234,16 @@ endif
 " theme
 Plug 'joshdick/onedark.vim'
 
+if filereadable($HOME . '/.vimrc-local-plugins')
+    source $HOME/.vimrc-local-plugins
+endif
+
+call plug#end()
+
 if filereadable($HOME . '/.vimrc-local')
     noremap \, :edit ~/.vimrc-local<cr>
     source $HOME/.vimrc-local
 endif
-
-call plug#end()
 
 colorscheme onedark
 syntax on
