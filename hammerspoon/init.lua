@@ -1,11 +1,7 @@
 local hyper = {'shift', 'cmd', 'alt', 'ctrl'}
 local meh = {'cmd', 'alt', 'ctrl'}
 
-hs.hotkey.bind({}, 'F13', function ()
-    hs.reload()
-end)
-
-hs.hotkey.bind(meh, 'F12', function ()
+hs.hotkey.bind(meh, 'F20', function ()
     hs.reload()
 end)
 
@@ -102,20 +98,20 @@ mehBind('z', function()
     hs.grid.snap(hs.window.frontmostWindow())
 end)
 
-mehBind('y', function ()
+mehBind('h', function ()
     hs.window.frontmostWindow():focusWindowWest()
 end)
-mehBind('u', function ()
+mehBind('j', function ()
     hs.window.frontmostWindow():focusWindowSouth()
 end)
-mehBind('i', function ()
+mehBind('k', function ()
     hs.window.frontmostWindow():focusWindowNorth()
 end)
-mehBind('o', function ()
+mehBind('l', function ()
     hs.window.frontmostWindow():focusWindowEast()
 end)
 
-mehBind(';', function ()
+mehBind('F11', function ()
     hs.eventtap.keyStroke({'alt'}, 'a')
 end)
 
