@@ -6,11 +6,11 @@ hs.hotkey.bind(meh, 'F20', function ()
 end)
 
 local appHotkeys = {
-    { '\\', 'Google Chrome' },
-    { '\'', 'iTerm' },
-    { '/', 'Workplace Chat' },
-    { '-', 'Mail' },
-    { '=', 'Calendar' },
+    { 'u', 'Google Chrome' },
+    { 'i', 'iTerm' },
+    { 'o', 'Workplace Chat' },
+    { 'y', 'Mail' },
+    { 'p', 'Calendar' },
 }
 
 local mehBind = function(key, fn)
