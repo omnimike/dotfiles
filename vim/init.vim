@@ -138,7 +138,7 @@ nnoremap <Leader>/ :Rg
 nnoremap <Leader>* :Rg <cword><CR>
 
 " clipboard
-vnoremap <Leader>y :Oscyank<cr>
+vnoremap <Leader>y :OSCYank<cr>
 
 " code/comments
 nnoremap <Leader>h :nohlsearch<cr>
@@ -200,7 +200,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-tbone'
-Plug 'greymd/oscyank.vim'
+Plug 'ojroques/vim-oscyank'
 Plug 'tpope/vim-abolish'
 Plug 'junegunn/vim-easy-align'
 "Plug 'tpope/vim-unimpaired'
