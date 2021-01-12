@@ -87,6 +87,8 @@ let g:lsp_signs_hint = {'text': '✭'}
 
 let g:vim_markdown_math = 1
 
+let g:gitgutter_map_keys = 0
+
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_winsize = 30 
