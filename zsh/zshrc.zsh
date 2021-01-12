@@ -50,6 +50,9 @@ alias lldb='PATH=/usr/bin:$PATH lldb'
 ZSH_THEME=""
 
 # plugins
+ANTIGEN_CLONE_OPTS="--depth 1"
+ANTIGEN_CLONE_OPTS="--depth 1"
+
 source ~/dotfiles/zsh/antigen.zsh
 
 antigen use oh-my-zsh
