@@ -22,7 +22,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 # alias
-alias e='vim'
+alias e='nvim'
 alias f='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias j='jump'
 alias tm='tmux attach || tmux new'
