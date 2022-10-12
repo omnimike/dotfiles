@@ -17,3 +17,5 @@ if [[ $(grep -q "profile.bash" "$HOME/.profile"; echo $?) -eq 1 ]]; then
 else
   echo "profile.bash already sourced in .profile"
 fi
+
+ln -svf "$DIR/inputrc.bash" "$HOME/.inputrc"
