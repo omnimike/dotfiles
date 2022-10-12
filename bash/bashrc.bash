@@ -33,4 +33,4 @@ alias karabinerrc="e ~/.config/karabiner/karabiner.json"
 alias kakrc="e ~/.config/kak/kakrc"
 alias sshconfig="e ~/.ssh/config"
 
-export PS1='\n\[\e[0;32m\][\D{%F} \t]\[\e[m\] \[\e[0;34m\]\w\[\e[m\] \n\[\e[0;35m\]\$\[\e[m\] '
+export PS1='\n\[\e[0;34m\]\t\[\e[m\] \[\e[0;32m\]\w\[\e[m\] \n\[\e[0;35m\]\$\[\e[m\] '
