@@ -51,7 +51,6 @@ ZSH_THEME=""
 
 # plugins
 ANTIGEN_CLONE_OPTS="--depth 1"
-ANTIGEN_CLONE_OPTS="--depth 1"
 
 source ~/dotfiles/zsh/antigen.zsh
 
@@ -64,8 +63,6 @@ antigen bundle git
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle jocelynmallon/zshmarks
 antigen theme romkatv/powerlevel10k
-#antigen bundle mafredri/zsh-async
-#antigen bundle sindresorhus/pure
 
 antigen apply
 
@@ -73,6 +70,7 @@ antigen apply
 bindkey -v
 bindkey '^p' up-history
 bindkey '^n' down-history
+bindkey '^v' edit-command-line
 
 # install pyenv
 usepyenv() {
