@@ -220,17 +220,21 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'omnimike/a.vim'
 
-" language support
-Plug 'dense-analysis/ale'
-Plug 'sheerun/vim-polyglot'
 
-if v:version >= 800
-    " lang server
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-    Plug 'pdavydov108/vim-lsp-cquery'
+" language support
+if has('nvim')
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+else
+    Plug 'dense-analysis/ale'
+    Plug 'sheerun/vim-polyglot'
+    if v:version >= 800
+        " lang server
+        Plug 'prabirshrestha/asyncomplete.vim'
+        Plug 'prabirshrestha/async.vim'
+        Plug 'prabirshrestha/vim-lsp'
+        Plug 'prabirshrestha/asyncomplete-lsp.vim'
+        Plug 'pdavydov108/vim-lsp-cquery'
+    endif
 endif
 
 " theme
