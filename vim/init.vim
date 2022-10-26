@@ -133,7 +133,7 @@ nnoremap <Leader>p :Files<CR>
 nnoremap <silent> <expr> <Leader>o g:NERDTree.IsOpen() ? ":NERDTreeClose<CR>" : bufexists(expand('%')) ? (":NERDTree %:p:h<CR>:NERDTreeFind " . expand('%') . "<CR>") : ":NERDTree<CR>"
 nnoremap <Leader>a :A<CR>
 nnoremap <Leader>u :Buffers<cr>
-nnoremap <Leader>z :bdelete<cr>
+nnoremap <Leader>z :bprev\|bdelete #<cr>
 
 " search
 nnoremap <Leader>/ :Rg 
