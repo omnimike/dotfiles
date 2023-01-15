@@ -42,6 +42,7 @@ alias tmuxrcl="e ~/.tmux-local.conf"
 alias hammerspoonrc="e ~/.hammerspoon/init.lua"
 alias karabinerrc="e ~/.config/karabiner/karabiner.json"
 alias kakrc="e ~/.config/kak/kakrc"
+alias hxrc="e ~/.config/helix/config.toml"
 alias sshconfig="e ~/.ssh/config"
 
 # lldb needs to use the system python
