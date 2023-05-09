@@ -15,6 +15,9 @@ setopt HIST_SAVE_NO_DUPS
 # Remove superfluous blanks before recording entry.
 setopt HIST_REDUCE_BLANKS
 
+NEWLINE=$'\n'
+export PROMPT="$NEWLINE%F{blue}%*%F{none} %F{green}%~%F{none}$NEWLINE%F{magenta}$%F{none} "
+
 # This allows us to use the R language
 disable r
 
@@ -23,10 +26,7 @@ export VISUAL='nvim'
 
 # alias
 alias e='nvim'
-alias f='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias j='jump'
 alias tm='tmux attach || tmux new'
-alias vg='vagrant'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) --force-with-lease'
 
@@ -44,33 +44,35 @@ alias karabinerrc="e ~/.config/karabiner/karabiner.json"
 alias kakrc="e ~/.config/kak/kakrc"
 alias sshconfig="e ~/.ssh/config"
 
+alias jdotfiles="cd ~/dotfiles"
+
 # lldb needs to use the system python
 alias lldb='PATH=/usr/bin:$PATH lldb'
 
 ZSH_THEME=""
-
-# plugins
-ANTIGEN_CLONE_OPTS="--depth 1"
-
-source ~/dotfiles/zsh/antigen.zsh
-
-antigen use oh-my-zsh
-
-# oh-my-zsh plugins
-antigen bundle git
-
-# other plugins
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle jocelynmallon/zshmarks
-antigen theme romkatv/powerlevel10k
-
-antigen apply
 
 # vim keybindings
 bindkey -v
 bindkey '^p' up-history
 bindkey '^n' down-history
 bindkey '^v' edit-command-line
+
+# Bar cursor during insert mode
+zle-keymap-select () {
+  if [ $KEYMAP = vicmd ]; then
+      printf "\033[2 q"
+  else
+      printf "\033[6 q"
+  fi
+}
+zle -N zle-keymap-select
+
+zle-line-init () {
+  zle -K viins
+  printf "\033[6 q"
+}
+zle -N zle-line-init
+
 
 # install pyenv
 usepyenv() {
@@ -135,8 +137,6 @@ fh() {
 
 export FZF_DEFAULT_COMMAND='fd  --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 

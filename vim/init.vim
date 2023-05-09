@@ -91,7 +91,7 @@ let g:gitgutter_map_keys = 0
 
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
-let g:netrw_winsize = 30 
+let g:netrw_winsize = 30
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
@@ -136,7 +136,7 @@ nnoremap <Leader>u :Buffers<cr>
 nnoremap <Leader>z :bprev\|bdelete #<cr>
 
 " search
-nnoremap <Leader>/ :Rg 
+nnoremap <Leader>/ :Rg
 nnoremap <Leader>* :Rg <cword><CR>
 
 " clipboard
@@ -211,7 +211,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
