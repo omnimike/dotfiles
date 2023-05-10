@@ -25,6 +25,10 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 # alias
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
 alias e='nvim'
 alias tm='tmux attach || tmux new'
 alias gpb='git push origin $(git_current_branch)'
@@ -45,9 +49,12 @@ alias kakrc="e ~/.config/kak/kakrc"
 alias sshconfig="e ~/.ssh/config"
 
 alias jdotfiles="cd ~/dotfiles"
+alias jssh="cd ~/.ssh"
 
 # lldb needs to use the system python
 alias lldb='PATH=/usr/bin:$PATH lldb'
+
+alias newsshkey='ssh-keygen -t ed25519 -C "michael.fulthorp@gmail.com"'
 
 ZSH_THEME=""
 
