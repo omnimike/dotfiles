@@ -55,8 +55,6 @@ alias jssh="cd ~/.ssh"
 # lldb needs to use the system python
 alias lldb='PATH=/usr/bin:$PATH lldb'
 
-alias newsshkey='ssh-keygen -t ed25519 -C "michael.fulthorp@gmail.com"'
-
 ZSH_THEME=""
 
 # vim keybindings

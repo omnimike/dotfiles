@@ -189,62 +189,28 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 
-call plug#begin('~/.vim/plugged')
-
-Plug 'tpope/vim-sensible'
-" We force vim-sensible to load early so we can turn off syntax highlighting
-call plug#load('vim-sensible')
-
-" core editing
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-sleuth'
-Plug 'tommcdo/vim-exchange'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'tpope/vim-tbone'
-Plug 'ojroques/vim-oscyank'
-Plug 'tpope/vim-abolish'
-Plug 'junegunn/vim-easy-align'
-"Plug 'tpope/vim-unimpaired'
-
-" ide
-Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
-Plug 'junegunn/fzf.vim'
+" Missing plugins (not loaded as submodules)
+"
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+"Plug 'junegunn/fzf.vim'
 "Plug 'jremmen/vim-ripgrep'
-Plug 'scrooloose/nerdcommenter'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'omnimike/a.vim'
 
 
 " language support
 if has('nvim')
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 else
-    Plug 'dense-analysis/ale'
-    Plug 'sheerun/vim-polyglot'
+    "Plug 'dense-analysis/ale'
+    "Plug 'sheerun/vim-polyglot'
     if v:version >= 800
         " lang server
-        Plug 'prabirshrestha/asyncomplete.vim'
-        Plug 'prabirshrestha/async.vim'
-        Plug 'prabirshrestha/vim-lsp'
-        Plug 'prabirshrestha/asyncomplete-lsp.vim'
-        Plug 'pdavydov108/vim-lsp-cquery'
+        "Plug 'prabirshrestha/asyncomplete.vim'
+        "Plug 'prabirshrestha/async.vim'
+        "Plug 'prabirshrestha/vim-lsp'
+        "Plug 'prabirshrestha/asyncomplete-lsp.vim'
+        "Plug 'pdavydov108/vim-lsp-cquery'
     endif
 endif
-
-" theme
-Plug 'joshdick/onedark.vim'
-
-if filereadable($HOME . '/.vimrc-local-plugins')
-    source $HOME/.vimrc-local-plugins
-endif
-
-call plug#end()
 
 if filereadable($HOME . '/.vimrc-local')
     noremap \, :edit ~/.vimrc-local<cr>

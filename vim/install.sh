@@ -6,8 +6,7 @@ DIR=$(cd "$(dirname "$0")"; pwd -P)
 
 mkdir -p "$HOME/.vim"
 ln -svf "$DIR/init.vim" "$HOME/.vimrc"
-mkdir -p "$HOME/.vim/autoload"
-ln -svf "$DIR/plug.vim" "$HOME/.vim/autoload/plug.vim"
+ln -svf "$DIR/pack" "$HOME/.vim/pack"
 
 mkdir -p "$HOME/.vim-temp/backup"
 mkdir -p "$HOME/.vim-temp/swapfiles"
