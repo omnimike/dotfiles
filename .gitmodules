@@ -52,3 +52,6 @@
 [submodule "vim/pack/core/start/onedark.vim"]
 	path = vim/pack/core/start/onedark.vim
 	url = git@github.com:joshdick/onedark.vim.git
+[submodule "vim/pack/core/start/fzf.vim"]
+	path = vim/pack/core/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git

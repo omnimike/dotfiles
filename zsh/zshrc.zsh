@@ -1,19 +1,18 @@
-# Share history between sessions
-setopt APPEND_HISTORY
-# Allow tab completion in the middle of a word.
-setopt COMPLETE_IN_WORD
-# Expire duplicate entries first when trimming history.
-setopt HIST_EXPIRE_DUPS_FIRST
-# Dont record an entry that was just recorded again.
-setopt HIST_IGNORE_DUPS
-# Delete old recorded entry if new entry is a duplicate.
-setopt HIST_IGNORE_ALL_DUPS
-# Dont record an entry starting with a space.
-setopt HIST_IGNORE_SPACE
-# Dont write duplicate entries in the history file.
-setopt HIST_SAVE_NO_DUPS
-# Remove superfluous blanks before recording entry.
-setopt HIST_REDUCE_BLANKS
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt append_history
+setopt complete_in_word
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_save_no_dups
+setopt hist_reduce_blanks
+setopt share_history
+setopt inc_append_history
+
 
 NEWLINE=$'\n'
 export PROMPT="$NEWLINE%F{blue}%*%F{none} %F{green}%~%F{none}$NEWLINE%F{magenta}$%F{none} "

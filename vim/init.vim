@@ -41,7 +41,7 @@ augroup init
     autocmd BufRead,BufNewFile *.hql set filetype=sql
 augroup END
 
-" bar cursor in insert mode (doesn't seem to work in tmux)
+" bar cursor in insert mode
 if has('cursorshape')
     if exists('$TMUX')
         let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
@@ -93,6 +93,9 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_winsize = 30
 
+" Disabling vim sleuth because it does a bad job on our CPP files
+let g:sleuth_heuristics = 0
+
 if executable('rg')
     set grepprg=rg\ --vimgrep
     set grepformat=%f:%l:%c:%m
@@ -140,7 +143,7 @@ nnoremap <Leader>/ :Rg
 nnoremap <Leader>* :Rg <cword><CR>
 
 " clipboard
-vnoremap <Leader>y :OSCYank<cr>
+vnoremap <Leader>y :OSCYankVisual<cr>
 
 " code/comments
 nnoremap <Leader>h :nohlsearch<cr>
@@ -210,6 +213,10 @@ else
         "Plug 'prabirshrestha/asyncomplete-lsp.vim'
         "Plug 'pdavydov108/vim-lsp-cquery'
     endif
+endif
+
+if filereadable($HOME . '/.vimrc-local')
+    source $HOME/.fzf/plugin/fzf.vim
 endif
 
 if filereadable($HOME . '/.vimrc-local')
