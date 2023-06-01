@@ -215,7 +215,7 @@ else
     endif
 endif
 
-if filereadable($HOME . '/.vimrc-local')
+if filereadable($HOME . '/.fzf/plugin/fzf.vim')
     source $HOME/.fzf/plugin/fzf.vim
 endif
 
