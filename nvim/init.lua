@@ -1,9 +1,11 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 
-vim.o.mouse = "a"
+vim.o.mouse = 'a'
 vim.o.list = true
-vim.o.listchars = "tab:>-,trail:·,extends:>,precedes:<"
+vim.o.listchars = 'tab:>-,trail:·,extends:>,precedes:<'
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
@@ -13,41 +15,23 @@ vim.o.smartindent = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.undofile = true
-vim.o.conceallevel = "2"
-vim.o.foldmethod = "indent"
+vim.o.foldmethod = 'indent'
 vim.o.foldenable = false
-vim.opt.wildignore:append {"*/.git/*", "*/tmp/*", "*.swp"}
-vim.o.colorcolumn = "80"
-vim.o.tags = "tags;/"
+vim.opt.wildignore:append {'*/.git/*', '*/tmp/*', '*.swp'}
+vim.o.colorcolumn = '80'
+vim.o.tags = 'tags;/'
 
-vim.o.directory = os.getenv("HOME") .. "/.vim-temp/swapfiles//"
-vim.o.backupdir = os.getenv("HOME") .. "/.vim-temp/backup//"
-vim.o.undodir = os.getenv("HOME") .. "/.vim-temp/undo//"
-
-vim.cmd([[
-  augroup init
-    autocmd!
-    " Save files on focus lost
-    autocmd BufLeave,FocusLost * silent! wall
-    autocmd BufRead,BufNewFile *.pql set filetype=sql
-    autocmd BufRead,BufNewFile *.hql set filetype=sql
-  augroup END
-]])
+vim.o.directory = os.getenv('HOME') .. '/.vim-temp/swapfiles//'
+vim.o.backupdir = os.getenv('HOME') .. '/.vim-temp/backup//'
+vim.o.undodir = os.getenv('HOME') .. '/.vim-temp/undo//'
 
 vim.o.termguicolors = true
 
 vim.g.vim_json_syntax_conceal = 0
 
-vim.g.NERDTreeWinSize = 60
-vim.g.NERDTreeShowHidden = 1
-
-vim.g.gitgutter_map_keys = 0
-
-vim.g.sleuth_heuristics = 0
-
-if vim.fn.executable("rg") == 1 then
-    vim.o.grepprg = "rg --vimgrep"
-    vim.o.grepformat = "%f:%l:%c:%m"
+if vim.fn.executable('rg') == 1 then
+    vim.o.grepprg = 'rg --vimgrep'
+    vim.o.grepformat = '%f:%l:%c:%m'
 end
 
 vim.cmd([[
@@ -79,41 +63,82 @@ endfun
 ]])
 
 -- save
-vim.keymap.set("n", "<leader>s", ":w<cr>")
-
--- open file
-vim.keymap.set("n", "<leader>p", ":Files<cr>")
-vim.keymap.set("n", "<leader>o", 'g:NERDTree.IsOpen() ? ":NERDTreeClose<cr>" : bufexists(expand("%")) ? (":NERDTree %:p:h<CR>:NERDTreeFind " . expand("%") . "<CR>") : ":NERDTree<cr>"', {expr = true})
-vim.keymap.set("n", "<leader>a", ":A<cr>")
-vim.keymap.set("n", "<leader>u", ":Buffers<cr>")
-vim.keymap.set("n", "<leader>z", ":bprev|bdelete #<cr>")
-
--- search
-vim.keymap.set("n", "<leader>/", ":Rg")
-vim.keymap.set("n", "<leader>*", ":Rg <cword><cr>")
-
--- clipboard
-vim.keymap.set("v", "<leader>y", ":OSCYankVisual<cr>")
-
--- code/comments
-vim.keymap.set("n", "<leader>h", ":nohlsearch<cr>")
-vim.keymap.set("n", "<leader>n", ":set invnumber<cr>")
-vim.keymap.set("n", "<leader>r", ":set relativenumber!<cr>")
-vim.keymap.set("n", "\\w", ":call TrimWhitespace()<cr>")
-vim.keymap.set("n", "\\2", ":call SetIndentTwoSpace()<cr>")
-vim.keymap.set("n", "\\4", ":call SetIndentFourSpace()<cr>")
-vim.keymap.set("n", "\\t", ":call SetIndentTab()<cr>")
-vim.keymap.set("n", "\\i", ":set foldmethod=indent<cr>")
-vim.keymap.set("n", "\\m", ":set foldmethod=manual<cr>")
+vim.keymap.set('n', '<leader>s', ':w<cr>')
 
 -- vimrc
-vim.keymap.set("n", "<leader><", ":source $MYVIMRC<cr>")
-vim.keymap.set("n", "<leader>,", ":edit $MYVIMRC<cr>")
+vim.keymap.set('n', '<leader>,', ':edit $MYVIMRC<cr>')
+vim.keymap.set('n', '<leader><', ':source $MYVIMRC<cr>')
+
+-- Telescope setup
+require('telescope').setup {
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = 'smart_case',
+    }
+  }
+}
+require('telescope').load_extension('fzf')
+local telescope_builtin = require('telescope.builtin')
+require("nvim-tree").setup()
+require('lualine').setup()
+require('nvim-treesitter.configs').setup {
+  highlight = {
+    enable = true,
+    disable = function(lang, buf)
+        local max_filesize = 1024 * 1024 -- 1MB
+        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats and stats.size > max_filesize then
+            return true
+        end
+    end,
+  },
+}
+
+-- open file
+vim.keymap.set('n', '<leader>p', telescope_builtin.find_files)
+vim.keymap.set('n', '<leader>u', telescope_builtin.buffers)
+vim.keymap.set('n', '<leader>a', ':A<cr>')
+vim.keymap.set('n', '<leader>w', ':bprev|bdelete #<cr>')
+vim.keymap.set('n', '<leader>o', ':NvimTreeFindFileToggle!<cr>')
+
+-- telescope
+vim.keymap.set('n', '<leader>ff', telescope_builtin.resume)
+vim.keymap.set('n', '<leader>f/', telescope_builtin.current_buffer_fuzzy_find)
+vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags)
+vim.keymap.set('n', '<leader>fr', telescope_builtin.registers)
+vim.keymap.set('n', '<leader>fj', telescope_builtin.jumplist)
+vim.keymap.set('n', '<leader>f\'', telescope_builtin.marks)
+vim.keymap.set('n', '<leader>fo', telescope_builtin.oldfiles)
+vim.keymap.set('n', '<leader>fc', telescope_builtin.command_history)
+
+-- clipboard
+vim.keymap.set('v', '<leader>y', ':OSCYankVisual<cr>')
+
+vim.keymap.set('n', '<leader>h', ':nohlsearch<cr>')
+vim.keymap.set('n', '<leader>n', ':set invnumber<cr>')
+
+vim.keymap.set('n', '\\w', ':call TrimWhitespace()<cr>')
+vim.keymap.set('n', '\\i2', ':call SetIndentTwoSpace()<cr>')
+vim.keymap.set('n', '\\i4', ':call SetIndentFourSpace()<cr>')
+vim.keymap.set('n', '\\it', ':call SetIndentTab()<cr>')
+vim.keymap.set('n', '\\fi', ':set foldmethod=indent<cr>')
+vim.keymap.set('n', '\\fm', ':set foldmethod=manual<cr>')
+
+-- spell
+vim.keymap.set('n', '\\s', ':setlocal spell!<cr>')
+vim.keymap.set('n', '<leader><leader>s', telescope_builtin.spell_suggest)
 
 vim.cmd([[
-if filereadable($HOME . '/.fzf/plugin/fzf.vim')
-  source $HOME/.fzf/plugin/fzf.vim
-endif
+  augroup init
+    autocmd!
+    " Save files on focus lost
+    autocmd BufLeave,FocusLost * silent! wall
+    autocmd BufRead,BufNewFile *.pql set filetype=sql
+    autocmd BufRead,BufNewFile *.hql set filetype=sql
+  augroup END
 ]])
 
 vim.cmd([[
@@ -123,5 +148,5 @@ if filereadable($HOME . '/.vimrc-local')
 endif
 ]])
 
-vim.cmd("colorscheme onedark")
-vim.cmd("syntax on")
+vim.cmd('colorscheme onedark')
+vim.cmd('syntax on')

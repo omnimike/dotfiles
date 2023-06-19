@@ -61,3 +61,33 @@
 [submodule "vim/pack/core/start/null-ls.nvim"]
 	path = vim/pack/core/start/null-ls.nvim
 	url = https://github.com/jose-elias-alvarez/null-ls.nvim.git
+[submodule "nvim/pack/omnimike/start/a.vim"]
+	path = nvim/pack/omnimike/start/a.vim
+	url = https://github.com/omnimike/a.vim.git
+[submodule "nvim/pack/omnimike/start/onedark.vim"]
+	path = nvim/pack/omnimike/start/onedark.vim
+	url = https://github.com/joshdick/onedark.vim.git
+[submodule "nvim/pack/omnimike/start/vim-surround"]
+	path = nvim/pack/omnimike/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "nvim/pack/omnimike/start/vim-oscyank"]
+	path = nvim/pack/omnimike/start/vim-oscyank
+	url = https://github.com/ojroques/vim-oscyank.git
+[submodule "nvim/pack/omnimike/start/telescope.nvim"]
+	path = nvim/pack/omnimike/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim.git
+[submodule "nvim/pack/omnimike/start/plenary.nvim"]
+	path = nvim/pack/omnimike/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "nvim/pack/omnimike/start/telescope-fzf-native.nvim"]
+	path = nvim/pack/omnimike/start/telescope-fzf-native.nvim
+	url = https://github.com/nvim-telescope/telescope-fzf-native.nvim.git
+[submodule "nvim/pack/omnimike/start/nvim-treesitter"]
+	path = nvim/pack/omnimike/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "nvim/pack/omnimike/start/nvim-tree.lua"]
+	path = nvim/pack/omnimike/start/nvim-tree.lua
+	url = https://github.com/nvim-tree/nvim-tree.lua.git
+[submodule "nvim/pack/omnimike/start/lualine.nvim"]
+	path = nvim/pack/omnimike/start/lualine.nvim
+	url = https://github.com/nvim-lualine/lualine.nvim.git
