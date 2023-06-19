@@ -91,3 +91,9 @@
 [submodule "nvim/pack/omnimike/start/lualine.nvim"]
 	path = nvim/pack/omnimike/start/lualine.nvim
 	url = https://github.com/nvim-lualine/lualine.nvim.git
+[submodule "nvim/pack/omnimike/start/null-ls.nvim"]
+	path = nvim/pack/omnimike/start/null-ls.nvim
+	url = https://github.com/jose-elias-alvarez/null-ls.nvim.git
+[submodule "nvim/pack/omnimike/start/nvim-lspconfig"]
+	path = nvim/pack/omnimike/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
