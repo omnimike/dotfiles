@@ -100,3 +100,6 @@
 [submodule "nvim/pack/omnimike/start/nvim-treesitter-textobjects"]
 	path = nvim/pack/omnimike/start/nvim-treesitter-textobjects
 	url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
+[submodule "nvim/pack/omnimike/start/vim-repeat"]
+	path = nvim/pack/omnimike/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
