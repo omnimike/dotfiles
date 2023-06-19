@@ -82,7 +82,11 @@ require('telescope').setup {
 }
 require('telescope').load_extension('fzf')
 local telescope_builtin = require('telescope.builtin')
-require("nvim-tree").setup()
+require("nvim-tree").setup {
+  view = {
+    width = 50,
+  },
+}
 require('lualine').setup()
 require('nvim-treesitter.configs').setup {
   highlight = {
