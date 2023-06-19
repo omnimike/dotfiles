@@ -50,6 +50,7 @@ alias hxrc="e ~/.config/helix/config.toml"
 alias sshconfig="e ~/.ssh/config"
 
 alias jdotfiles="cd ~/dotfiles"
+alias jdotf="cd ~/dotfiles"
 alias jssh="cd ~/.ssh"
 
 # lldb needs to use the system python
@@ -141,7 +142,8 @@ fh() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 }
 
-export FZF_DEFAULT_COMMAND='fd  --type f --hidden --follow --exclude .git'
+# export FZF_DEFAULT_COMMAND='fd  --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='rg  --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
