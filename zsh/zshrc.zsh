@@ -27,6 +27,10 @@ export VISUAL='nvim'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias l='ls -CFh'
+alias la='ls -Ah'
+alias ll='ls -alFh'
+alias ls='ls --color=auto'
 
 alias e='nvim'
 alias tm='tmux attach || tmux new'
