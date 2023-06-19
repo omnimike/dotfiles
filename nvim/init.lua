@@ -29,6 +29,8 @@ vim.o.termguicolors = true
 
 vim.g.vim_json_syntax_conceal = 0
 
+vim.g.signify_disable_by_default = true
+
 if vim.fn.executable('rg') == 1 then
     vim.o.grepprg = 'rg --vimgrep'
     vim.o.grepformat = '%f:%l:%c:%m'
@@ -62,14 +64,6 @@ fun! SetIndentTab()
 endfun
 ]])
 
--- save
-vim.keymap.set('n', '<leader>s', ':w<cr>')
-
--- vimrc
-vim.keymap.set('n', '<leader>,', ':edit $MYVIMRC<cr>')
-vim.keymap.set('n', '<leader><', ':source $MYVIMRC<cr>')
-
--- Telescope setup
 require('telescope').setup {
   extensions = {
     fzf = {
@@ -82,12 +76,15 @@ require('telescope').setup {
 }
 require('telescope').load_extension('fzf')
 local telescope_builtin = require('telescope.builtin')
+
 require("nvim-tree").setup {
   view = {
     width = 50,
   },
 }
+
 require('lualine').setup()
+
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
@@ -121,39 +118,66 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
+local wk = require("which-key")
+wk.setup {
+  presets = {
+    operators = true,
+    motions = true,
+    text_objects = true,
+    windows = true,
+    nav = true,
+    z = true,
+    g = true,
+  },
+}
+
+function leadermap(key, cmd, desc)
+  wk.register{['<leader>' .. key] = {cmd, desc}}
+end
+
+function localleadermap(key, cmd, desc)
+  wk.register{['<leader><leader>' .. key] = {cmd, desc}}
+end
+
+function altleadermap(key, cmd, desc)
+  wk.register{['\\' .. key] = {cmd, desc}}
+end
+
+-- save
+leadermap('s', ':w<cr>', 'Save')
+
+-- vimrc
+leadermap(',', ':edit $MYVIMRC<cr>', 'Edit init.lua')
+leadermap('<', ':source $MYVIMRC<cr>', 'Reload init.lua')
+
 -- open file
-vim.keymap.set('n', '<leader>p', telescope_builtin.find_files)
-vim.keymap.set('n', '<leader>u', telescope_builtin.buffers)
-vim.keymap.set('n', '<leader>i', telescope_builtin.oldfiles)
-vim.keymap.set('n', '<leader>a', ':A<cr>')
-vim.keymap.set('n', '<leader>w', ':bprev|bdelete #<cr>')
-vim.keymap.set('n', '<leader>o', ':NvimTreeFindFileToggle!<cr>')
+leadermap('p', telescope_builtin.find_files, 'Find file')
+leadermap('u', telescope_builtin.buffers, 'Switch buffer')
+leadermap('i', telescope_builtin.oldfiles, 'Recent files')
+leadermap('a', ':A<cr>', 'Alternate file')
+leadermap('w', ':bprev|bdelete #<cr>', 'Close buffer')
+leadermap('o', ':NvimTreeFindFileToggle!<cr>', 'File tree')
 
 -- telescope
-vim.keymap.set('n', '<leader>ff', telescope_builtin.resume)
-vim.keymap.set('n', '<leader>f/', telescope_builtin.current_buffer_fuzzy_find)
-vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags)
-vim.keymap.set('n', '<leader>fr', telescope_builtin.registers)
-vim.keymap.set('n', '<leader>fj', telescope_builtin.jumplist)
-vim.keymap.set('n', '<leader>f\'', telescope_builtin.marks)
-vim.keymap.set('n', '<leader>fc', telescope_builtin.command_history)
+leadermap('ff', telescope_builtin.resume, 'Reopen picker')
+leadermap('f/', telescope_builtin.current_buffer_fuzzy_find, 'Find in buffer')
+leadermap('fh', telescope_builtin.command_history, 'Command history')
+leadermap('fH', telescope_builtin.help_tags, 'Help tags')
 
 -- clipboard
-vim.keymap.set('v', '<leader>y', ':OSCYankVisual<cr>')
+leadermap('y', ':OSCYankVisual<cr>', 'Copy to system clipboard')
 
-vim.keymap.set('n', '<leader>h', ':nohlsearch<cr>')
-vim.keymap.set('n', '<leader>n', ':set invnumber<cr>')
+leadermap('h', ':nohlsearch<cr>', 'Clear search')
+leadermap('n', ':set invnumber<cr>', 'Toggle line numbers')
 
-vim.keymap.set('n', '\\w', ':call TrimWhitespace()<cr>')
-vim.keymap.set('n', '\\i2', ':call SetIndentTwoSpace()<cr>')
-vim.keymap.set('n', '\\i4', ':call SetIndentFourSpace()<cr>')
-vim.keymap.set('n', '\\it', ':call SetIndentTab()<cr>')
-vim.keymap.set('n', '\\fi', ':set foldmethod=indent<cr>')
-vim.keymap.set('n', '\\fm', ':set foldmethod=manual<cr>')
-
--- spell
-vim.keymap.set('n', '\\s', ':setlocal spell!<cr>')
-vim.keymap.set('n', '<leader><leader>s', telescope_builtin.spell_suggest)
+altleadermap('g', ':SignifyToggle<cr>', 'Toggle gutter')
+altleadermap('w', ':call TrimWhitespace()<cr>', 'Trim trailing whitespace')
+altleadermap('i2', ':call SetIndentTwoSpace()<cr>', 'Set indent 2 space')
+altleadermap('i4', ':call SetIndentFourSpace()<cr>', 'Set indent 4 space')
+altleadermap('it', ':call SetIndentTab()<cr>', 'Set indent tab')
+altleadermap('fi', ':set foldmethod=indent<cr>', 'Set foldmethod indent')
+altleadermap('fm', ':set foldmethod=manual<cr>', 'Set foldmethod manual')
+altleadermap('s', ':setlocal spell!<cr>', 'Toggle spell')
 
 vim.cmd([[
   augroup init
