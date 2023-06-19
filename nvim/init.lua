@@ -141,12 +141,12 @@ vim.cmd([[
   augroup END
 ]])
 
+vim.cmd('colorscheme onedark')
+vim.cmd('syntax on')
+
 vim.cmd([[
 if filereadable($HOME . '/.vimrc-local')
   noremap \, :edit ~/.vimrc-local<cr>
   source $HOME/.vimrc-local
 endif
 ]])
-
-vim.cmd('colorscheme onedark')
-vim.cmd('syntax on')
