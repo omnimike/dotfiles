@@ -103,3 +103,6 @@
 [submodule "nvim/pack/omnimike/start/vim-repeat"]
 	path = nvim/pack/omnimike/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "nvim/pack/omnimike/start/vim-signify"]
+	path = nvim/pack/omnimike/start/vim-signify
+	url = https://github.com/mhinz/vim-signify.git
