@@ -97,9 +97,30 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
+require('nvim-treesitter.configs').setup {
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+        ["as"] = "@statement.outer",
+        ["ib"] = "@block.inner",
+        ["ab"] = "@block.outer",
+        ["ap"] = "@parameter.outer",
+        ["ip"] = "@parameter.inner",
+      },
+    },
+  },
+}
+
 -- open file
 vim.keymap.set('n', '<leader>p', telescope_builtin.find_files)
 vim.keymap.set('n', '<leader>u', telescope_builtin.buffers)
+vim.keymap.set('n', '<leader>i', telescope_builtin.oldfiles)
 vim.keymap.set('n', '<leader>a', ':A<cr>')
 vim.keymap.set('n', '<leader>w', ':bprev|bdelete #<cr>')
 vim.keymap.set('n', '<leader>o', ':NvimTreeFindFileToggle!<cr>')
@@ -111,7 +132,6 @@ vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags)
 vim.keymap.set('n', '<leader>fr', telescope_builtin.registers)
 vim.keymap.set('n', '<leader>fj', telescope_builtin.jumplist)
 vim.keymap.set('n', '<leader>f\'', telescope_builtin.marks)
-vim.keymap.set('n', '<leader>fo', telescope_builtin.oldfiles)
 vim.keymap.set('n', '<leader>fc', telescope_builtin.command_history)
 
 -- clipboard
