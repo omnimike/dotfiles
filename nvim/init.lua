@@ -32,8 +32,8 @@ vim.g.vim_json_syntax_conceal = 0
 vim.g.signify_disable_by_default = true
 
 if vim.fn.executable('rg') == 1 then
-    vim.o.grepprg = 'rg --vimgrep'
-    vim.o.grepformat = '%f:%l:%c:%m'
+  vim.o.grepprg = 'rg --vimgrep'
+  vim.o.grepformat = '%f:%l:%c:%m'
 end
 
 vim.cmd([[
@@ -77,7 +77,7 @@ require('telescope').setup {
 require('telescope').load_extension('fzf')
 local telescope_builtin = require('telescope.builtin')
 
-require("nvim-tree").setup {
+require('nvim-tree').setup {
   view = {
     width = 50,
   },
@@ -104,21 +104,62 @@ require('nvim-treesitter.configs').setup {
       enable = true,
       lookahead = true,
       keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-        ["as"] = "@statement.outer",
-        ["ib"] = "@block.inner",
-        ["ab"] = "@block.outer",
-        ["ap"] = "@parameter.outer",
-        ["ip"] = "@parameter.inner",
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+        ['as'] = '@statement.outer',
+        ['ib'] = '@block.inner',
+        ['ab'] = '@block.outer',
+        ['ap'] = '@parameter.outer',
+        ['ip'] = '@parameter.inner',
       },
     },
   },
 }
 
-local wk = require("which-key")
+require('indent_blankline').setup {
+  enabled = false,
+  space_char_blankline = ' ',
+  show_current_context = true,
+  show_current_context_start = true,
+}
+
+require('trouble').setup {}
+
+require('other-nvim').setup {
+  rememberBuffers = false,
+  mappings = {
+    {
+      -- cpp
+      pattern = '(.*/)([^/]*).cpp$',
+      target = {
+          {target = '%1%2.h', context = 'header'},
+          {target = '%1test/%2Test.cpp', context = 'test'},
+      },
+    },
+    {
+      -- h to cpp
+      pattern = '(.*).h$',
+      target = '%1.cpp',
+      context = 'source',
+    },
+    {
+      -- test to cpp
+      pattern = '(.*)/test/([A-Za-z0-9]+)Test.cpp$',
+      target = '%1/%2.cpp',
+      context = 'source',
+    },
+    {
+      -- init.lua to .vimrc-local
+      pattern = os.getenv('MYVIMRC'),
+      target = os.getenv('HOME') .. '/.vimrc-local',
+      context = 'local',
+    },
+  }
+}
+
+local wk = require('which-key')
 wk.setup {
   presets = {
     operators = true,
@@ -131,16 +172,14 @@ wk.setup {
   },
 }
 
-function leadermap(key, cmd, desc)
-  wk.register{['<leader>' .. key] = {cmd, desc}}
-end
-
-function localleadermap(key, cmd, desc)
-  wk.register{['<leader><leader>' .. key] = {cmd, desc}}
-end
-
-function altleadermap(key, cmd, desc)
-  wk.register{['\\' .. key] = {cmd, desc}}
+function leadermap(key, cmd, desc, opts)
+  local args = {cmd, desc}
+  if opts then
+    for k,v in pairs(opts) do
+      args[k] = v
+    end
+  end
+  wk.register{['<leader>' .. key] = args}
 end
 
 -- save
@@ -150,34 +189,43 @@ leadermap('s', ':w<cr>', 'Save')
 leadermap(',', ':edit $MYVIMRC<cr>', 'Edit init.lua')
 leadermap('<', ':source $MYVIMRC<cr>', 'Reload init.lua')
 
--- open file
+-- files
 leadermap('p', telescope_builtin.find_files, 'Find file')
-leadermap('u', telescope_builtin.buffers, 'Switch buffer')
 leadermap('i', telescope_builtin.oldfiles, 'Recent files')
-leadermap('a', ':A<cr>', 'Alternate file')
-leadermap('w', ':bprev|bdelete #<cr>', 'Close buffer')
 leadermap('o', ':NvimTreeFindFileToggle!<cr>', 'File tree')
 
--- telescope
+-- alternates
+leadermap('g', ':Other<cr>', 'Alternate file')
+
+-- buffers
+leadermap('u', telescope_builtin.buffers, 'Switch buffer')
+leadermap('w', ':bprev|bdelete #<cr>', 'Close buffer')
+
+-- search
+leadermap('/', telescope_builtin.current_buffer_fuzzy_find, 'Find in buffer')
+leadermap('h', ':nohlsearch<cr>', 'Clear search')
+
+-- find
 leadermap('ff', telescope_builtin.resume, 'Reopen picker')
-leadermap('f/', telescope_builtin.current_buffer_fuzzy_find, 'Find in buffer')
 leadermap('fh', telescope_builtin.command_history, 'Command history')
 leadermap('fH', telescope_builtin.help_tags, 'Help tags')
 
 -- clipboard
 leadermap('y', ':OSCYankVisual<cr>', 'Copy to system clipboard')
 
-leadermap('h', ':nohlsearch<cr>', 'Clear search')
-leadermap('n', ':set invnumber<cr>', 'Toggle line numbers')
+-- formatting
+leadermap('d', ':call TrimWhitespace()<cr>', 'Trim trailing whitespace')
 
-altleadermap('g', ':SignifyToggle<cr>', 'Toggle gutter')
-altleadermap('w', ':call TrimWhitespace()<cr>', 'Trim trailing whitespace')
-altleadermap('i2', ':call SetIndentTwoSpace()<cr>', 'Set indent 2 space')
-altleadermap('i4', ':call SetIndentFourSpace()<cr>', 'Set indent 4 space')
-altleadermap('it', ':call SetIndentTab()<cr>', 'Set indent tab')
-altleadermap('fi', ':set foldmethod=indent<cr>', 'Set foldmethod indent')
-altleadermap('fm', ':set foldmethod=manual<cr>', 'Set foldmethod manual')
-altleadermap('s', ':setlocal spell!<cr>', 'Toggle spell')
+-- toggle
+leadermap('tn', ':set invnumber<cr>', 'Toggle line numbers')
+leadermap('tg', ':SignifyToggle<cr>', 'Toggle gutter')
+leadermap('ti2', ':call SetIndentTwoSpace()<cr>', 'Set indent 2 space')
+leadermap('ti4', ':call SetIndentFourSpace()<cr>', 'Set indent 4 space')
+leadermap('tit', ':call SetIndentTab()<cr>', 'Set indent tab')
+leadermap('tl', ':IndentBlanklineToggle!<cr>', 'Toggle indent guide')
+leadermap('tfi', ':set foldmethod=indent<cr>', 'Set foldmethod indent')
+leadermap('ffm', ':set foldmethod=manual<cr>', 'Set foldmethod manual')
+leadermap('ts', ':setlocal spell!<cr>', 'Toggle spell')
 
 vim.cmd([[
   augroup init
@@ -194,7 +242,6 @@ vim.cmd('syntax on')
 
 vim.cmd([[
 if filereadable($HOME . '/.vimrc-local')
-  noremap \, :edit ~/.vimrc-local<cr>
   source $HOME/.vimrc-local
 endif
 ]])

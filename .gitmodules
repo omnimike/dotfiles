@@ -112,3 +112,15 @@
 [submodule "nvim/pack/omnimike/start/vim-commentary"]
 	path = nvim/pack/omnimike/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "nvim/pack/omnimike/start/indent-blankline.nvim"]
+	path = nvim/pack/omnimike/start/indent-blankline.nvim
+	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
+[submodule "nvim/pack/omnimike/start/trouble.nvim"]
+	path = nvim/pack/omnimike/start/trouble.nvim
+	url = https://github.com/folke/trouble.nvim.git
+[submodule "nvim/pack/omnimike/start/nvim-web-devicons"]
+	path = nvim/pack/omnimike/start/nvim-web-devicons
+	url = https://github.com/nvim-tree/nvim-web-devicons.git
+[submodule "nvim/pack/omnimike/start/other.nvim"]
+	path = nvim/pack/omnimike/start/other.nvim
+	url = https://github.com/rgroli/other.nvim.git
