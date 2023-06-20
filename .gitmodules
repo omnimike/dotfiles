@@ -124,3 +124,24 @@
 [submodule "nvim/pack/omnimike/start/other.nvim"]
 	path = nvim/pack/omnimike/start/other.nvim
 	url = https://github.com/rgroli/other.nvim.git
+[submodule "nvim/pack/omnimike/start/cmp-nvim-lsp"]
+	path = nvim/pack/omnimike/start/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp
+[submodule "nvim/pack/omnimike/start/cmp-buffer"]
+	path = nvim/pack/omnimike/start/cmp-buffer
+	url = https://github.com/hrsh7th/cmp-buffer
+[submodule "nvim/pack/omnimike/start/cmp-path"]
+	path = nvim/pack/omnimike/start/cmp-path
+	url = https://github.com/hrsh7th/cmp-path
+[submodule "nvim/pack/omnimike/start/cmp-cmdline"]
+	path = nvim/pack/omnimike/start/cmp-cmdline
+	url = https://github.com/hrsh7th/cmp-cmdline
+[submodule "nvim/pack/omnimike/start/nvim-cmp"]
+	path = nvim/pack/omnimike/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp
+[submodule "nvim/pack/omnimike/start/cmp-vsnip"]
+	path = nvim/pack/omnimike/start/cmp-vsnip
+	url = https://github.com/hrsh7th/cmp-vsnip
+[submodule "nvim/pack/omnimike/start/vim-vsnip"]
+	path = nvim/pack/omnimike/start/vim-vsnip
+	url = https://github.com/hrsh7th/vim-vsnip
