@@ -157,6 +157,11 @@ require("other-nvim").setup {
   }
 }
 
+require("trouble").setup {
+  auto_open = false,
+  auto_close = true,
+}
+
 -- Set up nvim-cmp.
 local cmp = require("cmp")
 
@@ -220,6 +225,16 @@ function leadermap(key, cmd, desc, opts)
   wk.register{["<leader>" .. key] = args}
 end
 
+function nvleadermap(key, cmd, desc, opts)
+  local args = {cmd, desc}
+  if opts then
+    for k,v in pairs(opts) do
+      args[k] = v
+    end
+  end
+  wk.register{["<leader>" .. key] = args}
+end
+
 -- save
 leadermap("s", ":w<cr>", "Save")
 
@@ -251,8 +266,8 @@ leadermap("fH", telescope_builtin.help_tags, "Help tags")
 -- clipboard
 leadermap("y", ":OSCYankVisual<cr>", "Copy to system clipboard")
 
--- formatting
-leadermap("d", ":call TrimWhitespace()<cr>", "Trim trailing whitespace")
+-- remove whitspace
+leadermap("aw", ":call TrimWhitespace()<cr>", "Remove trailing whitespace")
 
 -- toggle
 leadermap("tn", ":set invnumber<cr>", "Toggle line numbers")
@@ -262,8 +277,57 @@ leadermap("ti4", ":call SetIndentFourSpace()<cr>", "Set indent 4 space")
 leadermap("tit", ":call SetIndentTab()<cr>", "Set indent tab")
 leadermap("tl", ":IndentBlanklineToggle!<cr>", "Toggle indent guide")
 leadermap("tfi", ":set foldmethod=indent<cr>", "Set foldmethod indent")
-leadermap("ffm", ":set foldmethod=manual<cr>", "Set foldmethod manual")
+leadermap("tfm", ":set foldmethod=manual<cr>", "Set foldmethod manual")
 leadermap("ts", ":setlocal spell!<cr>", "Toggle spell")
+
+-- diagnostics
+leadermap("j", vim.diagnostic.goto_next, "Next diagnostic")
+leadermap("k", vim.diagnostic.goto_prev, "Previous diagnostic")
+leadermap("dD", vim.diagnostic.open_float, "Open diagnostics")
+leadermap("dQ", vim.diagnostic.setloclist, "Diagnostic quicklist")
+
+-- LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(ev)
+    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+    local opts = { buffer = ev.buf }
+
+    -- hover
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
+    -- definitions
+    leadermap("dc", vim.lsp.buf.declaration, "Goto declaration", opts)
+    leadermap("df", vim.lsp.buf.definition, "Goto definition", opts)
+    leadermap("di", vim.lsp.buf.implementation, "Goto implementation", opts)
+    leadermap("dg", vim.lsp.buf.signature_help, "Signature help", opts)
+    leadermap("dt", vim.lsp.buf.type_definition, "Goto type definition", opts)
+    leadermap('dr', ":TroubleToggle lsp_references<cr>", "References")
+    
+    -- refactor
+    leadermap("ar", vim.lsp.buf.rename, "Rename", opts)
+    leadermap("aa", vim.lsp.buf.code_action, "Code action", opts)
+    vim.keymap.set("v", "<leader>aa", vim.lsp.buf.code_action, opts)
+
+    -- workspace
+    leadermap("dwa", vim.lsp.buf.add_workspace_folder, "Add workspace folder", opts)
+    leadermap("dwr", vim.lsp.buf.remove_workspace_folder, "Remove workspace folder", opts)
+    leadermap("dwl", function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, "List workspace folders", opts)
+
+
+    leadermap("af", function()
+      vim.lsp.buf.format { async = true }
+    end, "Format", opts)
+  end,
+})
+
+leadermap('dd', ":TroubleToggle<cr>", "Toggle diagnostics")
+leadermap('dq', ":TroubleToggle quickfix<cr>", "Open quickfix")
+leadermap('dl', ":TroubleToggle loclist<cr>", "Open loclist")
+leadermap('ds', ":TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics")
+leadermap('dt', ":TroubleToggle document_diagnostics<cr>", "Document diagnostics")
 
 vim.cmd([[
   augroup init
