@@ -13,9 +13,26 @@ setopt hist_reduce_blanks
 setopt share_history
 setopt inc_append_history
 
-
 NEWLINE=$'\n'
-export PROMPT="$NEWLINE%F{blue}%*%F{none} %F{green}%~%F{none}$NEWLINE%F{magenta}$%F{none} "
+PROMPT_START="${NEWLINE}%F{blue}%*%F{none} %F{green}%~%F{none}"
+PROMPT_END="${NEWLINE}%F{magenta}$%F{none} "
+export PROMPT="${PROMPT_START}${PROMPT_END}"
+
+function preexec() {
+  timer=${timer:-$SECONDS}
+}
+
+function precmd() {
+  if [ $timer ]; then
+    local timer_show=$(($SECONDS - $timer))
+    unset timer
+    if [[ $timer_show -gt 0 ]]; then
+      PROMPT="${PROMPT_START} %F{yellow}${timer_show}s%F{none} ${PROMPT_END}"
+      return
+    fi
+  fi
+  PROMPT="${PROMPT_START}${PROMPT_END}"
+}
 
 # This allows us to use the R language
 disable r
@@ -151,4 +168,3 @@ export FZF_DEFAULT_COMMAND='rg  --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-
