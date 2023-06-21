@@ -225,16 +225,6 @@ function leadermap(key, cmd, desc, opts)
   wk.register{["<leader>" .. key] = args}
 end
 
-function nvleadermap(key, cmd, desc, opts)
-  local args = {cmd, desc}
-  if opts then
-    for k,v in pairs(opts) do
-      args[k] = v
-    end
-  end
-  wk.register{["<leader>" .. key] = args}
-end
-
 -- save
 leadermap("s", ":w<cr>", "Save")
 
