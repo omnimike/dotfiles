@@ -254,7 +254,7 @@ leadermap("fh", telescope_builtin.command_history, "Command history")
 leadermap("fH", telescope_builtin.help_tags, "Help tags")
 
 -- clipboard
-leadermap("y", ":OSCYankVisual<cr>", "Copy to system clipboard")
+vim.keymap.set("v", "<leader>y", ":OSCYankVisual<cr>")
 
 -- remove whitspace
 leadermap("aw", ":call TrimWhitespace()<cr>", "Remove trailing whitespace")
