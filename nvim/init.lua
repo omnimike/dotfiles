@@ -225,16 +225,6 @@ function leadermap(key, cmd, desc, opts)
   wk.register{["<leader>" .. key] = args}
 end
 
-function nvleadermap(key, cmd, desc, opts)
-  local args = {cmd, desc}
-  if opts then
-    for k,v in pairs(opts) do
-      args[k] = v
-    end
-  end
-  wk.register{["<leader>" .. key] = args}
-end
-
 -- save
 leadermap("s", ":w<cr>", "Save")
 
@@ -263,11 +253,12 @@ leadermap("ff", telescope_builtin.resume, "Reopen picker")
 leadermap("fh", telescope_builtin.command_history, "Command history")
 leadermap("fH", telescope_builtin.help_tags, "Help tags")
 
--- clipboard
-leadermap("y", ":OSCYankVisual<cr>", "Copy to system clipboard")
+-- format
+leadermap("fw", ":call TrimWhitespace()<cr>", "Remove trailing whitespace")
 
--- remove whitspace
-leadermap("aw", ":call TrimWhitespace()<cr>", "Remove trailing whitespace")
+-- clipboard
+vim.keymap.set("v", "<leader>y", ":OSCYankVisual<cr>")
+
 
 -- toggle
 leadermap("tn", ":set invnumber<cr>", "Toggle line numbers")
@@ -305,8 +296,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     leadermap('dr', ":TroubleToggle lsp_references<cr>", "References")
     
     -- refactor
-    leadermap("ar", vim.lsp.buf.rename, "Rename", opts)
-    leadermap("aa", vim.lsp.buf.code_action, "Code action", opts)
+    leadermap("fr", vim.lsp.buf.rename, "Rename", opts)
+    leadermap("fa", vim.lsp.buf.code_action, "Code action", opts)
     vim.keymap.set("v", "<leader>aa", vim.lsp.buf.code_action, opts)
 
     -- workspace
@@ -317,7 +308,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, "List workspace folders", opts)
 
 
-    leadermap("af", function()
+    leadermap("fs", function()
       vim.lsp.buf.format { async = true }
     end, "Format", opts)
   end,
@@ -327,7 +318,7 @@ leadermap('dd', ":TroubleToggle<cr>", "Toggle diagnostics")
 leadermap('dq', ":TroubleToggle quickfix<cr>", "Open quickfix")
 leadermap('dl', ":TroubleToggle loclist<cr>", "Open loclist")
 leadermap('ds', ":TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics")
-leadermap('dt', ":TroubleToggle document_diagnostics<cr>", "Document diagnostics")
+leadermap('da', ":TroubleToggle document_diagnostics<cr>", "Document diagnostics")
 
 vim.cmd([[
   augroup init

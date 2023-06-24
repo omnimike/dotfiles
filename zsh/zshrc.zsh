@@ -13,9 +13,43 @@ setopt hist_reduce_blanks
 setopt share_history
 setopt inc_append_history
 
+zsh_prompt_newline=$'\n'
+zsh_prompt_start="${zsh_prompt_newline}%F{blue}%*%F{none} %F{green}%~%F{none}"
+zsh_prompt_end="${zsh_prompt_newline}%F{magenta}$%F{none} "
+export PROMPT="${zsh_prompt_start}${zsh_prompt_end}"
 
-NEWLINE=$'\n'
-export PROMPT="$NEWLINE%F{blue}%*%F{none} %F{green}%~%F{none}$NEWLINE%F{magenta}$%F{none} "
+function preexec() {
+  zsh_prompt_timer=${zsh_prompt_timer:-$SECONDS}
+}
+
+function precmd() {
+  if [ $zsh_prompt_timer ]; then
+    local total_secs=$(($SECONDS - $zsh_prompt_timer))
+    unset zsh_prompt_timer
+    local -a timer
+    local days=$((total_secs / 86400))
+    local hours=$(($((total_secs / 3600)) % 24))
+    local mins=$(($((total_secs / 60)) % 60))
+    local secs=$((total_secs % 60))
+    if [[ $days -gt 0 ]]; then
+      timer+="${days}d"
+    fi
+    if [[ $hours -gt 0 ]]; then
+      timer+="${hours}h"
+    fi
+    if [[ $mins -gt 0 ]]; then
+      timer+="${mins}m"
+    fi
+    if [[ $secs -gt 0 ]]; then
+      timer+="${secs}s"
+    fi
+    if [[ $total_secs -gt 0 ]]; then
+      PROMPT="${zsh_prompt_start} %F{yellow}${timer}%F{none} ${zsh_prompt_end}"
+      return
+    fi
+  fi
+  PROMPT="${zsh_prompt_start}${zsh_prompt_end}"
+}
 
 # This allows us to use the R language
 disable r
@@ -151,4 +185,3 @@ export FZF_DEFAULT_COMMAND='rg  --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-
