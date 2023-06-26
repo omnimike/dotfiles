@@ -6,11 +6,11 @@ hs.hotkey.bind(meh, 'F20', function ()
 end)
 
 local appHotkeys = {
-    { 'u', 'Google Chrome' },
-    { 'i', 'iTerm' },
-    { 'o', 'Workplace Chat' },
-    { 'y', 'Mail' },
-    { 'p', 'Calendar' },
+    { '7', 'Google Chrome' },
+    { '8', 'iTerm' },
+    { '9', 'Workplace Chat' },
+    { '6', 'Mail' },
+    { '10', 'Calendar' },
 }
 
 local mehBind = function(key, fn)
@@ -22,7 +22,7 @@ local hyperBind = function(key, fn)
 end
 
 for i, binding in ipairs(appHotkeys) do
-    local key = binding[1]
+    local key = 'F' .. binding[1]
     local app = binding[2]
     local launcher = function()
         hs.application.launchOrFocus(app)
@@ -109,10 +109,6 @@ mehBind('k', function ()
 end)
 mehBind('l', function ()
     hs.window.frontmostWindow():focusWindowEast()
-end)
-
-mehBind('F11', function ()
-    hs.eventtap.keyStroke({'alt'}, 'a')
 end)
 
 hs.alert.show('conf reloaded')
