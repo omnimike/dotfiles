@@ -243,6 +243,7 @@ leadermap("g", ":Other<cr>", "Alternate file")
 -- buffers
 leadermap("u", telescope_builtin.buffers, "Switch buffer")
 leadermap("w", ":bprev|bdelete #<cr>", "Close buffer")
+leadermap("W", ":bprev|bdelete! #<cr>", "Close buffer")
 
 -- search
 leadermap("/", telescope_builtin.current_buffer_fuzzy_find, "Find in buffer")
