@@ -118,12 +118,7 @@ require("nvim-treesitter.configs").setup {
   },
 }
 
-require("indent_blankline").setup {
-  enabled = false,
-  space_char_blankline = " ",
-  show_current_context = true,
-  show_current_context_start = true,
-}
+-- require("ibl").setup()
 
 require("other-nvim").setup {
   rememberBuffers = false,
@@ -238,7 +233,7 @@ leadermap("i", telescope_builtin.oldfiles, "Recent files")
 leadermap("o", ":NvimTreeFindFileToggle!<cr>", "File tree")
 
 -- alternates
-leadermap("g", ":Other<cr>", "Alternate file")
+leadermap("a", ":Other<cr>", "Alternate file")
 
 -- buffers
 leadermap("u", telescope_builtin.buffers, "Switch buffer")
@@ -299,7 +294,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- refactor
     leadermap("fr", vim.lsp.buf.rename, "Rename", opts)
     leadermap("fa", vim.lsp.buf.code_action, "Code action", opts)
-    vim.keymap.set("v", "<leader>aa", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("v", "<leader>g", vim.lsp.buf.code_action, opts)
+
+    leadermap("fs", function()
+      vim.lsp.buf.format { async = true }
+    end, "Format", opts)
 
     -- workspace
     leadermap("dwa", vim.lsp.buf.add_workspace_folder, "Add workspace folder", opts)
@@ -308,10 +307,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, "List workspace folders", opts)
 
-
-    leadermap("fs", function()
-      vim.lsp.buf.format { async = true }
-    end, "Format", opts)
+    leadermap("fq", ":LspRestart<cr>", "Restart the LSP server")
   end,
 })
 

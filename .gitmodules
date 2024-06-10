@@ -64,9 +64,6 @@
 [submodule "nvim/pack/omnimike/start/a.vim"]
 	path = nvim/pack/omnimike/start/a.vim
 	url = https://github.com/omnimike/a.vim.git
-[submodule "nvim/pack/omnimike/start/onedark.vim"]
-	path = nvim/pack/omnimike/start/onedark.vim
-	url = https://github.com/joshdick/onedark.vim.git
 [submodule "nvim/pack/omnimike/start/vim-surround"]
 	path = nvim/pack/omnimike/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
@@ -145,3 +142,6 @@
 [submodule "nvim/pack/omnimike/start/vim-vsnip"]
 	path = nvim/pack/omnimike/start/vim-vsnip
 	url = https://github.com/hrsh7th/vim-vsnip
+[submodule "nvim/pack/omnimike/start/onedark.nvim"]
+	path = nvim/pack/omnimike/start/onedark.nvim
+	url = https://github.com/navarasu/onedark.nvim
