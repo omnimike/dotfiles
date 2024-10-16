@@ -145,3 +145,6 @@
 [submodule "nvim/pack/omnimike/start/onedark.nvim"]
 	path = nvim/pack/omnimike/start/onedark.nvim
 	url = https://github.com/navarasu/onedark.nvim
+[submodule "nvim/pack/omnimike/start/none-ls.nvim"]
+	path = nvim/pack/omnimike/start/none-ls.nvim
+	url = https://github.com/nvimtools/none-ls.nvim.git
