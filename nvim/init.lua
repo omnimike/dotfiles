@@ -211,7 +211,7 @@ wk.setup {
 }
 
 function leadermap(key, cmd, desc, opts)
-  local args = {key, cmd, desc=desc}
+  local args = {"<leader>" .. key, cmd, desc=desc}
   if opts then
     for k,v in pairs(opts) do
       args[k] = v
