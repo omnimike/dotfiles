@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-
 vim.o.mouse = "a"
 vim.o.list = true
 vim.o.listchars = "tab:>-,trail:·,extends:>,precedes:<"
