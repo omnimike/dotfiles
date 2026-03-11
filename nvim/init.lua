@@ -118,7 +118,7 @@ require("nvim-treesitter.configs").setup {
   },
 }
 
--- require("ibl").setup()
+require("ibl").setup()
 
 require("other-nvim").setup {
   rememberBuffers = false,
@@ -152,10 +152,7 @@ require("other-nvim").setup {
   }
 }
 
-require("trouble").setup {
-  auto_open = false,
-  auto_close = true,
-}
+require("trouble").setup {}
 
 -- Set up nvim-cmp.
 local cmp = require("cmp")
@@ -262,7 +259,7 @@ leadermap("tg", ":SignifyToggle<cr>", "Toggle gutter")
 leadermap("ti2", ":call SetIndentTwoSpace()<cr>", "Set indent 2 space")
 leadermap("ti4", ":call SetIndentFourSpace()<cr>", "Set indent 4 space")
 leadermap("tit", ":call SetIndentTab()<cr>", "Set indent tab")
-leadermap("tl", ":IndentBlanklineToggle!<cr>", "Toggle indent guide")
+leadermap("tl", ":IBLToggle<cr>", "Toggle indent guide")
 leadermap("tfi", ":set foldmethod=indent<cr>", "Set foldmethod indent")
 leadermap("tfm", ":set foldmethod=manual<cr>", "Set foldmethod manual")
 leadermap("ts", ":setlocal spell!<cr>", "Toggle spell")
@@ -289,7 +286,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     leadermap("di", vim.lsp.buf.implementation, "Goto implementation", opts)
     leadermap("dg", vim.lsp.buf.signature_help, "Signature help", opts)
     leadermap("dt", vim.lsp.buf.type_definition, "Goto type definition", opts)
-    leadermap('dr', ":TroubleToggle lsp_references<cr>", "References")
+    leadermap('dr', ":Trouble lsp_references toggle<cr>", "References")
     
     -- refactor
     leadermap("fr", vim.lsp.buf.rename, "Rename", opts)
@@ -311,11 +308,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-leadermap('dd', ":TroubleToggle<cr>", "Toggle diagnostics")
-leadermap('dq', ":TroubleToggle quickfix<cr>", "Open quickfix")
-leadermap('dl', ":TroubleToggle loclist<cr>", "Open loclist")
-leadermap('ds', ":TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics")
-leadermap('da', ":TroubleToggle document_diagnostics<cr>", "Document diagnostics")
+leadermap('dd', ":Trouble diagnostics toggle<cr>", "Toggle diagnostics")
+leadermap('dq', ":Trouble qflist toggle<cr>", "Open quickfix")
+leadermap('dl', ":Trouble loclist toggle<cr>", "Open loclist")
+leadermap('ds', ":Trouble diagnostics toggle<cr>", "Workspace diagnostics")
+leadermap('da', ":Trouble diagnostics toggle filter.buf=0<cr>", "Document diagnostics")
 
 vim.cmd([[
   augroup init
