@@ -66,6 +66,7 @@ alias la='ls -Ah'
 alias ll='ls -alFh'
 alias ls='ls --color=auto'
 
+alias c='claude'
 alias e='nvim'
 alias tm='tmux attach || tmux new'
 alias gpb='git push origin $(git_current_branch)'
