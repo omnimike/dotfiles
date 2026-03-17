@@ -1,0 +1,1 @@
+Run `git pull` to pull the latest dotfiles changes from origin.
