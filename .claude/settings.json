@@ -1,0 +1,5 @@
+{
+  "model": "claude-sonnet-4-6",
+  "fastModel": "claude-haiku-4-5-20251001",
+  "slowModel": "claude-opus-4-6"
+}
