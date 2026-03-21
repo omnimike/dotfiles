@@ -34,7 +34,7 @@ To add a plugin: `git submodule add <url> nvim/pack/omnimike/start/<plugin-name>
 
 ## Key Config Files
 
-- **`nvim/init.lua`** — Main neovim config (Lua). Leader is `<Space>`. Uses telescope, nvim-tree, treesitter, nvim-cmp, lualine, trouble, which-key, LSP via nvim-lspconfig, and none-ls.
+- **`nvim/init.lua`** — Main neovim config (Lua). Leader is `<Space>`. Uses telescope, nvim-tree, treesitter, nvim-cmp, lualine, trouble, which-key, LSP via nvim-lspconfig, none-ls, gitsigns, noice, claudecode, and mini (ai, comment, surround).
 - **`zsh/zshrc.zsh`** — Shell config with vi keybindings, fzf integration, aliases. Sources `~/.zshrc-local` for machine-specific config.
 - **`zsh/zshenv.zsh`** — PATH setup, adds `~/dotfiles/bin` to PATH.
 - **`gitconfig`** — Git config with rebase-by-default workflow.
