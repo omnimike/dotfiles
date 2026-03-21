@@ -119,6 +119,9 @@ require("nvim-treesitter.configs").setup {
 
 require("ibl").setup()
 
+require("mini.comment").setup()
+require("mini.surround").setup()
+
 require("other-nvim").setup {
   rememberBuffers = false,
   mappings = {
