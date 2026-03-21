@@ -142,9 +142,6 @@
 [submodule "nvim/pack/omnimike/start/mini.ai"]
 	path = nvim/pack/omnimike/start/mini.ai
 	url = https://github.com/echasnovski/mini.ai.git
-[submodule "nvim/pack/omnimike/start/catppuccin"]
-	path = nvim/pack/omnimike/start/catppuccin
-	url = https://github.com/catppuccin/nvim
 [submodule "nvim/pack/omnimike/start/nui.nvim"]
 	path = nvim/pack/omnimike/start/nui.nvim
 	url = https://github.com/MunifTanjim/nui.nvim
