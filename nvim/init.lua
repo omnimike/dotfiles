@@ -1,3 +1,4 @@
+-- vim config
 vim.g.mapleader = " "
 vim.o.mouse = "a"
 vim.o.list = true
@@ -27,8 +28,6 @@ vim.o.undodir = os.getenv("HOME") .. "/.vim-temp/undo//"
 vim.o.termguicolors = true
 
 vim.g.vim_json_syntax_conceal = 0
-
-vim.g.signify_disable_by_default = true
 
 if vim.fn.executable("rg") == 1 then
   vim.o.grepprg = "rg --vimgrep"
@@ -63,6 +62,8 @@ fun! SetIndentTab()
 endfun
 ]])
 
+-- Extension config
+
 require("telescope").setup {
   extensions = {
     fzf = {
@@ -82,7 +83,7 @@ require("nvim-tree").setup {
   },
 }
 
-require("lualine").setup()
+require("lualine").setup {}
 
 require("nvim-treesitter.configs").setup {
   highlight = {
@@ -119,6 +120,7 @@ require("nvim-treesitter.configs").setup {
 
 require("ibl").setup()
 
+require("mini.ai").setup()
 require("mini.comment").setup()
 require("mini.surround").setup()
 
@@ -155,6 +157,16 @@ require("other-nvim").setup {
 }
 
 require("trouble").setup {}
+
+require("gitsigns").setup()
+
+require("notify").setup({
+  background_colour = "#1e1e2e",
+})
+
+require("noice").setup()
+
+require("claudecode").setup()
 
 -- Set up nvim-cmp.
 local cmp = require("cmp")
@@ -209,6 +221,8 @@ wk.setup {
   },
 }
 
+-- Hotkey setup
+
 function leadermap(key, cmd, desc, opts)
   local args = {"<leader>" .. key, cmd, desc=desc}
   if opts then
@@ -251,13 +265,13 @@ leadermap("fH", telescope_builtin.help_tags, "Help tags")
 -- format
 leadermap("fw", ":call TrimWhitespace()<cr>", "Remove trailing whitespace")
 
--- clipboard
-vim.keymap.set("v", "<leader>y", ":OSCYankVisual<cr>")
+-- clipboard (OSC 52)
+vim.keymap.set("v", "<leader>y", '"+y')
 
 
 -- toggle
 leadermap("tn", ":set invnumber<cr>", "Toggle line numbers")
-leadermap("tg", ":SignifyToggle<cr>", "Toggle gutter")
+leadermap("tg", ":Gitsigns toggle_signs<cr>", "Toggle gutter")
 leadermap("ti2", ":call SetIndentTwoSpace()<cr>", "Set indent 2 space")
 leadermap("ti4", ":call SetIndentFourSpace()<cr>", "Set indent 4 space")
 leadermap("tit", ":call SetIndentTab()<cr>", "Set indent tab")
@@ -265,6 +279,10 @@ leadermap("tl", ":IBLToggle<cr>", "Toggle indent guide")
 leadermap("tfi", ":set foldmethod=indent<cr>", "Set foldmethod indent")
 leadermap("tfm", ":set foldmethod=manual<cr>", "Set foldmethod manual")
 leadermap("ts", ":setlocal spell!<cr>", "Toggle spell")
+leadermap("c", ":ClaudeCode<cr>", "Toggle Claude")
+
+-- Terminal window navigation
+vim.keymap.set('t', '<C-w>', '<C-\\><C-n><C-w>')
 
 -- diagnostics
 leadermap("j", vim.diagnostic.goto_next, "Next diagnostic")
