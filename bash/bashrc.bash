@@ -1,7 +1,7 @@
 
-export EDITOR='vim'
-export VISUAL='vim'
-export HGEDITOR='code-fb -w'
+export EDITOR='nvim'
+export VISUAL='nvim'
+export HGEDITOR='nvim'
 
 set -o vi
 bind '"\C-p": previous-history'
@@ -36,6 +36,11 @@ alias hammerspoonrc="e ~/.hammerspoon/init.lua"
 alias karabinerrc="e ~/.config/karabiner/karabiner.json"
 alias kakrc="e ~/.config/kak/kakrc"
 alias sshconfig="e ~/.ssh/config"
+
+alias jdotfiles="cd ~/dotfiles"
+alias jdotf="cd ~/dotfiles"
+alias jssh="cd ~/.ssh"
+alias jclaude="e ~/.claude"
 
 export PROMPT_COMMAND=""
 export PS1='\n\[\e[0;34m\]\t\[\e[m\] \[\e[0;32m\]\w\[\e[m\] \n\[\e[0;35m\]\$\[\e[m\] '
