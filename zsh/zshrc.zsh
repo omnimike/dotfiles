@@ -93,7 +93,7 @@ alias sshconfig="e ~/.ssh/config"
 alias jdotfiles="cd ~/dotfiles"
 alias jdotf="cd ~/dotfiles"
 alias jssh="cd ~/.ssh"
-alias jclaude="e ~/.claude"
+alias jclaude="cd ~/.claude"
 
 # lldb needs to use the system python
 alias lldb='PATH=/usr/bin:$PATH lldb'
