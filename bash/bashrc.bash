@@ -1,7 +1,7 @@
 
 export EDITOR='nvim'
 export VISUAL='nvim'
-export HGEDITOR='code-fb -w'
+export HGEDITOR='nvim'
 
 set -o vi
 bind '"\C-p": previous-history'
