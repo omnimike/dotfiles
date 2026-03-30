@@ -15,6 +15,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias e='nvim'
+alias c='claude'
 alias tm='tmux attach || tmux new'
 alias vg='vagrant'
 alias gpb='git push origin $(git_current_branch)'
