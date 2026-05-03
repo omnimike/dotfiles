@@ -189,3 +189,4 @@ export FZF_DEFAULT_COMMAND='rg  --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
