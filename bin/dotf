@@ -9,7 +9,6 @@ Usage:
     save                Push conf changes to omnimike/conf
     load                Pull conf changes from omnimike/conf
     status              Show changes to conf
-    install             Install the config for something
 EOT
 }
 
@@ -32,13 +31,6 @@ case "$1" in
         ;;
     status)
         git -C "$DOT_DIR" status
-        ;;
-    install)
-        if [[ ! -f "$DOT_DIR/$2/install.sh" ]]; then
-            echo "Config not found for $2"
-            exit 1
-        fi
-        "$DOT_DIR/$2/install.sh"
         ;;
     -h | help | --help)
         usage
