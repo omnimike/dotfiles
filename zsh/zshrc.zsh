@@ -189,3 +189,6 @@ export FZF_DEFAULT_COMMAND='rg  --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+# myclaw instance: ipnext-ads-prod
+alias myclaw-ipnext-ads-prod='MYCLAW_HOME=/home/michaelf/.myclaw-ipnext-ads-prod myclaw'
