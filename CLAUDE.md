@@ -8,7 +8,6 @@ Personal dotfiles repository for Michael F. Configuration files are organized by
 
 ## Key Commands
 
-- **Install a config:** `dotf install <tool>` (e.g., `dotf install nvim`) — runs `<tool>/install.sh`
 - **Save changes:** `dotf save` — stages all, commits with message "save", and pushes
 - **Pull changes:** `dotf load`
 - **Check status:** `dotf status`
