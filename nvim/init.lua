@@ -19,6 +19,7 @@ vim.o.foldmethod = "indent"
 vim.o.foldenable = false
 vim.opt.wildignore:append {"*/.git/*", "*/tmp/*", "*.swp"}
 vim.o.colorcolumn = "80"
+vim.o.textwidth = 80
 vim.o.tags = "tags;/"
 
 vim.o.directory = os.getenv("HOME") .. "/.vim-temp/swapfiles//"
@@ -279,7 +280,14 @@ leadermap("tl", ":IBLToggle<cr>", "Toggle indent guide")
 leadermap("tfi", ":set foldmethod=indent<cr>", "Set foldmethod indent")
 leadermap("tfm", ":set foldmethod=manual<cr>", "Set foldmethod manual")
 leadermap("ts", ":setlocal spell!<cr>", "Toggle spell")
+leadermap("tw", ":set wrap!<cr>", "Toggle word wrap")
 leadermap("c", ":ClaudeCode<cr>", "Toggle Claude")
+
+-- Visual line movement (j/k move by display lines when wrap is enabled)
+vim.keymap.set('n', 'j', 'gj', { silent = true })
+vim.keymap.set('n', 'k', 'gk', { silent = true })
+vim.keymap.set('v', 'j', 'gj', { silent = true })
+vim.keymap.set('v', 'k', 'gk', { silent = true })
 
 -- Terminal window navigation
 vim.keymap.set('t', '<C-w>', '<C-\\><C-n><C-w>')
