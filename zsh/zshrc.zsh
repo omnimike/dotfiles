@@ -187,4 +187,3 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # bun completions
 [ -s "/Users/michael/.bun/_bun" ] && source "/Users/michael/.bun/_bun"
-
