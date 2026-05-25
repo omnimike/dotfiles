@@ -10,8 +10,10 @@ local RUST_PATH="$HOME/.cargo/bin"
 local BREW_PATH="/usr/local/bin"
 local PYTHON_PATH="$HOME/Library/Python/3.7/bin"
 local VSCODE_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+export BUN_INSTALL="$HOME/.bun"
 export NVM_DIR="$HOME/.nvm"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home"
 export MAVEN_PATH=/usr/local/Cellar/maven/3.5.3
-export PATH="$PATH:$HOME/bin:$DOT_PATH:$BREW_PATH:$PYTHON_PATH:$RUST_PATH:$SUBL_PATH:$LOCAL_PATH:$YARN_PATH:$GO_PATH:$TEX_PATH:$COMPOSER_PATH:$VSCODE_PATH"
+export PATH="$PATH:$HOME/bin:$DOT_PATH:$BREW_PATH:$PYTHON_PATH:$RUST_PATH:$SUBL_PATH:$LOCAL_PATH:$YARN_PATH:$GO_PATH:$TEX_PATH:$COMPOSER_PATH:$VSCODE_PATH:$BUN_INSTALL/bin"
 export GOPATH="$HOME/go"

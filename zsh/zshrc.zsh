@@ -67,7 +67,6 @@ alias ll='ls -alFh'
 alias ls='ls --color=auto'
 
 alias e='nvim'
-alias c='claude'
 alias tm='tmux attach || tmux new'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) --force-with-lease'
@@ -85,15 +84,11 @@ alias nvimpack="cd ~/.config/nvim/pack/omnimike/start"
 alias tmuxrc="e ~/.tmux.conf"
 alias tmuxrcl="e ~/.tmux-local.conf"
 alias hammerspoonrc="e ~/.hammerspoon/init.lua"
-alias karabinerrc="e ~/.config/karabiner/karabiner.json"
-alias kakrc="e ~/.config/kak/kakrc"
-alias hxrc="e ~/.config/helix/config.toml"
 alias sshconfig="e ~/.ssh/config"
 
 alias jdotfiles="cd ~/dotfiles"
 alias jdotf="cd ~/dotfiles"
 alias jssh="cd ~/.ssh"
-alias jclaude="cd ~/.claude"
 
 # lldb needs to use the system python
 alias lldb='PATH=/usr/bin:$PATH lldb'
@@ -189,3 +184,7 @@ export FZF_DEFAULT_COMMAND='rg  --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+# bun completions
+[ -s "/Users/michael/.bun/_bun" ] && source "/Users/michael/.bun/_bun"
+
