@@ -1,0 +1,5 @@
+[user]
+  name = Michael Fulthorp
+  email = michael.fulthorp@gmail.com
+[core]
+  editor = nvim
