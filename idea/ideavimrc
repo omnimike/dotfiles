@@ -1,3 +1,0 @@
-let mapleader = " "
-noremap <Leader>s :w<cr>
-noremap <Leader>p :action GotoFile<cr>
