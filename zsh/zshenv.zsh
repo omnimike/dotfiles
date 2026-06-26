@@ -1,19 +1,7 @@
 
 local DOT_PATH="$HOME/dotfiles/bin"
-local TEX_PATH="/Library/TeX/texbin"
-local GO_PATH="/usr/local/opt/go/libexec/bin:$HOME/go/bin"
-local YARN_PATH="$HOME/.config/yarn/global/node_modules/.bin"
 local LOCAL_PATH="$HOME/.local/bin"
-local COMPOSER_PATH="$HOME/.composer/vendor/bin"
-local SUBL_PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin"
-local RUST_PATH="$HOME/.cargo/bin"
 local BREW_PATH="/usr/local/bin"
-local PYTHON_PATH="$HOME/Library/Python/3.7/bin"
-local VSCODE_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+local OPENCODE_PATH="$HOME/.opencode/bin"
 
-export BUN_INSTALL="$HOME/.bun"
-export NVM_DIR="$HOME/.nvm"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home"
-export MAVEN_PATH=/usr/local/Cellar/maven/3.5.3
-export PATH="$PATH:$HOME/bin:$DOT_PATH:$BREW_PATH:$PYTHON_PATH:$RUST_PATH:$SUBL_PATH:$LOCAL_PATH:$YARN_PATH:$GO_PATH:$TEX_PATH:$COMPOSER_PATH:$VSCODE_PATH:$BUN_INSTALL/bin"
-export GOPATH="$HOME/go"
+export PATH="$PATH:$HOME/bin:$DOT_PATH:$BREW_PATH:$LOCAL_PATH:$OPENCODE_PATH"

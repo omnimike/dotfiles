@@ -184,6 +184,3 @@ export FZF_DEFAULT_COMMAND='rg  --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-
-# bun completions
-[ -s "/Users/michael/.bun/_bun" ] && source "/Users/michael/.bun/_bun"
