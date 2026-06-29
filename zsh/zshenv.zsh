@@ -1,5 +1,5 @@
 
-local DOT_PATH="$HOME/dotfiles/bin"
+local DOT_PATH="$HOME/.dotfiles/bin"
 local LOCAL_PATH="$HOME/.local/bin"
 local BREW_PATH="/usr/local/bin"
 local OPENCODE_PATH="$HOME/.opencode/bin"
