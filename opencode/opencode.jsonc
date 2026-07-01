@@ -16,5 +16,9 @@
     }
   },
   "model": "vllm-qwen36/Qwen/Qwen3.6-27B-FP8",
-  "small_model": "vllm-qwen36/Qwen/Qwen3.6-27B-FP8"
+  "small_model": "vllm-qwen36/Qwen/Qwen3.6-27B-FP8",
+  "server": {
+    "port": 4096,
+    "hostname": "0.0.0.0"
+  }
 }
