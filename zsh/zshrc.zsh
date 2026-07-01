@@ -68,6 +68,7 @@ alias ls='ls --color=auto'
 
 alias e='nvim'
 alias tm='tmux attach || tmux new'
+alias c='opencode'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) --force-with-lease'
 
