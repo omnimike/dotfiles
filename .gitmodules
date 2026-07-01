@@ -1,6 +1,3 @@
-[submodule "vim/pack/core/start/null-ls.nvim"]
-	path = vim/pack/core/start/null-ls.nvim
-	url = https://github.com/jose-elias-alvarez/null-ls.nvim.git
 [submodule "nvim/pack/omnimike/start/telescope.nvim"]
 	path = nvim/pack/omnimike/start/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim.git
