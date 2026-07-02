@@ -19,7 +19,6 @@ vim.o.foldmethod = "indent"
 vim.o.foldenable = false
 vim.opt.wildignore:append {"*/.git/*", "*/tmp/*", "*.swp"}
 vim.o.colorcolumn = "80"
-vim.o.textwidth = 80
 vim.o.tags = "tags;/"
 
 vim.o.directory = os.getenv("HOME") .. "/.vim-temp/swapfiles//"
