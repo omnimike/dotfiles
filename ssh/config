@@ -3,3 +3,9 @@ Host github.com
   Hostname github.com
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/github
+
+Host akasha
+  Hostname 100.64.229.108
+  User michael
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/akasha
