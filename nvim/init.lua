@@ -21,9 +21,18 @@ vim.opt.wildignore:append {"*/.git/*", "*/tmp/*", "*.swp"}
 vim.o.colorcolumn = "80"
 vim.o.tags = "tags;/"
 
-vim.o.directory = os.getenv("HOME") .. "/.vim-temp/swapfiles//"
-vim.o.backupdir = os.getenv("HOME") .. "/.vim-temp/backup//"
-vim.o.undodir = os.getenv("HOME") .. "/.vim-temp/undo//"
+-- Create the directories automatically if they don't exist
+local data_dir = vim.fn.stdpath("state")
+vim.fn.mkdir(data_dir .. "/undo", "p")
+vim.fn.mkdir(data_dir .. "/backup", "p")
+
+-- Enable persistent undo across editor sessions
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
+
+-- Enable backups and set backup directory
+vim.opt.backup = true
+vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
 
 vim.o.termguicolors = true
 
