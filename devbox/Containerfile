@@ -1,0 +1,22 @@
+FROM docker.io/cachyos/cachyos:latest as build
+
+WORKDIR /home/devbox
+COPY zsh/zshrc.zsh .zshrc
+COPY tmux/tmux.conf .tmux.conf
+COPY nvim/init.lua .config/nvim/init.lua
+COPY nvim/pack .config/nvim/pack
+RUN cd .config/nvim/pack/omnimike/start/telescope-fzf-native.nvim && make
+
+FROM docker.io/cachyos/cachyos:latest
+
+RUN pacman -Syu --noconfirm neovim tmux zsh opencode \
+    && pacman -Scc --noconfirm \
+   && useradd -m -s /usr/bin/zsh devbox
+
+USER devbox
+WORKDIR /home/devbox
+
+COPY --from=build /home/devbox .
+
+CMD zsh
+

@@ -22,6 +22,7 @@ Every component lives in its own top-level directory. If a directory contains `i
 | `limine/` | Limine bootloader config | No install script |
 | `noctalia/` | Custom tool config | |
 | `bin/` | `~/.local/bin/` | Utility scripts (`dotf`, `alert`, `utc`, etc.) |
+| `devbox/` | Containerfile | Dev container based on CachyOS with nvim, tmux, zsh, opencode |
 
 ## Git submodules
 
