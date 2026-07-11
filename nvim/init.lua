@@ -166,8 +166,6 @@ require("notify").setup({
 
 require("noice").setup()
 
-require("claudecode").setup()
-
 -- Set up nvim-cmp.
 local cmp = require("cmp")
 
