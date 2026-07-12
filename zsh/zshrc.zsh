@@ -71,6 +71,9 @@ alias e='nvim'
 alias tm='tmux attach || tmux new'
 alias c='opencode'
 alias d='devbox'
+alias de='devbox run nvim'
+alias dc='devbox run opencode'
+alias dt='devbox run tmux'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) --force-with-lease'
 
@@ -92,6 +95,7 @@ alias sshconfig="e ~/.ssh/config"
 alias jdotfiles="cd ~/.dotfiles"
 alias jdotf="cd ~/.dotfiles"
 alias jssh="cd ~/.ssh"
+alias jcode="cd ~/code"
 
 # lldb needs to use the system python
 alias lldb='PATH=/usr/bin:$PATH lldb'
