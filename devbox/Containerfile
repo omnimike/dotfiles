@@ -16,7 +16,13 @@ RUN mkdir /home/devbox/ws
 
 FROM docker.io/cachyos/cachyos:latest
 
-RUN pacman -Syu --noconfirm neovim tmux zsh opencode \
+RUN pacman -Syu --noconfirm \
+    neovim \
+    tmux \
+    zsh \
+    opencode \
+    ripgrep \
+    fzf \
   && pacman -Scc --noconfirm \
   && useradd -m -s /usr/bin/zsh devbox
 
