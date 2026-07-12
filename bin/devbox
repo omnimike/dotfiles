@@ -13,6 +13,7 @@ do_build() {
     --rm \
     --no-cache \
     "$DIR"
+  podman image prune -f
 }
 
 do_run() {
@@ -20,6 +21,7 @@ do_run() {
     do_build
   fi
   podman run -it \
+    --rm \
     --name "$CONTAINER" \
     -e TZ=$(cat /etc/timezone) \
     --replace \
