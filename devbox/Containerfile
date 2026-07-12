@@ -1,19 +1,3 @@
-FROM docker.io/cachyos/cachyos:latest as build
-
-RUN useradd -ms /bin/bash devbox
-USER devbox
-WORKDIR /home/devbox
-
-COPY zsh/zshrc.zsh .zshrc
-COPY tmux/tmux.conf .tmux.conf
-COPY nvim/init.lua .config/nvim/init.lua
-COPY nvim/pack .config/nvim/pack
-COPY opencode/opencode.jsonc .config/opencode/opencode.jsonc
-COPY opencode/tui.json .config/opencode/tui.json
-COPY git/gitconfig .gitconfig
-RUN cd .config/nvim/pack/omnimike/start/telescope-fzf-native.nvim && make
-RUN mkdir /home/devbox/ws
-
 FROM docker.io/cachyos/cachyos:latest
 
 RUN pacman -Syu --noconfirm \
@@ -22,14 +6,26 @@ RUN pacman -Syu --noconfirm \
     zsh \
     opencode \
     ripgrep \
-    fzf \
-  && pacman -Scc --noconfirm \
-  && useradd -m -s /usr/bin/zsh devbox
+    fzf && \
+  pacman -Scc --noconfirm && \
+  useradd -m -s /usr/bin/zsh devbox
 
 USER devbox
 WORKDIR /home/devbox
 
-COPY --from=build --chown=devbox /home/devbox .
+RUN --mount=type=bind,target=dotfiles \
+  cp dotfiles/zsh/zshrc.zsh .zshrc && \
+  cp dotfiles/tmux/tmux.conf .tmux.conf && \
+  cp dotfiles/git/gitconfig .gitconfig && \
+  mkdir -p .config/nvim && \
+  cp dotfiles/nvim/init.lua .config/nvim/init.lua && \
+  cp -r dotfiles/nvim/pack .config/nvim/pack && \
+  cd .config/nvim/pack/omnimike/start/telescope-fzf-native.nvim && \
+  make && \
+  cd - && \
+  mkdir -p .config/opencode && \
+  cp dotfiles/opencode/opencode.jsonc .config/opencode/opencode.jsonc && \
+  cp dotfiles/opencode/tui.json .config/opencode/tui.json && \
+  mkdir /home/devbox/ws
 
 CMD zsh
-

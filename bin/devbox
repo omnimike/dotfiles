@@ -16,7 +16,7 @@ do_build() {
 }
 
 do_run() {
-  if ! podman container exists "$CONTAINER" 2>/dev/null; then
+  if ! podman image exists "$IMAGE:$TAG" 2>/dev/null; then
     do_build
   fi
   podman run -it \
