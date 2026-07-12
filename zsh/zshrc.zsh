@@ -14,7 +14,7 @@ setopt share_history
 setopt inc_append_history
 
 zsh_prompt_newline=$'\n'
-zsh_prompt_start="${zsh_prompt_newline}%F{blue}%*%F{none} %F{green}%~%F{none}"
+zsh_prompt_start="${zsh_prompt_newline}%F{yellow}%*%F{none} %F{blue}%m%F{none} %F{green}%~%F{none}"
 zsh_prompt_end="${zsh_prompt_newline}%F{magenta}$%F{none} "
 export PROMPT="${zsh_prompt_start}${zsh_prompt_end}"
 
@@ -44,7 +44,7 @@ function precmd() {
       timer+="${secs}s"
     fi
     if [[ $total_secs -gt 0 ]]; then
-      PROMPT="${zsh_prompt_start} %F{yellow}${timer}%F{none} ${zsh_prompt_end}"
+      PROMPT="${zsh_prompt_start} %F{red}${timer}%F{none} ${zsh_prompt_end}"
       return
     fi
   fi
