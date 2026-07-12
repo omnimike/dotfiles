@@ -21,6 +21,7 @@ do_run() {
   fi
   podman run -it \
     --name "$CONTAINER" \
+    -e TZ=$(cat /etc/timezone) \
     --replace \
     --network host \
     --hostname devbox \

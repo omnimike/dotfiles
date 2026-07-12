@@ -66,6 +66,7 @@ alias la='ls -Ah'
 alias ll='ls -alFh'
 alias ls='ls --color=auto'
 
+alias q='exit'
 alias e='nvim'
 alias tm='tmux attach || tmux new'
 alias c='opencode'
