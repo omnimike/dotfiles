@@ -44,7 +44,7 @@ function precmd() {
       timer+="${secs}s"
     fi
     if [[ $total_secs -gt 0 ]]; then
-      PROMPT="${zsh_prompt_start} %F{red}${timer}%F{none} ${zsh_prompt_end}"
+      PROMPT="${zsh_prompt_start} %F{yellow}${timer}%F{none} ${zsh_prompt_end}"
       return
     fi
   fi
