@@ -1,0 +1,42 @@
+#!/bin/bash
+set -euo pipefail
+
+DIR="$(cd "$(dirname "$0")"; pwd -P)/.."
+IMAGE=devbox
+TAG=latest
+CONTAINER=devbox
+
+do_build() {
+  podman build \
+    -f "$DIR/devbox/Containerfile" \
+    -t "$IMAGE:$TAG" \
+    --rm \
+    --no-cache \
+    "$DIR"
+}
+
+do_run() {
+  if ! podman container exists "$CONTAINER" 2>/dev/null; then
+    do_build
+  fi
+  podman run -it \
+    --name "$CONTAINER" \
+    --replace \
+    --network host \
+    --hostname devbox \
+    --volume "$PWD:/home/devbox/ws" \
+    --workdir /home/devbox/ws \
+    --userns=keep-id \
+    "$IMAGE:$TAG"
+}
+
+do_clean() {
+  podman rm -f "$CONTAINER" 2>/dev/null || true
+  podman rmi "$IMAGE:$TAG" 2>/dev/null || true
+}
+
+case "${1:-}" in
+  build) do_build ;;
+  run|"")   do_run ;;
+  clean) do_clean ;;
+esac

@@ -10,13 +10,15 @@ COPY nvim/init.lua .config/nvim/init.lua
 COPY nvim/pack .config/nvim/pack
 COPY opencode/opencode.jsonc .config/opencode/opencode.jsonc
 COPY opencode/tui.json .config/opencode/tui.json
+COPY git/gitconfig .gitconfig
 RUN cd .config/nvim/pack/omnimike/start/telescope-fzf-native.nvim && make
+RUN mkdir /home/devbox/ws
 
 FROM docker.io/cachyos/cachyos:latest
 
 RUN pacman -Syu --noconfirm neovim tmux zsh opencode \
-    && pacman -Scc --noconfirm \
-   && useradd -m -s /usr/bin/zsh devbox
+  && pacman -Scc --noconfirm \
+  && useradd -m -s /usr/bin/zsh devbox
 
 USER devbox
 WORKDIR /home/devbox
