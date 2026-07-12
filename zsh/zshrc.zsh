@@ -73,7 +73,7 @@ alias c='opencode'
 alias d='devbox'
 alias de='devbox run nvim'
 alias dc='devbox run opencode'
-alias dt='devbox run tmux'
+alias dt='devbox run tmux -u'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) --force-with-lease'
 
