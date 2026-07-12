@@ -14,8 +14,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+alias q='exit'
 alias e='nvim'
-alias c='agy'
+alias c='opencode'
 alias tm='tmux attach || tmux new'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) --force-with-lease'
@@ -38,4 +39,4 @@ alias hammerspoonrc="e ~/.hammerspoon/init.lua"
 alias sshconfig="e ~/.ssh/config"
 
 export PROMPT_COMMAND=""
-export PS1='\n\[\e[0;34m\]\t\[\e[m\] \[\e[0;32m\]\w\[\e[m\] \n\[\e[0;35m\]\$\[\e[m\] '
+export PS1='\n\[\e[0;33m\]\t\[\e[m\] \[\e[0;34m\]\h\[\e[m\] \[\e[0;32m\]\w\[\e[m\]\n\[\e[0;35m\]\$\[\e[m\] '
