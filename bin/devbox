@@ -31,7 +31,8 @@ do_run() {
     --volume "$PWD:/home/devbox/ws" \
     --workdir /home/devbox/ws \
     --userns=keep-id \
-    "$IMAGE:$TAG"
+    "$IMAGE:$TAG" \
+    "$@"
 }
 
 do_clean() {
@@ -41,6 +42,7 @@ do_clean() {
 
 case "${1:-}" in
   build) do_build ;;
-  run|"")   do_run ;;
+  run)   shift; do_run "$@" ;;
+  "")    do_run ;;
   clean) do_clean ;;
 esac
