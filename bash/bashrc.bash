@@ -82,3 +82,7 @@ __bash_precmd() {
 }
 
 export PROMPT_COMMAND=__bash_precmd
+
+export FZF_DEFAULT_COMMAND='rg  --files'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
