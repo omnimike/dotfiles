@@ -21,7 +21,7 @@ alias tm='tmux attach || tmux new'
 alias gpb='git push origin $(git_current_branch)'
 alias gpbf='git push origin $(git_current_branch) --force-with-lease'
 
-alias jdotf='cd ~/dotfiles'
+alias jdotf='cd ~/.dotfiles'
 
 alias zshrc="e ~/.zshrc"
 alias zshrcl="e ~/.zshrc-local"
