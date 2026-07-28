@@ -1,4 +1,7 @@
 
+# Exit if this shell isn't interactive
+[[ $- != *i* ]] && return
+
 export EDITOR='nvim'
 export VISUAL='nvim'
 export HGEDITOR='nvim'
@@ -89,3 +92,5 @@ export PROMPT_COMMAND=__bash_precmd
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 eval "$(fzf --bash)"
+
+[[ -f ~/.bashrcl ]] && source ~/.bashrcl
