@@ -82,3 +82,6 @@
 [submodule "nvim/pack/omnimike/start/nvim-notify"]
 	path = nvim/pack/omnimike/start/nvim-notify
 	url = https://github.com/rcarriga/nvim-notify
+[submodule "tmux/plugins/tmux-which-key"]
+	path = tmux/plugins/tmux-which-key
+	url = https://github.com/alexwforsythe/tmux-which-key.git
