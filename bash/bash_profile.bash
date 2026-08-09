@@ -1,1 +1,1 @@
-[[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+[[ -f /Users/michael/.profile ]] && source /Users/michael/.profile

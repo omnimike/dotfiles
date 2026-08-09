@@ -269,7 +269,6 @@ leadermap("fw", ":call TrimWhitespace()<cr>", "Remove trailing whitespace")
 -- clipboard (OSC 52)
 vim.keymap.set("v", "<leader>y", '"+y')
 
-
 -- toggle
 leadermap("tn", ":set invnumber<cr>", "Toggle line numbers")
 leadermap("tg", ":Gitsigns toggle_signs<cr>", "Toggle gutter")
@@ -291,12 +290,6 @@ vim.keymap.set('v', 'k', 'gk', { silent = true })
 
 -- Terminal window navigation
 vim.keymap.set('t', '<C-w>', '<C-\\><C-n><C-w>')
-
--- diagnostics
-leadermap("j", vim.diagnostic.goto_next, "Next diagnostic")
-leadermap("k", vim.diagnostic.goto_prev, "Previous diagnostic")
-leadermap("dD", vim.diagnostic.open_float, "Open diagnostics")
-leadermap("dQ", vim.diagnostic.setloclist, "Diagnostic quicklist")
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {

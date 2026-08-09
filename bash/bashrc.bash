@@ -1,4 +1,7 @@
 
+# Exit if this shell isn't interactive
+[[ $- != *i* ]] && return
+
 export EDITOR='nvim'
 export VISUAL='nvim'
 export HGEDITOR='nvim'
@@ -24,6 +27,7 @@ alias ls='ls --color=auto'
 alias q='exit'
 alias e='nvim'
 alias tm='tmux attach || tmux new'
+alias z='zellij'
 alias c='opencode'
 alias d='devbox'
 alias de='devbox run nvim'
@@ -46,6 +50,7 @@ alias tmuxrc="e ~/.tmux.conf"
 alias tmuxrcl="e ~/.tmux-local.conf"
 alias hammerspoonrc="e ~/.hammerspoon/init.lua"
 alias sshconfig="e ~/.ssh/config"
+alias zellijconfig="e ~/.config/zellij/config.kdl"
 
 alias jdotfiles="cd ~/.dotfiles"
 alias jdotf="cd ~/.dotfiles"
@@ -89,3 +94,5 @@ export PROMPT_COMMAND=__bash_precmd
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 eval "$(fzf --bash)"
+
+[[ -f ~/.bashrcl ]] && source ~/.bashrcl
