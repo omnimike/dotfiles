@@ -15,47 +15,8 @@ bind '"\C-n": next-history'
 bind '"\C-a": beginning-of-line'
 bind '"\C-e": end-of-line'
 
-# alias
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias l='ls -CFh'
-alias la='ls -Ah'
-alias ll='ls -alFh'
-alias ls='ls --color=auto'
-
-alias q='exit'
-alias e='nvim'
-alias tm='tmux attach || tmux new'
-alias z='zellij'
-alias c='opencode'
-alias d='devbox'
-alias de='devbox run nvim'
-alias dc='devbox run opencode'
-alias dt='devbox run tmux -u'
-alias gpb='git push origin $(git_current_branch)'
-alias gpbf='git push origin $(git_current_branch) --force-with-lease'
-
-alias zshrc="e ~/.zshrc"
-alias zshrcl="e ~/.zshrc-local"
-alias zshenv="e ~/.zshenv"
-alias zshreload="source ~/.zshrc"
-alias bashrc="e ~/.dotfiles/bash/bashrc.bash"
-alias bashenv="e ~/.dotfiles/bash/profile.bash"
-alias vimrc="e ~/.vimrc"
-alias vimrcl="e ~/.vimrc-local"
-alias nvimrc="e ~/.config/nvim/init.lua"
-alias nvimpack="cd ~/.config/nvim/pack/omnimike/start"
-alias tmuxrc="e ~/.tmux.conf"
-alias tmuxrcl="e ~/.tmux-local.conf"
-alias hammerspoonrc="e ~/.hammerspoon/init.lua"
-alias sshconfig="e ~/.ssh/config"
-alias zellijconfig="e ~/.config/zellij/config.kdl"
-
-alias jdotfiles="cd ~/.dotfiles"
-alias jdotf="cd ~/.dotfiles"
-alias jssh="cd ~/.ssh"
-alias jcode="cd ~/code"
+# Load aliases
+[[ -f ~/.dotfiles/zsh/alias.sh ]] && source ~/.dotfiles/zsh/alias.sh
 
 timer_show=""
 

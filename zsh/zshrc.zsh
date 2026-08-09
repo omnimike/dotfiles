@@ -51,55 +51,11 @@ function precmd() {
   PROMPT="${zsh_prompt_start}${zsh_prompt_end}"
 }
 
-# This allows us to use the R language
-disable r
-
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-# alias
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias l='ls -CFh'
-alias la='ls -Ah'
-alias ll='ls -alFh'
-alias ls='ls --color=auto'
-
-alias q='exit'
-alias e='nvim'
-alias tm='tmux attach || tmux new'
-alias z='zellij'
-alias c='opencode'
-alias d='devbox'
-alias de='devbox run nvim'
-alias dc='devbox run opencode'
-alias dt='devbox run tmux -u'
-alias gpb='git push origin $(git_current_branch)'
-alias gpbf='git push origin $(git_current_branch) --force-with-lease'
-
-alias zshrc="e ~/.zshrc"
-alias zshrcl="e ~/.zshrc-local"
-alias zshenv="e ~/.zshenv"
-alias zshreload="source ~/.zshrc"
-alias bashrc="e ~/.dotfiles/bash/bashrc.bash"
-alias bashenv="e ~/.dotfiles/bash/profile.bash"
-alias vimrc="e ~/.vimrc"
-alias vimrcl="e ~/.vimrc-local"
-alias nvimrc="e ~/.config/nvim/init.lua"
-alias nvimpack="cd ~/.config/nvim/pack/omnimike/start"
-alias tmuxrc="e ~/.tmux.conf"
-alias tmuxrcl="e ~/.tmux-local.conf"
-alias hammerspoonrc="e ~/.hammerspoon/init.lua"
-alias sshconfig="e ~/.ssh/config"
-
-alias jdotfiles="cd ~/.dotfiles"
-alias jdotf="cd ~/.dotfiles"
-alias jssh="cd ~/.ssh"
-alias jcode="cd ~/code"
-
-# lldb needs to use the system python
-alias lldb='PATH=/usr/bin:$PATH lldb'
+# Load aliases
+[[ -f ~/.dotfiles/zsh/alias.sh ]] && source ~/.dotfiles/zsh/alias.sh
 
 ZSH_THEME=""
 
