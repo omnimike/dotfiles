@@ -27,6 +27,7 @@ alias ls='ls --color=auto'
 alias q='exit'
 alias e='nvim'
 alias tm='tmux attach || tmux new'
+alias z='zellij attach || zellij'
 alias c='opencode'
 alias d='devbox'
 alias de='devbox run nvim'
@@ -49,6 +50,7 @@ alias tmuxrc="e ~/.tmux.conf"
 alias tmuxrcl="e ~/.tmux-local.conf"
 alias hammerspoonrc="e ~/.hammerspoon/init.lua"
 alias sshconfig="e ~/.ssh/config"
+alias zellijconfig="e ~/.config/zellij/config.kdl"
 
 alias jdotfiles="cd ~/.dotfiles"
 alias jdotf="cd ~/.dotfiles"
