@@ -269,7 +269,6 @@ leadermap("fw", ":call TrimWhitespace()<cr>", "Remove trailing whitespace")
 -- clipboard (OSC 52)
 vim.keymap.set("v", "<leader>y", '"+y')
 
-
 -- toggle
 leadermap("tn", ":set invnumber<cr>", "Toggle line numbers")
 leadermap("tg", ":Gitsigns toggle_signs<cr>", "Toggle gutter")
