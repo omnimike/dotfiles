@@ -88,7 +88,10 @@ local telescope_builtin = require("telescope.builtin")
 
 require("nvim-tree").setup {
   view = {
-    width = 50,
+    width = function()
+      local dynamic_width = vim.go.columns - 81
+      return math.max(20, math.min(dynamic_width, 50))
+    end,
   },
 }
 
