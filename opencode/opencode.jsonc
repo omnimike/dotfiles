@@ -3,11 +3,11 @@
   "disabled_providers": [],
   "provider": {
     "vllm-qwen3": {
-      "name": "Qwen 3.8 27b",
+      "name": "Qwen 3.8 27b FP8",
       "npm": "@ai-sdk/openai-compatible",
       "models": {
-        "Qwen/Qwen3.8-27B": {
-          "name": "Qwen 3.8 27b"
+        "Qwen/Qwen3.8-27B-FP8": {
+          "name": "Qwen 3.8 27b FP8"
         }
       },
       "options": {
@@ -15,8 +15,8 @@
       }
     }
   },
-  "model": "vllm-qwen3/Qwen/Qwen3.8-27B",
-  "small_model": "vllm-qwen3/Qwen/Qwen3.8-27B",
+  "model": "vllm-qwen3/Qwen/Qwen3.8-27B-FP8",
+  "small_model": "vllm-qwen3/Qwen/Qwen3.8-27B-FP8",
   "server": {
     "port": 4096,
     "hostname": "0.0.0.0"
