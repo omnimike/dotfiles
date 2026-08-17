@@ -2,8 +2,20 @@
   "$schema": "https://opencode.ai/config.json",
   "disabled_providers": [],
   "provider": {
-    "vllm-qwen3": {
-      "name": "Qwen 3.8 27b FP8",
+    "vllm-qwen36": {
+      "name": "vLLM",
+      "npm": "@ai-sdk/openai-compatible",
+      "models": {
+        "Qwen/Qwen3.6-27B-FP8": {
+          "name": "Qwen 3.6 27b FP8"
+        }
+      },
+      "options": {
+        "baseURL": "http://127.0.0.1:8002/v1"
+      }
+    },
+    "vllm-qwen38": {
+      "name": "vLLM",
       "npm": "@ai-sdk/openai-compatible",
       "models": {
         "Qwen/Qwen3.8-27B-FP8": {
@@ -13,9 +25,21 @@
       "options": {
         "baseURL": "http://127.0.0.1:8000/v1"
       }
+    },
+    "muse-glimmer": {
+      "name": "vLLM",
+      "npm": "@ai-sdk/openai-compatible",
+      "models": {
+        "RedHatAI/Muse-Glimmer-30B-FP8-block": {
+          "name": "Muse Glimmer 30B FP8"
+        }
+      },
+      "options": {
+        "baseURL": "http://127.0.0.1:8001/v1"
+      }
     }
   },
-  "model": "vllm-qwen3/Qwen/Qwen3.8-27B-FP8",
+  "model": "vllm-qwen38/Qwen/Qwen3.8-27B-FP8",
   "small_model": "vllm-qwen3/Qwen/Qwen3.8-27B-FP8",
   "server": {
     "port": 4096,
