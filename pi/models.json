@@ -1,0 +1,52 @@
+{
+  "providers": {
+    "vllm-qwen36": {
+      "name": "vLLM",
+      "baseUrl": "http://127.0.0.1:8002/v1",
+      "api": "openai-completions",
+      "apiKey": "dummy",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      },
+      "models": [
+        {
+          "id": "Qwen/Qwen3.6-27B-FP8",
+          "name": "Qwen 3.6 27b FP8"
+        }
+      ]
+    },
+    "vllm-qwen38": {
+      "name": "vLLM",
+      "baseUrl": "http://127.0.0.1:8000/v1",
+      "api": "openai-completions",
+      "apiKey": "dummy",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      },
+      "models": [
+        {
+          "id": "Qwen/Qwen3.8-27B-FP8",
+          "name": "Qwen 3.8 27b FP8"
+        }
+      ]
+    },
+    "muse-glimmer": {
+      "name": "vLLM",
+      "baseUrl": "http://127.0.0.1:8001/v1",
+      "api": "openai-completions",
+      "apiKey": "dummy",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      },
+      "models": [
+        {
+          "id": "RedHatAI/Muse-Glimmer-30B-FP8-block",
+          "name": "Muse Glimmer 30B FP8"
+        }
+      ]
+    }
+  }
+}
