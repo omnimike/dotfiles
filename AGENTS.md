@@ -26,7 +26,7 @@ Every component lives in its own top-level directory. If a directory contains `i
 
 ## Git submodules
 
-Neovim plugins under `nvim/pack/` are git submodules (24 plugins listed in `.gitmodules`). After cloning:
+Neovim plugins under `nvim/pack/` are git submodules (23 plugins listed in `.gitmodules`). After cloning:
 ```
 git submodule update --init --recursive
 ```

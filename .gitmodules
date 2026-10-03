@@ -66,9 +66,6 @@
 [submodule "nvim/pack/omnimike/start/blink.cmp"]
 	path = nvim/pack/omnimike/start/blink.cmp
 	url = https://github.com/saghen/blink.cmp
-[submodule "nvim/pack/omnimike/start/opencode.nvim"]
-	path = nvim/pack/omnimike/start/opencode.nvim
-	url = https://github.com/nickjvandyke/opencode.nvim
 [submodule "nvim/pack/omnimike/start/blink.lib"]
 	path = nvim/pack/omnimike/start/blink.lib
 	url = https://github.com/saghen/blink.lib

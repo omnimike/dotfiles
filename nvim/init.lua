@@ -268,7 +268,6 @@ leadermap("tfi", ":set foldmethod=indent<cr>", "Set foldmethod indent")
 leadermap("tfm", ":set foldmethod=manual<cr>", "Set foldmethod manual")
 leadermap("ts", ":setlocal spell!<cr>", "Toggle spell")
 leadermap("tw", ":set wrap!<cr>", "Toggle word wrap")
-leadermap("c", function() require("opencode").ask() end, "Ask opencode")
 
 -- Visual line movement (j/k move by display lines when wrap is enabled)
 vim.keymap.set('n', 'j', 'gj', { silent = true })
