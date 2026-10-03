@@ -97,38 +97,41 @@ require("nvim-tree").setup {
 
 require("lualine").setup {}
 
-require("nvim-treesitter.configs").setup {
-  highlight = {
-    enable = true,
-    disable = function(lang, buf)
-        local max_filesize = 1024 * 1024 -- 1MB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-            return true
-        end
-    end,
+require("nvim-treesitter").setup {}
+
+-- Install parsers for the languages used here (async; no-op when already installed)
+require("nvim-treesitter").install { "lua", "vim", "vimdoc", "query", "bash", "c", "cpp", "python", "markdown", "markdown_inline" }
+
+-- Treesitter highlighting for every filetype with an installed parser, skipping huge files
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(ev)
+    local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(ev.buf))
+    if ok and stats and stats.size > 1024 * 1024 then return end -- 1MB cap, as before
+    pcall(vim.treesitter.start, ev.buf)
+  end,
+})
+
+require("nvim-treesitter-textobjects").setup {
+  select = {
+    lookahead = true,
   },
 }
 
-require("nvim-treesitter.configs").setup {
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-        ["as"] = "@statement.outer",
-        ["ib"] = "@block.inner",
-        ["ab"] = "@block.outer",
-        ["ap"] = "@parameter.outer",
-        ["ip"] = "@parameter.inner",
-      },
-    },
-  },
-}
+local function ts_textobject(key, capture)
+  vim.keymap.set({ "x", "o" }, key, function()
+    require("nvim-treesitter-textobjects.select").select_textobject(capture, "textobjects")
+  end, { desc = "Select " .. capture })
+end
+
+ts_textobject("af", "@function.outer")
+ts_textobject("if", "@function.inner")
+ts_textobject("ac", "@class.outer")
+ts_textobject("ic", "@class.inner")
+ts_textobject("as", "@statement.outer")
+ts_textobject("ib", "@block.inner")
+ts_textobject("ab", "@block.outer")
+ts_textobject("ap", "@parameter.outer")
+ts_textobject("ip", "@parameter.inner")
 
 require("ibl").setup()
 
@@ -178,39 +181,21 @@ require("notify").setup({
 
 require("noice").setup()
 
--- Set up nvim-cmp.
-local cmp = require("cmp")
-
-cmp.setup {
-  mapping = cmp.mapping.preset.insert({
-    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.abort(),
-    ["<tab>"] = cmp.mapping.confirm({ select = true }),
-  }),
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-  }, {
-    { name = "buffer" },
-  })
-}
-
-cmp.setup.cmdline({ "/", "?" }, {
-  mapping = cmp.mapping.preset.cmdline(),
+-- Set up blink.cmp. Snippets use Neovim's built-in vim.snippet (no extra plugin);
+-- cmdline completion is enabled by default.
+require("blink.cmp").setup {
+  keymap = {
+    preset = "none",
+    ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+    ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+    ["<C-space>"] = { "show", "fallback" },
+    ["<C-e>"] = { "hide", "fallback" },
+    ["<Tab>"] = { "select_and_accept", "fallback" },
+  },
   sources = {
-    { name = "buffer" }
-  }
-})
-
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = "path" }
-  }, {
-    { name = "cmdline" }
-  })
-})
+    default = { "lsp", "path", "snippets", "buffer" },
+  },
+}
 
 local wk = require("which-key")
 wk.setup {
@@ -283,7 +268,7 @@ leadermap("tfi", ":set foldmethod=indent<cr>", "Set foldmethod indent")
 leadermap("tfm", ":set foldmethod=manual<cr>", "Set foldmethod manual")
 leadermap("ts", ":setlocal spell!<cr>", "Toggle spell")
 leadermap("tw", ":set wrap!<cr>", "Toggle word wrap")
-leadermap("c", ":ClaudeCode<cr>", "Toggle Claude")
+leadermap("c", function() require("opencode").ask() end, "Ask opencode")
 
 -- Visual line movement (j/k move by display lines when wrap is enabled)
 vim.keymap.set('n', 'j', 'gj', { silent = true })
@@ -293,6 +278,10 @@ vim.keymap.set('v', 'k', 'gk', { silent = true })
 
 -- Terminal window navigation
 vim.keymap.set('t', '<C-w>', '<C-\\><C-n><C-w>')
+
+-- Enable language servers here once their binaries are installed
+-- (nvim-lspconfig was removed; this is the built-in API on Neovim 0.11+):
+-- vim.lsp.enable({ "lua_ls", "clangd" })
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -328,7 +317,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, "List workspace folders", opts)
 
-    leadermap("fq", ":LspRestart<cr>", "Restart the LSP server")
+    leadermap("fq", function()
+      vim.lsp.stop_client(vim.lsp.get_clients({ bufnr = 0 }), true)
+      if not vim.bo.modified then vim.cmd("edit") end -- re-fire FileType autocmds to restart servers
+    end, "Restart the LSP server", opts)
   end,
 })
 

@@ -26,10 +26,20 @@ Every component lives in its own top-level directory. If a directory contains `i
 
 ## Git submodules
 
-Neovim plugins under `nvim/pack/` are git submodules (~30 plugins listed in `.gitmodules`). After cloning:
+Neovim plugins under `nvim/pack/` are git submodules (24 plugins listed in `.gitmodules`). After cloning:
 ```
 git submodule update --init --recursive
 ```
+
+Two plugins need a post-install step:
+- `blink.cmp` is pinned to a release tag (the prebuilt fuzzy-matcher download
+  requires `git describe --tags --exact-match` to resolve). The library
+  downloads automatically on first start (needs network); it falls back to the
+  Lua fuzzy matcher with a warning if the download fails. To build from source
+  instead, run `cargo build --release` in its directory.
+- `nvim-treesitter` (main branch): requires the `tree-sitter` CLI (>= 0.26.1) and a C
+  compiler on PATH. Parsers for the languages listed in `init.lua` install
+  automatically on first start; add more any time with `:TSInstall <lang>`.
 
 ## Install convention
 

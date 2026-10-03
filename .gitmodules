@@ -10,18 +10,17 @@
 [submodule "nvim/pack/omnimike/start/nvim-treesitter"]
 	path = nvim/pack/omnimike/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+	branch = main
 [submodule "nvim/pack/omnimike/start/nvim-tree.lua"]
 	path = nvim/pack/omnimike/start/nvim-tree.lua
 	url = https://github.com/nvim-tree/nvim-tree.lua.git
 [submodule "nvim/pack/omnimike/start/lualine.nvim"]
 	path = nvim/pack/omnimike/start/lualine.nvim
 	url = https://github.com/nvim-lualine/lualine.nvim.git
-[submodule "nvim/pack/omnimike/start/nvim-lspconfig"]
-	path = nvim/pack/omnimike/start/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig.git
 [submodule "nvim/pack/omnimike/start/nvim-treesitter-textobjects"]
 	path = nvim/pack/omnimike/start/nvim-treesitter-textobjects
 	url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
+	branch = main
 [submodule "nvim/pack/omnimike/start/vim-repeat"]
 	path = nvim/pack/omnimike/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
@@ -40,27 +39,9 @@
 [submodule "nvim/pack/omnimike/start/other.nvim"]
 	path = nvim/pack/omnimike/start/other.nvim
 	url = https://github.com/rgroli/other.nvim.git
-[submodule "nvim/pack/omnimike/start/cmp-nvim-lsp"]
-	path = nvim/pack/omnimike/start/cmp-nvim-lsp
-	url = https://github.com/hrsh7th/cmp-nvim-lsp
-[submodule "nvim/pack/omnimike/start/cmp-buffer"]
-	path = nvim/pack/omnimike/start/cmp-buffer
-	url = https://github.com/hrsh7th/cmp-buffer
-[submodule "nvim/pack/omnimike/start/cmp-path"]
-	path = nvim/pack/omnimike/start/cmp-path
-	url = https://github.com/hrsh7th/cmp-path
-[submodule "nvim/pack/omnimike/start/cmp-cmdline"]
-	path = nvim/pack/omnimike/start/cmp-cmdline
-	url = https://github.com/hrsh7th/cmp-cmdline
-[submodule "nvim/pack/omnimike/start/nvim-cmp"]
-	path = nvim/pack/omnimike/start/nvim-cmp
-	url = https://github.com/hrsh7th/nvim-cmp
 [submodule "nvim/pack/omnimike/start/onedark.nvim"]
 	path = nvim/pack/omnimike/start/onedark.nvim
 	url = https://github.com/navarasu/onedark.nvim
-[submodule "nvim/pack/omnimike/start/none-ls.nvim"]
-	path = nvim/pack/omnimike/start/none-ls.nvim
-	url = https://github.com/nvimtools/none-ls.nvim.git
 [submodule "nvim/pack/omnimike/start/mini.comment"]
 	path = nvim/pack/omnimike/start/mini.comment
 	url = https://github.com/nvim-mini/mini.comment.git
@@ -82,3 +63,12 @@
 [submodule "nvim/pack/omnimike/start/nvim-notify"]
 	path = nvim/pack/omnimike/start/nvim-notify
 	url = https://github.com/rcarriga/nvim-notify
+[submodule "nvim/pack/omnimike/start/blink.cmp"]
+	path = nvim/pack/omnimike/start/blink.cmp
+	url = https://github.com/saghen/blink.cmp
+[submodule "nvim/pack/omnimike/start/opencode.nvim"]
+	path = nvim/pack/omnimike/start/opencode.nvim
+	url = https://github.com/nickjvandyke/opencode.nvim
+[submodule "nvim/pack/omnimike/start/blink.lib"]
+	path = nvim/pack/omnimike/start/blink.lib
+	url = https://github.com/saghen/blink.lib
