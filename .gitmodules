@@ -72,3 +72,6 @@
 [submodule "nvim/pack/omnimike/start/none-ls.nvim"]
 	path = nvim/pack/omnimike/start/none-ls.nvim
 	url = https://github.com/nvimtools/none-ls.nvim.git
+[submodule "nvim/pack/omnimike/start/nvim-lspconfig"]
+	path = nvim/pack/omnimike/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
